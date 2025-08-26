@@ -3,976 +3,411 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Total Remote Care - Transforming Senior Care Through RPM & CCM</title>
-	<meta name="description" content="Transform senior care with advanced Remote Patient Monitoring (RPM), Chronic Care Management (CCM), and ambient sensing technology.">
+	<title>Total Remote Care — RPM & CCM for Long‑Term Care</title>
+	<meta name="description" content="Proactive RPM and CCM for long-term care. Consistent monitoring, early detection, timely intervention, safer environments.">
 	<style>
-		:root {
-			/* Colors */
-			--bg: #ffffff;
-			--text: #22304a;
-			--muted: #5a6c7d;
-			--primary: #405189;
-			--primary-300: #6c7ae0;
-			--accent: #00c6ff;
-			--surface: #ffffff;
-			--surface-2: #f6f8fa;
-			--success: #28a745;
-			--border: #e9edf2;
+		:root{
+			--bg:#ffffff; --text:#22304a; --muted:#5a6c7d;
+			--primary:#405189; --primary-300:#6c7ae0; --accent:#21c8ff;
+			--surface:#ffffff; --surface-2:#f6f8fa; --border:#e8edf3;
+			--radius:14px; --radius-lg:20px;
+			--shadow:0 8px 30px rgba(0,0,0,.08);
+			--fs-1:clamp(2rem,4vw,3rem); --fs-2:clamp(1.25rem,2.5vw,1.75rem); --fs-3:1.0625rem;
+			--space-2:.75rem; --space-3:1rem; --space-4:1.5rem; --space-5:2rem; --space-6:3rem; --space-7:4rem;
+			--grad-hero:linear-gradient(135deg,#f7f9fc 0%,#eaf3ff 100%);
+			--grad-primary:linear-gradient(135deg,var(--primary-300),var(--primary));
+		}
+		*{box-sizing:border-box;margin:0;padding:0}
+		html{scroll-behavior:smooth}
+		body{font:400 var(--fs-3)/1.65 ui-sans-serif,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:var(--bg);}
 
-			/* Typography */
-			--font-sans: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-			--fs-1: clamp(2rem, 4vw, 3.5rem);
-			--fs-2: clamp(1.5rem, 2.5vw, 2.25rem);
-			--fs-3: clamp(1.125rem, 1.5vw, 1.35rem);
-			--fs-body: 1.0625rem;
-			--lh: 1.65;
+		.container{max-width:1100px;margin:0 auto;padding:0 var(--space-5)}
+		.section{padding:var(--space-7) 0}
+		.center{text-align:center}
+		.grid{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+		.card{background:var(--surface);border-radius:var(--radius-lg);padding:var(--space-5);box-shadow:var(--shadow);border:1px solid var(--border)}
 
-			/* Spacing */
-			--space-1: .5rem;
-			--space-2: .75rem;
-			--space-3: 1rem;
-			--space-4: 1.5rem;
-			--space-5: 2rem;
-			--space-6: 3rem;
-			--space-7: 4rem;
+		header{position:fixed;inset:0 0 auto 0;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);box-shadow:0 2px 20px rgba(0,0,0,.06);z-index:50}
+		.nav{display:flex;justify-content:space-between;align-items:center;padding:.75rem var(--space-5)}
+		.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:inherit}
+		.brand-badge{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--grad-primary);font-weight:700;box-shadow:0 6px 22px rgba(108,122,224,.35)}
+		.brand-name{font-weight:700;letter-spacing:-.2px}
+		.menu{display:flex;gap:1.5rem;list-style:none}
+		.menu a{text-decoration:none;color:inherit;font-weight:600}
+		.cta{background:var(--grad-primary);color:#fff;text-decoration:none;padding:.75rem 1.25rem;border-radius:999px;font-weight:700}
+		@media (max-width:860px){.menu{display:none}}
 
-			/* Radius & Shadows */
-			--radius-sm: 8px;
-			--radius-md: 14px;
-			--radius-lg: 22px;
-			--shadow-1: 0 2px 24px rgba(0,0,0,.08);
-			--shadow-2: 0 8px 36px rgba(0,0,0,.12);
+		main{padding-top:74px}
 
-			/* Gradients */
-			--grad-primary: linear-gradient(135deg, var(--primary-300) 0%, var(--primary) 100%);
-			--grad-accent: linear-gradient(135deg, var(--primary-300) 0%, var(--accent) 100%);
-			--grad-hero: linear-gradient(135deg, #f7f9fc 0%, #eaf3ff 100%);
-			--grad-soft: linear-gradient(135deg, #eaf3ff 0%, #f5f9ff 100%);
-			--grad-footer: linear-gradient(135deg, #243246 0%, #2f3f59 100%);
-		}
+		.hero{background:var(--grad-hero); padding:var(--space-7) 0}
+		.hero h1{font-size:var(--fs-1);letter-spacing:-.4px}
+		.hero p.lead{color:var(--muted);max-width:750px;margin:var(--space-3) auto}
+		.actions{display:flex;gap:var(--space-3);justify-content:center;margin-top:var(--space-4);flex-wrap:wrap}
+		.btn{display:inline-flex;align-items:center;justify-content:center;padding:1rem 1.5rem;border-radius:999px;font-weight:800;text-decoration:none}
+		.btn-primary{background:var(--grad-primary);color:#fff}
+		.btn-secondary{background:#fff;color:var(--primary-300);border:2px solid var(--primary-300)}
 
-		* { box-sizing: border-box; margin: 0; padding: 0; }
-		html { scroll-behavior: smooth; }
-		@media (prefers-reduced-motion: reduce) {
-			html { scroll-behavior: auto; }
-			* { animation: none !important; transition: none !important; }
-		}
-		body {
-			font-family: var(--font-sans);
-			font-size: var(--fs-body);
-			line-height: var(--lh);
-			color: var(--text);
-			background: var(--bg);
-			overflow-x: hidden;
-		}
+		.section h2{font-size:var(--fs-2);font-weight:800;letter-spacing:-.2px}
+		.sub{color:var(--muted);max-width:760px;margin:.75rem auto 0}
 
-		/* Accessibility helpers */
-		.skip-link {
-			position: absolute;
-			left: -999px;
-			top: -999px;
-		}
-		.skip-link:focus {
-			left: 1rem;
-			top: 1rem;
-			background: var(--surface);
-			padding: .75rem 1rem;
-			border-radius: var(--radius-sm);
-			box-shadow: var(--shadow-1);
-			z-index: 2000;
-		}
-		:focus-visible {
-			outline: 3px solid var(--primary-300);
-			outline-offset: 2px;
-		}
+		/* Icon wrapper */
+		.icon{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#6c7ae0,#21c8ff);margin-bottom:.75rem}
+		svg{display:block}
 
-		/* Layout primitives */
-		.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-5); }
-		.section { padding: var(--space-7) 0; }
-		.stack > * + * { margin-top: var(--space-4); }
-		.cluster {
-			display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;
-		}
-		.center { text-align: center; }
-
-		/* Header / Nav */
-		header {
-			position: fixed; inset: 0 0 auto 0; z-index: 1000;
-			background: rgba(255,255,255,.98);
-			backdrop-filter: blur(8px);
-			box-shadow: var(--shadow-1);
-		}
-		.nav {
-			display: flex; justify-content: space-between; align-items: center;
-			padding: .75rem var(--space-5);
-		}
-		.logo {
-			display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; color: inherit;
-		}
-		.logo-mark {
-			width: 48px; height: 48px; border-radius: 12px; color: #fff; font-weight: 700; font-size: 1.125rem;
-			background: var(--grad-primary); display: grid; place-items: center; box-shadow: 0 6px 22px rgba(108,122,224,.35);
-		}
-		.logo-title { font-weight: 700; letter-spacing: -.3px; }
-		.logo-sub { color: var(--primary-300); text-transform: uppercase; font-size: .8rem; letter-spacing: 1px; }
-
-		#main-menu {
-			display: flex; gap: 2rem; list-style: none; align-items: center;
-		}
-		.nav-link {
-			position: relative; text-decoration: none; color: var(--text); font-weight: 500; padding: .5rem 0;
-		}
-		.nav-link::after {
-			content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--grad-accent);
-			transition: width .25s ease;
-		}
-		.nav-link:hover { color: var(--primary-300); }
-		.nav-link:hover::after, .nav-link[aria-current="page"]::after { width: 100%; }
-		.cta {
-			display: inline-flex; align-items: center; justify-content: center;
-			padding: .75rem 1.25rem; border-radius: 999px; color: #fff; text-decoration: none; font-weight: 600;
-			background: var(--grad-primary); box-shadow: 0 8px 28px rgba(108,122,224,.35);
-		}
-		.cta:hover { transform: translateY(-2px); }
-
-		/* Mobile nav */
-		.nav-toggle {
-			display: none; border: 0; background: var(--surface-2); padding: .5rem .75rem; border-radius: 10px;
-		}
-		@media (max-width: 860px) {
-			#main-menu { display: none; }
-			.nav-toggle { display: inline-flex; }
-			#main-menu[data-open="true"] {
-				display: grid; grid-template-columns: 1fr; gap: 1.25rem;
-				position: absolute; top: 100%; left: 0; right: 0; background: var(--surface);
-				padding: 1rem var(--space-5) var(--space-5); box-shadow: var(--shadow-1);
-			}
-		}
-
-		/* Pages */
-		main { padding-top: 84px; }
-		.page { display: none; min-height: 100vh; animation: fadeIn .4s ease; }
-		.page.active { display: block; }
-		@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-		/* Hero */
-		.hero {
-			background: var(--grad-hero);
-			padding: var(--space-7) var(--space-5);
-			position: relative; overflow: hidden;
-			text-align: center;
-		}
-		.hero-bg {
-			position: absolute; inset: 0; opacity: .08; pointer-events: none;
-			background-image: radial-gradient(circle at 20% 20%, var(--primary-300) 0 2px, transparent 3px),
-				radial-gradient(circle at 80% 30%, var(--accent) 0 2px, transparent 3px);
-			background-size: 28px 28px;
-			animation: float 20s ease-in-out infinite;
-		}
-		@keyframes float { 50% { transform: translateY(-10px) rotate(.5deg); } }
-		.hero h1 { font-size: var(--fs-1); letter-spacing: -.5px; }
-		.hero .tag { color: var(--primary-300); font-weight: 700; letter-spacing: 1.5px; margin-top: var(--space-2); text-transform: uppercase; }
-		.hero p { color: var(--muted); margin: var(--space-4) auto var(--space-5); max-width: 820px; font-size: var(--fs-3); }
-		.hero .actions { display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap; }
-
-		.btn-primary, .btn-secondary {
-			display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 700;
-			padding: 1rem 2rem; border-radius: 999px; transition: transform .2s ease, box-shadow .2s ease;
-		}
-		.btn-primary { background: var(--grad-primary); color: #fff; box-shadow: 0 10px 32px rgba(108,122,224,.35); }
-		.btn-secondary { background: #fff; color: var(--primary-300); border: 2px solid var(--primary-300); }
-		.btn-primary:hover, .btn-secondary:hover { transform: translateY(-2px); }
-
-		/* Stats */
-		.stats {
-			background: var(--grad-primary); color: #fff; padding: var(--space-6) var(--space-5);
-		}
-		.stats-grid {
-			display: grid; gap: var(--space-5);
-			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-			align-items: center;
-		}
-		.stat h3 { font-size: clamp(2rem, 5vw, 3rem); color: var(--accent); }
-		.stat p { opacity: .95; }
-
-		/* Sections */
-		.section-title { text-align: center; font-size: var(--fs-2); font-weight: 800; letter-spacing: -.3px; }
-		.section-sub { text-align: center; color: var(--muted); max-width: 820px; margin: var(--space-3) auto var(--space-5); }
-
-		/* Cards / Grids */
-		.grid {
-			display: grid; gap: var(--space-5);
-			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-		}
-		.card {
-			background: var(--surface); border-radius: var(--radius-lg); padding: var(--space-5);
-			box-shadow: var(--shadow-1); border-top: 4px solid var(--primary-300);
-			transition: transform .2s ease, box-shadow .2s ease;
-		}
-		.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-2); }
-		.icon {
-			width: 72px; height: 72px; border-radius: 18px; display: grid; place-items: center; color: #fff; margin-bottom: var(--space-3);
-			background: var(--grad-accent); font-size: 1.5rem;
-		}
-		.card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: var(--space-2); }
-		.card p { color: var(--muted); }
-
-		.list-check { list-style: none; margin-top: var(--space-3); }
-		.list-check li { position: relative; padding-left: 1.75rem; color: var(--muted); }
-		.list-check li::before {
-			content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700;
-		}
-
-		/* Timeline (more compact, accessible) */
-		.timeline { margin-top: var(--space-6); }
-		.timeline-grid {
-			display: grid; gap: var(--space-4);
-			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		}
-		.phase {
-			border-radius: var(--radius-md); color: #fff; padding: var(--space-4); box-shadow: var(--shadow-1);
-		}
-		.phase:nth-child(1) { background: linear-gradient(135deg,#4a90e2,#357abd); }
-		.phase:nth-child(2) { background: linear-gradient(135deg,#50c878,#3da35a); }
-		.phase:nth-child(3) { background: linear-gradient(135deg,#7cb342,#5a8a32); }
-		.phase:nth-child(4) { background: linear-gradient(135deg,#ffa726,#e68900); }
-		.phase .badge { display: inline-block; background: rgba(255,255,255,.22); padding: .2rem .6rem; border-radius: 999px; font-size: .8rem; font-weight: 700; }
-		.phase h4 { margin-top: .5rem; font-weight: 800; }
-		.phase p { margin-top: .25rem; color: rgba(255,255,255,.95); }
-
-		/* Tech features split */
-		.split {
-			display: grid; gap: var(--space-6);
-			grid-template-columns: 1.1fr .9fr; align-items: start; margin-top: var(--space-5);
-		}
-		@media (max-width: 980px) { .split { grid-template-columns: 1fr; } }
-
-		.surface {
-			background: var(--surface); border-radius: var(--radius-lg);
-			padding: var(--space-5); box-shadow: var(--shadow-1);
-		}
-		.surface-soft {
-			background: var(--grad-soft); border-radius: var(--radius-lg); padding: var(--space-5);
-		}
-		.device-grid {
-			display: grid; gap: var(--space-4);
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-		@media (max-width: 640px) { .device-grid { grid-template-columns: 1fr; } }
-		.device { background: #fff; border-radius: 16px; padding: var(--space-4); text-align: center; box-shadow: var(--shadow-1); }
-		.device .device-icon { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; color: #fff; margin: 0 auto .75rem; background: var(--grad-accent); }
+		/* Split */
+		.split{display:grid;gap:var(--space-5);grid-template-columns:1.1fr .9fr}
+		@media (max-width:980px){.split{grid-template-columns:1fr}}
 
 		/* Contact */
-		.contact-grid {
-			display: grid; gap: var(--space-6);
-			grid-template-columns: 1fr 1fr; margin-top: var(--space-5);
-		}
-		@media (max-width: 980px) { .contact-grid { grid-template-columns: 1fr; } }
-		.form { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-1); padding: var(--space-5); }
-		.form h3 { font-size: 1.5rem; margin-bottom: var(--space-3); }
-		.form-group + .form-group { margin-top: var(--space-3); }
-		label { display: block; font-weight: 700; margin-bottom: .5rem; }
-		input, select, textarea {
-			width: 100%; padding: .9rem 1rem; border-radius: 12px; border: 2px solid var(--border); background: #fafbfc; font: inherit;
-			transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
-		}
-		input:focus, select:focus, textarea:focus {
-			outline: none; border-color: var(--primary-300); background: #fff; box-shadow: 0 0 0 3px rgba(108,122,224,.12);
-		}
-		textarea { min-height: 120px; resize: vertical; }
+		.form{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:var(--space-5);border:1px solid var(--border)}
+		label{display:block;font-weight:700;margin-bottom:.5rem}
+		input,select,textarea{width:100%;padding:.9rem 1rem;border-radius:12px;border:2px solid var(--border);background:#fafbfc;font:inherit}
+		input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary-300);box-shadow:0 0 0 3px rgba(108,122,224,.12);background:#fff}
+		textarea{min-height:120px;resize:vertical}
 
-		.contact-item {
-			display: flex; gap: var(--space-3); align-items: center; padding: var(--space-4);
-			background: #fff; border-radius: 16px; box-shadow: var(--shadow-1); transition: transform .2s ease, box-shadow .2s ease;
-		}
-		.contact-item:hover { transform: translateX(6px); box-shadow: var(--shadow-2); }
-		.contact-icon { width: 50px; height: 50px; border-radius: 12px; display: grid; place-items: center; color: #fff; background: var(--grad-primary); }
-
-		/* Trust section */
-		.trust {
-			display: grid; gap: var(--space-5);
-			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-			align-items: start;
-		}
-		.badges { display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center; }
-		.badge {
-			background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: .5rem .75rem; font-weight: 700;
-			box-shadow: 0 1px 8px rgba(0,0,0,.04);
-		}
-		.trust-card img {
-			width: 100%; height: auto; border-radius: 14px; display: block; box-shadow: var(--shadow-1);
-		}
-		.caption { color: var(--muted); margin-top: .5rem; font-size: .95rem; }
-
-		/* Footer */
-		footer { background: var(--grad-footer); color: #fff; margin-top: var(--space-7); }
-		.footer-top { padding: var(--space-6) 0; }
-		.footer-grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-		.footer h3 { color: var(--accent); margin-bottom: var(--space-3); }
-		.footer a { color: #cbd6e2; text-decoration: none; }
-		.footer a:hover { color: #fff; text-decoration: underline; }
-		.footer-bottom {
-			border-top: 1px solid rgba(255,255,255,.15); text-align: center; padding: var(--space-4); color: #cbd6e2;
-		}
-
-		/* Responsive tweaks */
-		@media (max-width: 768px) {
-			.stats-grid { grid-template-columns: repeat(2, 1fr); }
-		}
-		@media (max-width: 480px) {
-			.stats-grid { grid-template-columns: 1fr; }
-		}
+		.footer{background:linear-gradient(135deg,#243246,#2f3f59);color:#cbd6e2;margin-top:var(--space-7)}
+		.footer .top{padding:var(--space-6) 0}
+		.footer a{color:#cbd6e2;text-decoration:none}
+		.footer a:hover{color:#fff;text-decoration:underline}
+		.footer .bottom{border-top:1px solid rgba(255,255,255,.15);text-align:center;padding:var(--space-4)}
+		:focus-visible{outline:3px solid #6c7ae0;outline-offset:2px}
 	</style>
 </head>
 <body>
-	<a class="skip-link" href="#main">Skip to content</a>
-
 	<header>
-		<div class="nav container" role="navigation" aria-label="Primary">
-			<a href="#" class="logo" onclick="return showPage('home', event)">
-				<span class="logo-mark" aria-hidden="true">TRC</span>
-				<span>
-					<span class="logo-title">Total Remote Care</span><br>
-					<span class="logo-sub">RPM & CCM Partner</span>
-				</span>
+		<nav class="nav container" aria-label="Primary">
+			<a href="#home" class="brand">
+				<span class="brand-badge" aria-hidden="true">TRC</span>
+				<span class="brand-name">Total Remote Care</span>
 			</a>
-			<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-menu">Menu</button>
-			<ul id="main-menu">
-				<li><a href="#" class="nav-link" data-page="home" aria-current="page" onclick="return showPage('home', event)">Home</a></li>
-				<li><a href="#" class="nav-link" data-page="solutions" onclick="return showPage('solutions', event)">Solutions</a></li>
-				<li><a href="#" class="nav-link" data-page="implementation" onclick="return showPage('implementation', event)">Implementation</a></li>
-				<li><a href="#" class="nav-link" data-page="technology" onclick="return showPage('technology', event)">Technology</a></li>
-				<li><a href="#" class="nav-link" data-page="support" onclick="return showPage('support', event)">Support</a></li>
-				<li><a href="#" class="nav-link" data-page="contact" onclick="return showPage('contact', event)">Contact</a></li>
+			<ul class="menu">
+				<li><a href="#benefits">Benefits</a></li>
+				<li><a href="#rpm">RPM</a></li>
+				<li><a href="#ccm">CCM</a></li>
+				<li><a href="#implementation">Implementation</a></li>
+				<li><a href="#contact">Contact</a></li>
 			</ul>
-			<a href="#" class="cta" onclick="return showPage('contact', event)" aria-label="Get in touch">Get in touch</a>
-		</div>
+			<a class="cta" href="#contact">Get in touch</a>
+		</nav>
 	</header>
 
-	<main id="main" tabindex="-1">
-		<!-- Home -->
-		<section id="home" class="page active" role="region" aria-labelledby="home-title">
-			<div class="hero">
-				<div class="hero-bg" aria-hidden="true"></div>
-				<div class="container">
-					<h1 id="home-title">Transform Senior Care with Advanced RPM & CCM</h1>
-					<p class="tag">Cellular-Enabled • Ambient Sensing • 24/7 Monitoring</p>
-					<p>Join leading senior care facilities using our comprehensive remote patient monitoring and chronic care management platform. Move from reactive to proactive care—improving outcomes, unlocking CMS revenue, and delivering peace of mind.</p>
-					<div class="actions">
-						<a class="btn-primary" href="#" onclick="return showPage('solutions', event)">Explore Solutions</a>
-						<a class="btn-secondary" href="#" onclick="return showPage('contact', event)">Schedule Consultation</a>
-					</div>
+	<main id="home">
+		<section class="hero center">
+			<div class="container">
+				<h1>Take control with Total Remote Care</h1>
+				<p class="lead">Empower long‑term care teams with consistent monitoring, early detection, and timely interventions—creating safer environments for residents.</p>
+				<div class="actions">
+					<a class="btn btn-primary" href="#contact">Get in touch</a>
+					<a class="btn btn-secondary" href="#benefits">How it helps</a>
 				</div>
 			</div>
+		</section>
 
-			<section class="stats">
-				<div class="container stats-grid" role="list" aria-label="Key stats">
-					<div class="stat" role="listitem"><h3>8–12</h3><p>Week Implementation</p></div>
-					<div class="stat" role="listitem"><h3>24/7</h3><p>Continuous Monitoring</p></div>
-					<div class="stat" role="listitem"><h3>99%</h3><p>Device Uptime</p></div>
-					<div class="stat" role="listitem"><h3>$2,000+</h3><p>Monthly Revenue/Resident</p></div>
+		<section id="benefits" class="section center">
+			<div class="container">
+				<h2>Care that empowers</h2>
+				<p class="sub">RPM and CCM that help you monitor health, spot issues early, and act quickly—reducing complications and hospitalizations.</p>
+
+				<div class="grid" style="margin-top:var(--space-5)">
+					<article class="card">
+						<div class="icon" aria-hidden="true">
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+								<path d="M3 12h3l2 5 4-10 2 5h5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<h3>Proactive care</h3>
+						<p>Earlier detection means fewer emergencies and readmissions.</p>
+					</article>
+					<article class="card">
+						<div class="icon" aria-hidden="true">
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+							</svg>
+						</div>
+						<h3>Preventive by design</h3>
+						<p>Consistent vitals tracking builds a clearer picture over time.</p>
+					</article>
+					<article class="card">
+						<div class="icon" aria-hidden="true">
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<path d="M3 7h18M3 12h12M3 17h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+							</svg>
+						</div>
+						<h3>Continuity of care</h3>
+						<p>Data that travels with the team for faster, aligned decisions.</p>
+					</article>
 				</div>
-			</section>
+			</div>
+		</section>
 
-			<section class="section">
-				<div class="container">
-					<h2 class="section-title">The Senior Care Challenge</h2>
-					<p class="section-sub">Healthcare facilities face unprecedented challenges requiring innovative, technology‑driven solutions.</p>
+		<section id="rpm" class="section">
+			<div class="container split">
+				<div>
+					<h2>Remote Patient Monitoring</h2>
+					<p class="sub">Seamless daily vitals collection with cellular devices—no Wi‑Fi or pairing. Data transmits securely to your care portal and EHR.</p>
+					<div class="grid" style="margin-top:var(--space-4)">
+						<div class="card">
+							<div class="icon" aria-hidden="true">
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+									<path d="M12 21s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</div>
+							<strong>Daily vitals</strong>
+							<p class="sub" style="margin: .5rem 0 0">BP, glucose, weight, SpO₂ with instant cellular transmission.</p>
+						</div>
+						<div class="card">
+							<div class="icon" aria-hidden="true">
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+									<path d="M3 12h4l2 4 4-8 2 4h6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</div>
+							<strong>Actionable alerts</strong>
+							<p class="sub" style="margin: .5rem 0 0">Identify issues early for timely interventions.</p>
+						</div>
+						<div class="card">
+							<div class="icon" aria-hidden="true">
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+									<path d="M16 3v4h4M8 21v-4H4M20 7l-6 6M10 17l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</div>
+							<strong>EHR friendly</strong>
+							<p class="sub" style="margin: .5rem 0 0">Integrates with your workflows and reporting.</p>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon" aria-hidden="true" style="margin-bottom:var(--space-3)">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+							<path d="M4 7h16M4 12h12M4 17h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+						</svg>
+					</div>
+					<h3 style="margin-bottom:.5rem">Why it matters</h3>
+					<p class="sub">A clearer, continuous picture of residents’ health helps prioritize care, prevent complications, and reduce hospitalizations.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="ccm" class="section">
+			<div class="container split">
+				<div>
+					<h2>Chronic Care Management</h2>
+					<p class="sub">Coordinated, non‑face‑to‑face care that keeps residents on track—personalized plans, medication oversight, and consistent follow‑ups.</p>
+					<div class="grid" style="margin-top:var(--space-4)">
+						<div class="card">
+							<div class="icon" aria-hidden="true">
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+									<path d="M12 2v20M2 12h20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+								</svg>
+							</div>
+							<strong>Personal plans</strong>
+							<p class="sub" style="margin:.5rem 0 0">Tailored care plans based on individual needs.</p>
+						</div>
+						<div class="card">
+							<div class="icon" aria-hidden="true">
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+									<path d="M4 7h16M4 12h10M4 17h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+								</svg>
+							</div>
+							<strong>Medication support</strong>
+							<p class="sub" style="margin:.5rem 0 0">Better reconciliation and adherence.</p>
+						</div>
+						<div class="card">
+							<div class="icon" aria-hidden="true">
+								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+									<path d="M3 12h4l2 4 4-8 2 4h6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</div>
+							<strong>Fewer escalations</strong>
+							<p class="sub" style="margin:.5rem 0 0">Reduce acute episodes with targeted follow‑ups.</p>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="icon" aria-hidden="true" style="margin-bottom:var(--space-3)">
+						<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+							<path d="M20 7l-8 8-4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</div>
+					<h3 style="margin-bottom:.5rem">Outcomes that matter</h3>
+					<p class="sub">Better coordination, fewer complications, and a higher quality of life for residents and families.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="implementation" class="section">
+			<div class="container">
+				<h2 class="center">Implementation: 4–6 weeks</h2>
+				<p class="sub center">White‑glove launch with minimal disruption. We guide your team from kickoff to go‑live.</p>
+				<div class="grid" style="margin-top:var(--space-5)">
+					<article class="card center">
+						<div class="icon" aria-hidden="true">
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/>
+								<path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+							</svg>
+						</div>
+						<h3>Week 1</h3>
+						<p class="sub">Discovery, goals, workflow review</p>
+					</article>
+					<article class="card center">
+						<div class="icon" aria-hidden="true">
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<path d="M4 7h16M4 12h12M4 17h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+							</svg>
+						</div>
+						<h3>Weeks 2–3</h3>
+						<p class="sub">Configuration, EHR integration, devices</p>
+					</article>
+					<article class="card center">
+						<div class="icon" aria-hidden="true">
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<path d="M8 21v-6h8v6M7 9l5-5 5 5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<h3>Weeks 4–5</h3>
+						<p class="sub">Install, train staff, test</p>
+					</article>
+					<article class="card center">
+						<div class="icon" aria-hidden="true">
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<path d="M20 7l-8 8-4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<h3>Week 6</h3>
+						<p class="sub">Go‑live, support, success tracking</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="section">
+			<div class="container split">
+				<div>
+					<h2>Get in touch</h2>
+					<p class="sub">Tell us about your facility. We’ll share a clear plan and timeline.</p>
+					<form class="form" onsubmit="return handleFormSubmit(event)">
+						<label for="name">Your name *</label>
+						<input id="name" name="name" required>
+						<div style="height:var(--space-3)"></div>
+
+						<label for="facility">Facility name *</label>
+						<input id="facility" name="facility" required>
+						<div style="height:var(--space-3)"></div>
+
+						<label for="email">Email *</label>
+						<input id="email" name="email" type="email" required>
+						<div style="height:var(--space-3)"></div>
+
+						<label for="message">Message</label>
+						<textarea id="message" name="message" placeholder="What challenges are you facing?"></textarea>
+
+						<div style="height:var(--space-4)"></div>
+						<button class="btn btn-primary" type="submit" style="width:100%">Schedule consultation</button>
+					</form>
+				</div>
+				<div class="card">
+					<h3 style="margin-bottom:.5rem">Contact</h3>
+					<p class="sub">We respond within one business day.</p>
+					<div style="height:var(--space-4)"></div>
+
+					<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+						<div class="icon" aria-hidden="true">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<path d="M22 16.92V21a1 1 0 0 1-1.11 1A19.79 19.79 0 0 1 3 5.11 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.27 1L8.91 10.91a16 16 0 0 0 4.18 4.18l2.16-1.87a1 1 0 0 1 1-.27l3 1a1 1 0 0 1 .75 1z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<div>
+							<strong>+1 305-733-1404</strong><br>
+							<span class="sub">24/7 availability</span>
+						</div>
+					</div>
+
+					<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+						<div class="icon" aria-hidden="true">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<path d="M4 4h16v16H4z" stroke="#fff" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<div>
+							<strong>info@totalremotecare.com</strong><br>
+							<span class="sub">2‑hour response</span>
+						</div>
+					</div>
+
+					<div style="display:flex;align-items:center;gap:1rem">
+						<div class="icon" aria-hidden="true">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+								<path d="M12 2l7 7-7 13-7-13 7-7z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<div>
+							<strong>Nationwide coverage</strong><br>
+							<span class="sub">All 50 states</span>
+						</div>
+					</div>
+
+					<div style="height:var(--space-5)"></div>
 					<div class="grid">
-						<article class="card">
-							<div class="icon" aria-hidden="true">📊</div>
-							<h3>Demographic Pressure</h3>
-							<p>10,000 Americans turn 65 daily, creating an unprecedented surge in demand for senior care services and specialized monitoring.</p>
-						</article>
-						<article class="card">
-							<div class="icon" aria-hidden="true">🏥</div>
-							<h3>Complex Care Needs</h3>
-							<p>85% of seniors have at least one chronic illness; 68% have two or more conditions requiring continuous comprehensive management.</p>
-						</article>
-						<article class="card">
-							<div class="icon" aria-hidden="true">👥</div>
-							<h3>Staffing Crisis</h3>
-							<p>1.2 million direct care worker deficit projected by 2030, requiring technology solutions to augment human care.</p>
-						</article>
-					</div>
-				</div>
-			</section>
-		</section>
-
-		<!-- Solutions -->
-		<section id="solutions" class="page" role="region" aria-labelledby="solutions-title">
-			<div class="hero">
-				<div class="hero-bg" aria-hidden="true"></div>
-				<div class="container">
-					<h1 id="solutions-title">Comprehensive RPM & CCM Solutions</h1>
-					<p class="tag">FDA‑Cleared • CMS‑Reimbursable • Evidence‑Based</p>
-					<p>Our integrated platform combines Remote Patient Monitoring, Chronic Care Management, and Ambient Sensing to deliver proactive, profitable care.</p>
-				</div>
-			</div>
-
-			<section class="section">
-				<div class="container">
-					<h2 class="section-title">Our Core Solutions</h2>
-					<p class="section-sub">Comprehensive services designed to transform care delivery and unlock new revenue streams.</p>
-
-					<div class="grid">
-						<article class="card">
-							<div class="icon" aria-hidden="true">📱</div>
-							<h3>Remote Patient Monitoring (RPM)</h3>
-							<p>Continuous collection of physiological data using cellular‑enabled devices that transmit instantly without Wi‑Fi, hubs, or pairing.</p>
-							<ul class="list-check">
-								<li>Real‑time vitals (BP, glucose, weight, SpO₂)</li>
-								<li>Automatic transmission via private cellular network</li>
-								<li>CPT 99453, 99454, 99457, 99458</li>
-								<li>Predictive analytics for early intervention</li>
-								<li>24/7 monitoring capabilities</li>
-							</ul>
-						</article>
-
-						<article class="card">
-							<div class="icon" aria-hidden="true">🏥</div>
-							<h3>Chronic Care Management (CCM)</h3>
-							<p>Comprehensive non‑face‑to‑face management for residents with 2+ chronic conditions, fully reimbursable by CMS.</p>
-							<ul class="list-check">
-								<li>Monthly care plan development and monitoring</li>
-								<li>Daily risk reports prioritizing at‑risk residents</li>
-								<li>Medication reconciliation and management</li>
-								<li>CPT 99490, 99439, 99487</li>
-								<li>Care coordination across providers</li>
-							</ul>
-						</article>
-
-						<article class="card">
-							<div class="icon" aria-hidden="true">🔮</div>
-							<h3>Ambient Sensing Technology</h3>
-							<p>Contactless monitoring using advanced radar and AI technology for continuous, dignity‑preserving care.</p>
-							<ul class="list-check">
-								<li>No wearables or resident interaction required</li>
-								<li>Fall prediction 30–60 seconds before occurrence</li>
-								<li>Continuous vital signs without contact</li>
-								<li>Sleep pattern and activity monitoring</li>
-								<li>Privacy‑preserving (no cameras/mics)</li>
-							</ul>
-						</article>
-					</div>
-
-					<div class="surface stack" style="margin-top: var(--space-6);">
-						<div class="center">
-							<h3 style="font-size:1.35rem;">Proven Clinical Outcomes</h3>
-							<p class="section-sub" style="margin-top:.75rem;">Real results from facilities using our integrated platform.</p>
-						</div>
-						<div class="stats-grid">
-							<div class="stat"><h3 style="color:var(--success);">40%</h3><p>Fall Reduction</p></div>
-							<div class="stat"><h3 style="color:var(--success);">30%</h3><p>Fewer Hospitalizations</p></div>
-							<div class="stat"><h3 style="color:var(--success);">25%</</h3><p>Lower Readmissions</p></div>
-							<div class="stat"><h3 style="color:var(--success);">98%</h3><p>Patient Satisfaction</p></div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</section>
-
-		<!-- Implementation -->
-		<section id="implementation" class="page" role="region" aria-labelledby="impl-title">
-			<div class="hero">
-				<div class="hero-bg" aria-hidden="true"></div>
-				<div class="container">
-					<h1 id="impl-title">Seamless 4–6 Week Implementation</h1>
-					<p class="tag">White‑Glove Service • Zero Disruption • Proven Methodology</p>
-					<p>Our experienced team guides you from assessment to go‑live and beyond, ensuring success at every milestone.</p>
-				</div>
-			</div>
-
-			<section class="section">
-				<div class="container">
-					<h2 class="section-title">Implementation Methodology</h2>
-					<p class="section-sub">A proven approach developed through hundreds of successful deployments.</p>
-
-					<div class="timeline">
-						<div class="timeline-grid" aria-label="Implementation phases">
-							<article class="phase">
-								<span class="badge">Week 1</span>
-								<h4>Discovery & Planning</h4>
-								<p>Kickoff, stakeholder alignment, success criteria, infrastructure assessment.</p>
-							</article>
-							<article class="phase">
-								<span class="badge">Weeks 2–3</span>
-								<h4>System Configuration</h4>
-								<p>Platform customization, EHR integration, workflow design, device procurement.</p>
-							</article>
-							<article class="phase">
-								<span class="badge">Weeks 4–5</span>
-								<h4>Installation & Training</h4>
-								<p>Device deployment, sensor installation, staff training, system testing.</p>
-							</article>
-							<article class="phase">
-								<span class="badge">Week 6</span>
-								<h4>Go Live!</h4>
-								<p>Facility‑wide launch, ongoing support activation, success tracking.</p>
-							</article>
-						</div>
-					</div>
-
-					<div class="split">
-						<div class="surface stack">
-							<h3>Clinical Account Management</h3>
-							<p class="section-sub" style="text-align:left; margin:0;">Your dedicated Clinical Account Manager is a nurse who understands your environment.</p>
-							<ul class="list-check">
-								<li><strong>Expert Guidance:</strong> Best practices from experienced clinicians</li>
-								<li><strong>Success Planning:</strong> Tailored implementation plans</li>
-								<li><strong>Ongoing Support:</strong> Continuous optimization and troubleshooting</li>
+						<div class="card" style="padding:1rem">
+							<strong>What’s included</strong>
+							<ul class="sub" style="margin-top:.5rem;list-style:none">
+								<li>• Needs assessment</li>
+								<li>• ROI overview</li>
+								<li>• Implementation plan</li>
+								<li>• Billing guidance</li>
 							</ul>
 						</div>
-						<div class="surface-soft">
-							<h3 class="center" style="color: var(--primary-300); margin-bottom:var(--space-4);">Logistics Support</h3>
-							<div class="device-grid">
-								<div class="device">
-									<div class="device-icon" aria-hidden="true">📦</div>
-									<strong>FDA‑Registered Distribution</strong>
-									<p class="caption">Joint Commission Accredited facility</p>
-								</div>
-								<div class="device">
-									<div class="device-icon" aria-hidden="true">🚚</div>
-									<strong>Same‑Day Shipping</strong>
-									<p class="caption">99% on‑time delivery</p>
-								</div>
-								<div class="device">
-									<div class="device-icon" aria-hidden="true">🔄</div>
-									<strong>Auto‑Replenishment</strong>
-									<p class="caption">Automated supply management</p>
-								</div>
-								<div class="device">
-									<div class="device-icon" aria-hidden="true">📞</div>
-									<strong>24/7 Technical Support</strong>
-									<p class="caption">Always available assistance</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</section>
-		</section>
-
-		<!-- Technology -->
-		<section id="technology" class="page" role="region" aria-labelledby="tech-title">
-			<div class="hero">
-				<div class="hero-bg" aria-hidden="true"></div>
-				<div class="container">
-					<h1 id="tech-title">Advanced Technology Platform</h1>
-					<p class="tag">Cellular‑Enabled • AI‑Powered • HIPAA‑Compliant</p>
-					<p>Cutting‑edge partnerships with AT&T, advanced radar systems, and proprietary AI for unmatched reliability and insights.</p>
-				</div>
-			</div>
-
-			<section class="section">
-				<div class="container">
-					<h2 class="section-title">Technology Features</h2>
-					<p class="section-sub">Industry‑leading innovations that set us apart.</p>
-
-					<div class="split">
-						<div class="surface">
-							<h3>Cellular RPM™ Technology</h3>
-							<p class="section-sub" style="text-align:left; margin:0;">Proprietary cellular devices eliminate connectivity issues, ensuring 99.9% uptime and instant data transmission.</p>
-							<ul class="list-check" style="margin-top:var(--space-3);">
-								<li><strong>Private Data Network:</strong> AT&T LTE‑M with multi‑carrier SIM</li>
-								<li><strong>Multi‑Layer Security:</strong> End‑to‑end encryption; HIPAA‑compliant</li>
-								<li><strong>Instant Transmission:</strong> No Wi‑Fi, Bluetooth, or syncing</li>
-								<li><strong>Zero Configuration:</strong> Plug‑and‑play with auto activation</li>
+						<div class="card" style="padding:1rem">
+							<strong>Security</strong>
+							<ul class="sub" style="margin-top:.5rem;list-style:none">
+								<li>• HIPAA compliant</li>
+								<li>• Encrypted data</li>
+								<li>• Cellular network</li>
 							</ul>
 						</div>
-						<div class="surface-soft">
-							<h3 class="center" style="color:var(--primary-300); margin-bottom:var(--space-4);">Device Portfolio</h3>
-							<div class="device-grid">
-								<div class="device">
-									<div class="device-icon" aria-hidden="true">💉</div>
-									<strong>iGlucose®</strong>
-									<p class="caption">Cellular glucose monitoring</p>
-								</div>
-								<div class="device">
-									<div class="device-icon" aria-hidden="true">❤️</div>
-									<strong>iBloodPressure®</strong>
-									<p class="caption">Voice‑assisted BP monitoring</p>
-								</div>
-								<div class="device">
-									<div class="device-icon" aria-hidden="true">⚖️</div>
-									<strong>iScale®</strong>
-									<p class="caption">High‑capacity weight scale</p>
-								</div>
-								<div class="device">
-									<div class="device-icon" aria-hidden="true">💨</div>
-									<strong>iPulseOx®</strong>
-									<p class="caption">Oxygen saturation monitoring</p>
-								</div>
-							</div>
-						</div>
 					</div>
 
-					<div class="section" style="padding-top: var(--space-6); padding-bottom: 0;">
-						<h3 class="section-title" style="font-size:1.5rem;">Advanced Ambient Monitoring</h3>
-						<div class="grid" style="margin-top:var(--space-4);">
-							<article class="card">
-								<div class="icon" aria-hidden="true">📡</div>
-								<h3>Radar Technology</h3>
-								<p>Ultra‑wideband radar detects micro‑vibrations to monitor vital signs without any contact or wearables.</p>
-								<ul class="list-check">
-									<li>Continuous heart rate monitoring</li>
-									<li>Respiratory rate tracking</li>
-									<li>Movement and gait analysis</li>
-									<li>Bed presence detection</li>
-								</ul>
-							</article>
-							<article class="card">
-								<div class="icon" aria-hidden="true">🤖</div>
-								<h3>AI/ML Analytics</h3>
-								<p>Machine learning identifies patterns and predicts health events before symptoms appear.</p>
-								<ul class="list-check">
-									<li>Fall prediction algorithms</li>
-									<li>Deterioration early warning</li>
-									<li>Behavioral pattern analysis</li>
-									<li>Predictive risk scoring</li>
-								</ul>
-							</article>
-							<article class="card">
-								<div class="icon" aria-hidden="true">📊</div>
-								<h3>Care Team Portal</h3>
-								<p>FDA 510(k) cleared platform providing real‑time insights and actionable intelligence.</p>
-								<ul class="list-check">
-									<li>Customizable dashboards</li>
-									<li>Automated alerts and escalation</li>
-									<li>EHR/EMR integration</li>
-									<li>Comprehensive reporting suite</li>
-								</ul>
-							</article>
-						</div>
-					</div>
-
-				</div>
-			</section>
-		</section>
-
-		<!-- Support -->
-		<section id="support" class="page" role="region" aria-labelledby="support-title">
-			<div class="hero">
-				<div class="hero-bg" aria-hidden="true"></div>
-				<div class="container">
-					<h1 id="support-title">Comprehensive Support & Training</h1>
-					<p class="tag">24/7 Assistance • Online University • Dedicated Success Team</p>
-					<p>From implementation through operations, our ecosystem ensures your success with education, technical assistance, and clinical guidance.</p>
 				</div>
 			</div>
-
-			<section class="section">
-				<div class="container">
-					<h2 class="section-title">Support Services</h2>
-					<p class="section-sub">Everything you need to succeed—available when you need it.</p>
-
-					<div class="grid">
-						<article class="card"><div class="icon" aria-hidden="true">🎓</div><h3>TRC University</h3><p>24/7 online learning with role‑based modules, certification, and ongoing education.</p></article>
-					 </div>
-
-					<div class="grid" style="margin-top:var(--space-4);">
-						<article class="card"><div class="icon" aria-hidden="true">👩‍⚕️</div><h3>Clinical Support</h3><p>Experienced nurses for consultations, best practices, and protocol optimization.</p></article>
-						<article class="card"><div class="icon" aria-hidden="true">🔧</div><h3>Technical Support</h3><p>Tier 1/2 support 24/7 for devices, platform, and integrations.</p></article>
-						<article class="card"><div class="icon" aria-hidden="true">📚</div><h3>Training Programs</h3><p>Train‑the‑trainer, on‑site education, and virtual workshops.</p></article>
-						<article class="card"><div class="icon" aria-hidden="true">📈</div><h3>Success Management</h3><p>QBRs, optimization recommendations, and growth strategies.</p></article>
-						<article class="card"><div class="icon" aria-hidden="true">📋</div><h3>Compliance Support</h3><p>CMS billing guidance, documentation templates, and regulatory assistance.</p></article>
-					</div>
-
-					<div class="surface" style="margin-top: var(--space-6);">
-						<h3 class="section-title" style="font-size:1.5rem;">Educational Resources</h3>
-						<div class="split" style="margin-top:var(--space-4);">
-							<div class="stack">
-								<h4 style="color:var(--primary-300);">Available Training Modules</h4>
-								<ul class="list-check">
-									<li>RPM Fundamentals & Best Practices</li>
-									<li>CCM Program Implementation</li>
-									<li>Device Operation & Troubleshooting</li>
-									<li>Care Portal Navigation</li>
-									<li>Data Interpretation & Action Plans</li>
-									<li>CMS Billing & Documentation</li>
-									<li>Quality Improvement Strategies</li>
-									<li>Patient Engagement Techniques</li>
-								</ul>
-							</div>
-							<div class="stack">
-								<h4 style="color:var(--primary-300);">Support Availability</h4>
-								<div class="surface">
-									<p><strong>Technical Support:</strong> 24/7/365</p>
-									<p><strong>Clinical Support:</strong> Mon–Fri, 7 AM–7 PM CT; weekends available</p>
-									<p><strong>Training:</strong> Weekly sessions + on‑demand</p>
-									<p><strong>Emergency Response:</strong> Critical issues within 1 hour</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Trust section (visuals to humanize) -->
-					<div class="section" style="padding-top: var(--space-6); padding-bottom: 0;">
-						<h3 class="section-title" style="font-size:1.5rem;">Trusted by Care Teams Nationwide</h3>
-					 </div>
-					<div class="container" style="margin-top: var(--space-4);">
-						<div class="trust">
-							<div class="trust-card">
-								<img src="team-1.jpg" alt="Nursing team using RPM devices" loading="lazy" width="640" height="420">
-								<p class="caption">Our clinicians partner with your staff to deliver proactive care.</p>
-							</div>
-							<div class="trust-card">
-								<img src="equipment-1.jpg" alt="Cellular RPM equipment ready for deployment" loading="lazy" width="640" height="420">
-								<p class="caption">FDA‑registered distribution with same‑day shipping.</p>
-							</div>
-							<div class="trust-card">
-								<img src="care-portal.jpg" alt="Care portal dashboard showing real-time vitals" loading="lazy" width="640" height="420">
-								<p class="caption">Actionable dashboards for faster clinical decisions.</p>
-							</div>
-						</div>
-						<div class="badges" style="margin-top: var(--space-4);">
-							<span class="badge" aria-label="HIPAA Compliant">HIPAA</span>
-							<span class="badge" aria-label="FDA Registered">FDA</span>
-							<span class="badge" aria-label="AT&amp;T Partner">AT&amp;T</span>
-							<span class="badge" aria-label="99.9% Uptime">99.9% Uptime</span>
-						</div>
-					</div>
-
-				</div>
-			</section>
-		</section>
-
-		<!-- Contact -->
-		<section id="contact" class="page" role="region" aria-labelledby="contact-title">
-			<div class="hero">
-				<div class="hero-bg" aria-hidden="true"></div>
-				<div class="container">
-					<h1 id="contact-title">Start Your Transformation Today</h1>
-					<p class="tag">Join Leading Facilities Nationwide</p>
-					<p>Ready to improve outcomes, reduce costs, and unlock new revenue? Let’s discuss how our solutions can transform your facility.</p>
-				</div>
-			</div>
-
-			<section class="section">
-				<div class="container">
-					<h2 class="section-title">Get Started</h2>
-					<p class="section-sub">Schedule a personalized consultation with our senior care experts.</p>
-
-					<div class="contact-grid">
-						<form class="form" onsubmit="return handleFormSubmit(event)" aria-describedby="form-help">
-							<h3>Request Consultation</h3>
-							<p id="form-help" class="caption">Fields marked with * are required.</p>
-
-							<div class="form-group">
-								<label for="name">Your Name *</label>
-								<input id="name" name="name" type="text" autocomplete="name" required>
-							</div>
-
-							<div class="form-group">
-								<label for="title">Title/Role</label>
-								<input id="title" name="title" type="text" autocomplete="organization-title">
-							</div>
-
-							<div class="form-group">
-								<label for="facility">Facility Name *</label>
-								<input id="facility" name="facility" type="text" autocomplete="organization" required>
-							</div>
-
-							<div class="form-group">
-								<label for="facility-type">Facility Type</label>
-								<select id="facility-type" name="facility-type">
-									<option value="">Select Type</option>
-									<option value="snf">Skilled Nursing Facility</option>
-									<option value="assisted">Assisted Living</option>
-									<option value="memory">Memory Care</option>
-									<option value="ccrc">CCRC</option>
-									<option value="other">Other</option>
-								</select>
-							</div>
-
-							<div class="form-group">
-								<label for="beds">Number of Beds</label>
-								<input id="beds" name="beds" type="number" inputmode="numeric" placeholder="e.g., 120" min="0">
-							</div>
-
-							<div class="form-group">
-								<label for="email">Email Address *</label>
-								<input id="email" name="email" type="email" autocomplete="email" required>
-							</div>
-
-							<div class="form-group">
-								<label for="phone">Phone Number</label>
-								<input id="phone" name="phone" type="tel" autocomplete="tel">
-							</div>
-
-							<div class="form-group">
-								<label for="interest">Areas of Interest</label>
-								<select id="interest" name="interest">
-									<option value="">Select Primary Interest</option>
-									<option value="rpm">Remote Patient Monitoring</option>
-									<option value="ccm">Chronic Care Management</option>
-									<option value="ambient">Ambient Sensing</option>
-									<option value="all">Complete Solution</option>
-								</select>
-							</div>
-
-							<div class="form-group">
-								<label for="timeline">Implementation Timeline</label>
-								<select id="timeline" name="timeline">
-									<option value="">Select Timeline</option>
-									<option value="immediate">Immediate (&lt; 30 days)</option>
-									<option value="quarter">This Quarter</option>
-									<option value="6months">Within 6 Months</option>
-									<option value="exploring">Just Exploring</option>
-								</select>
-							</div>
-
-							<div class="form-group">
-								<label for="message">Tell us about your challenges</label>
-								<textarea id="message" name="message" placeholder="What challenges are you facing with resident care, staffing, or compliance?"></textarea>
-							</div>
-
-							<button type="submit" class="btn-primary" style="width:100%;">Schedule Consultation</button>
-						</form>
-
-						<div class="stack">
-							<h3>Connect With Us</h3>
-							<div class="contact-item" aria-label="Phone">
-								<div class="contact-icon" aria-hidden="true">📞</div>
-								<div><strong>Phone</strong><br>+1 305-733-1404<br><span class="caption">Available 24/7</span></div>
-							</div>
-							<div class="contact-item" aria-label="Email">
-								<div class="contact-icon" aria-hidden="true">✉️</div>
-								<div><strong>Email</strong><br>info@totalremotecare.com<br><span class="caption">Response within 2 hours</span></div>
-							</div>
-							<div class="contact-item" aria-label="Coverage">
-								<div class="contact-icon" aria-hidden="true">📍</div>
-								<div><strong>Coverage</strong><br>Serving facilities nationwide<br><span class="caption">All 50 states</span></div>
-							</div>
-							<div class="contact-item" aria-label="Headquarters">
-								<div class="contact-icon" aria-hidden="true">🏢</div>
-								<div><strong>Headquarters</strong><br>Healthcare Innovation Center<br><span class="caption">Miami, FL</span></div>
-							</div>
-
-							<div class="surface-soft">
-								<h4 style="margin-bottom:.75rem;">What's Included</h4>
-								<ul class="list-check">
-									<li>Comprehensive needs assessment</li>
-									<li>ROI analysis and projections</li>
-									<li>Custom implementation plan</li>
-									<li>Device demonstrations</li>
-									<li>Billing & reimbursement guidance</li>
-									<li>Staff training overview</li>
-									<li>Integration requirements review</li>
-									<li>Success metrics framework</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</section>
 		</section>
 	</main>
 
 	<footer class="footer">
-		<div class="footer-top">
-			<div class="container footer-grid">
+		<div class="top">
+			<div class="container grid">
 				<section>
-					<h3>Total Remote Care</h3>
-					<p>Transforming senior care through innovative RPM and CCM solutions with ambient sensing technology.</p>
-					<p style="margin-top:.75rem;">Partnered with leading technology providers including AT&amp;T for secure cellular connectivity.</p>
+					<h3 style="color:#21c8ff">Total Remote Care</h3>
+					<p>Proactive RPM and CCM for long‑term care with cellular devices and coordinated support.</p>
 				</section>
 				<section>
-					<h3>Solutions</h3>
-					<p><a href="#" onclick="return showPage('solutions', event)">Remote Patient Monitoring</a></p>
-					<p><a href="#" onclick="return showPage('solutions', event)">Chronic Care Management</a></p>
-					<p><a href="#" onclick="return showPage('technology', event)">Ambient Sensing</a></p>
-					<p><a href="#" onclick="return showPage('technology', event)">Cellular RPM Devices</a></p>
+					<h3 style="color:#21c8ff">Explore</h3>
+					<p><a href="#benefits">Benefits</a></p>
+					<p><a href="#rpm">RPM</a></p>
+					<p><a href="#ccm">CCM</a></p>
+					<p><a href="#implementation">Implementation</a></p>
+					<p><a href="#contact">Contact</a></p>
 				</section>
 				<section>
-					<h3>Resources</h3>
-					<p><a href="#" onclick="return showPage('implementation', event)">Implementation Process</a></p>
-					<p><a href="#" onclick="return showPage('support', event)">Training & Support</a></p>
-					<p><a href="#" onclick="return showPage('technology', event)">Technology Platform</a></p>
-					<p><a href="#" onclick="return showPage('contact', event)">Contact Us</a></p>
-				</section>
-				<section>
-					<h3>Company</h3>
-					<p><a href="#" onclick="return showPage('home', event)">About Us</a></p>
-					<p><a href="#" onclick="return showPage('contact', event)">Get in touch</a></p>
-					<p><a href="#">Privacy Policy</a></p>
-					<p><a href="#">HIPAA Compliance</a></p>
+					<h3 style="color:#21c8ff">Company</h3>
+					<p><a href="#contact">Privacy</a></p>
+					<p><a href="#contact">HIPAA</a></p>
 				</section>
 			</div>
 		</div>
-		<div class="footer-bottom">© <span id="year"></span> Total Remote Care. All rights reserved.</div>
+		<div class="bottom">© <span id="year"></span> Total Remote Care</div>
 	</footer>
 
 	<script>
-		// Mobile nav
-		const navToggle = document.getElementById('navToggle');
-		const mainMenu = document.getElementById('main-menu');
-		if (navToggle) {
-			navToggle.addEventListener('click', () => {
-				const isOpen = mainMenu.getAttribute('data-open') === 'true';
-				mainMenu.setAttribute('data-open', String(!isOpen));
-				navToggle.setAttribute('aria-expanded', String(!isOpen));
-			});
-		}
-
-		// SPA page navigation with a11y
-		function showPage(pageId, event) {
-			if (event) event.preventDefault();
-
-			// pages
-			const pages = document.querySelectorAll('.page');
-			pages.forEach(p => p.classList.remove('active'));
-			const selected = document.getElementById(pageId);
-			if (selected) selected.classList.add('active');
-
-			// nav state
-			document.querySelectorAll('.nav-link').forEach(a => {
-				if (a.getAttribute('data-page') === pageId) {
-					a.setAttribute('aria-current', 'page');
-				} else {
-					a.removeAttribute('aria-current');
-				}
-			});
-
-			// close mobile menu
-			if (mainMenu) { mainMenu.setAttribute('data-open', 'false'); }
-			if (navToggle) { navToggle.setAttribute('aria-expanded', 'false'); }
-
-			// focus main for context
-			const main = document.getElementById('main');
-			if (main) {
-				main.focus({ preventScroll: true });
-				window.scrollTo({ top: 0, left: 0 });
-			}
+		function handleFormSubmit(e){
+			e.preventDefault();
+			const f=e.target;
+			const btn=f.querySelector('button[type="submit"]');
+			if(!f.name.value || !f.facility.value || !f.email.value){alert('Please fill in required fields.');return false;}
+			const t=btn.textContent; btn.textContent='Submitting...'; btn.disabled=true;
+			setTimeout(()=>{ alert('Thank you! We will reach out shortly.'); f.reset(); btn.textContent=t; btn.disabled=false; }, 900);
 			return false;
 		}
-
-		// Contact form
-		function handleFormSubmit(event) {
-			event.preventDefault();
-			const form = event.target;
-			const data = new FormData(form);
-			if (!data.get('name') || !data.get('facility') || !data.get('email')) {
-				alert('Please fill in all required fields.');
-				return false;
-			}
-			const btn = form.querySelector('button[type="submit"]');
-			const original = btn.textContent;
-			btn.textContent = 'Submitting...';
-			btn.disabled = true;
-			setTimeout(() => {
-				alert('Thank you! Our team will contact you within 24 hours to schedule your consultation.');
-				form.reset();
-				btn.textContent = original;
-				btn.disabled = false;
-			}, 1200);
-			return false;
-		}
-
-		// Footer year
-		document.getElementById('year').textContent = new Date().getFullYear();
+		document.getElementById('year').textContent=new Date().getFullYear();
 	</script>
 </body>
 </html>
