@@ -4,73 +4,139 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Total Remote Care — RPM & CCM for Long‑Term Care</title>
-	<meta name="description" content="Proactive RPM and CCM for long-term care. Consistent monitoring, early detection, timely intervention, safer environments.">
+	<meta name="description" content="Consistent monitoring, early detection, and timely interventions for safer resident care. RPM, CCM, and advanced ambient monitoring for long‑term care.">
 	<style>
 		:root{
-			--bg:#ffffff; --text:#22304a; --muted:#5a6c7d;
-			--primary:#405189; --primary-300:#6c7ae0; --accent:#21c8ff;
-			--surface:#ffffff; --surface-2:#f6f8fa; --border:#e8edf3;
-			--radius:14px; --radius-lg:20px;
-			--shadow:0 8px 30px rgba(0,0,0,.08);
-			--fs-1:clamp(2rem,4vw,3rem); --fs-2:clamp(1.25rem,2.5vw,1.75rem); --fs-3:1.0625rem;
-			--space-2:.75rem; --space-3:1rem; --space-4:1.5rem; --space-5:2rem; --space-6:3rem; --space-7:4rem;
-			--grad-hero:linear-gradient(135deg,#f7f9fc 0%,#eaf3ff 100%);
+			/* Light blue + white palette */
+			--bg:#ffffff;
+			--text:#1f2a44;
+			--muted:#5b6b80;
+
+			--primary:#2f7de1;      /* brand blue */
+			--primary-300:#8ec5ff;  /* light blue */
+			--accent:#66d1ff;       /* accent blue */
+
+			--surface:#ffffff;
+			--surface-2:#f5faff;
+			--border:#e6effb;
+
+			/* Rounded + shadow */
+			--radius:14px;
+			--radius-lg:20px;
+			--shadow:0 8px 30px rgba(27, 77, 151, .10);
+
+			/* Type + spacing */
+			--fs-1:clamp(2rem,4vw,3rem);
+			--fs-2:clamp(1.25rem,2.5vw,1.75rem);
+			--fs-3:1.0625rem;
+			--lh:1.65;
+
+			--space-2:.75rem;
+			--space-3:1rem;
+			--space-4:1.5rem;
+			--space-5:2rem;
+			--space-6:3rem;
+			--space-7:4.5rem;
+
+			/* Soft gradients */
+			--grad-hero:linear-gradient(135deg,#f5faff 0%,#eaf4ff 100%);
 			--grad-primary:linear-gradient(135deg,var(--primary-300),var(--primary));
+			--grad-icon:linear-gradient(135deg,#9ad2ff,#5ccfff);
 		}
+
 		*{box-sizing:border-box;margin:0;padding:0}
 		html{scroll-behavior:smooth}
-		body{font:400 var(--fs-3)/1.65 ui-sans-serif,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:var(--bg);}
+		body{
+			font:400 var(--fs-3)/var(--lh) ui-sans-serif,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+			color:var(--text); background:var(--bg);
+		}
 
+		/* Layout rhythm */
 		.container{max-width:1100px;margin:0 auto;padding:0 var(--space-5)}
 		.section{padding:var(--space-7) 0}
 		.center{text-align:center}
 		.grid{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-		.card{background:var(--surface);border-radius:var(--radius-lg);padding:var(--space-5);box-shadow:var(--shadow);border:1px solid var(--border)}
+		.card{
+			background:var(--surface);
+			border-radius:var(--radius-lg);
+			padding:var(--space-5);
+			box-shadow:var(--shadow);
+			border:1px solid var(--border);
+		}
+		.section h2{font-size:var(--fs-2);font-weight:800;letter-spacing:-.2px;margin-bottom:var(--space-3)}
+		.sub{color:var(--muted);max-width:760px;margin:0 auto}
 
-		header{position:fixed;inset:0 0 auto 0;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);box-shadow:0 2px 20px rgba(0,0,0,.06);z-index:50}
+		/* Header */
+		header{
+			position:fixed;inset:0 0 auto 0;z-index:50;
+			background:rgba(255,255,255,.98);
+			backdrop-filter:blur(8px);
+			box-shadow:0 2px 18px rgba(30, 76, 154, .08);
+		}
 		.nav{display:flex;justify-content:space-between;align-items:center;padding:.75rem var(--space-5)}
 		.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:inherit}
-		.brand-badge{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--grad-primary);font-weight:700;box-shadow:0 6px 22px rgba(108,122,224,.35)}
+		.brand-badge{
+			width:42px;height:42px;border-radius:10px;display:grid;place-items:center;color:#fff;
+			background:var(--grad-primary);
+			box-shadow:0 6px 22px rgba(61,130,230,.28);
+			font-weight:700;
+		}
 		.brand-name{font-weight:700;letter-spacing:-.2px}
 		.menu{display:flex;gap:1.5rem;list-style:none}
 		.menu a{text-decoration:none;color:inherit;font-weight:600}
-		.cta{background:var(--grad-primary);color:#fff;text-decoration:none;padding:.75rem 1.25rem;border-radius:999px;font-weight:700}
+		.cta{
+			background:var(--grad-primary);color:#fff;text-decoration:none;
+			padding:.75rem 1.25rem;border-radius:999px;font-weight:700
+		}
 		@media (max-width:860px){.menu{display:none}}
-
 		main{padding-top:74px}
 
-		.hero{background:var(--grad-hero); padding:var(--space-7) 0}
-		.hero h1{font-size:var(--fs-1);letter-spacing:-.4px}
-		.hero p.lead{color:var(--muted);max-width:750px;margin:var(--space-3) auto}
-		.actions{display:flex;gap:var(--space-3);justify-content:center;margin-top:var(--space-4);flex-wrap:wrap}
+		/* Hero */
+		.hero{background:var(--grad-hero);padding:var(--space-7) 0}
+		.hero h1{font-size:var(--fs-1);letter-spacing:-.4px;margin-bottom:var(--space-3)}
+		.hero p.lead{color:var(--muted);max-width:750px;margin:0 auto}
+		.actions{display:flex;gap:var(--space-3);justify-content:center;margin-top:var(--space-5);flex-wrap:wrap}
 		.btn{display:inline-flex;align-items:center;justify-content:center;padding:1rem 1.5rem;border-radius:999px;font-weight:800;text-decoration:none}
-		.btn-primary{background:var(--grad-primary);color:#fff}
-		.btn-secondary{background:#fff;color:var(--primary-300);border:2px solid var(--primary-300)}
+		.btn-primary{background:var(--grad-primary);color:#fff;box-shadow:0 8px 28px rgba(61,130,230,.25)}
+		.btn-secondary{background:#fff;color:var(--primary);border:2px solid var(--primary-300)}
 
-		.section h2{font-size:var(--fs-2);font-weight:800;letter-spacing:-.2px}
-		.sub{color:var(--muted);max-width:760px;margin:.75rem auto 0}
+		/* Stats (clean + light) */
+		.stats{background:linear-gradient(135deg,#eaf4ff,#f5faff);color:#11325b;padding:var(--space-6) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+		.stats-grid{display:grid;gap:var(--space-5);grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:center}
+		.stat h3{font-size:clamp(1.75rem,4vw,2.5rem);color:#165faa;margin-bottom:.25rem}
+		.stat p{opacity:.85}
 
-		/* Icon wrapper */
-		.icon{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#6c7ae0,#21c8ff);margin-bottom:.75rem}
+		/* Icons (custom AI healthcare) */
+		.icon{
+			width:56px;height:56px;border-radius:14px;display:grid;place-items:center;
+			background:var(--grad-icon);margin-bottom:.75rem
+		}
 		svg{display:block}
 
 		/* Split */
 		.split{display:grid;gap:var(--space-5);grid-template-columns:1.1fr .9fr}
 		@media (max-width:980px){.split{grid-template-columns:1fr}}
 
-		/* Contact */
+		/* Form */
 		.form{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:var(--space-5);border:1px solid var(--border)}
 		label{display:block;font-weight:700;margin-bottom:.5rem}
-		input,select,textarea{width:100%;padding:.9rem 1rem;border-radius:12px;border:2px solid var(--border);background:#fafbfc;font:inherit}
-		input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary-300);box-shadow:0 0 0 3px rgba(108,122,224,.12);background:#fff}
+		input,select,textarea{
+			width:100%;padding:.9rem 1rem;border-radius:12px;border:2px solid var(--border);background:#f8fbff;font:inherit
+		}
+		input:focus,select:focus,textarea:focus{
+			outline:none;border-color:var(--primary-300);box-shadow:0 0 0 3px rgba(56,140,240,.12);background:#fff
+		}
 		textarea{min-height:120px;resize:vertical}
 
-		.footer{background:linear-gradient(135deg,#243246,#2f3f59);color:#cbd6e2;margin-top:var(--space-7)}
+		/* Footer */
+		.footer{background:linear-gradient(135deg,#eaf4ff,#f5faff);color:#36567a;margin-top:var(--space-7);border-top:1px solid var(--border)}
 		.footer .top{padding:var(--space-6) 0}
-		.footer a{color:#cbd6e2;text-decoration:none}
-		.footer a:hover{color:#fff;text-decoration:underline}
-		.footer .bottom{border-top:1px solid rgba(255,255,255,.15);text-align:center;padding:var(--space-4)}
-		:focus-visible{outline:3px solid #6c7ae0;outline-offset:2px}
+		.footer a{color:#2b5fa8;text-decoration:none}
+		.footer a:hover{text-decoration:underline}
+		.footer .bottom{border-top:1px solid var(--border);text-align:center;padding:var(--space-4);color:#486a90}
+
+		/* Focus */
+		:focus-visible{outline:3px solid var(--primary-300);outline-offset:2px}
 	</style>
 </head>
 <body>
@@ -84,6 +150,7 @@
 				<li><a href="#benefits">Benefits</a></li>
 				<li><a href="#rpm">RPM</a></li>
 				<li><a href="#ccm">CCM</a></li>
+				<li><a href="#ambient">Ambient</a></li>
 				<li><a href="#implementation">Implementation</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
@@ -95,7 +162,7 @@
 		<section class="hero center">
 			<div class="container">
 				<h1>Take control with Total Remote Care</h1>
-				<p class="lead">Empower long‑term care teams with consistent monitoring, early detection, and timely interventions—creating safer environments for residents.</p>
+				<p class="lead">Consistent monitoring, early detection, and timely interventions—empowering safer, calmer environments for residents and staff.</p>
 				<div class="actions">
 					<a class="btn btn-primary" href="#contact">Get in touch</a>
 					<a class="btn btn-secondary" href="#benefits">How it helps</a>
@@ -103,16 +170,35 @@
 			</div>
 		</section>
 
+		<section class="stats">
+			<div class="container stats-grid" role="list">
+				<div class="stat" role="listitem">
+					<h3>4–6 Weeks</h3>
+					<p>Implementation</p>
+				</div>
+				<div class="stat" role="listitem">
+					<h3>24/7</h3>
+					<p>Continuous Monitoring</p>
+				</div>
+				<div class="stat" role="listitem">
+					<h3>99%</h3>
+					<p>Device Uptime</p>
+				</div>
+			</div>
+		</section>
+
 		<section id="benefits" class="section center">
 			<div class="container">
 				<h2>Care that empowers</h2>
-				<p class="sub">RPM and CCM that help you monitor health, spot issues early, and act quickly—reducing complications and hospitalizations.</p>
+				<p class="sub">RPM and CCM help you monitor health, spot issues early, and act quickly—reducing complications and hospitalizations.</p>
 
 				<div class="grid" style="margin-top:var(--space-5)">
 					<article class="card">
 						<div class="icon" aria-hidden="true">
-							<svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-								<path d="M3 12h3l2 5 4-10 2 5h5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							<!-- Custom AI icon: Shield + signal -->
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<path d="M12 3l7 3v6c0 4-3.5 7-7 9-3.5-2-7-5-7-9V6l7-3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+								<path d="M8 11c1.2-1.2 3.2-1.2 4.4 0 1.2 1.2 3.2 1.2 4.4 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 							</svg>
 						</div>
 						<h3>Proactive care</h3>
@@ -120,21 +206,26 @@
 					</article>
 					<article class="card">
 						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: Cross + pulse -->
 							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-								<path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+								<path d="M12 2v20M2 12h20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+								<path d="M4 12h3l2 4 3-8 2 5h4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</div>
 						<h3>Preventive by design</h3>
-						<p>Consistent vitals tracking builds a clearer picture over time.</p>
+						<p>Consistent vitals build a clearer picture over time.</p>
 					</article>
 					<article class="card">
 						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: Clipboard + link -->
 							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-								<path d="M3 7h18M3 12h12M3 17h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+								<rect x="7" y="3" width="10" height="4" rx="1" stroke="#fff" stroke-width="2"/>
+								<rect x="5" y="7" width="14" height="14" rx="2" stroke="#fff" stroke-width="2"/>
+								<path d="M9 13h3a3 3 0 1 1 0 6H9" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 							</svg>
 						</div>
 						<h3>Continuity of care</h3>
-						<p>Data that travels with the team for faster, aligned decisions.</p>
+						<p>Data that travels with your team for aligned decisions.</p>
 					</article>
 				</div>
 			</div>
@@ -144,45 +235,54 @@
 			<div class="container split">
 				<div>
 					<h2>Remote Patient Monitoring</h2>
-					<p class="sub">Seamless daily vitals collection with cellular devices—no Wi‑Fi or pairing. Data transmits securely to your care portal and EHR.</p>
+					<p class="sub">Daily vitals via cellular devices—no Wi‑Fi or pairing. Data securely flows to your care portal and EHR.</p>
 					<div class="grid" style="margin-top:var(--space-4)">
 						<div class="card">
 							<div class="icon" aria-hidden="true">
+								<!-- Custom AI icon: Location heart -->
 								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-									<path d="M12 21s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z" stroke="#fff" stroke-width="2"/>
+									<path d="M9.5 10.5a2.5 2.5 0 0 1 5 0c0 1.5-2.5 3-2.5 3s-2.5-1.5-2.5-3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
 								</svg>
 							</div>
 							<strong>Daily vitals</strong>
-							<p class="sub" style="margin: .5rem 0 0">BP, glucose, weight, SpO₂ with instant cellular transmission.</p>
+							<p class="sub" style="margin:.5rem 0 0">BP, glucose, weight, SpO₂ with instant cellular transmission.</p>
 						</div>
 						<div class="card">
 							<div class="icon" aria-hidden="true">
+								<!-- Custom AI icon: Bell + wave -->
 								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-									<path d="M3 12h4l2 4 4-8 2 4h6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M6 8a6 6 0 1 1 12 0v5l2 3H4l2-3V8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M9 19a3 3 0 0 0 6 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 								</svg>
 							</div>
 							<strong>Actionable alerts</strong>
-							<p class="sub" style="margin: .5rem 0 0">Identify issues early for timely interventions.</p>
+							<p class="sub" style="margin:.5rem 0 0">Spot issues early for timely interventions.</p>
 						</div>
 						<div class="card">
 							<div class="icon" aria-hidden="true">
+								<!-- Custom AI icon: Brackets + arrow -->
 								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-									<path d="M16 3v4h4M8 21v-4H4M20 7l-6 6M10 17l-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M7 5H4v14h3M17 5h3v14h-3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+									<path d="M9 12h6M13 10l2 2-2 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
 							</div>
 							<strong>EHR friendly</strong>
-							<p class="sub" style="margin: .5rem 0 0">Integrates with your workflows and reporting.</p>
+							<p class="sub" style="margin:.5rem 0 0">Fits your workflows and reporting.</p>
 						</div>
 					</div>
 				</div>
 				<div class="card">
 					<div class="icon" aria-hidden="true" style="margin-bottom:var(--space-3)">
+						<!-- Custom AI icon: Radar -->
 						<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-							<path d="M4 7h16M4 12h12M4 17h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+							<circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/>
+							<path d="M12 12l5-3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+							<path d="M7 12a5 5 0 0 1 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 						</svg>
 					</div>
 					<h3 style="margin-bottom:.5rem">Why it matters</h3>
-					<p class="sub">A clearer, continuous picture of residents’ health helps prioritize care, prevent complications, and reduce hospitalizations.</p>
+					<p class="sub">A continuous view helps prioritize care, prevent complications, and reduce hospitalizations.</p>
 				</div>
 			</div>
 		</section>
@@ -191,21 +291,26 @@
 			<div class="container split">
 				<div>
 					<h2>Chronic Care Management</h2>
-					<p class="sub">Coordinated, non‑face‑to‑face care that keeps residents on track—personalized plans, medication oversight, and consistent follow‑ups.</p>
+					<p class="sub">Coordinated, non‑face‑to‑face care—personalized plans, medication oversight, and consistent follow‑ups.</p>
 					<div class="grid" style="margin-top:var(--space-4)">
 						<div class="card">
 							<div class="icon" aria-hidden="true">
+								<!-- Custom AI icon: Plan -->
 								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-									<path d="M12 2v20M2 12h20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+									<rect x="4" y="5" width="16" height="14" rx="2" stroke="#fff" stroke-width="2"/>
+									<path d="M8 9h8M8 13h5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 								</svg>
 							</div>
 							<strong>Personal plans</strong>
-							<p class="sub" style="margin:.5rem 0 0">Tailored care plans based on individual needs.</p>
+							<p class="sub" style="margin:.5rem 0 0">Tailored to individual needs.</p>
 						</div>
 						<div class="card">
 							<div class="icon" aria-hidden="true">
+								<!-- Custom AI icon: Pills -->
 								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-									<path d="M4 7h16M4 12h10M4 17h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+									<rect x="3" y="10" width="8" height="11" rx="4" stroke="#fff" stroke-width="2"/>
+									<rect x="13" y="3" width="8" height="11" rx="4" stroke="#fff" stroke-width="2"/>
+									<path d="M13 8h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 								</svg>
 							</div>
 							<strong>Medication support</strong>
@@ -213,23 +318,70 @@
 						</div>
 						<div class="card">
 							<div class="icon" aria-hidden="true">
+								<!-- Custom AI icon: Check path -->
 								<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-									<path d="M3 12h4l2 4 4-8 2 4h6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M20 7l-8 8-4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M4 17h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 								</svg>
 							</div>
 							<strong>Fewer escalations</strong>
-							<p class="sub" style="margin:.5rem 0 0">Reduce acute episodes with targeted follow‑ups.</p>
+							<p class="sub" style="margin:.5rem 0 0">Targeted follow‑ups reduce acute episodes.</p>
 						</div>
 					</div>
 				</div>
 				<div class="card">
 					<div class="icon" aria-hidden="true" style="margin-bottom:var(--space-3)">
+						<!-- Custom AI icon: Team bubble -->
 						<svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-							<path d="M20 7l-8 8-4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M8 12a4 4 0 1 1 8 0" stroke="#fff" stroke-width="2"/>
+							<path d="M4 20a6 6 0 0 1 16 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 						</svg>
 					</div>
 					<h3 style="margin-bottom:.5rem">Outcomes that matter</h3>
-					<p class="sub">Better coordination, fewer complications, and a higher quality of life for residents and families.</p>
+					<p class="sub">Better coordination, fewer complications, higher quality of life for residents and families.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="ambient" class="section">
+			<div class="container">
+				<h2 class="center">Advanced Ambient Monitoring</h2>
+				<p class="sub center">Contactless, dignity‑preserving monitoring that augments staff awareness—no wearables, no cameras.</p>
+				<div class="grid" style="margin-top:var(--space-5)">
+					<article class="card">
+						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: UWB radar -->
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/>
+								<path d="M12 12l4-1" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+								<path d="M6 12a6 6 0 0 1 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+							</svg>
+						</div>
+						<h3>Radar technology</h3>
+						<p>Micro‑vibration sensing for continuous heart and respiratory rates, bed presence, movement, and gait insights.</p>
+					</article>
+					<article class="card">
+						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: Brain mesh -->
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<path d="M8.5 5A3.5 3.5 0 0 0 5 8.5V15a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V8.5A3.5 3.5 0 0 0 15.5 5" stroke="#fff" stroke-width="2"/>
+								<path d="M8 12h2l1 2 2-4 1 2h2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
+						<h3>AI/ML analytics</h3>
+						<p>Patterns and risk shifts identified before symptoms—supporting earlier, targeted interventions.</p>
+					</article>
+					<article class="card">
+						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: Dashboard -->
+							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+								<rect x="3" y="4" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/>
+								<path d="M7 8h6M7 12h10M7 16h4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+							</svg>
+						</div>
+						<h3>Care team portal</h3>
+						<p>Real‑time insights, configurable alerts, and reports—privacy‑preserving by design.</p>
+					</article>
 				</div>
 			</div>
 		</section>
@@ -241,9 +393,10 @@
 				<div class="grid" style="margin-top:var(--space-5)">
 					<article class="card center">
 						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: Clock -->
 							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
 								<circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/>
-								<path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+								<path d="M12 7v5l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 							</svg>
 						</div>
 						<h3>Week 1</h3>
@@ -251,8 +404,10 @@
 					</article>
 					<article class="card center">
 						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: Settings -->
 							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-								<path d="M4 7h16M4 12h12M4 17h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+								<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke="#fff" stroke-width="2"/>
+								<path d="M5 9l1-2 2-1 2 1 1-2 2 1 2-1 1 2 2 1-1 2 1 2-2 1-1 2-2-1-1 2-2-1-2 1-1-2-2-1 1-2-1-2 2-1z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</div>
 						<h3>Weeks 2–3</h3>
@@ -260,8 +415,10 @@
 					</article>
 					<article class="card center">
 						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: Training -->
 							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-								<path d="M8 21v-6h8v6M7 9l5-5 5 5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M3 6l9-3 9 3-9 3-9-3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+								<path d="M7 10v5a5 5 0 0 0 10 0v-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
 							</svg>
 						</div>
 						<h3>Weeks 4–5</h3>
@@ -269,6 +426,7 @@
 					</article>
 					<article class="card center">
 						<div class="icon" aria-hidden="true">
+							<!-- Custom AI icon: Check -->
 							<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
 								<path d="M20 7l-8 8-4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
@@ -312,8 +470,9 @@
 
 					<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
 						<div class="icon" aria-hidden="true">
+							<!-- Phone -->
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path d="M22 16.92V21a1 1 0 0 1-1.11 1A19.79 19.79 0 0 1 3 5.11 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.27 1L8.91 10.91a16 16 0 0 0 4.18 4.18l2.16-1.87a1 1 0 0 1 1-.27l3 1a1 1 0 0 1 .75 1z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M22 16.9V21a1 1 0 0 1-1.1 1A19.8 19.8 0 0 1 3 5.1 1 1 0 0 1 4 4h4.1a1 1 0 0 1 1 .7l1 3a1 1 0 0 1-.3 1L9 10.9a16 16 0 0 0 4.2 4.2l2.2-1.9a1 1 0 0 1 1-.3l3 1a1 1 0 0 1 .6 1z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</div>
 						<div>
@@ -324,8 +483,10 @@
 
 					<div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
 						<div class="icon" aria-hidden="true">
+							<!-- Mail -->
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path d="M4 4h16v16H4z" stroke="#fff" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<rect x="4" y="5" width="16" height="14" rx="2" stroke="#fff" stroke-width="2"/>
+								<path d="M4 8l8 6 8-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</div>
 						<div>
@@ -336,6 +497,7 @@
 
 					<div style="display:flex;align-items:center;gap:1rem">
 						<div class="icon" aria-hidden="true">
+							<!-- Coverage -->
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
 								<path d="M12 2l7 7-7 13-7-13 7-7z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
 							</svg>
@@ -350,19 +512,19 @@
 					<div class="grid">
 						<div class="card" style="padding:1rem">
 							<strong>What’s included</strong>
-							<ul class="sub" style="margin-top:.5rem;list-style:none">
-								<li>• Needs assessment</li>
-								<li>• ROI overview</li>
-								<li>• Implementation plan</li>
-								<li>• Billing guidance</li>
+							<ul class="sub" style="margin-top:.5rem">
+								<li>Needs assessment</li>
+								<li>ROI overview</li>
+								<li>Implementation plan</li>
+								<li>Billing guidance</li>
 							</ul>
 						</div>
 						<div class="card" style="padding:1rem">
 							<strong>Security</strong>
-							<ul class="sub" style="margin-top:.5rem;list-style:none">
-								<li>• HIPAA compliant</li>
-								<li>• Encrypted data</li>
-								<li>• Cellular network</li>
+							<ul class="sub" style="margin-top:.5rem">
+								<li>HIPAA compliant</li>
+								<li>Encrypted data</li>
+								<li>Cellular network</li>
 							</ul>
 						</div>
 					</div>
@@ -376,19 +538,20 @@
 		<div class="top">
 			<div class="container grid">
 				<section>
-					<h3 style="color:#21c8ff">Total Remote Care</h3>
-					<p>Proactive RPM and CCM for long‑term care with cellular devices and coordinated support.</p>
+					<h3 style="color:#2b5fa8">Total Remote Care</h3>
+					<p>Proactive RPM and CCM for long‑term care with cellular devices, AI insights, and ambient monitoring.</p>
 				</section>
 				<section>
-					<h3 style="color:#21c8ff">Explore</h3>
+					<h3 style="color:#2b5fa8">Explore</h3>
 					<p><a href="#benefits">Benefits</a></p>
 					<p><a href="#rpm">RPM</a></p>
 					<p><a href="#ccm">CCM</a></p>
+					<p><a href="#ambient">Ambient</a></p>
 					<p><a href="#implementation">Implementation</a></p>
 					<p><a href="#contact">Contact</a></p>
 				</section>
 				<section>
-					<h3 style="color:#21c8ff">Company</h3>
+					<h3 style="color:#2b5fa8">Company</h3>
 					<p><a href="#contact">Privacy</a></p>
 					<p><a href="#contact">HIPAA</a></p>
 				</section>
@@ -400,9 +563,8 @@
 	<script>
 		function handleFormSubmit(e){
 			e.preventDefault();
-			const f=e.target;
-			const btn=f.querySelector('button[type="submit"]');
-			if(!f.name.value || !f.facility.value || !f.email.value){alert('Please fill in required fields.');return false;}
+			const f=e.target, btn=f.querySelector('button[type="submit"]');
+			if(!f.name.value||!f.facility.value||!f.email.value){alert('Please fill in required fields.');return false;}
 			const t=btn.textContent; btn.textContent='Submitting...'; btn.disabled=true;
 			setTimeout(()=>{ alert('Thank you! We will reach out shortly.'); f.reset(); btn.textContent=t; btn.disabled=false; }, 900);
 			return false;
