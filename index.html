@@ -7,25 +7,20 @@
 	<meta name="description" content="Consistent monitoring, early detection, and timely interventions for safer resident care. RPM, CCM, and advanced ambient monitoring for long‑term care.">
 	<style>
 		:root{
-			/* Keep your palette */
 			--bg:#ffffff; --text:#1f2a44; --muted:#5b6b80;
 			--primary:#2f7de1; --primary-300:#8ec5ff; --accent:#66d1ff;
 			--surface:#ffffff; --surface-2:#f5faff; --border:#e6effb;
 
-			/* Rounded + shadow (kept for form only) */
 			--radius:14px; --radius-lg:20px;
 			--shadow:0 8px 30px rgba(27,77,151,.10);
 
-			/* Typography + tighter rhythm */
 			--fs-1:clamp(2rem,3.5vw,2.6rem);
 			--fs-2:clamp(1.2rem,2.2vw,1.6rem);
 			--fs-3:1.03rem;
 			--lh:1.58;
 
-			/* Compact spacing */
 			--space-2:.6rem; --space-3:.9rem; --space-4:1.2rem; --space-5:1.6rem; --space-6:2.2rem; --space-7:3.5rem;
 
-			/* Soft gradients */
 			--grad-hero:linear-gradient(135deg,#f5faff 0%,#eaf4ff 100%);
 			--grad-primary:linear-gradient(135deg,var(--primary-300),var(--primary));
 		}
@@ -38,10 +33,21 @@
 		.section{padding:var(--space-7) 0}
 		.center{text-align:center}
 
-		/* Compact grids without boxes */
+		/* Roomier variants for mid→bottom sections */
+		.section--roomy{padding:calc(var(--space-7)*1.4) 0}
+		.section--alt{background:var(--surface-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+		.section--border{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+		/* Compact/simple grids (text only) */
 		.simple-grid{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 		.feature h3{font-weight:800;letter-spacing:-.2px;margin-bottom:.35rem}
 		.feature p{color:var(--muted)}
+
+		/* Split with media */
+		.split{display:grid;gap:var(--space-5);grid-template-columns:1.05fr .95fr;align-items:center}
+		@media (max-width:980px){.split{grid-template-columns:1fr}}
+		.media-frame{border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#e9f3ff}
+		.media-frame img{display:block;width:100%;height:auto}
 
 		/* Header */
 		header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);box-shadow:0 2px 16px rgba(30,76,154,.07)}
@@ -55,7 +61,7 @@
 		@media (max-width:860px){.menu{display:none}}
 		main{padding-top:64px}
 
-		/* Hero (tightened) */
+		/* Hero */
 		.hero{background:var(--grad-hero);padding:var(--space-7) 0}
 		.hero-inner{display:grid;gap:var(--space-5);grid-template-columns:1.1fr .9fr;align-items:center}
 		@media (max-width:980px){.hero-inner{grid-template-columns:1fr}}
@@ -68,27 +74,24 @@
 		.btn-primary{background:var(--grad-primary);color:#fff}
 		.btn-secondary{background:#fff;color:var(--primary);border:2px solid var(--primary-300)}
 
-		/* Slim stat bar */
+		/* Stats (centered) */
 		.stats{background:linear-gradient(135deg,#eaf4ff,#f5faff);color:#11325b;padding:var(--space-5) 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-		.stats-grid{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:center}
+		.stats-grid{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:center;justify-items:center}
+		.stat{text-align:center}
 		.stat h3{font-size:clamp(1.4rem,3.2vw,2rem);color:#165faa;margin-bottom:.15rem}
 		.stat p{opacity:.85}
 
-		.section h2{font-size:var(--fs-2);font-weight:800;letter-spacing:-.2px;margin-bottom:.6rem}
-		.sub{color:var(--muted);max-width:720px;margin:0 auto}
+		.section h2{font-size:var(--fs-2);font-weight:800;letter-spacing:-.2px;margin-bottom:.6rem;text-align:center}
+		.sub{color:var(--muted);max-width:720px;margin:0 auto;text-align:center}
 
-		/* Split with compact spacing */
-		.split{display:grid;gap:var(--space-4);grid-template-columns:1.1fr .9fr}
-		@media (max-width:980px){.split{grid-template-columns:1fr}}
-
-		/* Only the form keeps a subtle card */
+		/* Form */
 		.form{background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:var(--space-5);border:1px solid var(--border)}
 		label{display:block;font-weight:700;margin-bottom:.4rem}
 		input,select,textarea{width:100%;padding:.75rem .9rem;border-radius:10px;border:2px solid var(--border);background:#f8fbff;font:inherit}
 		input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary-300);box-shadow:0 0 0 3px rgba(56,140,240,.10);background:#fff}
 		textarea{min-height:110px;resize:vertical}
 
-		/* Footer (light + compact) */
+		/* Footer */
 		.footer{background:linear-gradient(135deg,#eaf4ff,#f5faff);color:#36567a;margin-top:var(--space-7);border-top:1px solid var(--border)}
 		.footer .top{padding:var(--space-6) 0}
 		.footer a{color:#2b5fa8;text-decoration:none}
@@ -96,13 +99,6 @@
 		.footer .bottom{border-top:1px solid var(--border);text-align:center;padding:var(--space-4);color:#486a90}
 
 		:focus-visible{outline:3px solid var(--primary-300);outline-offset:2px}
-
-		/* === Centering adjustments === */
-		.stats-grid{justify-items:center;}
-		.stat{text-align:center;}
-		.simple-grid{justify-items:center;}
-		.feature{text-align:center;max-width:640px;margin:0 auto;}
-		.section h2,.section .sub{text-align:center;}
 	</style>
 </head>
 <body>
@@ -154,13 +150,13 @@
 			</div>
 		</section>
 
-		<!-- Benefits -->
-		<section id="benefits" class="section center">
+		<!-- Care that Empowers -->
+		<section id="benefits" class="section section--roomy section--alt">
 			<div class="container">
 				<h2>Care that empowers</h2>
 				<p class="sub">Monitor health, identify risks early, and intervene promptly—reducing complications and hospitalizations.</p>
 
-				<div class="simple-grid" style="margin-top:var(--space-5)">
+				<div class="simple-grid" style="margin-top:var(--space-6)">
 					<div class="feature">
 						<h3>Proactive Care</h3>
 						<p>Earlier detection means fewer emergencies and readmissions.</p>
@@ -177,65 +173,71 @@
 			</div>
 		</section>
 
-		<!-- RPM -->
-		<section class="section">
-			<div class="container simple-grid">
-				<div class="feature">
+		<!-- RPM (text + image) -->
+		<section class="section section--roomy section--border">
+			<div class="container split">
+				<div>
 					<h2>Remote Patient Monitoring</h2>
 					<p class="sub">Daily vitals via cellular devices—no Wi‑Fi or pairing. Data flows securely to your care portal and EHR.</p>
 				</div>
-				<div class="feature">
-					<h3>Why it matters</h3>
-					<p>A continuous view helps prioritize care and reduce hospitalizations.</p>
-				</div>
+				<figure class="media-frame" aria-label="RPM vitals collection">
+					<img src="stock-rpm.jpg" alt="Clinician collecting vital signs with connected device" loading="lazy" width="880" height="620">
+				</figure>
 			</div>
 		</section>
 
-		<!-- CCM -->
-		<section class="section">
-			<div class="container simple-grid">
-				<div class="feature">
+		<!-- RPM outcome -->
+		<section class="section section--roomy section--alt">
+			<div class="container">
+				<h2>Why it matters</h2>
+				<p class="sub">A continuous view helps prioritize care and reduce hospitalizations.</p>
+			</div>
+		</section>
+
+		<!-- CCM (image + text) -->
+		<section class="section section--roomy section--border">
+			<div class="container split">
+				<figure class="media-frame" aria-label="Care coordination">
+					<img src="stock-ccm.jpg" alt="Care team coordinating plans for residents" loading="lazy" width="880" height="620">
+				</figure>
+				<div>
 					<h2>Chronic Care Management</h2>
 					<p class="sub">Coordinated, non‑face‑to‑face care—personalized plans, medication oversight, and consistent follow‑ups.</p>
 				</div>
-				<div class="feature">
-					<h3>Outcomes that matter</h3>
-					<p>Better coordination, fewer complications, higher quality of life.</p>
-				</div>
 			</div>
 		</section>
 
-		<!-- Ambient -->
-		<section class="section">
+		<!-- CCM outcome -->
+		<section class="section section--roomy section--alt">
 			<div class="container">
-				<h2 class="center">Advanced Ambient Monitoring</h2>
-				<p class="sub center">Contactless, dignity‑preserving—no wearables, no cameras.</p>
-				<div class="simple-grid" style="margin-top:var(--space-5)">
-					<div class="feature">
-						<h3>Radar technology</h3>
-						<p>Micro‑vibration sensing for continuous heart and respiratory rates, bed presence, movement, and gait insights.</p>
-					</div>
-					<div class="feature">
-						<h3>AI/ML analytics</h3>
-						<p>Patterns and risk shifts identified before symptoms—supporting earlier, targeted interventions.</p>
-					</div>
-					<div class="feature">
-						<h3>Care team portal</h3>
-						<p>Real‑time insights, configurable alerts, and reports—privacy‑preserving by design.</p>
-					</div>
+				<h2>Outcomes that matter</h2>
+				<p class="sub">Better coordination, fewer complications, higher quality of life.</p>
+			</div>
+		</section>
+
+		<!-- Ambient (text + image) -->
+		<section class="section section--roomy section--border">
+			<div class="container split">
+				<div>
+					<h2>Advanced Ambient Monitoring</h2>
+					<p class="sub">Contactless, dignity‑preserving—no wearables, no cameras.</p>
 				</div>
+				<figure class="media-frame" aria-label="Ambient radar monitoring">
+					<img src="stock-ambient.jpg" alt="Non-contact radar sensing in resident room" loading="lazy" width="880" height="620">
+				</figure>
 			</div>
 		</section>
 
 		<!-- Implementation -->
-		<section class="section">
+		<section class="section section--roomy section--alt">
 			<div class="container">
-				<h2 class="center">Implementation: 4–6 weeks</h2>
-				<p class="sub center">White‑glove launch with minimal disruption. We guide your team from kickoff to go‑live.</p>
+				<h2>Implementation: 4–6 weeks</h2>
+				<p class="sub">White‑glove launch with minimal disruption. We guide your team from kickoff to go‑live.</p>
 			</div>
 		</section>
 
-		<section id="contact" class="section">
+		<!-- Contact -->
+		<section id="contact" class="section section--roomy section--border">
 			<div class="container split">
 				<div>
 					<h2>Get in touch</h2>
@@ -265,14 +267,14 @@
 					</form>
 				</div>
 				<div>
-					<h3 style="margin-bottom:.35rem">Contact</h3>
-					<p class="sub">We respond within one business day.</p>
+					<h3 style="margin-bottom:.35rem;text-align:center">Contact</h3>
+					<p class="sub" style="text-align:center">We respond within one business day.</p>
 					<div style="height:var(--space-4)"></div>
-					<p><strong>+1 305-733-1404</strong><br><span class="sub">24/7 availability</span></p>
+					<p style="text-align:center"><strong>+1 305-733-1404</strong><br><span class="sub">24/7 availability</span></p>
 					<div style="height:var(--space-3)"></div>
-					<p><strong>info@totalremotecare.com</strong><br><span class="sub">2‑hour response</span></p>
+					<p style="text-align:center"><strong>info@totalremotecare.com</strong><br><span class="sub">2‑hour response</span></p>
 					<div style="height:var(--space-3)"></div>
-					<p><strong>Nationwide coverage</strong><br><span class="sub">All 50 states</span></p>
+					<p style="text-align:center"><strong>Nationwide coverage</strong><br><span class="sub">All 50 states</span></p>
 				</div>
 			</div>
 		</section>
