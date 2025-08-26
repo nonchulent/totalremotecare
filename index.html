@@ -374,6 +374,12 @@
             color: white;
         }
 
+        .solution-icon svg {
+            width: 45px;
+            height: 45px;
+            fill: white;
+        }
+
         .solution-card h3 {
             font-size: 1.8rem;
             color: #2c3e50;
@@ -630,6 +636,12 @@
             flex-shrink: 0;
         }
 
+        .tech-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
         .tech-visual {
             background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%);
             padding: 3rem;
@@ -675,6 +687,12 @@
             font-size: 1.8rem;
         }
 
+        .device-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
         /* Support Section */
         .support-grid {
             display: grid;
@@ -708,6 +726,12 @@
             margin: 0 auto 2rem;
             color: white;
             font-size: 2rem;
+        }
+
+        .support-icon svg {
+            width: 45px;
+            height: 45px;
+            fill: white;
         }
 
         .support-card h3 {
@@ -816,6 +840,12 @@
             color: white;
             font-size: 1.3rem;
             flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
         }
 
         /* Footer */
@@ -1018,7 +1048,7 @@
         <section class="stats-banner">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>8-12</h3>
+                    <h3>4-6</h3>
                     <p>Week Implementation</p>
                 </div>
                 <div class="stat-item">
@@ -1043,17 +1073,32 @@
                 
                 <div class="solutions-grid">
                     <div class="solution-card">
-                        <div class="solution-icon">📊</div>
+                        <div class="solution-icon">
+                            <!-- Chart Icon for Demographics -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 13h2v8H3zm4-8h2v16H7zm4-2h2v18h-2zm4 4h2v14h-2zm4-4h2v18h-2z"/>
+                            </svg>
+                        </div>
                         <h3>Demographic Pressure</h3>
                         <p>10,000 Americans turn 65 daily, creating an unprecedented surge in demand for senior care services and specialized monitoring.</p>
                     </div>
                     <div class="solution-card">
-                        <div class="solution-icon">🏥</div>
+                        <div class="solution-icon">
+                            <!-- Medical Cross Icon for Complex Care -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
+                            </svg>
+                        </div>
                         <h3>Complex Care Needs</h3>
                         <p>85% of seniors have at least one chronic illness, with 68% having two or more conditions requiring continuous comprehensive management.</p>
                     </div>
                     <div class="solution-card">
-                        <div class="solution-icon">👥</div>
+                        <div class="solution-icon">
+                            <!-- Nurse/Staff Icon -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+                            </svg>
+                        </div>
                         <h3>Staffing Crisis</h3>
                         <p>1.2 million direct care worker deficit projected by 2030, requiring technology solutions to augment human care capabilities.</p>
                     </div>
@@ -1079,7 +1124,12 @@
                 
                 <div class="solutions-grid">
                     <div class="solution-card">
-                        <div class="solution-icon">📱</div>
+                        <div class="solution-icon">
+                            <!-- Tablet/Device Icon for RPM -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 0H6C4.34 0 3 1.34 3 3v18c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3-3V3c0-1.66-1.34-3-3-3zm-6 22c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm7-4H5V4h14v14z"/>
+                            </svg>
+                        </div>
                         <h3>Remote Patient Monitoring (RPM)</h3>
                         <p>Continuous collection of physiological data using cellular-enabled devices that transmit instantly without WiFi, hubs, or pairing requirements.</p>
                         <ul class="solution-features">
@@ -1092,7 +1142,12 @@
                     </div>
                     
                     <div class="solution-card">
-                        <div class="solution-icon">🏥</div>
+                        <div class="solution-icon">
+                            <!-- Clipboard/Medical Chart Icon for CCM -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
                         <h3>Chronic Care Management (CCM)</h3>
                         <p>Comprehensive non-face-to-face management for residents with 2+ chronic conditions, fully reimbursable by CMS.</p>
                         <ul class="solution-features">
@@ -1105,7 +1160,12 @@
                     </div>
                     
                     <div class="solution-card">
-                        <div class="solution-icon">🔮</div>
+                        <div class="solution-icon">
+                            <!-- Radar/Sensor Icon for Ambient Sensing -->
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><circle cx="12" cy="12" r="3"/><path d="M12 6c-.55 0-1 .45-1 1s.45 1 1 1c2.21 0 4 1.79 4 4 0 .55.45 1 1 1s1-.45 1-1c0-3.31-2.69-6-6-6z"/>
+                            </svg>
+                        </div>
                         <h3>Ambient Sensing Technology</h3>
                         <p>Revolutionary contactless monitoring using advanced radar and AI technology for continuous, dignity-preserving care.</p>
                         <ul class="solution-features">
@@ -1213,21 +1273,36 @@
                         <p>Your dedicated Clinical Account Manager serves as your single point of contact throughout implementation and beyond. Our managers are experienced nurses who understand your clinical environment and speak your language.</p>
                         <ul class="tech-list">
                             <li>
-                                <div class="tech-icon">👩‍⚕️</div>
+                                <div class="tech-icon">
+                                    <!-- Nurse Icon -->
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c2.7 0 5.8 1.29 6 2v5h-2v-5c-.2-.71-3.3-2-6-2s-5.8 1.29-6 2v5H2v-5c.2-.71 3.3-2 6-2z"/>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Expert Guidance</strong><br>
                                     Best practice recommendations from experienced clinicians
                                 </div>
                             </li>
                             <li>
-                                <div class="tech-icon">📊</div>
+                                <div class="tech-icon">
+                                    <!-- Dashboard Icon -->
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Success Planning</strong><br>
                                     Customized implementation tailored to your needs
                                 </div>
                             </li>
                             <li>
-                                <div class="tech-icon">🎯</div>
+                                <div class="tech-icon">
+                                    <!-- Target Icon -->
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="2"/>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Ongoing Support</strong><br>
                                     Continuous optimization and troubleshooting
@@ -1240,22 +1315,42 @@
                             <h3 style="color: #6c7ae0; margin-bottom: 2rem;">Logistics Support</h3>
                             <div class="device-showcase">
                                 <div class="device-item">
-                                    <div class="device-icon">📦</div>
+                                    <div class="device-icon">
+                                        <!-- Box Icon -->
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
+                                        </svg>
+                                    </div>
                                     <strong>FDA-Registered Distribution</strong>
                                     <p style="font-size: 0.9rem; color: #5a6c7d; margin-top: 0.5rem;">Joint Commission Accredited facility</p>
                                 </div>
                                 <div class="device-item">
-                                    <div class="device-icon">🚚</div>
+                                    <div class="device-icon">
+                                        <!-- Truck Icon -->
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                                        </svg>
+                                    </div>
                                     <strong>Same-Day Shipping</strong>
                                     <p style="font-size: 0.9rem; color: #5a6c7d; margin-top: 0.5rem;">99% on-time delivery rate</p>
                                 </div>
                                 <div class="device-item">
-                                    <div class="device-icon">🔄</div>
+                                    <div class="device-icon">
+                                        <!-- Refresh Icon -->
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+                                        </svg>
+                                    </div>
                                     <strong>Auto-Replenishment</strong>
                                     <p style="font-size: 0.9rem; color: #5a6c7d; margin-top: 0.5rem;">Automated supply management</p>
                                 </div>
                                 <div class="device-item">
-                                    <div class="device-icon">📞</div>
+                                    <div class="device-icon">
+                                        <!-- Phone Support Icon -->
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1.01C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+                                        </svg>
+                                    </div>
                                     <strong>24/7 Technical Support</strong>
                                     <p style="font-size: 0.9rem; color: #5a6c7d; margin-top: 0.5rem;">Always available assistance</p>
                                 </div>
@@ -1288,347 +1383,43 @@
                         <p>Our proprietary cellular-enabled devices eliminate common connectivity issues, ensuring 99.9% uptime and instant data transmission.</p>
                         <ul class="tech-list">
                             <li>
-                                <div class="tech-icon">📡</div>
+                                <div class="tech-icon">
+                                    <!-- Signal Icon -->
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 9l2-2v8l-2-2v-4zm3-3l2-2v14l-2-2V6zm3-3l2-2v20l-2-2V3zm3 0l2-2v20l-2-2V3zm3 3l2-2v14l-2-2V6zm3 3l2-2v8l-2-2v-4zm3 3l2-2v2l-2 2v-2z"/>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Private Data Network</strong><br>
                                     Exclusive AT&T LTE-M network with multi-carrier SIM technology
                                 </div>
                             </li>
                             <li>
-                                <div class="tech-icon">🔒</div>
+                                <div class="tech-icon">
+                                    <!-- Lock Icon -->
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Multi-Layer Security</strong><br>
                                     End-to-end encryption with HIPAA-compliant infrastructure
                                 </div>
                             </li>
                             <li>
-                                <div class="tech-icon">⚡</div>
+                                <div class="tech-icon">
+                                    <!-- Lightning Icon -->
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                                    </svg>
+                                </div>
                                 <div>
                                     <strong>Instant Transmission</strong><br>
                                     No WiFi, Bluetooth, or manual syncing required
                                 </div>
                             </li>
                             <li>
-                                <div class="tech-icon">🔧</div>
-                                <div>
-                                    <strong>Zero Configuration</strong><br>
-                                    Plug-and-play devices with automatic activation
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tech-visual">
-                        <div style="text-align: center;">
-                            <h3 style="color: #6c7ae0; margin-bottom: 2rem;">Device Portfolio</h3>
-                            <div class="device-showcase">
-                                <div class="device-item">
-                                    <div class="device-icon">💉</div>
-                                    <strong>iGlucose®</strong>
-                                    <p style="font-size: 0.9rem; color: #5a6c7d; margin-top: 0.5rem;">Cellular glucose monitoring</p>
-                                </div>
-                                <div class="device-item">
-                                    <div class="device-icon">❤️</div>
-                                    <strong>iBloodPressure®</strong>
-                                    <p style="font-size: 0.9rem; color: #5a6c7d; margin-top: 0.5rem;">Voice-assisted BP monitoring</p>
-                                </div>
-                                <div class="device-item">
-                                    <div class="device-icon">⚖️</div>
-                                    <strong>iScale®</strong>
-                                    <p style="font-size: 0.9rem; color: #5a6c7d; margin-top: 0.5rem;">High-capacity weight scale</p>
-                                </div>
-                                <div class="device-item">
-                                    <div class="device-icon">💨</div>
-                                    <strong>iPulseOx®</strong>
-                                    <p style="font-size: 0.9rem; color: #5a6c7d; margin-top: 0.5rem;">Oxygen saturation monitoring</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 4rem;">
-                    <h3 style="text-align: center; font-size: 2rem; color: #2c3e50; margin-bottom: 3rem;">Advanced Ambient Monitoring</h3>
-                    <div class="solutions-grid">
-                        <div class="solution-card">
-                            <div class="solution-icon">📡</div>
-                            <h3>Radar Technology</h3>
-                            <p>Ultra-wideband radar detects micro-vibrations to monitor vital signs without any contact or wearables.</p>
-                            <ul class="solution-features">
-                                <li>Continuous heart rate monitoring</li>
-                                <li>Respiratory rate tracking</li>
-                                <li>Movement and gait analysis</li>
-                                <li>Bed presence detection</li>
-                            </ul>
-                        </div>
-                        <div class="solution-card">
-                            <div class="solution-icon">🤖</div>
-                            <h3>AI/ML Analytics</h3>
-                            <p>Machine learning algorithms identify patterns and predict health events before symptoms appear.</p>
-                            <ul class="solution-features">
-                                <li>Fall prediction algorithms</li>
-                                <li>Deterioration early warning</li>
-                                <li>Behavioral pattern analysis</li>
-                                <li>Predictive risk scoring</li>
-                            </ul>
-                        </div>
-                        <div class="solution-card">
-                            <div class="solution-icon">📊</div>
-                            <h3>Care Team Portal</h3>
-                            <p>FDA 510(k) cleared platform providing real-time insights and actionable intelligence.</p>
-                            <ul class="solution-features">
-                                <li>Customizable dashboards</li>
-                                <li>Automated alerts and escalation</li>
-                                <li>EHR/EMR integration</li>
-                                <li>Comprehensive reporting suite</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Support Page -->
-    <div id="support" class="page">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Comprehensive Support & Training</h1>
-                <div class="hero-tagline">24/7 Assistance • Online University • Dedicated Success Team</div>
-                <p>From implementation through ongoing operations, our support ecosystem ensures your success with continuous education, technical assistance, and clinical guidance.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Support Services</h2>
-                <p class="section-subtitle">Everything you need to succeed, available when you need it</p>
-                
-                <div class="support-grid">
-                    <div class="support-card">
-                        <div class="support-icon">🎓</div>
-                        <h3>TRC University</h3>
-                        <p>24/7 access to our comprehensive online learning platform with role-based training modules, certification programs, and ongoing education.</p>
-                    </div>
-                    <div class="support-card">
-                        <div class="support-icon">👩‍⚕️</div>
-                        <h3>Clinical Support</h3>
-                        <p>Experienced nurses available for clinical consultations, best practice guidance, and care protocol optimization.</p>
-                    </div>
-                    <div class="support-card">
-                        <div class="support-icon">🔧</div>
-                        <h3>Technical Support</h3>
-                        <p>Tier 1 and Tier 2 support available 24/7 for device troubleshooting, platform assistance, and integration support.</p>
-                    </div>
-                    <div class="support-card">
-                        <div class="support-icon">📚</div>
-                        <h3>Training Programs</h3>
-                        <p>Customizable training including train-the-trainer programs, on-site education, and virtual workshops.</p>
-                    </div>
-                    <div class="support-card">
-                        <div class="support-icon">📈</div>
-                        <h3>Success Management</h3>
-                        <p>Dedicated success managers providing quarterly business reviews, optimization recommendations, and growth strategies.</p>
-                    </div>
-                    <div class="support-card">
-                        <div class="support-icon">📋</div>
-                        <h3>Compliance Support</h3>
-                        <p>CMS billing guidance, documentation templates, and regulatory compliance assistance for maximum reimbursement.</p>
-                    </div>
-                </div>
-
-                <div style="margin-top: 4rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 3rem; border-radius: 20px;">
-                    <h3 style="text-align: center; font-size: 2rem; color: #2c3e50; margin-bottom: 2rem;">Educational Resources</h3>
-                    <div class="tech-features">
-                        <div class="tech-content">
-                            <h4 style="color: #6c7ae0; margin-bottom: 1rem;">Available Training Modules</h4>
-                            <ul style="list-style: none; color: #5a6c7d; line-height: 2;">
-                                <li>✓ RPM Fundamentals and Best Practices</li>
-                                <li>✓ CCM Program Implementation</li>
-                                <li>✓ Device Operation and Troubleshooting</li>
-                                <li>✓ Care Portal Navigation</li>
-                                <li>✓ Data Interpretation and Action Plans</li>
-                                <li>✓ CMS Billing and Documentation</li>
-                                <li>✓ Quality Improvement Strategies</li>
-                                <li>✓ Patient Engagement Techniques</li>
-                            </ul>
-                        </div>
-                        <div class="tech-content">
-                            <h4 style="color: #6c7ae0; margin-bottom: 1rem;">Support Availability</h4>
-                            <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
-                                <p style="margin-bottom: 1rem;"><strong>Technical Support:</strong><br>24/7/365 availability</p>
-                                <p style="margin-bottom: 1rem;"><strong>Clinical Support:</strong><br>Monday-Friday, 7 AM - 7 PM CT<br>Weekend coverage available</p>
-                                <p style="margin-bottom: 1rem;"><strong>Training Sessions:</strong><br>Scheduled weekly with on-demand access</p>
-                                <p><strong>Emergency Response:</strong><br>Critical issues resolved within 1 hour</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Contact Page -->
-    <div id="contact" class="page">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Start Your Transformation Today</h1>
-                <div class="hero-tagline">Join Leading Facilities Nationwide</div>
-                <p>Ready to improve outcomes, reduce costs, and unlock new revenue? Let's discuss how our solutions can transform your facility.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Get Started</h2>
-                <p class="section-subtitle">Schedule a personalized consultation with our senior care experts</p>
-                
-                <div class="contact-content">
-                    <div class="contact-form">
-                        <h3>Request Consultation</h3>
-                        <form onsubmit="handleFormSubmit(event)">
-                            <div class="form-group">
-                                <label for="name">Your Name *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="title">Title/Role</label>
-                                <input type="text" id="title" name="title">
-                            </div>
-                            <div class="form-group">
-                                <label for="facility">Facility Name *</label>
-                                <input type="text" id="facility" name="facility" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="facility-type">Facility Type</label>
-                                <select id="facility-type" name="facility-type">
-                                    <option value="">Select Type</option>
-                                    <option value="snf">Skilled Nursing Facility</option>
-                                    <option value="assisted">Assisted Living</option>
-                                    <option value="memory">Memory Care</option>
-                                    <option value="ccrc">CCRC</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="beds">Number of Beds</label>
-                                <input type="number" id="beds" name="beds" placeholder="e.g., 120">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="interest">Areas of Interest</label>
-                                <select id="interest" name="interest">
-                                    <option value="">Select Primary Interest</option>
-                                    <option value="rpm">Remote Patient Monitoring</option>
-                                    <option value="ccm">Chronic Care Management</option>
-                                    <option value="ambient">Ambient Sensing</option>
-                                    <option value="all">Complete Solution</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="timeline">Implementation Timeline</label>
-                                <select id="timeline" name="timeline">
-                                    <option value="">Select Timeline</option>
-                                    <option value="immediate">Immediate (< 30 days)</option>
-                                    <option value="quarter">This Quarter</option>
-                                    <option value="6months">Within 6 Months</option>
-                                    <option value="exploring">Just Exploring</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Tell us about your challenges</label>
-                                <textarea id="message" name="message" placeholder="What challenges are you facing with resident care, staffing, or compliance?"></textarea>
-                            </div>
-                            <button type="submit" class="btn-primary" style="width: 100%;">Schedule Consultation</button>
-                        </form>
-                    </div>
-                    
-                    <div class="contact-info">
-                        <h3>Connect With Us</h3>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div>
-                                <strong>Phone</strong><br>
-                                +1 305-733-1404<br>
-                                <small>Available 24/7</small>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div>
-                                <strong>Email</strong><br>
-                                info@totalremotecare.com<br>
-                                <small>Response within 2 hours</small>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div>
-                                <strong>Coverage</strong><br>
-                                Serving facilities nationwide<br>
-                                <small>All 50 states</small>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🏢</div>
-                            <div>
-                                <strong>Headquarters</strong><br>
-                                Healthcare Innovation Center<br>
-                                <small>Miami, FL</small>
-                            </div>
-                        </div>
-                        
-                        <div style="background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
-                            <h4 style="color: #2c3e50; margin-bottom: 1rem;">What's Included:</h4>
-                            <ul style="list-style: none; color: #5a6c7d; line-height: 2;">
-                                <li>✓ Comprehensive needs assessment</li>
-                                <li>✓ ROI analysis and projections</li>
-                                <li>✓ Custom implementation plan</li>
-                                <li>✓ Device demonstrations</li>
-                                <li>✓ Billing & reimbursement guidance</li>
-                                <li>✓ Staff training overview</li>
-                                <li>✓ Integration requirements review</li>
-                                <li>✓ Success metrics framework</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Total Remote Care</h3>
-                <p>Transforming senior care through innovative RPM and CCM solutions with ambient sensing technology.</p>
-                <p style="margin-top: 1rem;">Partnered with leading technology providers including AT&T for secure cellular connectivity.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Solutions</h3>
-                <p><a href="javascript:void(0)" onclick="return showPage('solutions', event)">Remote Patient Monitoring</a></p>
-                <p><a href="javascript:void(0)" onclick="return showPage('solutions', event)">Chronic Care Management</a></p>
-                <p><a href="javascript:void(0)" onclick="return showPage('technology', event)">Ambient Sensing</a></p>
-                <p><a href="javascript:void(0)" onclick="return showPage('technology', event)">Cellular RPM Devices</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <p><a href="javascript:void(0)" onclick="return showPage('implementation', event)">Implementation Process</a></p>
-                <p><a href="javascript:void(0)" onclick="return showPage('support', event)">Training & Support</a></p>
-                <p><a href="javascript:void(0)" onclick="return showPage('technology', event)">Technology Platform</a></p>
-                <p><a href="javascript:void(0)" onclick="return showPage('contact', event)">Contact Us</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>Company</h3>
-                <p><a href="javascript:void(0)" onclick="return showPage('home', event)">About Us</a></p>
-                <p><a href="javascript:void(0)" onclick="return showPage('contact', event)">Get Started</a></p>
-                <p><a href="javascript:void(0)">Privacy Policy</a></p>
-                <p><a href="javascript:void(0)">HIPAA Compliance</a></p>
-            </div>
+                                <div class="tech-icon">
+                                    <!-- Settings Icon -->
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.
