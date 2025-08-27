@@ -1,5 +1,3 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Total Remote Care - Transforming Senior Care Through RPM & CCM</title> <style> * { margin: 0; padding:
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -410,7 +408,7 @@
             font-size: 1.2rem;
         }
 
-        /* Enhanced Arrow Process Diagram */
+        /* Implementation Timeline */
         .timeline {
             max-width: 1200px;
             margin: 4rem auto 0;
@@ -433,146 +431,130 @@
             padding: 2rem 0;
         }
 
+        .timeline-line {
+            position: absolute;
+            top: 90px;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #6c7ae0 0%, #00d4ff 100%);
+            z-index: 1;
+        }
+
         .timeline-phases {
             display: flex;
-            align-items: center;
+            justify-content: space-between;
             position: relative;
             z-index: 2;
             flex-wrap: wrap;
-            gap: 0;
-            justify-content: center;
+            gap: 2rem;
         }
 
         .phase-card {
-            position: relative;
-            min-width: 280px;
-            height: 120px;
-            display: flex;
-            align-items: center;
+            flex: 1;
+            min-width: 180px;
+            max-width: 200px;
+            background: white;
             padding: 1.5rem;
-            color: white;
-            font-weight: 600;
-            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
             transition: all 0.3s ease;
-            margin-right: -20px;
-        }
-
-        .phase-card:first-child {
-            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%);
-        }
-
-        .phase-card:last-child {
-            clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 50%);
-            margin-right: 0;
+            position: relative;
         }
 
         .phase-card:hover {
-            transform: scale(1.05);
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        /* Phase Colors */
-        .phase-card:nth-child(1) {
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-        }
-
-        .phase-card:nth-child(2) {
-            background: linear-gradient(135deg, #50c878 0%, #3da35a 100%);
-        }
-
-        .phase-card:nth-child(3) {
-            background: linear-gradient(135deg, #7cb342 0%, #5a8a32 100%);
-        }
-
-        .phase-card:nth-child(4) {
-            background: linear-gradient(135deg, #ffa726 0%, #e68900 100%);
-        }
-
-        .phase-content {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            width: 100%;
+        .phase-card:hover .phase-number {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(108, 122, 224, 0.4);
         }
 
         .phase-number {
-            background: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, #6c7ae0 0%, #405189 100%);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(108, 122, 224, 0.3);
             transition: all 0.3s ease;
-            flex-shrink: 0;
+            position: relative;
         }
 
-        .phase-info {
-            flex: 1;
+        .phase-card::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 85px;
+            color: #6c7ae0;
+            font-size: 2rem;
+            font-weight: bold;
+            z-index: 3;
+        }
+
+        .phase-card:last-child::after {
+            display: none;
         }
 
         .phase-duration {
-            background: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, #00d4ff 0%, #3498db 100%);
             color: white;
-            padding: 0.2rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 600;
             display: inline-block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .phase-info h4 {
-            color: white;
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            font-weight: 700;
+        .phase-card h4 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
         }
 
-        .phase-info p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.4;
-            font-size: 0.85rem;
+        .phase-card p {
+            color: #5a6c7d;
+            line-height: 1.5;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 1200px) {
             .timeline-phases {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                margin: 0 2rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
             }
             
-            .phase-card {
-                clip-path: none;
-                border-radius: 15px;
-                margin-right: 0;
-                min-width: auto;
-                height: auto;
-                padding: 2rem;
+            .phase-card::after {
+                display: none;
             }
             
-            .phase-card:first-child,
-            .phase-card:last-child {
-                clip-path: none;
-                border-radius: 15px;
+            .timeline-line {
+                display: none;
             }
         }
 
         @media (max-width: 768px) {
             .timeline-phases {
-                grid-template-columns: 1fr;
-                margin: 0 1rem;
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .phase-card {
-                min-width: auto;
-                height: auto;
+        }
+
+        @media (max-width: 480px) {
+            .timeline-phases {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1151,7 +1133,7 @@
     <div id="implementation" class="page">
         <section class="hero">
             <div class="hero-content">
-                <h1>Seamless 4-6 Week Implementation</h1>
+                <h1>Seamless 8-12 Week Implementation</h1>
                 <div class="hero-tagline">White-Glove Service • Zero Disruption • Proven Methodology</div>
                 <p>Our experienced team guides you through every step, from initial assessment to go-live and beyond, ensuring success at every milestone.</p>
             </div>
@@ -1163,48 +1145,36 @@
                 <p class="section-subtitle">A proven approach developed through hundreds of successful deployments</p>
                 
                 <div class="timeline">
-                    <div class="timeline-container">
-                        <div class="timeline-phases">
-                            <div class="phase-card">
-                                <div class="phase-content">
-                                    <div class="phase-number">1</div>
-                                    <div class="phase-info">
-                                        <div class="phase-duration">Week 1</div>
-                                        <h4>Discovery & Planning</h4>
-                                        <p>Project kickoff, stakeholder alignment, success criteria definition, and infrastructure assessment.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-content">
-                                    <div class="phase-number">2</div>
-                                    <div class="phase-info">
-                                        <div class="phase-duration">Week 2-3</div>
-                                        <h4>System Configuration</h4>
-                                        <p>Platform customization, EHR integration, workflow design, and device procurement.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-content">
-                                    <div class="phase-number">3</div>
-                                    <div class="phase-info">
-                                        <div class="phase-duration">Week 4-5</div>
-                                        <h4>Installation & Training</h4>
-                                        <p>Device deployment, sensor installation, staff training via our online university, and system testing.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-content">
-                                    <div class="phase-number">4</div>
-                                    <div class="phase-info">
-                                        <div class="phase-duration">Week 6</div>
-                                        <h4>Go Live!</h4>
-                                        <p>Facility-wide launch, ongoing support activation, and success metrics tracking.</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="timeline-phases">
+                        <div class="phase-card">
+                            <div class="phase-week">W1-2</div>
+                            <h4>Discovery & Planning</h4>
+                            <p>Project kickoff, stakeholder alignment, success criteria definition, and infrastructure assessment.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="phase-week">W3-4</div>
+                            <h4>System Configuration</h4>
+                            <p>Platform customization, EHR integration, workflow design, and device procurement.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="phase-week">W5-6</div>
+                            <h4>Installation & Setup</h4>
+                            <p>Device deployment, sensor installation, network configuration, and system testing.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="phase-week">W7-8</div>
+                            <h4>Staff Training</h4>
+                            <p>Comprehensive training via our online university, role-based education, and certification.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="phase-week">W9-10</div>
+                            <h4>Pilot Program</h4>
+                            <p>Limited rollout with select residents, workflow refinement, and performance monitoring.</p>
+                        </div>
+                        <div class="phase-card">
+                            <div class="phase-week">W11-12</div>
+                            <h4>Full Deployment</h4>
+                            <p>Facility-wide launch, ongoing support activation, and success metrics tracking.</p>
                         </div>
                     </div>
                 </div>
@@ -1557,7 +1527,7 @@
                             <div class="contact-icon">📞</div>
                             <div>
                                 <strong>Phone</strong><br>
-                                +1 305-733-1404<br>
+                                (555) 123-CARE (2273)<br>
                                 <small>Available 24/7</small>
                             </div>
                         </div>
@@ -1565,7 +1535,7 @@
                             <div class="contact-icon">✉️</div>
                             <div>
                                 <strong>Email</strong><br>
-                                info@totalremotecare.com<br>
+                                solutions@totalremotecare.com<br>
                                 <small>Response within 2 hours</small>
                             </div>
                         </div>
@@ -1582,7 +1552,7 @@
                             <div>
                                 <strong>Headquarters</strong><br>
                                 Healthcare Innovation Center<br>
-                                <small>Miami, FL</small>
+                                <small>Dallas, TX</small>
                             </div>
                         </div>
                         
@@ -1634,3 +1604,4 @@
                 <p><a href="javascript:void(0)">Privacy Policy</a></p>
                 <p><a href="javascript:void(0)">HIPAA Compliance</a></p>
             </div>
+            
