@@ -713,79 +713,85 @@
         </footer>
     </div>
 
-    <script>
-        // Page navigation function - FIXED VERSION
-        function showPage(pageId, event) {
-            if (event) {
-                event.preventDefault();
-            }
-            
-            console.log('Switching to page:', pageId); // Debug line
-            
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.style.display = 'none';
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            const selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.style.display = 'block';
-                selectedPage.classList.add('active');
-                console.log('Page displayed:', pageId); // Debug line
-            } else {
-                console.error('Page not found:', pageId); // Debug line
-            }
-            
-            // Update navigation active state
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Find and activate the corresponding nav link
-            const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-            
-            return false;
+<script>
+    // Page navigation function - COMPLETELY FIXED VERSION
+    function showPage(pageId, event) {
+        if (event) {
+            event.preventDefault();
         }
         
-        // Form submission handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            const form = event.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data.name || !data.facility || !data.email) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Simulate form submission
-            const button = form.querySelector('button[type="submit"]');
-            const originalText = button.textContent;
-            button.textContent = 'Submitting...';
-            button.disabled = true;
-            
-            setTimeout(() => {
-                alert('Thank you for your interest! Our team will contact you within 24 hours to schedule your consultation.');
-                form.reset();
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 1500);
-            
-            return false;
+        console.log('Switching to page:', pageId);
+        
+        // First, hide all pages using both methods
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => {
+            page.style.display = 'none';
+            page.classList.remove('active');
+        });
+        
+        // Show the selected page using both methods
+        const selectedPage = document.getElementById(pageId);
+        if (selectedPage) {
+            selectedPage.style.display = 'block';
+            selectedPage.classList.add('active');
+            console.log('Page displayed:', pageId);
+        } else {
+            console.error('Page not found:', pageId);
         }
-    </script>
+        
+        // Update navigation active state
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Find and activate the corresponding nav link
+        const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+        
+        return false;
+    }
+    
+    // Form submission handler
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Simple validation
+        if (!data.name || !data.facility || !data.email) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        
+        // Simulate form submission
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        button.textContent = 'Submitting...';
+        button.disabled = true;
+        
+        setTimeout(() => {
+            alert('Thank you for your interest! Our team will contact you within 24 hours to schedule your consultation.');
+            form.reset();
+            button.textContent = originalText;
+            button.disabled = false;
+        }, 1500);
+        
+        return false;
+    }
+    
+    // Initialize the page on load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure home page is visible on load
+        showPage('home');
+    });
+</script>
 </body>
 </html> 
