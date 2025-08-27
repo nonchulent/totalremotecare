@@ -150,7 +150,7 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo-container" onclick="showPage('home')">
+            <div class="logo-container">
                 <div class="logo-image">TRC</div>
                 <div class="logo-text">
                     <div class="logo-title">Total Remote Care</div>
@@ -714,22 +714,29 @@
     </div>
 
     <script>
-        // Page navigation function
+        // Page navigation function - FIXED VERSION
         function showPage(pageId, event) {
             if (event) {
                 event.preventDefault();
             }
             
+            console.log('Switching to page:', pageId); // Debug line
+            
             // Hide all pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => {
+                page.style.display = 'none';
                 page.classList.remove('active');
             });
             
             // Show selected page
             const selectedPage = document.getElementById(pageId);
             if (selectedPage) {
+                selectedPage.style.display = 'block';
                 selectedPage.classList.add('active');
+                console.log('Page displayed:', pageId); // Debug line
+            } else {
+                console.error('Page not found:', pageId); // Debug line
             }
             
             // Update navigation active state
@@ -781,4 +788,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
