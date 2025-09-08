@@ -16,6 +16,7 @@
             --primary: #3b82f6;
             --primary-dark: #2563eb;
             --secondary: #10b981;
+            --accent: #06b6d4;
             --dark: #0f172a;
             --gray: #64748b;
             --gray-dark: #475569;
@@ -30,9 +31,15 @@
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
             --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
             
             /* Borders */
             --border-color: #e2e8f0;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -45,7 +52,7 @@
 
         /* Typography Scale */
         h1 {
-            font-size: clamp(2.25rem, 4vw, 3rem);
+            font-size: clamp(2.25rem, 4vw, 3.5rem);
             font-weight: 800;
             line-height: 1.2;
             letter-spacing: -0.02em;
@@ -90,20 +97,40 @@
             font-size: 1rem;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:active::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
         }
 
         .btn-secondary {
@@ -115,6 +142,7 @@
         .btn-secondary:hover {
             border-color: var(--primary);
             color: var(--primary);
+            background: rgba(59, 130, 246, 0.05);
         }
 
         .btn-white {
@@ -123,7 +151,7 @@
         }
 
         .btn-white:hover {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
@@ -231,94 +259,148 @@
             min-height: calc(100vh - 72px);
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f8fafc 100%);
             position: relative;
             overflow: hidden;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 70%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom left, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
             position: relative;
             z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero-text h1 {
             margin-bottom: 1.5rem;
             color: var(--dark);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-text h1 span {
             color: var(--primary);
+            position: relative;
+        }
+        
+        .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 2px;
         }
 
         .hero-text p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.375rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
-
-        .hero-metrics {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 1.5rem;
-            box-shadow: var(--shadow-lg);
+        
+        /* Hero Features */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+        
+        .hero-feature {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
             border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
-
-        .metric-item {
+        
+        .hero-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: var(--white);
+        }
+        
+        .hero-feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 1rem;
             display: flex;
-            align-items: baseline;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
         }
-
-        .metric-item:last-child {
-            margin-bottom: 0;
+        
+        .hero-feature-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--white);
         }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
+        
+        .hero-feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
         }
-
-        .metric-label {
+        
+        .hero-feature p {
+            font-size: 0.9375rem;
             color: var(--gray-dark);
-            font-size: 1.0625rem;
+            line-height: 1.6;
         }
 
         /* Trust Section */
         .trust-section {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
             border-top: 1px solid var(--border-color);
-            padding: 2rem 0;
+            padding: 2.5rem 0;
         }
 
         .trust-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4rem;
+            gap: 3rem;
             flex-wrap: wrap;
         }
 
@@ -329,6 +411,17 @@
             color: var(--gray-dark);
             font-size: 0.9375rem;
             font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            background: var(--white);
+            border-radius: 2rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .trust-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
 
         .trust-item svg {
@@ -460,7 +553,7 @@
 
         /* Services Section */
         .services {
-            background: var(--light);
+            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
         }
 
         .services-tabs {
@@ -473,6 +566,7 @@
             max-width: fit-content;
             margin-left: auto;
             margin-right: auto;
+            box-shadow: var(--shadow-md);
         }
 
         .service-tab {
@@ -491,13 +585,17 @@
             background: var(--primary);
             color: var(--white);
         }
+        
+        .service-tab:not(.active):hover {
+            background: var(--light);
+        }
 
         .service-content {
             display: none;
             background: var(--white);
             border-radius: 1rem;
             padding: 3rem;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-content.active {
@@ -533,6 +631,12 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-list li:hover {
+            padding-left: 0.5rem;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.03) 0%, transparent 100%);
         }
 
         .service-list li:last-child {
@@ -557,32 +661,51 @@
             fill: white;
         }
 
-        .service-stats {
-            background: var(--light);
+        .service-benefits {
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
             border-radius: 0.75rem;
             padding: 2rem;
         }
 
-        .stat-item {
+        .benefit-item {
             text-align: center;
             padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
         }
 
-        .stat-item:last-child {
+        .benefit-item:last-child {
             border-bottom: none;
         }
 
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+
+        .benefit-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark);
             margin-bottom: 0.5rem;
         }
 
-        .stat-label {
+        .benefit-desc {
             color: var(--gray-dark);
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
         }
 
         /* FAQ Section */
@@ -682,7 +805,7 @@
             gap: 1rem;
         }
 
-        .benefit-item {
+        .contact-benefit-item {
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -690,9 +813,16 @@
             background: var(--white);
             border-radius: 0.5rem;
             border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-benefit-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
 
-        .benefit-icon {
+        .contact-benefit-icon {
             width: 48px;
             height: 48px;
             background: var(--light);
@@ -703,7 +833,7 @@
             flex-shrink: 0;
         }
 
-        .benefit-icon svg {
+        .contact-benefit-icon svg {
             width: 24px;
             height: 24px;
             fill: var(--primary);
@@ -713,7 +843,7 @@
             background: var(--white);
             padding: 2.5rem;
             border-radius: 1rem;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
         }
 
         .form-header {
@@ -764,8 +894,31 @@
 
         /* CTA Section */
         .cta {
-            background: var(--dark);
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .cta .container {
+            position: relative;
+            z-index: 1;
         }
 
         .cta h2 {
@@ -781,9 +934,20 @@
 
         /* Footer */
         footer {
-            background: var(--dark);
+            background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
             color: var(--white);
             padding: 3rem 0 2rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
         }
 
         .footer-content {
@@ -889,7 +1053,7 @@
             right: 2rem;
             width: 48px;
             height: 48px;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -908,8 +1072,8 @@
         }
 
         .back-to-top:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: var(--shadow-xl);
         }
 
         .back-to-top svg {
@@ -945,16 +1109,15 @@
             }
 
             .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+                padding: 0 1rem;
             }
-
-            .hero-metrics {
-                display: none;
+            
+            .hero-features {
+                grid-template-columns: 1fr;
             }
 
             .trust-container {
-                gap: 2rem;
+                gap: 1rem;
             }
 
             .faq-grid {
@@ -963,21 +1126,6 @@
 
             .service-content.active {
                 grid-template-columns: 1fr;
-            }
-
-            .service-stats {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
-
-            .stat-item {
-                border-bottom: none;
-                border-right: 1px solid var(--border-color);
-            }
-
-            .stat-item:last-child {
-                border-right: none;
             }
 
             .contact-container {
@@ -1029,18 +1177,36 @@
                         <a href="#services" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
-                <div class="hero-metrics">
-                    <div class="metric-item">
-                        <div class="metric-value">87%</div>
-                        <div class="metric-label">fewer readmissions</div>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <h3>Compassionate Care</h3>
+                        <p>Enhance quality of life through continuous monitoring and proactive interventions</p>
                     </div>
-                    <div class="metric-item">
-                        <div class="metric-value">24/7</div>
-                        <div class="metric-label">monitoring coverage</div>
+                    
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3>Peace of Mind</h3>
+                        <p>24/7 monitoring ensures your residents are always protected and cared for</p>
                     </div>
-                    <div class="metric-item">
-                        <div class="metric-value">2-4</div>
-                        <div class="metric-label">week implementation</div>
+                    
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Empowered Staff</h3>
+                        <p>Give your team the tools they need to deliver exceptional care efficiently</p>
                     </div>
                 </div>
             </div>
@@ -1172,18 +1338,33 @@
                         </li>
                     </ul>
                 </div>
-                <div class="service-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">87%</div>
-                        <div class="stat-label">Fewer Readmissions</div>
+                <div class="service-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Reduced Hospital Transfers</div>
+                        <div class="benefit-desc">Early intervention prevents emergencies and unnecessary hospitalizations</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-value">3.2x</div>
-                        <div class="stat-label">ROI First Year</div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Enhanced Care Quality</div>
+                        <div class="benefit-desc">Continuous monitoring improves clinical outcomes and resident satisfaction</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-value">45min</div>
-                        <div class="stat-label">Daily Time Saved</div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Staff Efficiency</div>
+                        <div class="benefit-desc">Automated data collection saves hours of manual documentation daily</div>
                     </div>
                 </div>
             </div>
@@ -1229,18 +1410,33 @@
                         </li>
                     </ul>
                 </div>
-                <div class="service-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">92%</div>
-                        <div class="stat-label">Patient Satisfaction</div>
+                <div class="service-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Coordinated Care Team</div>
+                        <div class="benefit-desc">Seamless collaboration between all healthcare providers</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-value">65%</div>
-                        <div class="stat-label">Fewer ER Visits</div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Comprehensive Documentation</div>
+                        <div class="benefit-desc">Complete care records for regulatory compliance and quality assurance</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-value">4.8</div>
-                        <div class="stat-label">Star Rating</div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Improved Star Ratings</div>
+                        <div class="benefit-desc">Meet quality measures and enhance your facility's reputation</div>
                     </div>
                 </div>
             </div>
@@ -1298,7 +1494,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            By automating routine vital collection and documentation, we free up 2-3 hours per shift. Our predictive alerts prevent crisis situations, and streamlined shift handoffs reduce meeting time, allowing staff to focus on direct care.
+                            By automating routine vital collection and documentation, we free up significant time per shift. Our predictive alerts prevent crisis situations, and streamlined shift handoffs reduce meeting time, allowing staff to focus on direct care.
                         </div>
                     </div>
                 </div>
@@ -1314,7 +1510,7 @@
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Yes. Our AI analyzes patterns to identify high-risk residents based on mobility changes and medications. Real-time alerts notify staff when at-risk residents attempt to stand unassisted, reducing fall rates by up to 40% in six months.
+                            Yes. Our AI analyzes patterns to identify high-risk residents based on mobility changes and medications. Real-time alerts notify staff when at-risk residents attempt to stand unassisted, significantly reducing fall incidents.
                         </div>
                     </div>
                 </div>
@@ -1367,8 +1563,8 @@
                     <p>Join hundreds of long-term care facilities that have revolutionized their care delivery with our platform.</p>
                     
                     <ul class="contact-benefits">
-                        <li class="benefit-item">
-                            <div class="benefit-icon">
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
                                 <svg viewBox="0 0 24 24">
                                     <path d="M12 2L2 7v10c0 5.55 4.84 10.74 11 12 6.16-1.26 11-6.45 11-12V7l-11-5z"/>
                                 </svg>
@@ -1378,19 +1574,19 @@
                                 <span style="color: var(--gray); font-size: 0.9375rem;">Go live in 2-4 weeks with full support</span>
                             </div>
                         </li>
-                        <li class="benefit-item">
-                            <div class="benefit-icon">
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
                                 <svg viewBox="0 0 24 24">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                                 </svg>
                             </div>
                             <div>
                                 <strong>Proven Results</strong><br>
-                                <span style="color: var(--gray); font-size: 0.9375rem;">87% average reduction in readmissions</span>
+                                <span style="color: var(--gray); font-size: 0.9375rem;">Demonstrated improvements in care quality</span>
                             </div>
                         </li>
-                        <li class="benefit-item">
-                            <div class="benefit-icon">
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
                                 <svg viewBox="0 0 24 24">
                                     <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                                 </svg>
