@@ -326,6 +326,22 @@
             margin-right: auto;
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
+        
+        /* Counting animation for numbers */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .count-number {
+            animation: countUp 1s ease-out;
+        }
 
         .hero-buttons {
             display: flex;
@@ -430,77 +446,130 @@
             fill: var(--primary);
         }
 
-        /* Features Section */
-        .features-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3.5rem;
-        }
-
-        .features-header h2 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+        /* Story Section - Why We Built This */
+        .story-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: var(--white);
             position: relative;
             overflow: hidden;
         }
         
-        .feature-card::before {
+        .story-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: transparent;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80') center/cover;
+            opacity: 0.15;
+            pointer-events: none;
         }
         
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--light);
-            border-radius: 0.75rem;
-            display: flex;
+        .story-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: center;
+        }
+        
+        .story-text h2 {
+            color: var(--white);
             margin-bottom: 1.5rem;
+        }
+        
+        .story-text p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-text .signature {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .story-image {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .story-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%);
+            pointer-events: none;
+        }
+        
+        /* Impact Stats with counting animation */
+        .impact-stats {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            padding: 4rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
             position: relative;
         }
         
-        .feature-icon::after {
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.125rem;
+            color: var(--gray-dark);
+            font-weight: 500;
+        }
+        
+        .stat-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+        
+        .stat-icon::after {
             content: '';
             position: absolute;
             width: 100%;
             height: 100%;
             background: inherit;
             border-radius: inherit;
-            z-index: -1;
             animation: pulse 2s infinite;
             opacity: 0;
         }
@@ -516,39 +585,196 @@
             }
         }
         
-        .feature-card:hover .feature-icon::after {
-            animation: pulse 1s infinite;
-        }
-
-        .feature-icon svg {
-            width: 28px;
-            height: 28px;
-            fill: var(--primary);
-        }
-
-        .feature-card:nth-child(2) .feature-icon {
-            background: rgba(16, 185, 129, 0.1);
-        }
-
-        .feature-card:nth-child(2) .feature-icon svg {
-            fill: var(--secondary);
+        .stat-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--white);
         }
         
-        .feature-card:nth-child(3) .feature-icon {
-            background: rgba(6, 182, 212, 0.1);
+        /* Scenario Cards - replacing generic features */
+        .scenario-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
         
-        .feature-card:nth-child(3) .feature-icon svg {
-            fill: #06b6d4;
+        .scenario-card {
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
         }
-
-        .feature-card h3 {
-            margin-bottom: 0.75rem;
+        
+        .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        
+        .scenario-image {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .scenario-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .scenario-card:hover .scenario-image img {
+            transform: scale(1.05);
+        }
+        
+        .scenario-time {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .scenario-content {
+            padding: 2rem;
+        }
+        
+        .scenario-content h3 {
+            margin-bottom: 1rem;
             color: var(--dark);
         }
+        
+        .scenario-content p {
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .scenario-outcome {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-radius: 0.5rem;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .scenario-outcome-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .scenario-outcome-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--white);
+        }
+        
+        .scenario-outcome-text {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Testimonial with image */
+        .testimonial-section {
+            background: var(--white);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+            border-radius: 1rem;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .testimonial-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-content blockquote {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-content blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            left: -1rem;
+            top: -1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 0.9375rem;
+        }
+        
+        /* Heartbeat animation for hero */
+        .heartbeat {
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            40% { transform: scale(1); }
+        }
 
-        .feature-card p {
-            font-size: 1rem;
+        /* Features Section */
+        .features-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .features-header h2 {
+            margin-bottom: 1rem;
+            color: var(--dark);
         }
 
         /* Services Section */
@@ -1141,6 +1367,19 @@
             .newsletter-form {
                 flex-direction: column;
             }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .testimonial-image {
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
@@ -1151,7 +1390,8 @@
             <div class="logo">Total<span>Remote</span>Care</div>
             <ul class="nav-menu">
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#features">Impact</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1174,19 +1414,19 @@
                     <p>Empower your facility with real-time health monitoring, predictive analytics, and comprehensive care management—all in one integrated platform.</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">Schedule Demo</a>
-                        <a href="#services" class="btn btn-secondary">Learn More</a>
+                        <a href="#story" class="btn btn-secondary">Our Story</a>
                     </div>
                 </div>
                 
                 <div class="hero-features">
                     <div class="hero-feature">
-                        <div class="hero-feature-icon">
+                        <div class="hero-feature-icon heartbeat">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                             </svg>
                         </div>
-                        <h3>Compassionate Care</h3>
-                        <p>Enhance quality of life through continuous monitoring and proactive interventions</p>
+                        <h3>Sleep Better at Night</h3>
+                        <p>We're watching when you can't. Give your residents and their families the gift of knowing someone's always paying attention.</p>
                     </div>
                     
                     <div class="hero-feature">
@@ -1195,8 +1435,8 @@
                                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                             </svg>
                         </div>
-                        <h3>Peace of Mind</h3>
-                        <p>24/7 monitoring ensures your residents are always protected and cared for</p>
+                        <h3>More Time for Care</h3>
+                        <p>Less time documenting. Less time worrying. More time doing what you actually became a nurse for.</p>
                     </div>
                     
                     <div class="hero-feature">
@@ -1205,8 +1445,8 @@
                                 <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
                             </svg>
                         </div>
-                        <h3>Empowered Staff</h3>
-                        <p>Give your team the tools they need to deliver exceptional care efficiently</p>
+                        <h3>Catch Problems Early</h3>
+                        <p>That subtle change in breathing? The slight uptick in confusion? We catch it before it becomes a crisis.</p>
                     </div>
                 </div>
             </div>
@@ -1245,40 +1485,88 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Story Section - Why We Built This -->
+    <section class="section story-section" id="story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Why We Built This</h2>
+                    <p>Walk into any long-term care facility at 3 AM, and you'll find dedicated nurses moving room to room, checking vitals, documenting by hand, and wondering: "What am I missing?"</p>
+                    <p>We saw skilled professionals spending more time on paperwork than patient care. Early warning signs slipping through the cracks because no one can be everywhere at once. Data scattered across clipboards—heart rates, oxygen levels, sleep patterns—only becoming obvious after residents were already in crisis.</p>
+                    <p>There had to be a better way. Technology that continuously monitors, intelligently analyzes, and proactively alerts. A system that empowers nursing staff with insights when they need them, not hours later when reviewing charts.</p>
+                    <p>Total Remote Care gives your team the ability to see patterns before they become problems, document automatically, and focus on what matters most: caring for residents.</p>
+                    <p class="signature">— Founder & CEO, Total Remote Care</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional caring for elderly patient">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenarios Section -->
     <section class="section" id="features">
         <div class="container">
             <div class="features-header">
-                <h2>Comprehensive Care Management Platform</h2>
-                <p>Everything your facility needs to deliver exceptional care while reducing costs.</p>
+                <h2>Real Moments. Real Impact.</h2>
+                <p>Here's how we make a difference every single day</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M3 13h2v7H3zm4-8h2v12H7zm4-2h2v14h-2zm4 4h2v10h-2zm4-2h2v12h-2z"/>
-                        </svg>
+            <div class="scenario-cards">
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" alt="Night nurse monitoring patients" onerror="this.src='https://via.placeholder.com/800x240/3b82f6/ffffff?text=Night+Shift+Care'">
+                        <div class="scenario-time">2:15 AM</div>
                     </div>
-                    <h3>Real-Time Analytics</h3>
-                    <p>Monitor vital signs continuously. Our AI alerts you to changes before they become critical, enabling proactive interventions.</p>
+                    <div class="scenario-content">
+                        <h3>The Night Shift Guardian</h3>
+                        <p>A resident's oxygen levels start dropping—not dramatically, just enough to worry. Our system alerts the nurse before levels become critical. She adjusts the oxygen and repositions the patient. By morning rounds, breathing is easy again.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">ER visit avoided. Peace of mind delivered.</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                        </svg>
+                
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=800&q=80" alt="Medical monitoring and healthcare data" onerror="this.src='https://via.placeholder.com/800x240/10b981/ffffff?text=Early+Detection'">
+                        <div class="scenario-time">3:45 PM</div>
                     </div>
-                    <h3>Care Coordination</h3>
-                    <p>Connect physicians, nurses, and specialists seamlessly. Share patient data instantly across your care team for better decisions.</p>
+                    <div class="scenario-content">
+                        <h3>The Early Catch</h3>
+                        <p>For three days, the system tracked subtle changes—slightly elevated temperature, decreased appetite, minor confusion. The trending data flagged a potential UTI before classic symptoms appeared. A simple urinalysis confirmed it. Treatment started immediately.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">Sepsis prevented. Hospital transfer avoided.</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
+                
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80" alt="Healthcare team collaborating" onerror="this.src='https://via.placeholder.com/800x240/06b6d4/ffffff?text=Team+Collaboration'">
+                        <div class="scenario-time">7:00 AM</div>
                     </div>
-                    <h3>Quality Improvement</h3>
-                    <p>Track quality metrics automatically and improve your CMS Star Ratings. Meet and exceed regulatory requirements effortlessly.</p>
+                    <div class="scenario-content">
+                        <h3>The Seamless Handoff</h3>
+                        <p>The night shift ends. Instead of spending 45 minutes reviewing clipboards and comparing notes, the morning team gets a complete picture in 10 minutes. They know exactly who needs extra attention today and why.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">35 minutes saved. Better continuity of care.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1675,7 +1963,7 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
+                        <li><a href="#features">Impact</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -1839,6 +2127,12 @@
 
         // Initialize
         updateActiveNav();
+        
+        // Add heartbeat animation to heart icon in hero
+        const heartIcon = document.querySelector('.hero-feature-icon svg');
+        if (heartIcon && heartIcon.querySelector('path[d*="21.35"]')) {
+            heartIcon.parentElement.classList.add('heartbeat');
+        }
     </script>
 </body>
 </html>
