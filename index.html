@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Remote Care | Revolutionizing Long-Term Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,10 +15,10 @@
         }
 
         :root {
-            /* Simplified color palette */
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --secondary: #10b981;
+            /* Teal + Coral color palette */
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --secondary: #f97316;
             --accent: #06b6d4;
             --dark: #0f172a;
             --gray: #64748b;
@@ -43,7 +46,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             overflow-x: hidden;
@@ -385,6 +388,12 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
         
         .hero-feature-icon svg {
@@ -407,7 +416,7 @@
 
         /* Trust Section */
         .trust-section {
-            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            background: var(--white);
             border-top: 1px solid var(--border-color);
             padding: 2.5rem 0;
         }
@@ -598,6 +607,10 @@
             gap: 2rem;
         }
         
+        .scenarios-section {
+            background: #f0fdfa;
+        }
+        
         .scenario-card {
             background: var(--white);
             border-radius: 1rem;
@@ -779,7 +792,7 @@
 
         /* Services Section */
         .services {
-            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+            background: var(--white);
         }
 
         .services-tabs {
@@ -935,6 +948,10 @@
         }
 
         /* FAQ Section */
+        .faq-section {
+            background: #f0fdfa;
+        }
+        
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -1006,7 +1023,7 @@
 
         /* Contact Section */
         .contact {
-            background: var(--light);
+            background: var(--white);
         }
 
         .contact-container {
@@ -1410,8 +1427,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Transform Long-Term Care with <span>Remote Monitoring</span></h1>
-                    <p>Empower your facility with real-time health monitoring, predictive analytics, and comprehensive care management—all in one integrated platform.</p>
+                    <h1>Care That Sees <span>Around Corners</span></h1>
+                    <p>Give your care team the power to catch problems before they become emergencies. Real-time monitoring, intelligent alerts, and automated documentation—so your nurses can focus on caring, not catching up.</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">Schedule Demo</a>
                         <a href="#story" class="btn btn-secondary">Our Story</a>
@@ -1420,7 +1437,7 @@
                 
                 <div class="hero-features">
                     <div class="hero-feature">
-                        <div class="hero-feature-icon heartbeat">
+                        <div class="hero-feature-icon">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                             </svg>
@@ -1505,7 +1522,7 @@
     </section>
 
     <!-- Scenarios Section -->
-    <section class="section" id="features">
+    <section class="section scenarios-section" id="features">
         <div class="container">
             <div class="features-header">
                 <h2>Real Moments. Real Impact.</h2>
@@ -1732,7 +1749,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="section" id="faq">
+    <section class="section faq-section" id="faq">
         <div class="container">
             <div class="features-header">
                 <h2>Supporting Your Facility</h2>
@@ -2127,12 +2144,6 @@
 
         // Initialize
         updateActiveNav();
-        
-        // Add heartbeat animation to heart icon in hero
-        const heartIcon = document.querySelector('.hero-feature-icon svg');
-        if (heartIcon && heartIcon.querySelector('path[d*="21.35"]')) {
-            heartIcon.parentElement.classList.add('heartbeat');
-        }
     </script>
 </body>
 </html>
