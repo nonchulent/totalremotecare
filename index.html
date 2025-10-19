@@ -272,6 +272,7 @@
             background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f8fafc 100%);
             position: relative;
             overflow: hidden;
+            padding: 4rem 0;
         }
         
         .hero::before {
@@ -279,26 +280,29 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at bottom left, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+            background: radial-gradient(ellipse at top right, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom left, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .hero-content {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            text-align: center;
             position: relative;
             z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
+        }
+
+        .hero-text {
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero-text h1 {
+            font-size: clamp(2.75rem, 5vw, 4rem);
+            line-height: 1.1;
             margin-bottom: 1.5rem;
             color: var(--dark);
-            animation: fadeInUp 0.8s ease-out;
         }
         
         @keyframes fadeInUp {
@@ -315,43 +319,157 @@
         .hero-text h1 span {
             color: var(--primary);
             position: relative;
+            display: inline-block;
         }
         
         .hero-text h1 span::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: 2px;
         }
 
         .hero-text p {
-            font-size: 1.375rem;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .hero-text .highlight-text {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hero-text .highlight-text::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 4rem;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            margin-bottom: 3rem;
         }
         
+        .hero-buttons .btn {
+            padding: 1rem 2rem;
+            font-size: 1.0625rem;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        
+        .hero-image {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%);
+            pointer-events: none;
+        }
+        
+        .hero-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero-badge-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .hero-badge-label {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .hero-stat {
+            flex: 1;
+        }
+        
+        .hero-stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1;
+        }
+        
+        .hero-stat-label {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+        
+        /* Hero Features */
         .hero-features {
+            grid-column: 1 / -1;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            width: 100%;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            margin-top: 4rem;
         }
         
         .hero-feature {
@@ -377,13 +495,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            animation: iconFloat 3s ease-in-out infinite;
-        }
-        
-        @keyframes iconFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            margin-bottom: 1.5rem;
         }
         
         .hero-feature-icon svg {
@@ -1569,7 +1681,17 @@
             }
 
             .hero-content {
-                padding: 0 1rem;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-image-container {
+                order: -1;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
             }
             
             .hero-features {
@@ -1639,11 +1761,39 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
+                        <div class="highlight-text">
+                            Revolutionary Healthcare Monitoring
+                        </div>
                         <h1>Care That Sees <span>Around Corners</span></h1>
                         <p>Give your care team the power to catch problems before they become emergencies. Real-time monitoring, intelligent alerts, and automated documentation—so your nurses can focus on caring, not catching up.</p>
                         <div class="hero-buttons">
                             <a href="#contact" class="btn btn-primary">Schedule Demo</a>
                             <a href="#story" class="btn btn-secondary">Our Story</a>
+                        </div>
+                        
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">47</div>
+                                <div class="hero-stat-label">Residents Monitored</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">96%</div>
+                                <div class="hero-stat-label">System Uptime</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-value">24/7</div>
+                                <div class="hero-stat-label">Real-time Monitoring</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image-container">
+                        <div class="hero-image">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional using monitoring technology">
+                            <div class="hero-badge">
+                                <div class="hero-badge-value">100%</div>
+                                <div class="hero-badge-label">FDA Certified</div>
+                            </div>
                         </div>
                     </div>
                     
@@ -2220,7 +2370,7 @@
     </div>
 
     <!-- LOGIN SECTION -->
-    <div id="loginSection">
+    <div id="loginSection" style="display: none;">
         <div class="login-container">
             <div class="login-box">
                 <div class="login-logo">
@@ -2246,7 +2396,7 @@
     </div>
 
     <!-- DASHBOARD SECTION -->
-    <div id="dashboardSection">
+    <div id="dashboardSection" style="display: none;">
         <header class="dashboard-header">
             <div class="header-content">
                 <div class="header-logo">Total<span>Remote</span>Care</div>
@@ -2723,27 +2873,71 @@
             </main>
         </div>
     </div>
+    <!-- END DASHBOARD SECTION -->
 
     <script>
         // Show/Hide sections
         function showMarketing(e) {
             if (e) e.preventDefault();
+            
+            // Show marketing
             document.getElementById('marketingSection').style.display = 'block';
+            document.getElementById('marketingSection').style.visibility = 'visible';
+            document.getElementById('marketingSection').style.position = 'static';
+            
+            // Hide login
             document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('loginSection').style.visibility = 'hidden';
+            document.getElementById('loginSection').style.position = 'absolute';
+            document.getElementById('loginSection').style.left = '-9999px';
+            
+            // Hide dashboard
             document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('dashboardSection').style.visibility = 'hidden';
+            document.getElementById('dashboardSection').style.position = 'absolute';
+            document.getElementById('dashboardSection').style.left = '-9999px';
         }
 
         function showLogin(e) {
             if (e) e.preventDefault();
+            
+            // Hide marketing
             document.getElementById('marketingSection').style.display = 'none';
+            document.getElementById('marketingSection').style.visibility = 'hidden';
+            document.getElementById('marketingSection').style.position = 'absolute';
+            document.getElementById('marketingSection').style.left = '-9999px';
+            
+            // Show login
             document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('loginSection').style.visibility = 'visible';
+            document.getElementById('loginSection').style.position = 'static';
+            document.getElementById('loginSection').style.left = '0';
+            
+            // Hide dashboard
             document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('dashboardSection').style.visibility = 'hidden';
+            document.getElementById('dashboardSection').style.position = 'absolute';
+            document.getElementById('dashboardSection').style.left = '-9999px';
         }
 
         function showDashboard() {
+            // Hide marketing
             document.getElementById('marketingSection').style.display = 'none';
+            document.getElementById('marketingSection').style.visibility = 'hidden';
+            document.getElementById('marketingSection').style.position = 'absolute';
+            document.getElementById('marketingSection').style.left = '-9999px';
+            
+            // Hide login
             document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('loginSection').style.visibility = 'hidden';
+            document.getElementById('loginSection').style.position = 'absolute';
+            document.getElementById('loginSection').style.left = '-9999px';
+            
+            // Show dashboard
             document.getElementById('dashboardSection').style.display = 'block';
+            document.getElementById('dashboardSection').style.visibility = 'visible';
+            document.getElementById('dashboardSection').style.position = 'static';
+            document.getElementById('dashboardSection').style.left = '0';
         }
 
         // Login Handler
