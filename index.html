@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Portal | Total Remote Care</title>
+    <title>Total Remote Care | Revolutionizing Long-Term Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -13,6 +15,7 @@
         }
 
         :root {
+            /* Teal + Coral color palette */
             --primary: #0d9488;
             --primary-dark: #0f766e;
             --secondary: #f97316;
@@ -20,96 +23,76 @@
             --dark: #0f172a;
             --gray: #64748b;
             --gray-dark: #475569;
-            --gray-light: #cbd5e1;
             --light: #f8fafc;
             --white: #ffffff;
             
-            --red: #ef4444;
-            --red-light: #fee2e2;
-            --yellow: #eab308;
-            --yellow-light: #fef9c3;
-            --green: #10b981;
-            --green-light: #d1fae5;
+            /* Consistent spacing */
+            --section-padding: 5rem;
+            --container-width: 1200px;
             
+            /* Standardized shadows */
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
             --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+            
+            /* Borders */
+            --border-color: #e2e8f0;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--light);
-            color: var(--dark);
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-        }
-
-        /* Login Page Styles */
-        .login-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f8fafc 100%);
-            padding: 2rem;
-        }
-
-        .login-box {
+            color: var(--dark);
+            overflow-x: hidden;
             background: var(--white);
-            padding: 3rem;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-lg);
-            width: 100%;
-            max-width: 440px;
         }
 
-        .login-logo {
-            text-align: center;
-            margin-bottom: 2rem;
+        /* Typography Scale */
+        h1 {
+            font-size: clamp(2.25rem, 4vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
-        .login-logo h1 {
-            font-size: 1.75rem;
-            color: var(--dark);
+        h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
             font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
         }
 
-        .login-logo span {
-            color: var(--primary);
-        }
-
-        .login-logo p {
-            color: var(--gray);
-            font-size: 0.9375rem;
-            margin-top: 0.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.9375rem;
+        h3 {
+            font-size: 1.5rem;
             font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
 
-        .form-group input {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: all 0.2s ease;
+        p {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--gray-dark);
         }
 
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        /* Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
+        /* Section Spacing */
+        .section {
+            padding: var(--section-padding) 0;
+        }
+
+        /* Buttons */
         .btn {
             padding: 0.875rem 1.75rem;
             border-radius: 0.5rem;
@@ -120,1468 +103,2047 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
-            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:active::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(13, 148, 136, 0.3);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
         }
 
-        /* Dashboard Layout */
-        .dashboard {
-            display: none;
-            min-height: 100vh;
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--border-color);
         }
 
-        .dashboard.active {
-            display: block;
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* Header */
-        .dashboard-header {
-            background: var(--white);
-            border-bottom: 1px solid #e2e8f0;
-            padding: 0 2rem;
-            position: sticky;
+        header {
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
 
-        .header-content {
+        header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 72px;
-            max-width: 1400px;
-            margin: 0 auto;
         }
 
-        .header-logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .header-logo span {
-            color: var(--primary);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem 1rem;
-            background: var(--light);
-            border-radius: 2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .user-menu:hover {
-            background: #e2e8f0;
-        }
-
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
-
-        .logout-btn {
-            padding: 0.5rem 1rem;
-            background: transparent;
-            border: 1px solid var(--gray-light);
-            color: var(--gray-dark);
-            border-radius: 0.5rem;
-            font-size: 0.9375rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .logout-btn:hover {
-            background: var(--red);
-            color: var(--white);
-            border-color: var(--red);
-        }
-
-        /* Main Layout */
-        .dashboard-main {
-            display: flex;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 260px;
-            background: var(--white);
-            border-right: 1px solid #e2e8f0;
-            height: calc(100vh - 72px);
-            position: sticky;
-            top: 72px;
-            padding: 2rem 0;
-        }
-
-        .sidebar-nav {
-            list-style: none;
-        }
-
-        .sidebar-nav li {
-            margin-bottom: 0.5rem;
-        }
-
-        .sidebar-nav a {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.875rem 1.5rem;
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .sidebar-nav a:hover {
-            background: var(--light);
-            color: var(--primary);
-        }
-
-        .sidebar-nav a.active {
-            background: rgba(13, 148, 136, 0.1);
-            color: var(--primary);
-            border-left-color: var(--primary);
-        }
-
-        .sidebar-nav svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
-        /* Content Area */
-        .content {
-            flex: 1;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Page Header */
-        .page-header {
-            margin-bottom: 2rem;
-        }
-
-        .page-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .page-header p {
-            color: var(--gray);
-            font-size: 1rem;
-        }
-
-        /* Alert Banner */
-        .alert-banner {
-            background: var(--red-light);
-            border-left: 4px solid var(--red);
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .alert-banner.warning {
-            background: var(--yellow-light);
-            border-left-color: var(--yellow);
-        }
-
-        .alert-banner.success {
-            background: var(--green-light);
-            border-left-color: var(--green);
-        }
-
-        .alert-icon {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-        }
-
-        .alert-content h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .alert-content p {
-            font-size: 0.9375rem;
-            color: var(--gray-dark);
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
-
-        .stat-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(13, 148, 136, 0.1);
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stat-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--gray);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .stat-change {
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-
-        .stat-change.positive {
-            color: var(--green);
-        }
-
-        .stat-change.negative {
-            color: var(--red);
-        }
-
-        /* Facility Cards */
-        .facility-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .facility-card {
-            background: var(--white);
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .facility-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-        }
-
-        .facility-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            padding: 1.5rem;
-            color: var(--white);
-        }
-
-        .facility-header h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .facility-header p {
-            font-size: 0.9375rem;
-            opacity: 0.9;
-        }
-
-        .facility-body {
-            padding: 1.5rem;
-        }
-
-        .facility-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .facility-stat {
-            text-align: center;
-            padding: 1rem;
-            background: var(--light);
-            border-radius: 0.5rem;
-        }
-
-        .facility-stat-value {
+        .logo {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--dark);
         }
 
-        .facility-stat-label {
-            font-size: 0.75rem;
-            color: var(--gray);
-            margin-top: 0.25rem;
+        .logo span {
+            color: var(--primary);
         }
 
-        .facility-alerts {
+        .nav-menu {
             display: flex;
-            gap: 1rem;
-        }
-
-        .alert-badge {
-            flex: 1;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        .alert-badge.critical {
-            background: var(--red-light);
-            color: var(--red);
-        }
-
-        .alert-badge.warning {
-            background: var(--yellow-light);
-            color: var(--yellow);
-        }
-
-        .alert-badge.stable {
-            background: var(--green-light);
-            color: var(--green);
-        }
-
-        /* Activity Feed */
-        .activity-feed {
-            background: var(--white);
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            padding: 1.5rem;
-        }
-
-        .feed-header {
-            display: flex;
-            justify-content: space-between;
+            list-style: none;
+            gap: 2rem;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #e2e8f0;
         }
 
-        .feed-header h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-
-        .activity-item {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .activity-item:last-child {
-            border-bottom: none;
-        }
-
-        .activity-time {
-            font-size: 0.75rem;
-            color: var(--gray);
-            min-width: 80px;
-        }
-
-        .activity-content {
-            flex: 1;
-        }
-
-        .activity-title {
-            font-weight: 600;
-            font-size: 0.9375rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .activity-desc {
-            font-size: 0.875rem;
+        .nav-menu a {
+            text-decoration: none;
             color: var(--gray-dark);
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+            position: relative;
         }
 
-        .activity-badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            font-weight: 600;
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary);
         }
 
-        /* Data Table */
-        .data-table {
-            background: var(--white);
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 100%;
+            height: 2px;
+            background: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 72px;
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f8fafc 100%);
+            position: relative;
             overflow: hidden;
         }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom left, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
 
-        .table-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
+        .hero-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 2px;
+        }
+
+        .hero-text p {
+            font-size: 1.375rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        
+        /* Counting animation for numbers */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .count-number {
+            animation: countUp 1s ease-out;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+        
+        /* Hero Features */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+        
+        .hero-feature {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: var(--white);
+        }
+        
+        .hero-feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .hero-feature-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--white);
+        }
+        
+        .hero-feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+        
+        .hero-feature p {
+            font-size: 0.9375rem;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: var(--white);
+            border-top: 1px solid var(--border-color);
+            padding: 2.5rem 0;
+        }
+
+        .trust-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--gray-dark);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            background: var(--white);
+            border-radius: 2rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .trust-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .trust-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+
+        /* Story Section - Why We Built This */
+        .story-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80') center/cover;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        
+        .story-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
         }
-
-        .table-header h3 {
+        
+        .story-text h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-text p {
+            color: rgba(255, 255, 255, 0.85);
             font-size: 1.125rem;
-            font-weight: 600;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
-
-        .table-search {
-            padding: 0.5rem 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            width: 240px;
+        
+        .story-text .signature {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-top: 2rem;
         }
-
-        table {
+        
+        .story-image {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .story-image img {
             width: 100%;
-            border-collapse: collapse;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
-
-        thead {
-            background: var(--light);
+        
+        .story-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%);
+            pointer-events: none;
         }
-
-        th {
-            padding: 1rem 1.5rem;
-            text-align: left;
-            font-size: 0.875rem;
-            font-weight: 600;
+        
+        /* Impact Stats with counting animation */
+        .impact-stats {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            padding: 4rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            position: relative;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.125rem;
             color: var(--gray-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-weight: 500;
         }
-
-        td {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid #e2e8f0;
+        
+        .stat-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+        
+        .stat-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            animation: pulse 2s infinite;
+            opacity: 0;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        
+        .stat-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--white);
+        }
+        
+        /* Scenario Cards - replacing generic features */
+        .scenario-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .scenarios-section {
+            background: #f0fdfa;
+        }
+        
+        .scenario-card {
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        
+        .scenario-image {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .scenario-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .scenario-card:hover .scenario-image img {
+            transform: scale(1.05);
+        }
+        
+        .scenario-time {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .scenario-content {
+            padding: 2rem;
+        }
+        
+        .scenario-content h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .scenario-content p {
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+        }
+        
+        .scenario-outcome {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-radius: 0.5rem;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .scenario-outcome-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .scenario-outcome-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--white);
+        }
+        
+        .scenario-outcome-text {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Testimonial with image */
+        .testimonial-section {
+            background: var(--white);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+            border-radius: 1rem;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .testimonial-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-content blockquote {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-content blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            left: -1rem;
+            top: -1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-role {
+            color: var(--gray);
             font-size: 0.9375rem;
         }
-
-        tr:hover {
-            background: var(--light);
+        
+        /* Heartbeat animation for hero */
+        .heartbeat {
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            40% { transform: scale(1); }
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            font-weight: 600;
+        /* Features Section */
+        .features-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
         }
 
-        .status-online {
-            background: var(--green-light);
-            color: var(--green);
+        .features-header h2 {
+            margin-bottom: 1rem;
+            color: var(--dark);
         }
 
-        .status-offline {
-            background: var(--red-light);
-            color: var(--red);
+        /* Services Section */
+        .services {
+            background: var(--white);
         }
 
-        .status-critical {
-            background: var(--red-light);
-            color: var(--red);
+        .services-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: var(--shadow-md);
         }
 
-        .status-warning {
-            background: var(--yellow-light);
-            color: var(--yellow);
-        }
-
-        .status-stable {
-            background: var(--green-light);
-            color: var(--green);
-        }
-
-        .view-btn {
-            padding: 0.5rem 1rem;
-            background: var(--primary);
-            color: var(--white);
+        .service-tab {
+            padding: 0.75rem 2rem;
+            background: transparent;
             border: none;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
             font-weight: 600;
+            color: var(--gray-dark);
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .view-btn:hover {
-            background: var(--primary-dark);
+        .service-tab.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .service-tab:not(.active):hover {
+            background: var(--light);
         }
 
-        /* Resident Detail */
-        .resident-detail-header {
+        .service-content {
+            display: none;
             background: var(--white);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-content.active {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
             align-items: start;
         }
 
-        .resident-info h2 {
-            font-size: 1.75rem;
+        .service-info h3 {
             margin-bottom: 0.5rem;
-        }
-
-        .resident-meta {
-            display: flex;
-            gap: 2rem;
-            color: var(--gray);
-            font-size: 0.9375rem;
-        }
-
-        .vitals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .vital-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .vital-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .vital-name {
-            font-size: 0.875rem;
-            color: var(--gray);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .vital-value {
-            font-size: 2.5rem;
-            font-weight: 700;
             color: var(--dark);
         }
 
-        .vital-unit {
-            font-size: 1rem;
-            color: var(--gray);
-            font-weight: 400;
-            margin-left: 0.25rem;
+        .service-info .subtitle {
+            font-size: 1.125rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
-        .vital-trend {
-            margin-top: 0.5rem;
-            font-size: 0.875rem;
-        }
-
-        /* Charts */
-        .chart-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
+        .service-info p {
             margin-bottom: 2rem;
         }
 
-        .chart-header {
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-list li:hover {
+            padding-left: 0.5rem;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.03) 0%, transparent 100%);
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-check {
+            width: 24px;
+            height: 24px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .service-check svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+
+        .service-benefits {
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+            border-radius: 0.75rem;
+            padding: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+
+        .benefit-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-desc {
+            color: var(--gray-dark);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #f0fdfa;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.2s ease;
+            background: var(--white);
         }
 
-        .chart-placeholder {
-            height: 300px;
+        .faq-item.active .faq-question {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray-dark);
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+        }
+
+        .contact-benefits {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .contact-benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-benefit-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .contact-benefit-icon {
+            width: 48px;
+            height: 48px;
             background: var(--light);
             border-radius: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gray);
-            font-size: 0.875rem;
+            flex-shrink: 0;
         }
 
-        /* Reports */
-        .report-card {
+        .contact-benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+
+        .contact-form {
             background: var(--white);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.2s ease;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
         }
 
-        .report-card:hover {
-            box-shadow: var(--shadow-md);
+        .form-header {
+            margin-bottom: 2rem;
         }
 
-        .report-info h3 {
-            font-size: 1.125rem;
+        .form-header h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .form-header p {
+            color: var(--gray-dark);
+            font-size: 0.9375rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--dark);
             margin-bottom: 0.5rem;
         }
 
-        .report-meta {
-            font-size: 0.875rem;
-            color: var(--gray);
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background: var(--white);
         }
 
-        .download-btn {
-            padding: 0.75rem 1.5rem;
-            background: var(--primary);
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .cta .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
             color: var(--white);
-            border: none;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.25rem;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-size: 0.9375rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-newsletter {
+            grid-column: 1 / -1;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-content h3 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .newsletter-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
             border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 0.9375rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
         }
 
-        .download-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
+        .back-to-top:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .sidebar {
-                display: none;
+            :root {
+                --section-padding: 3rem;
             }
 
-            .facility-grid {
+            .nav-menu {
+                position: fixed;
+                top: 72px;
+                right: -100%;
+                background: var(--white);
+                flex-direction: column;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transition: right 0.3s ease;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .hero-features {
                 grid-template-columns: 1fr;
+            }
+
+            .trust-container {
+                gap: 1rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-content.active {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .testimonial-image {
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Login Page -->
-    <div id="loginPage" class="login-container">
-        <div class="login-box">
-            <div class="login-logo">
-                <h1>Total<span>Remote</span>Care</h1>
-                <p>Client Portal</p>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Total<span>Remote</span>Care</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#features">Impact</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter your username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign In</button>
-            </form>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <!-- Dashboard -->
-    <div id="dashboard" class="dashboard">
-        <!-- Header -->
-        <header class="dashboard-header">
-            <div class="header-content">
-                <div class="header-logo">
-                    Total<span>Remote</span>Care
-                </div>
-                <div class="header-actions">
-                    <div class="user-menu">
-                        <div class="user-avatar">TC</div>
-                        <span>TRC Staff</span>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Care That Sees <span>Around Corners</span></h1>
+                    <p>Give your care team the power to catch problems before they become emergencies. Real-time monitoring, intelligent alerts, and automated documentation—so your nurses can focus on caring, not catching up.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Schedule Demo</a>
+                        <a href="#story" class="btn btn-secondary">Our Story</a>
                     </div>
-                    <button class="logout-btn" onclick="handleLogout()">Logout</button>
+                </div>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <h3>Sleep Better at Night</h3>
+                        <p>We're watching when you can't. Give your residents and their families the gift of knowing someone's always paying attention.</p>
+                    </div>
+                    
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3>More Time for Care</h3>
+                        <p>Less time documenting. Less time worrying. More time doing what you actually became a nurse for.</p>
+                    </div>
+                    
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Catch Problems Early</h3>
+                        <p>That subtle change in breathing? The slight uptick in confusion? We catch it before it becomes a crisis.</p>
+                    </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <div class="dashboard-main">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <nav>
-                    <ul class="sidebar-nav">
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-container">
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    <span>HIPAA Compliant</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Medicare Certified</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7v10c0 5.55 4.84 10.74 11 12 6.16-1.26 11-6.45 11-12V7l-11-5z"/>
+                    </svg>
+                    <span>SOC 2 Type II</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                    <span>FDA Registered</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section - Why We Built This -->
+    <section class="section story-section" id="story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Why We Built This</h2>
+                    <p>Walk into any long-term care facility at 3 AM, and you'll find dedicated nurses moving room to room, checking vitals, documenting by hand, and wondering: "What am I missing?"</p>
+                    <p>We saw skilled professionals spending more time on paperwork than patient care. Early warning signs slipping through the cracks because no one can be everywhere at once. Data scattered across clipboards—heart rates, oxygen levels, sleep patterns—only becoming obvious after residents were already in crisis.</p>
+                    <p>There had to be a better way. Technology that continuously monitors, intelligently analyzes, and proactively alerts. A system that empowers nursing staff with insights when they need them, not hours later when reviewing charts.</p>
+                    <p>Total Remote Care gives your team the ability to see patterns before they become problems, document automatically, and focus on what matters most: caring for residents.</p>
+                    <p class="signature">— Founder & CEO, Total Remote Care</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Healthcare monitoring technology and medical equipment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenarios Section -->
+    <section class="section scenarios-section" id="features">
+        <div class="container">
+            <div class="features-header">
+                <h2>Real Moments. Real Impact.</h2>
+                <p>Here's how we make a difference every single day</p>
+            </div>
+            <div class="scenario-cards">
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" alt="Night nurse monitoring patients" onerror="this.src='https://via.placeholder.com/800x240/3b82f6/ffffff?text=Night+Shift+Care'">
+                        <div class="scenario-time">2:15 AM</div>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>The Night Shift Guardian</h3>
+                        <p>A resident's oxygen levels start dropping—not dramatically, just enough to worry. Our system alerts the nurse before levels become critical. She adjusts the oxygen and repositions the patient. By morning rounds, breathing is easy again.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">ER visit avoided. Peace of mind delivered.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=800&q=80" alt="Medical monitoring and healthcare data" onerror="this.src='https://via.placeholder.com/800x240/10b981/ffffff?text=Early+Detection'">
+                        <div class="scenario-time">3:45 PM</div>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>The Early Catch</h3>
+                        <p>For three days, the system tracked subtle changes—slightly elevated temperature, decreased appetite, minor confusion. The trending data flagged a potential UTI before classic symptoms appeared. A simple urinalysis confirmed it. Treatment started immediately.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">Sepsis prevented. Hospital transfer avoided.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80" alt="Healthcare team collaborating" onerror="this.src='https://via.placeholder.com/800x240/06b6d4/ffffff?text=Team+Collaboration'">
+                        <div class="scenario-time">7:00 AM</div>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>The Seamless Handoff</h3>
+                        <p>The night shift ends. Instead of spending 45 minutes reviewing clipboards and comparing notes, the morning team gets a complete picture in 10 minutes. They know exactly who needs extra attention today and why.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">35 minutes saved. Better continuity of care.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="features-header">
+                <h2>Remote Monitoring Solutions</h2>
+                <p>Choose the right program for your facility's needs</p>
+            </div>
+            
+            <div class="services-tabs">
+                <button class="service-tab active" onclick="switchTab('rpm')">Remote Patient Monitoring</button>
+                <button class="service-tab" onclick="switchTab('ccm')">Chronic Care Management</button>
+            </div>
+            
+            <div class="service-content active" id="rpm">
+                <div class="service-info">
+                    <h3>Remote Patient Monitoring</h3>
+                    <p class="subtitle">Continuous health tracking for better outcomes</p>
+                    <p>Our RPM program provides round-the-clock monitoring of vital signs, enabling early detection before issues escalate.</p>
+                    <ul class="service-list">
                         <li>
-                            <a href="#" class="nav-link active" data-page="overview">
-                                <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-                                Overview
-                            </a>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Automated Vital Collection</strong><br>
+                                Seamless integration with medical devices for automatic data capture
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="nav-link" data-page="residents">
-                                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                                Residents
-                            </a>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Predictive Alerts</strong><br>
+                                AI-powered system identifies concerning trends early
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="nav-link" data-page="facilities">
-                                <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-                                Facilities
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link" data-page="devices">
-                                <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-                                Devices
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link" data-page="reports">
-                                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-                                Reports
-                            </a>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>EHR Integration</strong><br>
+                                Direct integration with your existing health records system
+                            </div>
                         </li>
                     </ul>
-                </nav>
-            </aside>
-
-            <!-- Content Area -->
-            <main class="content">
-                <!-- Overview Page -->
-                <div id="overview" class="page active">
-                    <div class="page-header">
-                        <h1>Dashboard Overview</h1>
-                        <p>Real-time monitoring across all facilities</p>
+                </div>
+                <div class="service-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Reduced Hospital Transfers</div>
+                        <div class="benefit-desc">Early intervention prevents emergencies and unnecessary hospitalizations</div>
                     </div>
-
-                    <!-- Critical Alerts -->
-                    <div class="alert-banner critical">
-                        <svg class="alert-icon" viewBox="0 0 24 24" fill="#ef4444">
-                            <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16v2h2v-2h-2zm0-6v4h2v-4h-2z"/>
-                        </svg>
-                        <div class="alert-content">
-                            <h3>2 Critical Alerts Require Attention</h3>
-                            <p>Resident vitals outside normal range - Golden Age of Inman</p>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
                         </div>
+                        <div class="benefit-title">Enhanced Care Quality</div>
+                        <div class="benefit-desc">Continuous monitoring improves clinical outcomes and resident satisfaction</div>
                     </div>
-
-                    <!-- Quick Stats -->
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Total Residents</div>
-                                    <div class="stat-value">47</div>
-                                    <div class="stat-change positive">↑ 3 from last month</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                                </div>
-                            </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
                         </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Active Devices</div>
-                                    <div class="stat-value">45/47</div>
-                                    <div class="stat-change positive">96% online</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Active Facilities</div>
-                                    <div class="stat-value">2</div>
-                                    <div class="stat-change positive">100% operational</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Critical Alerts</div>
-                                    <div class="stat-value">2</div>
-                                    <div class="stat-change negative">↑ Needs attention</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99z"/></svg>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="benefit-title">Staff Efficiency</div>
+                        <div class="benefit-desc">Automated data collection saves hours of manual documentation daily</div>
                     </div>
-
-                    <!-- Facility Cards -->
-                    <div class="facility-grid">
-                        <div class="facility-card" onclick="navigateTo('facilities')">
-                            <div class="facility-header">
-                                <h3>Golden Age of Inman</h3>
-                                <p>1234 Main Street, Inman, SC</p>
+                </div>
+            </div>
+            
+            <div class="service-content" id="ccm">
+                <div class="service-info">
+                    <h3>Chronic Care Management</h3>
+                    <p class="subtitle">Comprehensive support for complex patients</p>
+                    <p>Our CCM program provides continuous, coordinated care for residents with multiple chronic conditions.</p>
+                    <ul class="service-list">
+                        <li>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Personalized Care Plans</strong><br>
+                                Tailored interventions based on each patient's unique needs
                             </div>
-                            <div class="facility-body">
-                                <div class="facility-stats">
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">28</div>
-                                        <div class="facility-stat-label">Residents</div>
-                                    </div>
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">27/28</div>
-                                        <div class="facility-stat-label">Devices</div>
-                                    </div>
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">96%</div>
-                                        <div class="facility-stat-label">Uptime</div>
-                                    </div>
-                                </div>
-                                <div class="facility-alerts">
-                                    <div class="alert-badge critical">2 Critical</div>
-                                    <div class="alert-badge warning">3 Warning</div>
-                                    <div class="alert-badge stable">23 Stable</div>
-                                </div>
+                        </li>
+                        <li>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>24/7 Clinical Support</strong><br>
+                                Round-the-clock access to healthcare professionals
                             </div>
+                        </li>
+                        <li>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Medication Management</strong><br>
+                                Comprehensive medication reconciliation and monitoring
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="service-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
                         </div>
+                        <div class="benefit-title">Coordinated Care Team</div>
+                        <div class="benefit-desc">Seamless collaboration between all healthcare providers</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Comprehensive Documentation</div>
+                        <div class="benefit-desc">Complete care records for regulatory compliance and quality assurance</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Improved Star Ratings</div>
+                        <div class="benefit-desc">Meet quality measures and enhance your facility's reputation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <div class="facility-card" onclick="navigateTo('facilities')">
-                            <div class="facility-header">
-                                <h3>Inman Healthcare</h3>
-                                <p>5678 Oak Avenue, Inman, SC</p>
-                            </div>
-                            <div class="facility-body">
-                                <div class="facility-stats">
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">19</div>
-                                        <div class="facility-stat-label">Residents</div>
-                                    </div>
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">18/19</div>
-                                        <div class="facility-stat-label">Devices</div>
-                                    </div>
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">95%</div>
-                                        <div class="facility-stat-label">Uptime</div>
-                                    </div>
-                                </div>
-                                <div class="facility-alerts">
-                                    <div class="alert-badge critical">0 Critical</div>
-                                    <div class="alert-badge warning">1 Warning</div>
-                                    <div class="alert-badge stable">18 Stable</div>
-                                </div>
-                            </div>
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="features-header">
+                <h2>Supporting Your Facility</h2>
+                <p>Solutions for your daily challenges</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does this help with night shift staffing?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
                     </div>
-
-                    <!-- Recent Activity -->
-                    <div class="activity-feed">
-                        <div class="feed-header">
-                            <h3>Recent Activity</h3>
-                            <button class="view-btn">View All</button>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-time">2 min ago</div>
-                            <div class="activity-content">
-                                <div class="activity-title">Critical Alert: Heart Rate Abnormal</div>
-                                <div class="activity-desc">Johnson, Mary - Room 204 - Golden Age of Inman</div>
-                            </div>
-                            <span class="status-badge status-critical">Critical</span>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-time">15 min ago</div>
-                            <div class="activity-content">
-                                <div class="activity-title">Device Reconnected</div>
-                                <div class="activity-desc">Room 312 - Inman Healthcare - Xandar Kardian</div>
-                            </div>
-                            <span class="status-badge status-online">Online</span>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-time">32 min ago</div>
-                            <div class="activity-content">
-                                <div class="activity-title">Warning: Oxygen Level Low</div>
-                                <div class="activity-desc">Smith, Robert - Room 118 - Golden Age of Inman</div>
-                            </div>
-                            <span class="status-badge status-warning">Warning</span>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-time">1 hour ago</div>
-                            <div class="activity-content">
-                                <div class="activity-title">Daily Report Generated</div>
-                                <div class="activity-desc">RPM Report - All Facilities</div>
-                            </div>
-                            <span class="status-badge status-stable">Complete</span>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-time">2 hours ago</div>
-                            <div class="activity-content">
-                                <div class="activity-title">Alert Resolved</div>
-                                <div class="activity-desc">Davis, Patricia - Room 205 - Vitals normalized</div>
-                            </div>
-                            <span class="status-badge status-stable">Resolved</span>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our 24/7 monitoring system acts as extra support during night shifts. We provide instant alerts for critical changes, automated fall detection, and direct access to on-call physicians, helping your staff respond faster and make better decisions.
                         </div>
                     </div>
                 </div>
-
-                <!-- Residents Page -->
-                <div id="residents" class="page">
-                    <div class="page-header">
-                        <h1>Resident Management</h1>
-                        <p>Monitor all residents across facilities</p>
-                    </div>
-
-                    <div class="data-table">
-                        <div class="table-header">
-                            <h3>All Residents (47)</h3>
-                            <input type="text" class="table-search" placeholder="Search residents...">
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What about memory care residents?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Room</th>
-                                    <th>Facility</th>
-                                    <th>Status</th>
-                                    <th>Last Update</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Johnson, Mary</strong></td>
-                                    <td>204</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-critical">Critical</span></td>
-                                    <td>2 min ago</td>
-                                    <td><button class="view-btn" onclick="viewResident('johnson')">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Smith, Robert</strong></td>
-                                    <td>118</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-warning">Warning</span></td>
-                                    <td>15 min ago</td>
-                                    <td><button class="view-btn" onclick="viewResident('smith')">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Davis, Patricia</strong></td>
-                                    <td>205</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-stable">Stable</span></td>
-                                    <td>32 min ago</td>
-                                    <td><button class="view-btn" onclick="viewResident('davis')">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Wilson, James</strong></td>
-                                    <td>312</td>
-                                    <td>Inman Healthcare</td>
-                                    <td><span class="status-badge status-stable">Stable</span></td>
-                                    <td>45 min ago</td>
-                                    <td><button class="view-btn">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Brown, Linda</strong></td>
-                                    <td>156</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-stable">Stable</span></td>
-                                    <td>1 hour ago</td>
-                                    <td><button class="view-btn">View</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We offer specialized monitoring including wandering prevention alerts, sleep pattern analysis, and behavioral tracking. Our system identifies changes that may indicate distress, helping staff intervene early and effectively.
+                        </div>
                     </div>
                 </div>
-
-                <!-- Resident Detail Page -->
-                <div id="resident-detail" class="page">
-                    <div class="page-header">
-                        <h1>Resident Details</h1>
-                        <p><a href="#" onclick="navigateTo('residents')" style="color: var(--primary);">← Back to Residents</a></p>
-                    </div>
-
-                    <div class="resident-detail-header">
-                        <div class="resident-info">
-                            <h2>Johnson, Mary</h2>
-                            <div class="resident-meta">
-                                <span><strong>Room:</strong> 204</span>
-                                <span><strong>Facility:</strong> Golden Age of Inman</span>
-                                <span><strong>Age:</strong> 78</span>
-                                <span><strong>Admit Date:</strong> Jan 15, 2024</span>
-                            </div>
-                        </div>
-                        <span class="status-badge status-critical">Critical Alert</span>
-                    </div>
-
-                    <div class="vitals-grid">
-                        <div class="vital-card">
-                            <div class="vital-header">
-                                <span class="vital-name">Heart Rate</span>
-                                <span class="status-badge status-critical">Critical</span>
-                            </div>
-                            <div>
-                                <span class="vital-value">112</span>
-                                <span class="vital-unit">bpm</span>
-                            </div>
-                            <div class="vital-trend negative">↑ 18 bpm from baseline</div>
-                        </div>
-
-                        <div class="vital-card">
-                            <div class="vital-header">
-                                <span class="vital-name">Blood Pressure</span>
-                                <span class="status-badge status-warning">Warning</span>
-                            </div>
-                            <div>
-                                <span class="vital-value">145/92</span>
-                                <span class="vital-unit">mmHg</span>
-                            </div>
-                            <div class="vital-trend negative">↑ Elevated</div>
-                        </div>
-
-                        <div class="vital-card">
-                            <div class="vital-header">
-                                <span class="vital-name">Respiratory Rate</span>
-                                <span class="status-badge status-stable">Normal</span>
-                            </div>
-                            <div>
-                                <span class="vital-value">16</span>
-                                <span class="vital-unit">breaths/min</span>
-                            </div>
-                            <div class="vital-trend positive">Within range</div>
-                        </div>
-
-                        <div class="vital-card">
-                            <div class="vital-header">
-                                <span class="vital-name">Activity Level</span>
-                                <span class="status-badge status-stable">Normal</span>
-                            </div>
-                            <div>
-                                <span class="vital-value">Moderate</span>
-                            </div>
-                            <div class="vital-trend positive">Consistent pattern</div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much staff time will this save?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
                     </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            By automating routine vital collection and documentation, we free up significant time per shift. Our predictive alerts prevent crisis situations, and streamlined shift handoffs reduce meeting time, allowing staff to focus on direct care.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can this really prevent falls?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes. Our AI analyzes patterns to identify high-risk residents based on mobility changes and medications. Real-time alerts notify staff when at-risk residents attempt to stand unassisted, significantly reducing fall incidents.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do families stay informed?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Families receive secure access to health trends and care activities through our portal. Automated updates keep them informed of changes, and our visual reports help them feel more involved and confident in the care provided.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the implementation timeline?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Full implementation takes just 2-4 weeks. We handle device setup, EHR integration, and comprehensive staff training. Your facility can start seeing improvements in care quality and efficiency within the first month.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <h3>Heart Rate - Last 7 Days</h3>
-                            <select style="padding: 0.5rem; border: 1px solid #e2e8f0; border-radius: 0.375rem;">
-                                <option>Last 7 Days</option>
-                                <option>Last 30 Days</option>
-                                <option>Last 90 Days</option>
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="features-header">
+                <h2>Start Transforming Your Facility</h2>
+                <p>See how we can improve outcomes and reduce costs</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Why Facilities Choose Us</h3>
+                    <p>Join hundreds of long-term care facilities that have revolutionized their care delivery with our platform.</p>
+                    
+                    <ul class="contact-benefits">
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2L2 7v10c0 5.55 4.84 10.74 11 12 6.16-1.26 11-6.45 11-12V7l-11-5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Fast Implementation</strong><br>
+                                <span style="color: var(--gray); font-size: 0.9375rem;">Go live in 2-4 weeks with full support</span>
+                            </div>
+                        </li>
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Proven Results</strong><br>
+                                <span style="color: var(--gray); font-size: 0.9375rem;">Demonstrated improvements in care quality</span>
+                            </div>
+                        </li>
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Complete Training</strong><br>
+                                <span style="color: var(--gray); font-size: 0.9375rem;">Comprehensive staff certification included</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-header">
+                        <h3>Schedule Your Demo</h3>
+                        <p>We'll contact you within 2 business hours</p>
+                    </div>
+                    <form onsubmit="handleDemoForm(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="facility">Facility Name *</label>
+                            <input type="text" id="facility" name="facility" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="facilityType">Facility Type *</label>
+                            <select id="facilityType" name="facilityType" required>
+                                <option value="">Select Type</option>
+                                <option value="skilled-nursing">Skilled Nursing</option>
+                                <option value="assisted-living">Assisted Living</option>
+                                <option value="memory-care">Memory Care</option>
+                                <option value="ltach">LTACH</option>
+                                <option value="other">Other</option>
                             </select>
                         </div>
-                        <div class="chart-placeholder">
-                            Chart will display trend data here
-                        </div>
-                    </div>
-
-                    <div class="activity-feed">
-                        <div class="feed-header">
-                            <h3>Recent Events</h3>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-time">2 min ago</div>
-                            <div class="activity-content">
-                                <div class="activity-title">Heart Rate Alert Triggered</div>
-                                <div class="activity-desc">Heart rate exceeded 110 bpm threshold</div>
-                            </div>
-                            <span class="status-badge status-critical">Critical</span>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-time">3 hours ago</div>
-                            <div class="activity-content">
-                                <div class="activity-title">Vitals Updated</div>
-                                <div class="activity-desc">All vitals within normal range</div>
-                            </div>
-                            <span class="status-badge status-stable">Normal</span>
-                        </div>
-                    </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Request Demo</button>
+                    </form>
                 </div>
-
-                <!-- Facilities Page -->
-                <div id="facilities" class="page">
-                    <div class="page-header">
-                        <h1>Facility Management</h1>
-                        <p>Monitor facility performance and residents</p>
-                    </div>
-
-                    <div class="facility-grid">
-                        <div class="facility-card">
-                            <div class="facility-header">
-                                <h3>Golden Age of Inman</h3>
-                                <p>1234 Main Street, Inman, SC 29349</p>
-                            </div>
-                            <div class="facility-body">
-                                <div class="facility-stats">
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">28</div>
-                                        <div class="facility-stat-label">Total Residents</div>
-                                    </div>
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">27/28</div>
-                                        <div class="facility-stat-label">Devices Online</div>
-                                    </div>
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">96%</div>
-                                        <div class="facility-stat-label">Device Uptime</div>
-                                    </div>
-                                </div>
-                                <div class="facility-alerts">
-                                    <div class="alert-badge critical">2 Critical</div>
-                                    <div class="alert-badge warning">3 Warning</div>
-                                    <div class="alert-badge stable">23 Stable</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="facility-card">
-                            <div class="facility-header">
-                                <h3>Inman Healthcare</h3>
-                                <p>5678 Oak Avenue, Inman, SC 29349</p>
-                            </div>
-                            <div class="facility-body">
-                                <div class="facility-stats">
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">19</div>
-                                        <div class="facility-stat-label">Total Residents</div>
-                                    </div>
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">18/19</div>
-                                        <div class="facility-stat-label">Devices Online</div>
-                                    </div>
-                                    <div class="facility-stat">
-                                        <div class="facility-stat-value">95%</div>
-                                        <div class="facility-stat-label">Device Uptime</div>
-                                    </div>
-                                </div>
-                                <div class="facility-alerts">
-                                    <div class="alert-badge critical">0 Critical</div>
-                                    <div class="alert-badge warning">1 Warning</div>
-                                    <div class="alert-badge stable">18 Stable</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Devices Page -->
-                <div id="devices" class="page">
-                    <div class="page-header">
-                        <h1>Device Management</h1>
-                        <p>Monitor all monitoring devices across facilities</p>
-                    </div>
-
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Total Devices</div>
-                                    <div class="stat-value">47</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Online</div>
-                                    <div class="stat-value">45</div>
-                                    <div class="stat-change positive">96% uptime</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Offline</div>
-                                    <div class="stat-value">2</div>
-                                    <div class="stat-change negative">Requires attention</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="data-table">
-                        <div class="table-header">
-                            <h3>Device Status</h3>
-                            <input type="text" class="table-search" placeholder="Search devices...">
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Device ID</th>
-                                    <th>Type</th>
-                                    <th>Location</th>
-                                    <th>Facility</th>
-                                    <th>Status</th>
-                                    <th>Last Check</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>XK-204-A</strong></td>
-                                    <td>Xandar Kardian</td>
-                                    <td>Room 204</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-online">Online</span></td>
-                                    <td>2 min ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CP-118-B</strong></td>
-                                    <td>Caspar AI</td>
-                                    <td>Room 118</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-offline">Offline</span></td>
-                                    <td>3 hours ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>XK-205-A</strong></td>
-                                    <td>Xandar Kardian</td>
-                                    <td>Room 205</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-online">Online</span></td>
-                                    <td>5 min ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CP-312-B</strong></td>
-                                    <td>Caspar AI</td>
-                                    <td>Room 312</td>
-                                    <td>Inman Healthcare</td>
-                                    <td><span class="status-badge status-online">Online</span></td>
-                                    <td>8 min ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>XK-156-A</strong></td>
-                                    <td>Xandar Kardian</td>
-                                    <td>Room 156</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-online">Online</span></td>
-                                    <td>12 min ago</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Reports Page -->
-                <div id="reports" class="page">
-                    <div class="page-header">
-                        <h1>Reports & Analytics</h1>
-                        <p>Download and view facility reports</p>
-                    </div>
-
-                    <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Daily RPM Reports</h3>
-                    <div class="report-card">
-                        <div class="report-info">
-                            <h3>Daily RPM Report - October 19, 2025</h3>
-                            <div class="report-meta">All Facilities • Generated 6:00 AM • 2.4 MB</div>
-                        </div>
-                        <button class="download-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                            </svg>
-                            Download
-                        </button>
-                    </div>
-
-                    <div class="report-card">
-                        <div class="report-info">
-                            <h3>Daily RPM Report - October 18, 2025</h3>
-                            <div class="report-meta">All Facilities • Generated 6:00 AM • 2.3 MB</div>
-                        </div>
-                        <button class="download-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                            </svg>
-                            Download
-                        </button>
-                    </div>
-
-                    <h3 style="margin: 2rem 0 1rem; font-size: 1.25rem;">Weekly RPM Reports</h3>
-                    <div class="report-card">
-                        <div class="report-info">
-                            <h3>Weekly RPM Report - Week of Oct 13-19, 2025</h3>
-                            <div class="report-meta">All Facilities • Generated Sunday 6:00 AM • 8.7 MB</div>
-                        </div>
-                        <button class="download-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                            </svg>
-                            Download
-                        </button>
-                    </div>
-
-                    <div class="report-card">
-                        <div class="report-info">
-                            <h3>Weekly RPM Report - Week of Oct 6-12, 2025</h3>
-                            <div class="report-meta">All Facilities • Generated Sunday 6:00 AM • 8.5 MB</div>
-                        </div>
-                        <button class="download-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                            </svg>
-                            Download
-                        </button>
-                    </div>
-                </div>
-            </main>
+            </div>
         </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Ready to Transform Your Facility?</h2>
+            <p>Join leading long-term care facilities using Total Remote Care</p>
+            <a href="#contact" class="btn btn-white">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-newsletter">
+                <div class="newsletter-content">
+                    <h3>Stay Updated</h3>
+                    <p>Get insights on remote patient monitoring and long-term care</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                        <input type="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Total Remote Care</h3>
+                    <p>Revolutionizing long-term care through innovative remote monitoring solutions. We're committed to improving patient outcomes and quality of life.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Impact</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Total Remote Care | Miami, FL | +1 305 733 1404 | info@totalremotecare.com</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24">
+            <path d="M7 14l5-5 5 5z"/>
+        </svg>
     </div>
 
     <script>
-        // Login Handler
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('loginForm');
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Service tabs
+        function switchTab(service) {
+            document.querySelectorAll('.service-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.service-content').forEach(content => {
+                content.classList.remove('active');
+            });
             
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+            event.target.classList.add('active');
+            document.getElementById(service).classList.add('active');
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
                 
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
                 
-                // Check credentials
-                if (username === 'testluchi@test.com' && password === 'testluchi') {
-                    const loginPage = document.getElementById('loginPage');
-                    const dashboard = document.getElementById('dashboard');
-                    
-                    loginPage.style.display = 'none';
-                    dashboard.style.display = 'block';
-                    dashboard.classList.add('active');
-                } else {
-                    alert('Invalid credentials. Please try again.');
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
                 }
             });
         });
-        // Logout Handler
-        function handleLogout() {
-            const loginPage = document.getElementById('loginPage');
-            const dashboard = document.getElementById('dashboard');
-            
-            dashboard.classList.remove('active');
-            dashboard.style.display = 'none';
-            loginPage.style.display = 'flex';
-        }
 
-        // Navigation Handler
-        function navigateTo(page) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Header height
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active nav & scroll effects
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
             
-            // Show selected page
-            document.getElementById(page).classList.add('active');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
             
-            // Update nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
+            navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.dataset.page === page) {
+                if (link.getAttribute('href').slice(1) === current) {
                     link.classList.add('active');
                 }
             });
         }
 
-        // View Resident Detail
-        function viewResident(residentId) {
-            navigateTo('resident-detail');
+        // Scroll events
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const backToTop = document.querySelector('.back-to-top');
+            
+            // Header shadow
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Back to top visibility
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            
+            updateActiveNav();
+        });
+
+        // Back to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
 
-        // Nav Link Click Handlers
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const page = this.dataset.page;
-                navigateTo(page);
-            });
-        });
+        // Form handlers
+        function handleDemoForm(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            alert(`Thank you ${data.name}! We'll contact you within 2 business hours.`);
+            e.target.reset();
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('.newsletter-input').value;
+            alert(`Thank you for subscribing! We'll send updates to ${email}`);
+            e.target.reset();
+        }
+
+        // Initialize
+        updateActiveNav();
     </script>
 </body>
 </html>
