@@ -1474,6 +1474,16 @@
             color: var(--green);
         }
 
+        .status-online {
+            background: var(--green-light);
+            color: var(--green);
+        }
+
+        .status-offline {
+            background: var(--red-light);
+            color: var(--red);
+        }
+
         .data-table {
             background: var(--white);
             border-radius: 0.75rem;
@@ -2316,6 +2326,115 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Facility Cards -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; overflow: hidden; transition: all 0.3s ease; cursor: pointer;">
+                            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 1.5rem; color: var(--white);">
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Golden Age of Inman</h3>
+                                <p style="font-size: 0.9375rem; opacity: 0.9; color: var(--white);">1234 Main Street, Inman, SC</p>
+                            </div>
+                            <div style="padding: 1.5rem;">
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">28</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Residents</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">27/28</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Devices</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">96%</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Uptime</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--red-light); color: var(--red);">2 Critical</div>
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--yellow-light); color: var(--yellow);">3 Warning</div>
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--green-light); color: var(--green);">23 Stable</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; overflow: hidden; transition: all 0.3s ease; cursor: pointer;">
+                            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 1.5rem; color: var(--white);">
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Inman Healthcare</h3>
+                                <p style="font-size: 0.9375rem; opacity: 0.9; color: var(--white);">5678 Oak Avenue, Inman, SC</p>
+                            </div>
+                            <div style="padding: 1.5rem;">
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">19</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Residents</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">18/19</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Devices</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">95%</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Uptime</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--red-light); color: var(--red);">0 Critical</div>
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--yellow-light); color: var(--yellow);">1 Warning</div>
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--green-light); color: var(--green);">18 Stable</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity Feed -->
+                    <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; padding: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1.125rem; font-weight: 600;">Recent Activity</h3>
+                            <button class="view-btn">View All</button>
+                        </div>
+                        <div>
+                            <div style="display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">2 min ago</div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Critical Alert: Heart Rate Abnormal</div>
+                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">Johnson, Mary - Room 204 - Golden Age of Inman</div>
+                                </div>
+                                <span class="status-badge status-critical">Critical</span>
+                            </div>
+                            <div style="display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">15 min ago</div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Device Reconnected</div>
+                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">Room 312 - Inman Healthcare - Xandar Kardian</div>
+                                </div>
+                                <span class="status-badge status-stable">Online</span>
+                            </div>
+                            <div style="display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">32 min ago</div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Warning: Oxygen Level Low</div>
+                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">Smith, Robert - Room 118 - Golden Age of Inman</div>
+                                </div>
+                                <span class="status-badge status-warning">Warning</span>
+                            </div>
+                            <div style="display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">1 hour ago</div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Daily Report Generated</div>
+                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">RPM Report - All Facilities</div>
+                                </div>
+                                <span class="status-badge status-stable">Complete</span>
+                            </div>
+                            <div style="display: flex; gap: 1rem; padding: 1rem 0;">
+                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">2 hours ago</div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Alert Resolved</div>
+                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">Davis, Patricia - Room 205 - Vitals normalized</div>
+                                </div>
+                                <span class="status-badge status-stable">Resolved</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="residents" class="page">
@@ -2374,19 +2493,231 @@
                         <h1>Facilities</h1>
                         <p>Manage facility performance</p>
                     </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 1.5rem;">
+                        <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; overflow: hidden;">
+                            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 1.5rem; color: var(--white);">
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Golden Age of Inman</h3>
+                                <p style="font-size: 0.9375rem; opacity: 0.9; color: var(--white);">1234 Main Street, Inman, SC 29349</p>
+                            </div>
+                            <div style="padding: 1.5rem;">
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">28</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Total Residents</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">27/28</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Devices Online</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">96%</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Device Uptime</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--red-light); color: var(--red);">2 Critical</div>
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--yellow-light); color: var(--yellow);">3 Warning</div>
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--green-light); color: var(--green);">23 Stable</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; overflow: hidden;">
+                            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 1.5rem; color: var(--white);">
+                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Inman Healthcare</h3>
+                                <p style="font-size: 0.9375rem; opacity: 0.9; color: var(--white);">5678 Oak Avenue, Inman, SC 29349</p>
+                            </div>
+                            <div style="padding: 1.5rem;">
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">19</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Total Residents</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">18/19</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Devices Online</div>
+                                    </div>
+                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">95%</div>
+                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Device Uptime</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--red-light); color: var(--red);">0 Critical</div>
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--yellow-light); color: var(--yellow);">1 Warning</div>
+                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--green-light); color: var(--green);">18 Stable</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="devices" class="page">
                     <div class="page-header">
                         <h1>Device Management</h1>
-                        <p>Monitor all devices</p>
+                        <p>Monitor all monitoring devices across facilities</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div>
+                                    <div class="stat-label">Total Devices</div>
+                                    <div class="stat-value">47</div>
+                                </div>
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div>
+                                    <div class="stat-label">Online</div>
+                                    <div class="stat-value">45</div>
+                                    <div class="stat-change positive">96% uptime</div>
+                                </div>
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div>
+                                    <div class="stat-label">Offline</div>
+                                    <div class="stat-value">2</div>
+                                    <div class="stat-change negative">Requires attention</div>
+                                </div>
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-table">
+                        <div class="table-header">
+                            <h3>Device Status</h3>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Device ID</th>
+                                    <th>Type</th>
+                                    <th>Location</th>
+                                    <th>Facility</th>
+                                    <th>Status</th>
+                                    <th>Last Check</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>XK-204-A</strong></td>
+                                    <td>Xandar Kardian</td>
+                                    <td>Room 204</td>
+                                    <td>Golden Age of Inman</td>
+                                    <td><span class="status-badge status-stable">Online</span></td>
+                                    <td>2 min ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CP-118-B</strong></td>
+                                    <td>Caspar AI</td>
+                                    <td>Room 118</td>
+                                    <td>Golden Age of Inman</td>
+                                    <td><span class="status-badge status-critical">Offline</span></td>
+                                    <td>3 hours ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>XK-205-A</strong></td>
+                                    <td>Xandar Kardian</td>
+                                    <td>Room 205</td>
+                                    <td>Golden Age of Inman</td>
+                                    <td><span class="status-badge status-stable">Online</span></td>
+                                    <td>5 min ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CP-312-B</strong></td>
+                                    <td>Caspar AI</td>
+                                    <td>Room 312</td>
+                                    <td>Inman Healthcare</td>
+                                    <td><span class="status-badge status-stable">Online</span></td>
+                                    <td>8 min ago</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>XK-156-A</strong></td>
+                                    <td>Xandar Kardian</td>
+                                    <td>Room 156</td>
+                                    <td>Golden Age of Inman</td>
+                                    <td><span class="status-badge status-stable">Online</span></td>
+                                    <td>12 min ago</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
                 <div id="reports" class="page">
                     <div class="page-header">
                         <h1>Reports & Analytics</h1>
-                        <p>Download facility reports</p>
+                        <p>Download and view facility reports</p>
+                    </div>
+
+                    <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Daily RPM Reports</h3>
+                    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Daily RPM Report - October 19, 2025</h3>
+                            <div style="font-size: 0.875rem; color: var(--gray);">All Facilities • Generated 6:00 AM • 2.4 MB</div>
+                        </div>
+                        <button class="view-btn" style="display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+
+                    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Daily RPM Report - October 18, 2025</h3>
+                            <div style="font-size: 0.875rem; color: var(--gray);">All Facilities • Generated 6:00 AM • 2.3 MB</div>
+                        </div>
+                        <button class="view-btn" style="display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+
+                    <h3 style="margin: 2rem 0 1rem; font-size: 1.25rem;">Weekly RPM Reports</h3>
+                    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Weekly RPM Report - Week of Oct 13-19, 2025</h3>
+                            <div style="font-size: 0.875rem; color: var(--gray);">All Facilities • Generated Sunday 6:00 AM • 8.7 MB</div>
+                        </div>
+                        <button class="view-btn" style="display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+
+                    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Weekly RPM Report - Week of Oct 6-12, 2025</h3>
+                            <div style="font-size: 0.875rem; color: var(--gray);">All Facilities • Generated Sunday 6:00 AM • 8.5 MB</div>
+                        </div>
+                        <button class="view-btn" style="display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Download
+                        </button>
                     </div>
                 </div>
             </main>
