@@ -15,6 +15,7 @@
         }
 
         :root {
+            /* Teal + Coral color palette */
             --primary: #0d9488;
             --primary-dark: #0f766e;
             --secondary: #f97316;
@@ -22,28 +23,24 @@
             --dark: #0f172a;
             --gray: #64748b;
             --gray-dark: #475569;
-            --gray-light: #cbd5e1;
             --light: #f8fafc;
             --white: #ffffff;
             
-            --red: #ef4444;
-            --red-light: #fee2e2;
-            --yellow: #eab308;
-            --yellow-light: #fef9c3;
-            --green: #10b981;
-            --green-light: #d1fae5;
-            
+            /* Consistent spacing */
             --section-padding: 5rem;
             --container-width: 1200px;
             
+            /* Standardized shadows */
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
             --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
             
+            /* Borders */
             --border-color: #e2e8f0;
         }
         
+        /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -56,16 +53,7 @@
             background: var(--white);
         }
 
-        /* Show/hide sections */
-        #marketingSection {
-            display: block;
-        }
-
-        #loginSection,
-        #dashboardSection {
-            display: none;
-        }
-
+        /* Typography Scale */
         h1 {
             font-size: clamp(2.25rem, 4vw, 3.5rem);
             font-weight: 800;
@@ -92,16 +80,19 @@
             color: var(--gray-dark);
         }
 
+        /* Container */
         .container {
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
+        /* Section Spacing */
         .section {
             padding: var(--section-padding) 0;
         }
 
+        /* Buttons */
         .btn {
             padding: 0.875rem 1.75rem;
             border-radius: 0.5rem;
@@ -167,6 +158,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -192,7 +184,6 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--dark);
-            cursor: pointer;
         }
 
         .logo span {
@@ -235,6 +226,7 @@
             width: 100%;
         }
 
+        /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
@@ -264,6 +256,7 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
+        /* Hero Section */
         .hero {
             margin-top: 72px;
             min-height: calc(100vh - 72px);
@@ -272,7 +265,6 @@
             background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f8fafc 100%);
             position: relative;
             overflow: hidden;
-            padding: 4rem 0;
         }
         
         .hero::before {
@@ -280,29 +272,26 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at top right, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at bottom left, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+            background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at bottom left, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
             position: relative;
             z-index: 1;
-        }
-
-        .hero-text {
-            animation: fadeInUp 0.8s ease-out;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero-text h1 {
-            font-size: clamp(2.75rem, 5vw, 4rem);
-            line-height: 1.1;
             margin-bottom: 1.5rem;
             color: var(--dark);
+            animation: fadeInUp 0.8s ease-out;
         }
         
         @keyframes fadeInUp {
@@ -319,157 +308,60 @@
         .hero-text h1 span {
             color: var(--primary);
             position: relative;
-            display: inline-block;
         }
         
         .hero-text h1 span::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: 2px;
         }
 
         .hero-text p {
-            font-size: 1.25rem;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-            color: var(--gray-dark);
+            font-size: 1.375rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
         
-        .hero-text .highlight-text {
-            font-size: 1rem;
-            color: var(--primary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        /* Counting animation for numbers */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .hero-text .highlight-text::before {
-            content: '';
-            width: 40px;
-            height: 2px;
-            background: var(--primary);
+        .count-number {
+            animation: countUp 1s ease-out;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-        
-        .hero-buttons .btn {
-            padding: 1rem 2rem;
-            font-size: 1.0625rem;
-        }
-        
-        .hero-image-container {
-            position: relative;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-        
-        .hero-image {
-            position: relative;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.5s ease;
-        }
-        
-        .hero-image:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-        
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%);
-            pointer-events: none;
-        }
-        
-        .hero-badge {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: var(--white);
-            padding: 1rem 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .hero-badge-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1;
-        }
-        
-        .hero-badge-label {
-            font-size: 0.75rem;
-            color: var(--gray-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 0.25rem;
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e2e8f0;
-        }
-        
-        .hero-stat {
-            flex: 1;
-        }
-        
-        .hero-stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            line-height: 1;
-        }
-        
-        .hero-stat-label {
-            font-size: 0.875rem;
-            color: var(--gray);
-            margin-top: 0.5rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
         
         /* Hero Features */
         .hero-features {
-            grid-column: 1 / -1;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 4rem;
+            width: 100%;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
         
         .hero-feature {
@@ -495,7 +387,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
         
         .hero-feature-icon svg {
@@ -516,6 +414,7 @@
             line-height: 1.6;
         }
 
+        /* Trust Section */
         .trust-section {
             background: var(--white);
             border-top: 1px solid var(--border-color);
@@ -556,6 +455,7 @@
             fill: var(--primary);
         }
 
+        /* Story Section - Why We Built This */
         .story-section {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: var(--white);
@@ -627,7 +527,80 @@
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%);
             pointer-events: none;
         }
-
+        
+        /* Impact Stats with counting animation */
+        .impact-stats {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            padding: 4rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            position: relative;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.125rem;
+            color: var(--gray-dark);
+            font-weight: 500;
+        }
+        
+        .stat-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+        
+        .stat-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            animation: pulse 2s infinite;
+            opacity: 0;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        
+        .stat-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--white);
+        }
+        
+        /* Scenario Cards - replacing generic features */
         .scenario-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -730,7 +703,82 @@
             font-weight: 600;
             color: var(--dark);
         }
+        
+        /* Testimonial with image */
+        .testimonial-section {
+            background: var(--white);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+            border-radius: 1rem;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .testimonial-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-content blockquote {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-content blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            left: -1rem;
+            top: -1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 0.9375rem;
+        }
+        
+        /* Heartbeat animation for hero */
+        .heartbeat {
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            40% { transform: scale(1); }
+        }
 
+        /* Features Section */
         .features-header {
             text-align: center;
             max-width: 700px;
@@ -742,6 +790,7 @@
             color: var(--dark);
         }
 
+        /* Services Section */
         .services {
             background: var(--white);
         }
@@ -898,6 +947,7 @@
             line-height: 1.5;
         }
 
+        /* FAQ Section */
         .faq-section {
             background: #f0fdfa;
         }
@@ -971,6 +1021,7 @@
             font-size: 1rem;
         }
 
+        /* Contact Section */
         .contact {
             background: var(--white);
         }
@@ -1084,6 +1135,7 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
 
+        /* CTA Section */
         .cta {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             text-align: center;
@@ -1123,6 +1175,7 @@
             margin-bottom: 2rem;
         }
 
+        /* Footer */
         footer {
             background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
             color: var(--white);
@@ -1142,7 +1195,7 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 3rem;
             margin-bottom: 2rem;
         }
@@ -1236,6 +1289,7 @@
             font-size: 0.875rem;
         }
 
+        /* Back to Top */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -1271,390 +1325,7 @@
             fill: var(--white);
         }
 
-        /* Login Page */
-        .login-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f8fafc 100%);
-            padding: 2rem;
-        }
-
-        .login-box {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-lg);
-            width: 100%;
-            max-width: 440px;
-        }
-
-        .login-logo {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .login-logo h1 {
-            font-size: 1.75rem;
-            color: var(--dark);
-            font-weight: 700;
-        }
-
-        .login-logo span {
-            color: var(--primary);
-        }
-
-        .login-logo p {
-            color: var(--gray);
-            font-size: 0.9375rem;
-            margin-top: 0.5rem;
-        }
-
-        .back-to-home {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        .back-to-home a {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9375rem;
-        }
-
-        .back-to-home a:hover {
-            color: var(--primary-dark);
-        }
-
-        /* Dashboard */
-        .dashboard-header {
-            background: var(--white);
-            border-bottom: 1px solid #e2e8f0;
-            padding: 0 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 72px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .header-logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .header-logo span {
-            color: var(--primary);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.5rem 1rem;
-            background: var(--light);
-            border-radius: 2rem;
-        }
-
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
-
-        .logout-btn {
-            padding: 0.5rem 1rem;
-            background: transparent;
-            border: 1px solid var(--gray-light);
-            color: var(--gray-dark);
-            border-radius: 0.5rem;
-            font-size: 0.9375rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .logout-btn:hover {
-            background: var(--red);
-            color: var(--white);
-            border-color: var(--red);
-        }
-
-        .dashboard-main {
-            display: flex;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .sidebar {
-            width: 260px;
-            background: var(--white);
-            border-right: 1px solid #e2e8f0;
-            min-height: calc(100vh - 72px);
-            padding: 2rem 0;
-        }
-
-        .sidebar-nav {
-            list-style: none;
-        }
-
-        .sidebar-nav li {
-            margin-bottom: 0.5rem;
-        }
-
-        .sidebar-nav a {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.875rem 1.5rem;
-            color: var(--gray-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .sidebar-nav a:hover {
-            background: var(--light);
-            color: var(--primary);
-        }
-
-        .sidebar-nav a.active {
-            background: rgba(13, 148, 136, 0.1);
-            color: var(--primary);
-            border-left-color: var(--primary);
-        }
-
-        .sidebar-nav svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
-        .content {
-            flex: 1;
-            padding: 2rem;
-            overflow-y: auto;
-            background: var(--light);
-        }
-
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        .page-header {
-            margin-bottom: 2rem;
-        }
-
-        .page-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .page-header p {
-            color: var(--gray);
-            font-size: 1rem;
-        }
-
-        .alert-banner {
-            background: var(--red-light);
-            border-left: 4px solid var(--red);
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
-
-        .stat-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(13, 148, 136, 0.1);
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stat-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--gray);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .stat-change {
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-
-        .stat-change.positive {
-            color: var(--green);
-        }
-
-        .stat-change.negative {
-            color: var(--red);
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .status-critical {
-            background: var(--red-light);
-            color: var(--red);
-        }
-
-        .status-warning {
-            background: var(--yellow-light);
-            color: var(--yellow);
-        }
-
-        .status-stable {
-            background: var(--green-light);
-            color: var(--green);
-        }
-
-        .status-online {
-            background: var(--green-light);
-            color: var(--green);
-        }
-
-        .status-offline {
-            background: var(--red-light);
-            color: var(--red);
-        }
-
-        .data-table {
-            background: var(--white);
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            overflow: hidden;
-        }
-
-        .table-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead {
-            background: var(--light);
-        }
-
-        th {
-            padding: 1rem 1.5rem;
-            text-align: left;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--gray-dark);
-            text-transform: uppercase;
-        }
-
-        td {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid #e2e8f0;
-            font-size: 0.9375rem;
-        }
-
-        tr:hover {
-            background: var(--light);
-        }
-
-        .view-btn {
-            padding: 0.5rem 1rem;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .view-btn:hover {
-            background: var(--primary-dark);
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
             :root {
                 --section-padding: 3rem;
@@ -1681,17 +1352,7 @@
             }
 
             .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .hero-image-container {
-                order: -1;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 1rem;
+                padding: 0 1rem;
             }
             
             .hero-features {
@@ -1727,1256 +1388,628 @@
             .story-content {
                 grid-template-columns: 1fr;
             }
-
-            .sidebar {
-                display: none;
+            
+            .testimonial-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .testimonial-image {
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- MARKETING SECTION -->
-    <div id="marketingSection">
-        <header>
-            <nav class="container">
-                <div class="logo" onclick="showMarketing()">Total<span>Remote</span>Care</div>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#features">Impact</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#contact" class="btn btn-primary">Get Started</a></li>
-                </ul>
-                <div class="mobile-menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </header>
-
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <div class="highlight-text">
-                            Revolutionary Healthcare Monitoring
-                        </div>
-                        <h1>Care That Sees <span>Around Corners</span></h1>
-                        <p>Give your care team the power to catch problems before they become emergencies. Real-time monitoring, intelligent alerts, and automated documentation—so your nurses can focus on caring, not catching up.</p>
-                        <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary">Schedule Demo</a>
-                            <a href="#story" class="btn btn-secondary">Our Story</a>
-                        </div>
-                        
-                        <div class="hero-stats">
-                            <div class="hero-stat">
-                                <div class="hero-stat-value">47</div>
-                                <div class="hero-stat-label">Residents Monitored</div>
-                            </div>
-                            <div class="hero-stat">
-                                <div class="hero-stat-value">96%</div>
-                                <div class="hero-stat-label">System Uptime</div>
-                            </div>
-                            <div class="hero-stat">
-                                <div class="hero-stat-value">24/7</div>
-                                <div class="hero-stat-label">Real-time Monitoring</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-image-container">
-                        <div class="hero-image">
-                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional using monitoring technology">
-                            <div class="hero-badge">
-                                <div class="hero-badge-value">100%</div>
-                                <div class="hero-badge-label">FDA Certified</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-features">
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                                </svg>
-                            </div>
-                            <h3>Sleep Better at Night</h3>
-                            <p>We're watching when you can't. Give your residents and their families the gift of knowing someone's always paying attention.</p>
-                        </div>
-                        
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                                </svg>
-                            </div>
-                            <h3>More Time for Care</h3>
-                            <p>Less time documenting. Less time worrying. More time doing what you actually became a nurse for.</p>
-                        </div>
-                        
-                        <div class="hero-feature">
-                            <div class="hero-feature-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                                </svg>
-                            </div>
-                            <h3>Catch Problems Early</h3>
-                            <p>That subtle change in breathing? The slight uptick in confusion? We catch it before it becomes a crisis.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Total<span>Remote</span>Care</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#features">Impact</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-primary">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </section>
+        </nav>
+    </header>
 
-        <section class="trust-section">
-            <div class="container">
-                <div class="trust-container">
-                    <div class="trust-item">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                        </svg>
-                        <span>HIPAA Compliant</span>
-                    </div>
-                    <div class="trust-item">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                        <span>Medicare Certified</span>
-                    </div>
-                    <div class="trust-item">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M12 2L2 7v10c0 5.55 4.84 10.74 11 12 6.16-1.26 11-6.45 11-12V7l-11-5z"/>
-                        </svg>
-                        <span>SOC 2 Type II</span>
-                    </div>
-                    <div class="trust-item">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
-                        </svg>
-                        <span>FDA Registered</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section story-section" id="story">
-            <div class="container">
-                <div class="story-content">
-                    <div class="story-text">
-                        <h2>Why We Built This</h2>
-                        <p>Walk into any long-term care facility at 3 AM, and you'll find dedicated nurses moving room to room, checking vitals, documenting by hand, and wondering: "What am I missing?"</p>
-                        <p>We saw skilled professionals spending more time on paperwork than patient care. Early warning signs slipping through the cracks because no one can be everywhere at once. Data scattered across clipboards—heart rates, oxygen levels, sleep patterns—only becoming obvious after residents were already in crisis.</p>
-                        <p>There had to be a better way. Technology that continuously monitors, intelligently analyzes, and proactively alerts. A system that empowers nursing staff with insights when they need them, not hours later when reviewing charts.</p>
-                        <p>Total Remote Care gives your team the ability to see patterns before they become problems, document automatically, and focus on what matters most: caring for residents.</p>
-                        <p class="signature">— Founder & CEO, Total Remote Care</p>
-                    </div>
-                    <div class="story-image">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Healthcare monitoring">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section scenarios-section" id="features">
-            <div class="container">
-                <div class="features-header">
-                    <h2>Real Moments. Real Impact.</h2>
-                    <p>Here's how we make a difference every single day</p>
-                </div>
-                <div class="scenario-cards">
-                    <div class="scenario-card">
-                        <div class="scenario-image">
-                            <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" alt="Night nurse monitoring patients">
-                            <div class="scenario-time">2:15 AM</div>
-                        </div>
-                        <div class="scenario-content">
-                            <h3>The Night Shift Guardian</h3>
-                            <p>A resident's oxygen levels start dropping—not dramatically, just enough to worry. Our system alerts the nurse before levels become critical. She adjusts the oxygen and repositions the patient. By morning rounds, breathing is easy again.</p>
-                            <div class="scenario-outcome">
-                                <div class="scenario-outcome-icon">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </div>
-                                <div class="scenario-outcome-text">ER visit avoided. Peace of mind delivered.</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="scenario-card">
-                        <div class="scenario-image">
-                            <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=800&q=80" alt="Medical monitoring">
-                            <div class="scenario-time">3:45 PM</div>
-                        </div>
-                        <div class="scenario-content">
-                            <h3>The Early Catch</h3>
-                            <p>For three days, the system tracked subtle changes—slightly elevated temperature, decreased appetite, minor confusion. The trending data flagged a potential UTI before classic symptoms appeared. A simple urinalysis confirmed it. Treatment started immediately.</p>
-                            <div class="scenario-outcome">
-                                <div class="scenario-outcome-icon">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </div>
-                                <div class="scenario-outcome-text">Sepsis prevented. Hospital transfer avoided.</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="scenario-card">
-                        <div class="scenario-image">
-                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80" alt="Healthcare team">
-                            <div class="scenario-time">7:00 AM</div>
-                        </div>
-                        <div class="scenario-content">
-                            <h3>The Seamless Handoff</h3>
-                            <p>The night shift ends. Instead of spending 45 minutes reviewing clipboards and comparing notes, the morning team gets a complete picture in 10 minutes. They know exactly who needs extra attention today and why.</p>
-                            <div class="scenario-outcome">
-                                <div class="scenario-outcome-icon">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </div>
-                                <div class="scenario-outcome-text">35 minutes saved. Better continuity of care.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section services" id="services">
-            <div class="container">
-                <div class="features-header">
-                    <h2>Remote Monitoring Solutions</h2>
-                    <p>Choose the right program for your facility's needs</p>
-                </div>
-                
-                <div class="services-tabs">
-                    <button class="service-tab active" onclick="switchTab('rpm')">Remote Patient Monitoring</button>
-                    <button class="service-tab" onclick="switchTab('ccm')">Chronic Care Management</button>
-                </div>
-                
-                <div class="service-content active" id="rpm">
-                    <div class="service-info">
-                        <h3>Remote Patient Monitoring</h3>
-                        <p class="subtitle">Continuous health tracking for better outcomes</p>
-                        <p>Our RPM program provides round-the-clock monitoring of vital signs, enabling early detection before issues escalate.</p>
-                        <ul class="service-list">
-                            <li>
-                                <span class="service-check">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <strong>Automated Vital Collection</strong><br>
-                                    Seamless integration with medical devices for automatic data capture
-                                </div>
-                            </li>
-                            <li>
-                                <span class="service-check">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <strong>Predictive Alerts</strong><br>
-                                    AI-powered system identifies concerning trends early
-                                </div>
-                            </li>
-                            <li>
-                                <span class="service-check">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <strong>EHR Integration</strong><br>
-                                    Direct integration with your existing health records system
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="service-benefits">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                                </svg>
-                            </div>
-                            <div class="benefit-title">Reduced Hospital Transfers</div>
-                            <div class="benefit-desc">Early intervention prevents emergencies and unnecessary hospitalizations</div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                            </div>
-                            <div class="benefit-title">Enhanced Care Quality</div>
-                            <div class="benefit-desc">Continuous monitoring improves clinical outcomes and resident satisfaction</div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                                </svg>
-                            </div>
-                            <div class="benefit-title">Staff Efficiency</div>
-                            <div class="benefit-desc">Automated data collection saves hours of manual documentation daily</div>
-                        </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Care That Sees <span>Around Corners</span></h1>
+                    <p>Give your care team the power to catch problems before they become emergencies. Real-time monitoring, intelligent alerts, and automated documentation—so your nurses can focus on caring, not catching up.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Schedule Demo</a>
+                        <a href="#story" class="btn btn-secondary">Our Story</a>
                     </div>
                 </div>
                 
-                <div class="service-content" id="ccm">
-                    <div class="service-info">
-                        <h3>Chronic Care Management</h3>
-                        <p class="subtitle">Comprehensive support for complex patients</p>
-                        <p>Our CCM program provides continuous, coordinated care for residents with multiple chronic conditions.</p>
-                        <ul class="service-list">
-                            <li>
-                                <span class="service-check">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <strong>Personalized Care Plans</strong><br>
-                                    Tailored interventions based on each patient's unique needs
-                                </div>
-                            </li>
-                            <li>
-                                <span class="service-check">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <strong>24/7 Clinical Support</strong><br>
-                                    Round-the-clock access to healthcare professionals
-                                </div>
-                            </li>
-                            <li>
-                                <span class="service-check">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                                    </svg>
-                                </span>
-                                <div>
-                                    <strong>Medication Management</strong><br>
-                                    Comprehensive medication reconciliation and monitoring
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="service-benefits">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                                </svg>
-                            </div>
-                            <div class="benefit-title">Coordinated Care Team</div>
-                            <div class="benefit-desc">Seamless collaboration between all healthcare providers</div>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
                         </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
-                                </svg>
-                            </div>
-                            <div class="benefit-title">Comprehensive Documentation</div>
-                            <div class="benefit-desc">Complete care records for regulatory compliance and quality assurance</div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                            </div>
-                            <div class="benefit-title">Improved Star Ratings</div>
-                            <div class="benefit-desc">Meet quality measures and enhance your facility's reputation</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section faq-section" id="faq">
-            <div class="container">
-                <div class="features-header">
-                    <h2>Supporting Your Facility</h2>
-                    <p>Solutions for your daily challenges</p>
-                </div>
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>How does this help with night shift staffing?</span>
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Our 24/7 monitoring system acts as extra support during night shifts. We provide instant alerts for critical changes, automated fall detection, and direct access to on-call physicians, helping your staff respond faster and make better decisions.
-                            </div>
-                        </div>
+                        <h3>Sleep Better at Night</h3>
+                        <p>We're watching when you can't. Give your residents and their families the gift of knowing someone's always paying attention.</p>
                     </div>
                     
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>What about memory care residents?</span>
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
                         </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                We offer specialized monitoring including wandering prevention alerts, sleep pattern analysis, and behavioral tracking. Our system identifies changes that may indicate distress, helping staff intervene early and effectively.
-                            </div>
-                        </div>
+                        <h3>More Time for Care</h3>
+                        <p>Less time documenting. Less time worrying. More time doing what you actually became a nurse for.</p>
                     </div>
                     
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>How much staff time will this save?</span>
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
                         </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                By automating routine vital collection and documentation, we free up significant time per shift. Our predictive alerts prevent crisis situations, and streamlined shift handoffs reduce meeting time, allowing staff to focus on direct care.
-                            </div>
-                        </div>
+                        <h3>Catch Problems Early</h3>
+                        <p>That subtle change in breathing? The slight uptick in confusion? We catch it before it becomes a crisis.</p>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Can this really prevent falls?</span>
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Yes. Our AI analyzes patterns to identify high-risk residents based on mobility changes and medications. Real-time alerts notify staff when at-risk residents attempt to stand unassisted, significantly reducing fall incidents.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>How do families stay informed?</span>
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Families receive secure access to health trends and care activities through our portal. Automated updates keep them informed of changes, and our visual reports help them feel more involved and confident in the care provided.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>What's the implementation timeline?</span>
-                            <div class="faq-icon">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Full implementation takes just 2-4 weeks. We handle device setup, EHR integration, and comprehensive staff training. Your facility can start seeing improvements in care quality and efficiency within the first month.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section contact" id="contact">
-            <div class="container">
-                <div class="features-header">
-                    <h2>Start Transforming Your Facility</h2>
-                    <p>See how we can improve outcomes and reduce costs</p>
-                </div>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Why Facilities Choose Us</h3>
-                        <p>Join hundreds of long-term care facilities that have revolutionized their care delivery with our platform.</p>
-                        
-                        <ul class="contact-benefits">
-                            <li class="contact-benefit-item">
-                                <div class="contact-benefit-icon">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M12 2L2 7v10c0 5.55 4.84 10.74 11 12 6.16-1.26 11-6.45 11-12V7l-11-5z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <strong>Fast Implementation</strong><br>
-                                    <span style="color: var(--gray); font-size: 0.9375rem;">Go live in 2-4 weeks with full support</span>
-                                </div>
-                            </li>
-                            <li class="contact-benefit-item">
-                                <div class="contact-benefit-icon">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <strong>Proven Results</strong><br>
-                                    <span style="color: var(--gray); font-size: 0.9375rem;">Demonstrated improvements in care quality</span>
-                                </div>
-                            </li>
-                            <li class="contact-benefit-item">
-                                <div class="contact-benefit-icon">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <strong>Complete Training</strong><br>
-                                    <span style="color: var(--gray); font-size: 0.9375rem;">Comprehensive staff certification included</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <div class="form-header">
-                            <h3>Schedule Your Demo</h3>
-                            <p>We'll contact you within 2 business hours</p>
-                        </div>
-                        <form onsubmit="handleDemoForm(event)">
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="facility">Facility Name *</label>
-                                <input type="text" id="facility" name="facility" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="facilityType">Facility Type *</label>
-                                <select id="facilityType" name="facilityType" required>
-                                    <option value="">Select Type</option>
-                                    <option value="skilled-nursing">Skilled Nursing</option>
-                                    <option value="assisted-living">Assisted Living</option>
-                                    <option value="memory-care">Memory Care</option>
-                                    <option value="ltach">LTACH</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Request Demo</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section cta">
-            <div class="container">
-                <h2>Ready to Transform Your Facility?</h2>
-                <p>Join leading long-term care facilities using Total Remote Care</p>
-                <a href="#contact" class="btn btn-white">Get Started Today</a>
-            </div>
-        </section>
-
-        <footer>
-            <div class="container">
-                <div class="footer-newsletter">
-                    <div class="newsletter-content">
-                        <h3>Stay Updated</h3>
-                        <p>Get insights on remote patient monitoring and long-term care</p>
-                        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-                            <input type="email" class="newsletter-input" placeholder="Your email" required>
-                            <button type="submit" class="btn btn-primary">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="footer-content">
-                    <div class="footer-brand">
-                        <h3>Total Remote Care</h3>
-                        <p>Revolutionizing long-term care through innovative remote monitoring solutions. We're committed to improving patient outcomes and quality of life.</p>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="#features">Impact</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#faq">FAQ</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Support Center</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Employee Access</h4>
-                        <ul>
-                            <li><a href="#" onclick="showLogin(event)">Client Portal</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Total Remote Care | Miami, FL | +1 305 733 1404 | info@totalremotecare.com</p>
-            </div>
-        </footer>
-
-        <div class="back-to-top" onclick="scrollToTop()">
-            <svg viewBox="0 0 24 24">
-                <path d="M7 14l5-5 5 5z"/>
-            </svg>
-        </div>
-    </div>
-
-    <!-- LOGIN SECTION -->
-    <div id="loginSection" style="display: none;">
-        <div class="login-container">
-            <div class="login-box">
-                <div class="login-logo">
-                    <h1>Total<span>Remote</span>Care</h1>
-                    <p>Client Portal</p>
-                </div>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="username">Email</label>
-                        <input type="email" id="username" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Enter your password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
-                </form>
-                <div class="back-to-home">
-                    <a href="#" onclick="showMarketing(event)">← Back to Home</a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- DASHBOARD SECTION -->
-    <div id="dashboardSection" style="display: none;">
-        <header class="dashboard-header">
-            <div class="header-content">
-                <div class="header-logo">Total<span>Remote</span>Care</div>
-                <div class="header-actions">
-                    <div class="user-menu">
-                        <div class="user-avatar">TL</div>
-                        <span>TRC Staff</span>
-                    </div>
-                    <button class="logout-btn" onclick="handleLogout()">Logout</button>
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-container">
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    <span>HIPAA Compliant</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Medicare Certified</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7v10c0 5.55 4.84 10.74 11 12 6.16-1.26 11-6.45 11-12V7l-11-5z"/>
+                    </svg>
+                    <span>SOC 2 Type II</span>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                    <span>FDA Registered</span>
                 </div>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <div class="dashboard-main">
-            <aside class="sidebar">
-                <nav>
-                    <ul class="sidebar-nav">
+    <!-- Story Section - Why We Built This -->
+    <section class="section story-section" id="story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Why We Built This</h2>
+                    <p>Walk into any long-term care facility at 3 AM, and you'll find dedicated nurses moving room to room, checking vitals, documenting by hand, and wondering: "What am I missing?"</p>
+                    <p>We saw skilled professionals spending more time on paperwork than patient care. Early warning signs slipping through the cracks because no one can be everywhere at once. Data scattered across clipboards—heart rates, oxygen levels, sleep patterns—only becoming obvious after residents were already in crisis.</p>
+                    <p>There had to be a better way. Technology that continuously monitors, intelligently analyzes, and proactively alerts. A system that empowers nursing staff with insights when they need them, not hours later when reviewing charts.</p>
+                    <p>Total Remote Care gives your team the ability to see patterns before they become problems, document automatically, and focus on what matters most: caring for residents.</p>
+                    <p class="signature">— Founder & CEO, Total Remote Care</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Healthcare monitoring technology and medical equipment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenarios Section -->
+    <section class="section scenarios-section" id="features">
+        <div class="container">
+            <div class="features-header">
+                <h2>Real Moments. Real Impact.</h2>
+                <p>Here's how we make a difference every single day</p>
+            </div>
+            <div class="scenario-cards">
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" alt="Night nurse monitoring patients" onerror="this.src='https://via.placeholder.com/800x240/3b82f6/ffffff?text=Night+Shift+Care'">
+                        <div class="scenario-time">2:15 AM</div>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>The Night Shift Guardian</h3>
+                        <p>A resident's oxygen levels start dropping—not dramatically, just enough to worry. Our system alerts the nurse before levels become critical. She adjusts the oxygen and repositions the patient. By morning rounds, breathing is easy again.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">ER visit avoided. Peace of mind delivered.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=800&q=80" alt="Medical monitoring and healthcare data" onerror="this.src='https://via.placeholder.com/800x240/10b981/ffffff?text=Early+Detection'">
+                        <div class="scenario-time">3:45 PM</div>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>The Early Catch</h3>
+                        <p>For three days, the system tracked subtle changes—slightly elevated temperature, decreased appetite, minor confusion. The trending data flagged a potential UTI before classic symptoms appeared. A simple urinalysis confirmed it. Treatment started immediately.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">Sepsis prevented. Hospital transfer avoided.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80" alt="Healthcare team collaborating" onerror="this.src='https://via.placeholder.com/800x240/06b6d4/ffffff?text=Team+Collaboration'">
+                        <div class="scenario-time">7:00 AM</div>
+                    </div>
+                    <div class="scenario-content">
+                        <h3>The Seamless Handoff</h3>
+                        <p>The night shift ends. Instead of spending 45 minutes reviewing clipboards and comparing notes, the morning team gets a complete picture in 10 minutes. They know exactly who needs extra attention today and why.</p>
+                        <div class="scenario-outcome">
+                            <div class="scenario-outcome-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </div>
+                            <div class="scenario-outcome-text">35 minutes saved. Better continuity of care.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="features-header">
+                <h2>Remote Monitoring Solutions</h2>
+                <p>Choose the right program for your facility's needs</p>
+            </div>
+            
+            <div class="services-tabs">
+                <button class="service-tab active" onclick="switchTab('rpm')">Remote Patient Monitoring</button>
+                <button class="service-tab" onclick="switchTab('ccm')">Chronic Care Management</button>
+            </div>
+            
+            <div class="service-content active" id="rpm">
+                <div class="service-info">
+                    <h3>Remote Patient Monitoring</h3>
+                    <p class="subtitle">Continuous health tracking for better outcomes</p>
+                    <p>Our RPM program provides round-the-clock monitoring of vital signs, enabling early detection before issues escalate.</p>
+                    <ul class="service-list">
                         <li>
-                            <a href="#" class="nav-link active" data-page="overview">
-                                <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-                                Overview
-                            </a>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Automated Vital Collection</strong><br>
+                                Seamless integration with medical devices for automatic data capture
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="nav-link" data-page="residents">
-                                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                                Residents
-                            </a>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Predictive Alerts</strong><br>
+                                AI-powered system identifies concerning trends early
+                            </div>
                         </li>
                         <li>
-                            <a href="#" class="nav-link" data-page="facilities">
-                                <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-                                Facilities
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link" data-page="devices">
-                                <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-                                Devices
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link" data-page="reports">
-                                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-                                Reports
-                            </a>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>EHR Integration</strong><br>
+                                Direct integration with your existing health records system
+                            </div>
                         </li>
                     </ul>
-                </nav>
-            </aside>
-
-            <main class="content">
-                <div id="overview" class="page active">
-                    <div class="page-header">
-                        <h1>Dashboard Overview</h1>
-                        <p>Real-time monitoring across all facilities</p>
-                    </div>
-
-                    <div class="alert-banner">
-                        <div>
-                            <h3>2 Critical Alerts Require Attention</h3>
-                            <p>Resident vitals outside normal range - Golden Age of Inman</p>
-                        </div>
-                    </div>
-
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Total Residents</div>
-                                    <div class="stat-value">47</div>
-                                    <div class="stat-change positive">↑ 3 from last month</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Facility Cards -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                        <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; overflow: hidden; transition: all 0.3s ease; cursor: pointer;">
-                            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 1.5rem; color: var(--white);">
-                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Golden Age of Inman</h3>
-                                <p style="font-size: 0.9375rem; opacity: 0.9; color: var(--white);">1234 Main Street, Inman, SC</p>
-                            </div>
-                            <div style="padding: 1.5rem;">
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">28</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Residents</div>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">27/28</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Devices</div>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">96%</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Uptime</div>
-                                    </div>
-                                </div>
-                                <div style="display: flex; gap: 1rem;">
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--red-light); color: var(--red);">2 Critical</div>
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--yellow-light); color: var(--yellow);">3 Warning</div>
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--green-light); color: var(--green);">23 Stable</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; overflow: hidden; transition: all 0.3s ease; cursor: pointer;">
-                            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 1.5rem; color: var(--white);">
-                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Inman Healthcare</h3>
-                                <p style="font-size: 0.9375rem; opacity: 0.9; color: var(--white);">5678 Oak Avenue, Inman, SC</p>
-                            </div>
-                            <div style="padding: 1.5rem;">
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">19</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Residents</div>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">18/19</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Devices</div>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">95%</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Uptime</div>
-                                    </div>
-                                </div>
-                                <div style="display: flex; gap: 1rem;">
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--red-light); color: var(--red);">0 Critical</div>
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--yellow-light); color: var(--yellow);">1 Warning</div>
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--green-light); color: var(--green);">18 Stable</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Recent Activity Feed -->
-                    <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; padding: 1.5rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #e2e8f0;">
-                            <h3 style="font-size: 1.125rem; font-weight: 600;">Recent Activity</h3>
-                            <button class="view-btn">View All</button>
-                        </div>
-                        <div>
-                            <div style="display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
-                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">2 min ago</div>
-                                <div style="flex: 1;">
-                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Critical Alert: Heart Rate Abnormal</div>
-                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">Johnson, Mary - Room 204 - Golden Age of Inman</div>
-                                </div>
-                                <span class="status-badge status-critical">Critical</span>
-                            </div>
-                            <div style="display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
-                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">15 min ago</div>
-                                <div style="flex: 1;">
-                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Device Reconnected</div>
-                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">Room 312 - Inman Healthcare - Xandar Kardian</div>
-                                </div>
-                                <span class="status-badge status-stable">Online</span>
-                            </div>
-                            <div style="display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
-                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">32 min ago</div>
-                                <div style="flex: 1;">
-                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Warning: Oxygen Level Low</div>
-                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">Smith, Robert - Room 118 - Golden Age of Inman</div>
-                                </div>
-                                <span class="status-badge status-warning">Warning</span>
-                            </div>
-                            <div style="display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
-                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">1 hour ago</div>
-                                <div style="flex: 1;">
-                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Daily Report Generated</div>
-                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">RPM Report - All Facilities</div>
-                                </div>
-                                <span class="status-badge status-stable">Complete</span>
-                            </div>
-                            <div style="display: flex; gap: 1rem; padding: 1rem 0;">
-                                <div style="font-size: 0.75rem; color: var(--gray); min-width: 80px;">2 hours ago</div>
-                                <div style="flex: 1;">
-                                    <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">Alert Resolved</div>
-                                    <div style="font-size: 0.875rem; color: var(--gray-dark);">Davis, Patricia - Room 205 - Vitals normalized</div>
-                                </div>
-                                <span class="status-badge status-stable">Resolved</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-                <div id="residents" class="page">
-                    <div class="page-header">
-                        <h1>Resident Management</h1>
-                        <p>Monitor all residents across facilities</p>
-                    </div>
-
-                    <div class="data-table">
-                        <div class="table-header">
-                            <h3>All Residents (47)</h3>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Room</th>
-                                    <th>Facility</th>
-                                    <th>Status</th>
-                                    <th>Last Update</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Johnson, Mary</strong></td>
-                                    <td>204</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-critical">Critical</span></td>
-                                    <td>2 min ago</td>
-                                    <td><button class="view-btn">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Smith, Robert</strong></td>
-                                    <td>118</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-warning">Warning</span></td>
-                                    <td>15 min ago</td>
-                                    <td><button class="view-btn">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Davis, Patricia</strong></td>
-                                    <td>205</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-stable">Stable</span></td>
-                                    <td>32 min ago</td>
-                                    <td><button class="view-btn">View</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div id="facilities" class="page">
-                    <div class="page-header">
-                        <h1>Facilities</h1>
-                        <p>Manage facility performance</p>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 1.5rem;">
-                        <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; overflow: hidden;">
-                            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 1.5rem; color: var(--white);">
-                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Golden Age of Inman</h3>
-                                <p style="font-size: 0.9375rem; opacity: 0.9; color: var(--white);">1234 Main Street, Inman, SC 29349</p>
-                            </div>
-                            <div style="padding: 1.5rem;">
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">28</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Total Residents</div>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">27/28</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Devices Online</div>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">96%</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Device Uptime</div>
-                                    </div>
-                                </div>
-                                <div style="display: flex; gap: 1rem;">
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--red-light); color: var(--red);">2 Critical</div>
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--yellow-light); color: var(--yellow);">3 Warning</div>
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--green-light); color: var(--green);">23 Stable</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="background: var(--white); border-radius: 0.75rem; border: 1px solid #e2e8f0; overflow: hidden;">
-                            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 1.5rem; color: var(--white);">
-                                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Inman Healthcare</h3>
-                                <p style="font-size: 0.9375rem; opacity: 0.9; color: var(--white);">5678 Oak Avenue, Inman, SC 29349</p>
-                            </div>
-                            <div style="padding: 1.5rem;">
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">19</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Total Residents</div>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">18/19</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Devices Online</div>
-                                    </div>
-                                    <div style="text-align: center; padding: 1rem; background: var(--light); border-radius: 0.5rem;">
-                                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--dark);">95%</div>
-                                        <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem;">Device Uptime</div>
-                                    </div>
-                                </div>
-                                <div style="display: flex; gap: 1rem;">
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--red-light); color: var(--red);">0 Critical</div>
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--yellow-light); color: var(--yellow);">1 Warning</div>
-                                    <div style="flex: 1; padding: 0.75rem; border-radius: 0.5rem; text-align: center; font-size: 0.875rem; font-weight: 600; background: var(--green-light); color: var(--green);">18 Stable</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="devices" class="page">
-                    <div class="page-header">
-                        <h1>Device Management</h1>
-                        <p>Monitor all monitoring devices across facilities</p>
-                    </div>
-
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Total Devices</div>
-                                    <div class="stat-value">47</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Online</div>
-                                    <div class="stat-value">45</div>
-                                    <div class="stat-change positive">96% uptime</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Offline</div>
-                                    <div class="stat-value">2</div>
-                                    <div class="stat-change negative">Requires attention</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="data-table">
-                        <div class="table-header">
-                            <h3>Device Status</h3>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Device ID</th>
-                                    <th>Type</th>
-                                    <th>Location</th>
-                                    <th>Facility</th>
-                                    <th>Status</th>
-                                    <th>Last Check</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>XK-204-A</strong></td>
-                                    <td>Xandar Kardian</td>
-                                    <td>Room 204</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-stable">Online</span></td>
-                                    <td>2 min ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CP-118-B</strong></td>
-                                    <td>Caspar AI</td>
-                                    <td>Room 118</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-critical">Offline</span></td>
-                                    <td>3 hours ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>XK-205-A</strong></td>
-                                    <td>Xandar Kardian</td>
-                                    <td>Room 205</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-stable">Online</span></td>
-                                    <td>5 min ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CP-312-B</strong></td>
-                                    <td>Caspar AI</td>
-                                    <td>Room 312</td>
-                                    <td>Inman Healthcare</td>
-                                    <td><span class="status-badge status-stable">Online</span></td>
-                                    <td>8 min ago</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>XK-156-A</strong></td>
-                                    <td>Xandar Kardian</td>
-                                    <td>Room 156</td>
-                                    <td>Golden Age of Inman</td>
-                                    <td><span class="status-badge status-stable">Online</span></td>
-                                    <td>12 min ago</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div id="reports" class="page">
-                    <div class="page-header">
-                        <h1>Reports & Analytics</h1>
-                        <p>Download and view facility reports</p>
-                    </div>
-
-                    <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Daily RPM Reports</h3>
-                    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Daily RPM Report - October 19, 2025</h3>
-                            <div style="font-size: 0.875rem; color: var(--gray);">All Facilities • Generated 6:00 AM • 2.4 MB</div>
-                        </div>
-                        <button class="view-btn" style="display: flex; align-items: center; gap: 0.5rem;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                <div class="service-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
                             </svg>
-                            Download
-                        </button>
-                    </div>
-
-                    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Daily RPM Report - October 18, 2025</h3>
-                            <div style="font-size: 0.875rem; color: var(--gray);">All Facilities • Generated 6:00 AM • 2.3 MB</div>
                         </div>
-                        <button class="view-btn" style="display: flex; align-items: center; gap: 0.5rem;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                            </svg>
-                            Download
-                        </button>
+                        <div class="benefit-title">Reduced Hospital Transfers</div>
+                        <div class="benefit-desc">Early intervention prevents emergencies and unnecessary hospitalizations</div>
                     </div>
-
-                    <h3 style="margin: 2rem 0 1rem; font-size: 1.25rem;">Weekly RPM Reports</h3>
-                    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Weekly RPM Report - Week of Oct 13-19, 2025</h3>
-                            <div style="font-size: 0.875rem; color: var(--gray);">All Facilities • Generated Sunday 6:00 AM • 8.7 MB</div>
-                        </div>
-                        <button class="view-btn" style="display: flex; align-items: center; gap: 0.5rem;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                             </svg>
-                            Download
-                        </button>
+                        </div>
+                        <div class="benefit-title">Enhanced Care Quality</div>
+                        <div class="benefit-desc">Continuous monitoring improves clinical outcomes and resident satisfaction</div>
                     </div>
-
-                    <div style="background: var(--white); padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">Weekly RPM Report - Week of Oct 6-12, 2025</h3>
-                            <div style="font-size: 0.875rem; color: var(--gray);">All Facilities • Generated Sunday 6:00 AM • 8.5 MB</div>
-                        </div>
-                        <button class="view-btn" style="display: flex; align-items: center; gap: 0.5rem;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
                             </svg>
-                            Download
-                        </button>
+                        </div>
+                        <div class="benefit-title">Staff Efficiency</div>
+                        <div class="benefit-desc">Automated data collection saves hours of manual documentation daily</div>
                     </div>
                 </div>
-            </main>
+            </div>
+            
+            <div class="service-content" id="ccm">
+                <div class="service-info">
+                    <h3>Chronic Care Management</h3>
+                    <p class="subtitle">Comprehensive support for complex patients</p>
+                    <p>Our CCM program provides continuous, coordinated care for residents with multiple chronic conditions.</p>
+                    <ul class="service-list">
+                        <li>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Personalized Care Plans</strong><br>
+                                Tailored interventions based on each patient's unique needs
+                            </div>
+                        </li>
+                        <li>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>24/7 Clinical Support</strong><br>
+                                Round-the-clock access to healthcare professionals
+                            </div>
+                        </li>
+                        <li>
+                            <span class="service-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Medication Management</strong><br>
+                                Comprehensive medication reconciliation and monitoring
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="service-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Coordinated Care Team</div>
+                        <div class="benefit-desc">Seamless collaboration between all healthcare providers</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Comprehensive Documentation</div>
+                        <div class="benefit-desc">Complete care records for regulatory compliance and quality assurance</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-title">Improved Star Ratings</div>
+                        <div class="benefit-desc">Meet quality measures and enhance your facility's reputation</div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="features-header">
+                <h2>Supporting Your Facility</h2>
+                <p>Solutions for your daily challenges</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does this help with night shift staffing?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our 24/7 monitoring system acts as extra support during night shifts. We provide instant alerts for critical changes, automated fall detection, and direct access to on-call physicians, helping your staff respond faster and make better decisions.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What about memory care residents?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We offer specialized monitoring including wandering prevention alerts, sleep pattern analysis, and behavioral tracking. Our system identifies changes that may indicate distress, helping staff intervene early and effectively.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much staff time will this save?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            By automating routine vital collection and documentation, we free up significant time per shift. Our predictive alerts prevent crisis situations, and streamlined shift handoffs reduce meeting time, allowing staff to focus on direct care.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can this really prevent falls?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes. Our AI analyzes patterns to identify high-risk residents based on mobility changes and medications. Real-time alerts notify staff when at-risk residents attempt to stand unassisted, significantly reducing fall incidents.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do families stay informed?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Families receive secure access to health trends and care activities through our portal. Automated updates keep them informed of changes, and our visual reports help them feel more involved and confident in the care provided.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the implementation timeline?</span>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Full implementation takes just 2-4 weeks. We handle device setup, EHR integration, and comprehensive staff training. Your facility can start seeing improvements in care quality and efficiency within the first month.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="features-header">
+                <h2>Start Transforming Your Facility</h2>
+                <p>See how we can improve outcomes and reduce costs</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Why Facilities Choose Us</h3>
+                    <p>Join hundreds of long-term care facilities that have revolutionized their care delivery with our platform.</p>
+                    
+                    <ul class="contact-benefits">
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2L2 7v10c0 5.55 4.84 10.74 11 12 6.16-1.26 11-6.45 11-12V7l-11-5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Fast Implementation</strong><br>
+                                <span style="color: var(--gray); font-size: 0.9375rem;">Go live in 2-4 weeks with full support</span>
+                            </div>
+                        </li>
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Proven Results</strong><br>
+                                <span style="color: var(--gray); font-size: 0.9375rem;">Demonstrated improvements in care quality</span>
+                            </div>
+                        </li>
+                        <li class="contact-benefit-item">
+                            <div class="contact-benefit-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Complete Training</strong><br>
+                                <span style="color: var(--gray); font-size: 0.9375rem;">Comprehensive staff certification included</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-header">
+                        <h3>Schedule Your Demo</h3>
+                        <p>We'll contact you within 2 business hours</p>
+                    </div>
+                    <form onsubmit="handleDemoForm(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="facility">Facility Name *</label>
+                            <input type="text" id="facility" name="facility" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="facilityType">Facility Type *</label>
+                            <select id="facilityType" name="facilityType" required>
+                                <option value="">Select Type</option>
+                                <option value="skilled-nursing">Skilled Nursing</option>
+                                <option value="assisted-living">Assisted Living</option>
+                                <option value="memory-care">Memory Care</option>
+                                <option value="ltach">LTACH</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Request Demo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Ready to Transform Your Facility?</h2>
+            <p>Join leading long-term care facilities using Total Remote Care</p>
+            <a href="#contact" class="btn btn-white">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-newsletter">
+                <div class="newsletter-content">
+                    <h3>Stay Updated</h3>
+                    <p>Get insights on remote patient monitoring and long-term care</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                        <input type="email" class="newsletter-input" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Total Remote Care</h3>
+                    <p>Revolutionizing long-term care through innovative remote monitoring solutions. We're committed to improving patient outcomes and quality of life.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Impact</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Total Remote Care | Miami, FL | +1 305 733 1404 | info@totalremotecare.com</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24">
+            <path d="M7 14l5-5 5 5z"/>
+        </svg>
     </div>
-    <!-- END DASHBOARD SECTION -->
 
     <script>
-        // Show/Hide sections
-        function showMarketing(e) {
-            if (e) e.preventDefault();
-            
-            // Show marketing
-            document.getElementById('marketingSection').style.display = 'block';
-            document.getElementById('marketingSection').style.visibility = 'visible';
-            document.getElementById('marketingSection').style.position = 'static';
-            
-            // Hide login
-            document.getElementById('loginSection').style.display = 'none';
-            document.getElementById('loginSection').style.visibility = 'hidden';
-            document.getElementById('loginSection').style.position = 'absolute';
-            document.getElementById('loginSection').style.left = '-9999px';
-            
-            // Hide dashboard
-            document.getElementById('dashboardSection').style.display = 'none';
-            document.getElementById('dashboardSection').style.visibility = 'hidden';
-            document.getElementById('dashboardSection').style.position = 'absolute';
-            document.getElementById('dashboardSection').style.left = '-9999px';
-        }
-
-        function showLogin(e) {
-            if (e) e.preventDefault();
-            
-            // Hide marketing
-            document.getElementById('marketingSection').style.display = 'none';
-            document.getElementById('marketingSection').style.visibility = 'hidden';
-            document.getElementById('marketingSection').style.position = 'absolute';
-            document.getElementById('marketingSection').style.left = '-9999px';
-            
-            // Show login
-            document.getElementById('loginSection').style.display = 'block';
-            document.getElementById('loginSection').style.visibility = 'visible';
-            document.getElementById('loginSection').style.position = 'static';
-            document.getElementById('loginSection').style.left = '0';
-            
-            // Hide dashboard
-            document.getElementById('dashboardSection').style.display = 'none';
-            document.getElementById('dashboardSection').style.visibility = 'hidden';
-            document.getElementById('dashboardSection').style.position = 'absolute';
-            document.getElementById('dashboardSection').style.left = '-9999px';
-        }
-
-        function showDashboard() {
-            // Hide marketing
-            document.getElementById('marketingSection').style.display = 'none';
-            document.getElementById('marketingSection').style.visibility = 'hidden';
-            document.getElementById('marketingSection').style.position = 'absolute';
-            document.getElementById('marketingSection').style.left = '-9999px';
-            
-            // Hide login
-            document.getElementById('loginSection').style.display = 'none';
-            document.getElementById('loginSection').style.visibility = 'hidden';
-            document.getElementById('loginSection').style.position = 'absolute';
-            document.getElementById('loginSection').style.left = '-9999px';
-            
-            // Show dashboard
-            document.getElementById('dashboardSection').style.display = 'block';
-            document.getElementById('dashboardSection').style.visibility = 'visible';
-            document.getElementById('dashboardSection').style.position = 'static';
-            document.getElementById('dashboardSection').style.left = '0';
-        }
-
-        // Login Handler
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('loginForm');
-            
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-                
-                if (username === 'testluchi@test.com' && password === 'testluchi') {
-                    showDashboard();
-                } else {
-                    alert('Invalid credentials. Please try again.');
-                }
-            });
-
-            // Dashboard navigation
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.dataset.page;
-                    
-                    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                    document.getElementById(page).classList.add('active');
-                    
-                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        });
-
-        // Logout Handler
-        function handleLogout() {
-            showMarketing();
-        }
-
         // Mobile Menu Toggle
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
@@ -2986,6 +2019,7 @@
             navMenu.classList.toggle('active');
         });
 
+        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenuToggle.classList.remove('active');
@@ -3012,10 +2046,12 @@
                 const faqItem = this.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 
+                // Close all other items
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                 });
                 
+                // Toggle current item
                 if (!isActive) {
                     faqItem.classList.add('active');
                 }
@@ -3025,18 +2061,15 @@
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && !this.hasAttribute('onclick')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        const offset = 80;
-                        const targetPosition = target.offsetTop - offset;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Header height
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
@@ -3049,6 +2082,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
                 if (window.scrollY >= (sectionTop - 100)) {
                     current = section.getAttribute('id');
                 }
@@ -3062,16 +2096,19 @@
             });
         }
 
+        // Scroll events
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             const backToTop = document.querySelector('.back-to-top');
             
+            // Header shadow
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
             
+            // Back to top visibility
             if (window.scrollY > 500) {
                 backToTop.classList.add('visible');
             } else {
@@ -3081,6 +2118,7 @@
             updateActiveNav();
         });
 
+        // Back to top
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
@@ -3088,6 +2126,7 @@
             });
         }
 
+        // Form handlers
         function handleDemoForm(e) {
             e.preventDefault();
             const formData = new FormData(e.target);
@@ -3103,46 +2142,8 @@
             e.target.reset();
         }
 
+        // Initialize
         updateActiveNav();
     </script>
 </body>
-</html> 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Active Devices</div>
-                                    <div class="stat-value">45/47</div>
-                                    <div class="stat-change positive">96% online</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Active Facilities</div>
-                                    <div class="stat-value">2</div>
-                                    <div class="stat-change positive">100% operational</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-header">
-                                <div>
-                                    <div class="stat-label">Critical Alerts</div>
-                                    <div class="stat-value">2</div>
-                                    <div class="stat-change negative">↑ Needs attention</div>
-                                </div>
-                                <div class="stat-icon">
-                                    <svg viewBox="0 0 24
+</html>
