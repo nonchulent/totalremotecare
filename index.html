@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Remote Care | Remote Patient Monitoring for Long-Term Care</title>
+    <meta name="description" content="Remote patient monitoring for long-term care facilities. Catch problems before they become emergencies with 24/7 monitoring and intelligent alerts.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,21 +17,26 @@
 
         :root {
             --primary: #2c5f5d;
-            --primary-light: #4a8785;
-            --secondary: #d97757;
-            --accent: #7ba591;
+            --primary-light: #3d7876;
+            --primary-dark: #1f4745;
+            --secondary: #7ba591;
+            --accent: #9fc5b8;
             --dark: #1a2332;
             --gray: #6b7280;
             --gray-light: #9ca3af;
             --gray-lighter: #e5e7eb;
-            --light: #faf9f7;
+            --light: #f5f9f8;
             --white: #ffffff;
-            --cream: #f8f6f2;
-            --section-padding: 7rem;
+            --cream: #f5f9f8;
+            --teal-bg-light: #f0f7f6;
+            --teal-bg-medium: #e6f3f2;
+            --section-padding: 8rem;
             --container-width: 1140px;
-            --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.06);
-            --border-color: #e8e6e1;
+            --shadow-subtle: 0 2px 8px rgba(44, 95, 93, 0.08);
+            --shadow-soft: 0 4px 16px rgba(44, 95, 93, 0.12);
+            --shadow-medium: 0 8px 24px rgba(44, 95, 93, 0.16);
+            --shadow-large: 0 16px 48px rgba(44, 95, 93, 0.2);
+            --border-color: #d9e8e7;
         }
         
         html {
@@ -100,7 +106,7 @@
         }
 
         .section-alt {
-            background: var(--cream);
+            background: var(--teal-bg-light);
             position: relative;
         }
 
@@ -109,8 +115,8 @@
             position: absolute;
             inset: 0;
             background-image: 
-                linear-gradient(90deg, rgba(44, 95, 93, 0.01) 1px, transparent 1px),
-                linear-gradient(rgba(44, 95, 93, 0.01) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(44, 95, 93, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(44, 95, 93, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             pointer-events: none;
         }
@@ -231,11 +237,15 @@
 
         /* Hero Section */
         .hero {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             padding-top: 80px;
-            background: linear-gradient(135deg, #fafaf9 0%, #f8f6f2 100%);
+            background: linear-gradient(rgba(30, 30, 30, 0.7), rgba(44, 95, 93, 0.8)),
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             position: relative;
             overflow: hidden;
         }
@@ -243,13 +253,12 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(74, 135, 133, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom right, transparent 49%, #f4f7f7 50%);
+            z-index: 1;
         }
 
         .hero::after {
@@ -257,13 +266,12 @@
             position: absolute;
             inset: 0;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(44, 95, 93, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(123, 165, 145, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 80% 20%, rgba(123, 165, 145, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .hero-content {
-            max-width: 720px;
+            max-width: 760px;
             position: relative;
             z-index: 2;
             animation: fadeInUp 0.8s ease-out;
@@ -272,7 +280,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -280,16 +288,44 @@
             }
         }
 
+        /* Custom Visual Elements */
+        .accent-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .accent-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+            opacity: 0.6;
+            transform: scaleX(0.95);
+        }
+
+        .highlight-text {
+            background: linear-gradient(180deg, transparent 60%, rgba(255, 255, 255, 0.2) 60%);
+            padding: 0 0.3rem;
+        }
+
         .hero h1 {
-            margin-bottom: 1.5rem;
-            color: var(--dark);
+            margin-bottom: 2rem;
+            color: var(--white);
+            font-size: 3.75rem;
+            line-height: 1.12;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            color: var(--gray);
-            max-width: 600px;
+            font-size: 1.375rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.96);
+            max-width: 640px;
+            line-height: 1.65;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
         }
 
         .hero-cta {
@@ -299,9 +335,9 @@
         }
 
         .hero-meta {
-            margin-top: 3rem;
+            margin-top: 3.5rem;
             padding-top: 3rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             gap: 3rem;
             flex-wrap: wrap;
@@ -311,29 +347,41 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 0.9375rem;
         }
 
         .hero-meta-icon {
-            width: 20px;
-            height: 20px;
-            color: var(--primary);
+            width: 22px;
+            height: 22px;
+            color: var(--accent);
         }
 
-        /* Benefits Section */
+        /* Story Section */
         .story-section {
-            background: var(--white);
+            background: var(--teal-bg-light);
             position: relative;
+            padding-top: calc(var(--section-padding) + 4rem);
         }
 
         .story-section::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(circle, rgba(44, 95, 93, 0.025) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(44, 95, 93, 0.03) 1px, transparent 1px);
             background-size: 24px 24px;
             pointer-events: none;
+        }
+
+        .story-section::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom left, transparent 49%, var(--teal-bg-medium) 50%);
+            z-index: 1;
         }
 
         .story-layout {
@@ -357,6 +405,27 @@
             margin-bottom: 0;
         }
 
+        .founder-signature {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(74, 135, 133, 0.2);
+        }
+
+        .signature-line {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+            font-style: italic;
+        }
+
+        .signature-title {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
         .story-image {
             border-radius: 12px;
             overflow: hidden;
@@ -371,8 +440,10 @@
 
         /* Benefits Section */
         .benefits-section {
-            background: var(--cream);
+            background: var(--teal-bg-medium);
             position: relative;
+            padding-top: calc(var(--section-padding) + 3rem);
+            padding-bottom: calc(var(--section-padding) + 2rem);
         }
 
         .benefits-section::before {
@@ -380,41 +451,58 @@
             position: absolute;
             inset: 0;
             background-image: 
-                linear-gradient(90deg, rgba(44, 95, 93, 0.01) 1px, transparent 1px),
-                linear-gradient(rgba(44, 95, 93, 0.01) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(44, 95, 93, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(44, 95, 93, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
             pointer-events: none;
         }
 
+        .benefits-section::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom right, transparent 49%, var(--white) 50%);
+            z-index: 1;
+        }
+
         .features-intro {
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
+            max-width: 720px;
+            margin: 0 auto 5rem;
+        }
+
+        .features-intro h2 {
+            font-size: 2.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .features-intro p {
+            font-size: 1.1875rem;
+            color: var(--gray);
         }
 
         .benefits-alternating {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .benefit-row {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 4rem;
             align-items: center;
-            margin-bottom: 3.5rem;
-            padding-bottom: 3.5rem;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 5rem;
         }
 
         .benefit-row:last-child {
             margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
         }
 
         .benefit-row.reverse {
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.4fr 1fr;
         }
 
         .benefit-row.reverse .benefit-visual {
@@ -432,12 +520,26 @@
         }
 
         .benefit-image {
-            width: 240px;
-            height: 240px;
-            border-radius: 16px;
+            width: 320px;
+            height: 320px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .benefit-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(74, 135, 133, 0.15) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .benefit-row:hover .benefit-image::after {
+            opacity: 1;
         }
 
         .benefit-image img {
@@ -445,23 +547,28 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .benefit-row:hover .benefit-image {
-            transform: scale(1.03);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-row:hover .benefit-image img {
+            transform: scale(1.05);
         }
 
         .benefit-text h3 {
-            margin-bottom: 0.875rem;
-            font-size: 1.625rem;
+            margin-bottom: 1.125rem;
+            font-size: 1.875rem;
             color: var(--dark);
             line-height: 1.3;
         }
 
         .benefit-text p {
             font-size: 1.0625rem;
-            line-height: 1.7;
+            line-height: 1.75;
             margin: 0;
             color: var(--gray);
         }
@@ -541,7 +648,7 @@
 
         /* Visual Break */
         .visual-break {
-            height: 500px;
+            height: 600px;
             background: url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
@@ -549,10 +656,32 @@
             position: relative;
         }
 
+        .visual-break::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top right, transparent 49%, var(--white) 50%);
+            z-index: 1;
+        }
+
+        .visual-break::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom left, transparent 49%, var(--cream) 50%);
+            z-index: 1;
+        }
+
         .visual-break-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(44, 95, 93, 0.85), rgba(74, 135, 133, 0.75));
+            background: linear-gradient(135deg, rgba(44, 95, 93, 0.88), rgba(74, 135, 133, 0.80));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -560,65 +689,34 @@
 
         .visual-break-content {
             text-align: center;
-            max-width: 800px;
+            max-width: 840px;
             color: var(--white);
+            position: relative;
+            z-index: 2;
         }
 
         .visual-break-content h2 {
             color: var(--white);
-            margin-bottom: 1.5rem;
-            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            margin-bottom: 1.75rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
         }
 
         .visual-break-content p {
             color: rgba(255, 255, 255, 0.95);
-            font-size: 1.25rem;
+            font-size: 1.3125rem;
             margin: 0;
-        }
-
-        /* How It Works */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .step-card {
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            width: 64px;
-            height: 64px;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            font-weight: 700;
-            font-family: 'Crimson Pro', serif;
-            margin: 0 auto 1.5rem;
-        }
-
-        .step-card h3 {
-            margin-bottom: 0.75rem;
-            font-size: 1.25rem;
-        }
-
-        .step-card p {
-            font-size: 0.9375rem;
+            line-height: 1.6;
         }
 
         /* Impact Section */
         .impact-section {
-            background: var(--dark);
+            background: linear-gradient(135deg, #1a2832 0%, #0f1a1f 100%);
             color: var(--white);
             position: relative;
             overflow: hidden;
+            padding-top: calc(var(--section-padding) + 3rem);
+            padding-bottom: calc(var(--section-padding) + 2rem);
         }
 
         .impact-section::before {
@@ -628,18 +726,19 @@
             left: -10%;
             width: 60%;
             height: 120%;
-            background: radial-gradient(circle, rgba(123, 165, 145, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(123, 165, 145, 0.12) 0%, transparent 70%);
             border-radius: 50%;
         }
 
         .impact-section::after {
             content: '';
             position: absolute;
-            inset: 0;
-            background-image: 
-                radial-gradient(circle, rgba(123, 165, 145, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            pointer-events: none;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom left, transparent 49%, var(--white) 50%);
+            z-index: 1;
         }
 
         .impact-content {
@@ -650,14 +749,16 @@
         .impact-section h2 {
             color: var(--white);
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 2.75rem;
         }
 
         .impact-section > .container > p {
             text-align: center;
-            color: var(--gray-light);
-            max-width: 600px;
-            margin: 0 auto 4rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 640px;
+            margin: 0 auto 5rem;
+            font-size: 1.1875rem;
         }
 
         .impact-grid {
@@ -668,35 +769,70 @@
 
         .impact-card {
             text-align: left;
-            padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(123, 165, 145, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(123, 165, 145, 0.4);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+        }
+
+        .impact-card:hover::before {
+            opacity: 1;
         }
 
         .impact-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(123, 165, 145, 0.2);
-            border-radius: 8px;
+            width: 64px;
+            height: 64px;
+            background: rgba(123, 165, 145, 0.25);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+
+        .impact-card:hover .impact-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .impact-card h3 {
             color: var(--white);
-            font-size: 1.375rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.125rem;
+            position: relative;
+            z-index: 2;
         }
 
         .impact-card p {
-            font-size: 1rem;
-            color: var(--gray-light);
-            line-height: 1.7;
+            font-size: 1.0625rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.75;
             margin: 0;
+            position: relative;
+            z-index: 2;
         }
 
         /* FAQ Section */
@@ -740,6 +876,7 @@
             height: 24px;
             color: var(--primary);
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
         .faq-item.active .faq-icon {
@@ -793,7 +930,7 @@
         .contact-icon {
             width: 40px;
             height: 40px;
-            background: var(--cream);
+            background: var(--teal-bg-light);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -905,8 +1042,86 @@
         }
 
         .cta .btn:hover {
-            background: var(--cream);
+            background: var(--teal-bg-light);
+            color: var(--primary-dark);
             transform: translateY(-2px);
+        }
+
+        /* Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.125rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 24px rgba(44, 95, 93, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .floating-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .floating-cta:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(44, 95, 93, 0.4);
+        }
+
+        .floating-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
 
         /* Footer */
@@ -982,43 +1197,6 @@
             font-size: 0.875rem;
             color: var(--gray-light);
             margin: 0;
-        }
-
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 48px;
-            height: 48px;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .back-to-top svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
         }
 
         /* Responsive Design */
@@ -1119,15 +1297,6 @@
                 gap: 3rem;
             }
 
-            .story-image {
-                order: -1;
-            }
-
-            .services-layout {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
             .services-sidebar {
                 position: static;
             }
@@ -1149,6 +1318,24 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+            }
+
+            .floating-cta {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                padding: 1rem;
+                border-radius: 50%;
+                width: 56px;
+                height: 56px;
+                justify-content: center;
+            }
+
+            .floating-cta span {
+                display: none;
+            }
+
+            .back-to-top {
+                bottom: 5.5rem;
             }
         }
 
@@ -1191,8 +1378,6 @@
             }
 
             .back-to-top {
-                bottom: 1.5rem;
-                right: 1.5rem;
                 width: 44px;
                 height: 44px;
             }
@@ -1206,7 +1391,7 @@
             <nav>
                 <div class="logo">Total <span>Remote Care</span></div>
                 <ul class="nav-menu">
-                    <li><a href="#story" class="active">Our Story</a></li>
+                    <li><a href="#story">Our Story</a></li>
                     <li><a href="#features">Benefits</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#impact">Impact</a></li>
@@ -1226,13 +1411,19 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Better Care Through Smarter Monitoring</h1>
-                <p>Catch problems before they become emergencies. Real-time monitoring and intelligent alerts so your nurses can focus on caring, not catching up.</p>
+                <h1>Better Care Through <span class="accent-underline">Smarter Monitoring</span></h1>
+                <p>Catch problems <span class="highlight-text">before they become emergencies</span>. Real-time monitoring and intelligent alerts so your nurses can focus on caring, not catching up.</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary btn-large">Schedule a Demo</a>
-                    <a href="#services" class="btn btn-secondary btn-large">Learn More</a>
+                    <a href="#contact" class="btn btn-primary btn-large">Let's Talk</a>
+                    <a href="#services" class="btn btn-secondary btn-large">See How It Works</a>
                 </div>
                 <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <svg class="hero-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <span>Built by Healthcare Pros</span>
+                    </div>
                     <div class="hero-meta-item">
                         <svg class="hero-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -1241,15 +1432,10 @@
                     </div>
                     <div class="hero-meta-item">
                         <svg class="hero-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
-                        <span>24/7 Support</span>
-                    </div>
-                    <div class="hero-meta-item">
-                        <svg class="hero-meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                        <span>Quick Setup</span>
+                        <span>Miami, Florida</span>
                     </div>
                 </div>
             </div>
@@ -1265,6 +1451,10 @@
                     <p>Walk into any long-term care facility at 3 AM, and you'll find dedicated nurses moving room to room, checking vitals, documenting by hand, wondering: "What am I missing?"</p>
                     <p>We saw skilled professionals spending more time on paperwork than patient care. Early warning signs slipping through because no one can be everywhere at once. Data scattered across clipboards—only becoming clear after residents were already in crisis.</p>
                     <p>We built technology that continuously monitors, intelligently analyzes, and proactively alerts. Total Remote Care gives your team the ability to see patterns before they become problems, document automatically, and focus on what matters: caring for residents.</p>
+                    <div class="founder-signature">
+                        <div class="signature-line">Tzvi Atkin</div>
+                        <div class="signature-title">Founder, Total Remote Care</div>
+                    </div>
                 </div>
                 <div class="story-image">
                     <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Healthcare monitoring and patient care technology">
@@ -1277,8 +1467,8 @@
     <section id="features" class="section benefits-section">
         <div class="container">
             <div class="features-intro">
-                <h2>How We Support Your Facility</h2>
-                <p>Tools that help your staff intervene early and prevent small health changes from becoming serious problems.</p>
+                <h2>Here's What We Built for You</h2>
+                <p>Everything your staff needs to catch problems early and keep residents safer.</p>
             </div>
             <div class="benefits-alternating">
                 <div class="benefit-row">
@@ -1313,7 +1503,7 @@
                     </div>
                     <div class="benefit-text">
                         <h3>Hours Back in Your Day</h3>
-                        <p>Automated documentation means nurses spend less time with clipboards and more time with patients. All vital data flows directly into your EHR—no double entry required.</p>
+                        <p>Your nurses spend less time with clipboards and more time with patients. All vital data flows directly into your EHR—no double entry, no busywork.</p>
                     </div>
                 </div>
 
@@ -1349,8 +1539,8 @@
         <div class="container">
             <div class="services-layout">
                 <div class="services-sidebar">
-                    <h2>Our Services</h2>
-                    <p>Comprehensive remote monitoring that helps you deliver better patient outcomes through early intervention and continuous care.</p>
+                    <h2>What's Included</h2>
+                    <p>Remote monitoring designed specifically for long-term care facilities. Everything you need to deliver better outcomes.</p>
                     <div class="services-image">
                         <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional using monitoring technology">
                     </div>
@@ -1447,8 +1637,8 @@
         <div class="container">
             <div class="faq-container">
                 <div class="faq-intro">
-                    <h2>Common Questions</h2>
-                    <p>Learn more about how remote monitoring works in your facility</p>
+                    <h2>Questions We Hear Most</h2>
+                    <p>Here's what facility administrators typically want to know</p>
                 </div>
 
                 <div class="faq-item">
@@ -1529,8 +1719,8 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h2>Schedule Your Facility Demo</h2>
-                    <p>See how remote monitoring and early detection can improve patient outcomes at your facility. We'll answer your questions and customize a solution for your needs.</p>
+                    <h2>Let's Talk About Your Facility</h2>
+                    <p>Schedule a quick demo and we'll show you how this works in your environment. No pressure, just answers.</p>
                     
                     <div class="contact-details">
                         <div class="contact-detail">
@@ -1571,7 +1761,7 @@
                 </div>
 
                 <div class="contact-form">
-                    <form onsubmit="handleDemoForm(event)">
+                    <form id="demoForm">
                         <div class="form-group">
                             <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -1620,9 +1810,9 @@
     <!-- CTA Section -->
     <section class="section cta">
         <div class="container">
-            <h2>Ready to Deliver Better Patient Outcomes?</h2>
-            <p>See how proactive monitoring helps Florida facilities catch problems early</p>
-            <a href="#contact" class="btn btn-large">Schedule Your Demo</a>
+            <h2>Ready to See This in Action?</h2>
+            <p>Let's walk through how this works at your facility</p>
+            <a href="#contact" class="btn btn-large">Show Me a Demo</a>
         </div>
     </section>
 
@@ -1638,10 +1828,10 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#story">Our Story</a></li>
-                        <li><a href="#features">Benefits</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#impact">Impact</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#features">What We Built</a></li>
+                        <li><a href="#services">What's Included</a></li>
+                        <li><a href="#impact">Real Impact</a></li>
+                        <li><a href="#faq">Questions</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1654,14 +1844,22 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Total Remote Care | Miami, FL | +1 305 733 1404 | info@totalremotecare.com</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Total Remote Care | Miami, FL | +1 305 733 1404 | info@totalremotecare.com</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Floating CTA Button -->
+    <a href="#contact" class="floating-cta" id="floatingCTA" aria-label="Schedule a demo">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+        </svg>
+        <span>Let's Talk</span>
+    </a>
+
     <!-- Back to Top -->
-    <div class="back-to-top" onclick="scrollToTop()">
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">
         <svg viewBox="0 0 24 24">
             <path d="M7 14l5-5 5 5z"/>
         </svg>
@@ -1672,18 +1870,20 @@
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
         
-        mobileMenuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
             });
-        });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
 
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -1691,17 +1891,19 @@
                 const faqItem = this.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 
+                // Close all FAQ items
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                 });
                 
+                // Open clicked item if it wasn't active
                 if (!isActive) {
                     faqItem.classList.add('active');
                 }
             });
         });
 
-        // Smooth scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1721,6 +1923,10 @@
         });
 
         // Active nav & scroll effects
+        const header = document.querySelector('header');
+        const floatingCTA = document.getElementById('floatingCTA');
+        const backToTop = document.getElementById('backToTop');
+
         function updateActiveNav() {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
@@ -1728,7 +1934,6 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
                 if (window.scrollY >= (sectionTop - 150)) {
                     current = section.getAttribute('id');
                 }
@@ -1742,17 +1947,23 @@
             });
         }
 
-        // Scroll events
+        // Scroll event handler
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            const backToTop = document.querySelector('.back-to-top');
-            
+            // Header scroll effect
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
             
+            // Floating CTA visibility
+            if (window.scrollY > 800) {
+                floatingCTA.classList.add('visible');
+            } else {
+                floatingCTA.classList.remove('visible');
+            }
+            
+            // Back to top button
             if (window.scrollY > 500) {
                 backToTop.classList.add('visible');
             } else {
@@ -1762,22 +1973,31 @@
             updateActiveNav();
         });
 
-        // Back to top
-        function scrollToTop() {
+        // Back to top functionality
+        backToTop.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        }
+        });
 
-        // Form handler
-        function handleDemoForm(e) {
+        // Form submission handler
+        const demoForm = document.getElementById('demoForm');
+        demoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = new FormData(e.target);
+            
+            const formData = new FormData(this);
             const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to your backend
+            console.log('Form submitted:', data);
+            
+            // Show success message
             alert(`Thank you ${data.name}! We've received your demo request for ${data.facility}. We'll contact you within 2 business hours to schedule your personalized demonstration.`);
-            e.target.reset();
-        }
+            
+            // Reset form
+            this.reset();
+        });
 
         // Initialize
         updateActiveNav();
