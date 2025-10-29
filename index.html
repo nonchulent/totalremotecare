@@ -442,8 +442,8 @@
         .benefits-section {
             background: var(--teal-bg-medium);
             position: relative;
-            padding-top: calc(var(--section-padding) + 3rem);
-            padding-bottom: calc(var(--section-padding) + 2rem);
+            padding-top: calc(var(--section-padding) + 1rem);
+            padding-bottom: calc(var(--section-padding) - 1rem);
         }
 
         .benefits-section::before {
@@ -471,7 +471,7 @@
         .features-intro {
             text-align: center;
             max-width: 720px;
-            margin: 0 auto 5rem;
+            margin: 0 auto 3.5rem;
         }
 
         .features-intro h2 {
@@ -491,10 +491,10 @@
 
         .benefit-row {
             display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 4rem;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 3rem;
             align-items: center;
-            margin-bottom: 5rem;
+            margin-bottom: 3.5rem;
         }
 
         .benefit-row:last-child {
@@ -502,7 +502,7 @@
         }
 
         .benefit-row.reverse {
-            grid-template-columns: 1.4fr 1fr;
+            grid-template-columns: 1.6fr 1fr;
         }
 
         .benefit-row.reverse .benefit-visual {
@@ -520,9 +520,9 @@
         }
 
         .benefit-image {
-            width: 320px;
-            height: 320px;
-            border-radius: 20px;
+            width: 260px;
+            height: 260px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
