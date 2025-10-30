@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total Remote Care | Remote Patient Monitoring for Long-Term Care</title>
-    <meta name="description" content="Remote patient monitoring for long-term care facilities. Catch problems before they become emergencies with 24/7 monitoring and intelligent alerts.">
+    <title>Total Remote Care | RPM & CCM for Long-Term Care</title>
+    <meta name="description" content="Remote patient monitoring (RPM) and chronic care management (CCM) for long-term care facilities. Catch problems before they become emergencies with 24/7 monitoring and intelligent alerts.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -358,7 +358,7 @@
             align-items: center;
             padding-top: 84px;
             background: linear-gradient(rgba(44, 95, 93, 0.75), rgba(44, 95, 93, 0.85)),
-                        url('https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -892,11 +892,13 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow-soft);
+            height: 700px;
         }
 
         .services-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -1295,64 +1297,6 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary);
-        }
-
-        /* CTA Section */
-        .cta {
-            background: var(--primary);
-            text-align: center;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: 
-                radial-gradient(circle, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 30px 30px;
-            pointer-events: none;
-        }
-
-        .cta h2 {
-            color: var(--white);
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta .btn {
-            position: relative;
-            z-index: 2;
-            background: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background: var(--teal-bg-light);
-            color: var(--primary-dark);
-            transform: translateY(-2px);
         }
 
         /* Floating CTA Button */
@@ -2459,6 +2403,7 @@
 
             .services-image {
                 margin-top: 1.5rem;
+                height: 500px;
             }
 
             .impact-grid {
@@ -2635,6 +2580,10 @@
                 height: 250px;
             }
 
+            .services-image {
+                height: 400px;
+            }
+
             /* Faster animations on mobile */
             .animate-on-scroll {
                 transition-duration: 0.5s;
@@ -2717,7 +2666,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Better Care Through <span class="gradient-text">Smarter Monitoring</span></h1>
-                <p>Catch problems <span class="highlight-text">before they become emergencies</span>. Real-time monitoring and intelligent alerts so your nurses can focus on caring, not catching up.</p>
+                <p>Comprehensive <span class="highlight-text">RPM (Remote Patient Monitoring) and CCM (Chronic Care Management)</span> solutions. Catch problems before they become emergencies with 24/7 monitoring and intelligent alerts.</p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary btn-large">Let's Talk</a>
                     <a href="#services" class="btn btn-secondary btn-large">See How It Works</a>
@@ -2815,7 +2764,7 @@
                         </div>
                     </div>
                     <div class="benefit-text">
-                        <h3>24/7 Monitoring Without the Disruption</h3>
+                        <h3>24/7 RPM Monitoring Without the Disruption</h3>
                         <p>Residents rest undisturbed while our sensors track vitals continuously. Your team gets alerted the moment intervention is needed—not after the crisis has already started.</p>
                     </div>
                 </div>
@@ -2877,7 +2826,7 @@
             <div class="services-layout">
                 <div class="services-sidebar">
                     <h2>What's Included</h2>
-                    <p>Remote monitoring designed specifically for long-term care facilities. Everything you need to deliver better outcomes.</p>
+                    <p>Complete RPM and CCM solutions designed specifically for long-term care facilities. Everything you need to deliver better outcomes.</p>
                     <div class="services-image">
                         <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional using monitoring technology">
                     </div>
@@ -2890,7 +2839,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                 </svg>
                             </div>
-                            Remote Vital Sign Monitoring
+                            Remote Patient Monitoring (RPM)
                         </h3>
                         <p>Continuous tracking of heart rate, blood pressure, oxygen saturation, temperature, and respiratory rate. Data syncs directly to your EHR system.</p>
                     </div>
@@ -2901,7 +2850,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                                 </svg>
                             </div>
-                            Early Warning System
+                            Chronic Care Management (CCM)
                         </h3>
                         <p>Predictive algorithms detect subtle changes in resident health patterns. Catch issues early to prevent crises and keep residents safer in your care.</p>
                     </div>
@@ -2932,22 +2881,7 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <section class="section-divider">
-        <div class="container">
-            <div class="divider-content">
-                <div class="divider-line"></div>
-                <div class="divider-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                </div>
-                <div class="divider-line"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Implementation Timeline -->
+    <!-- Process Timeline Section -->
     <section class="timeline-section">
         <!-- Decorative Elements -->
         <div class="timeline-decoration timeline-decoration-1"></div>
@@ -3001,6 +2935,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <section class="section-divider">
+        <div class="container">
+            <div class="divider-content">
+                <div class="divider-line"></div>
+                <div class="divider-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <div class="divider-line"></div>
             </div>
         </div>
     </section>
@@ -3360,22 +3309,13 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section cta">
-        <div class="container">
-            <h2>Ready to See This in Action?</h2>
-            <p>Let's walk through how this works at your facility</p>
-            <a href="#contact" class="btn btn-large">Show Me a Demo</a>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Total Remote Care</h3>
-                    <p>Helping long-term care facilities deliver better outcomes through intelligent remote patient monitoring.</p>
+                    <p>Helping long-term care facilities deliver better outcomes through intelligent remote patient monitoring (RPM) and chronic care management (CCM).</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
