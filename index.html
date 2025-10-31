@@ -522,18 +522,6 @@
  letter-spacing: 0.05em;
  }
 
- /* Floating Elements for Visual Interest */
- .hero::after {
- content: '';
- position: absolute;
- inset: 0;
- background-image:
- radial-gradient(circle at 80% 20%, rgba(123, 165, 145, 0.15) 0%, transparent 50%),
- radial-gradient(circle at 20% 80%, rgba(159, 197, 184, 0.1) 0%, transparent 50%);
- pointer-events: none;
- animation: floatingGlow 8s ease-in-out infinite;
- }
-
  @keyframes floatingGlow {
  0%, 100% {
  opacity: 1;
@@ -667,7 +655,7 @@
  left: 0;
  right: 0;
  height: 100px;
- background: linear-gradient(to bottom left, transparent 49%, var(--teal-bg-medium) 50%);
+ background: linear-gradient(to bottom left, transparent 49%, var(--white) 50%);
  z-index: 1;
  }
 
@@ -727,22 +715,25 @@
  display: block;
  }
 
- /* Benefits Section */
+ /* Benefits Section - REDESIGNED */
  .benefits-section {
- background: var(--teal-bg-medium);
+ background: var(--white);
  position: relative;
- padding-top: calc(var(--section-padding) + 1rem);
- padding-bottom: calc(var(--section-padding) - 1rem);
+ padding-top: calc(var(--section-padding) - 2rem);
+ padding-bottom: calc(var(--section-padding) - 2rem);
+ overflow: hidden;
  }
 
  .benefits-section::before {
  content: '';
  position: absolute;
- inset: 0;
- background-image:
- linear-gradient(90deg, rgba(44, 95, 93, 0.02) 1px, transparent 1px),
- linear-gradient(rgba(44, 95, 93, 0.02) 1px, transparent 1px);
- background-size: 40px 40px;
+ top: 0;
+ left: 0;
+ right: 0;
+ height: 100%;
+ background: 
+ linear-gradient(135deg, rgba(44, 95, 93, 0.02) 0%, transparent 50%),
+ radial-gradient(circle at 80% 20%, rgba(159, 197, 184, 0.08) 0%, transparent 50%);
  pointer-events: none;
  }
 
@@ -761,111 +752,121 @@
  text-align: center;
  max-width: 720px;
  margin: 0 auto 3.5rem;
+ position: relative;
+ z-index: 2;
  }
 
  .features-intro h2 {
  font-size: 2.75rem;
- margin-bottom: 1.25rem;
+ margin-bottom: 1rem;
  }
 
  .features-intro p {
- font-size: 1.1875rem;
+ font-size: 1.125rem;
  color: var(--gray);
  }
 
- .benefits-alternating {
- max-width: 1100px;
- margin: 0 auto;
- }
-
- .benefit-row {
+ .benefits-grid {
  display: grid;
- grid-template-columns: 1fr 1.6fr;
- gap: 3rem;
- align-items: center;
- margin-bottom: 3.5rem;
- }
-
- .benefit-row:last-child {
- margin-bottom: 0;
- }
-
- .benefit-row.reverse {
- grid-template-columns: 1.6fr 1fr;
- }
-
- .benefit-row.reverse .benefit-visual {
- order: 2;
- }
-
- .benefit-row.reverse .benefit-text {
- order: 1;
- }
-
- .benefit-visual {
- display: flex;
- justify-content: center;
- align-items: center;
- }
-
- .benefit-image {
- width: 260px;
- height: 260px;
- border-radius: 16px;
- overflow: hidden;
- box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
- transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1.5rem;
+ max-width: 1140px;
+ margin: 0 auto;
  position: relative;
+ z-index: 2;
  }
 
- .benefit-image::after {
+ .benefit-card {
+ background: var(--white);
+ padding: 2rem;
+ border-radius: 16px;
+ border: 2px solid var(--border-color);
+ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ position: relative;
+ display: flex;
+ gap: 1.5rem;
+ align-items: flex-start;
+ box-shadow: 0 2px 8px rgba(44, 95, 93, 0.04);
+ }
+
+ .benefit-card::before {
  content: '';
  position: absolute;
  inset: 0;
- background: linear-gradient(135deg, rgba(74, 135, 133, 0.15) 0%, transparent 100%);
+ border-radius: 16px;
+ padding: 2px;
+ background: linear-gradient(135deg, var(--primary), var(--accent));
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+ -webkit-mask-composite: xor;
+ mask-composite: exclude;
  opacity: 0;
- transition: opacity 0.4s ease;
+ transition: opacity 0.3s ease;
  }
 
- .benefit-row:hover .benefit-image::after {
+ .benefit-card:hover {
+ transform: translateY(-4px);
+ border-color: transparent;
+ box-shadow: 0 12px 32px rgba(44, 95, 93, 0.12);
+ }
+
+ .benefit-card:hover::before {
  opacity: 1;
  }
 
- .benefit-image img {
- width: 100%;
- height: 100%;
- object-fit: cover;
- display: block;
- transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ .benefit-icon-wrapper {
+ flex-shrink: 0;
+ width: 64px;
+ height: 64px;
+ background: linear-gradient(135deg, var(--teal-bg-light), var(--teal-bg-medium));
+ border-radius: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ transition: all 0.3s ease;
  }
 
- .benefit-row:hover .benefit-image {
- transform: translateY(-8px);
- box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
- }
-
- .benefit-row:hover .benefit-image img {
+ .benefit-card:hover .benefit-icon-wrapper {
  transform: scale(1.05);
+ background: linear-gradient(135deg, var(--primary), var(--primary-light));
  }
 
- .benefit-text h3 {
- margin-bottom: 1.125rem;
- font-size: 1.875rem;
+ .benefit-icon {
+ width: 32px;
+ height: 32px;
+ color: var(--primary);
+ transition: color 0.3s ease;
+ }
+
+ .benefit-card:hover .benefit-icon {
+ color: var(--white);
+ }
+
+ .benefit-content {
+ flex: 1;
+ min-width: 0;
+ }
+
+ .benefit-card h3 {
+ font-size: 1.25rem;
+ margin-bottom: 0.5rem;
  color: var(--dark);
  line-height: 1.3;
+ font-weight: 700;
  }
 
- .benefit-text p {
- font-size: 1.0625rem;
- line-height: 1.75;
+ .benefit-card p {
+ font-size: 0.9375rem;
+ line-height: 1.6;
  margin: 0;
  color: var(--gray);
  }
 
- .benefit-row:nth-child(1) { transition-delay: 0.1s; }
- .benefit-row:nth-child(2) { transition-delay: 0.2s; }
- .benefit-row:nth-child(3) { transition-delay: 0.3s; }
- .benefit-row:nth-child(4) { transition-delay: 0.4s; }
+ .benefit-card:nth-child(1) { animation-delay: 0.1s; }
+ .benefit-card:nth-child(2) { animation-delay: 0.2s; }
+ .benefit-card:nth-child(3) { animation-delay: 0.3s; }
+ .benefit-card:nth-child(4) { animation-delay: 0.4s; }
 
  /* Services Section */
  .services-layout {
@@ -2360,26 +2361,28 @@
  display: none;
  }
 
- .benefit-row,
- .benefit-row.reverse {
+ .benefits-grid {
  grid-template-columns: 1fr;
- gap: 2rem;
- margin-bottom: 3rem;
- padding-bottom: 3rem;
+ gap: 1.25rem;
  }
 
- .benefit-row.reverse .benefit-visual,
- .benefit-row.reverse .benefit-text {
- order: initial;
+ .benefit-card {
+ padding: 1.5rem;
+ flex-direction: row;
  }
 
- .benefit-image {
- width: 100%;
- height: 240px;
+ .benefit-icon-wrapper {
+ width: 56px;
+ height: 56px;
  }
 
- .benefit-text h3 {
- font-size: 1.375rem;
+ .benefit-icon {
+ width: 28px;
+ height: 28px;
+ }
+
+ .benefit-card h3 {
+ font-size: 1.125rem;
  }
 
  .story-layout {
@@ -2584,13 +2587,19 @@
  height: 400px;
  }
 
+ .benefit-card {
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
+ }
+
  /* Faster animations on mobile */
  .animate-on-scroll {
  transition-duration: 0.5s;
  }
 
  .trust-badge,
- .benefit-row,
+ .benefit-card,
  .service-item,
  .impact-card,
  .timeline-step,
@@ -2738,8 +2747,7 @@
  <p>We saw skilled professionals spending more time on paperwork than patient care. Early warning signs slipping through because no one can be everywhere at once. Data scattered across clipboards—only becoming clear after residents were already in crisis.</p>
  <p>We built technology that continuously monitors, intelligently analyzes, and proactively alerts. Total Remote Care gives your team the ability to see patterns before they become problems, document automatically, and focus on what matters: caring for residents.</p>
  <div class="founder-signature">
- <div class="signature-line">Tzvi Atkin</div>
- <div class="signature-title">Founder, Total Remote Care</div>
+ <div class="signature-line">Founder of Total Remote Care</div>
  </div>
  </div>
  <div class="story-image">
@@ -2749,57 +2757,65 @@
  </div>
  </section>
 
- <!-- Core Benefits Section -->
+ <!-- Core Benefits Section - REDESIGNED -->
  <section id="features" class="section benefits-section">
  <div class="container">
  <div class="features-intro">
  <h2>Here's What We Built for You</h2>
  <p>Everything your staff needs to catch problems early and keep residents safer.</p>
  </div>
- <div class="benefits-alternating">
- <div class="benefit-row">
- <div class="benefit-visual">
- <div class="benefit-image">
- <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80" alt="Patient monitoring technology">
+ <div class="benefits-grid">
+ <div class="benefit-card">
+ <div class="benefit-icon-wrapper">
+ <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6v.01M12 12v.01M12 18v.01"/>
+ <circle cx="12" cy="12" r="1" fill="currentColor"/>
+ </svg>
  </div>
- </div>
- <div class="benefit-text">
+ <div class="benefit-content">
  <h3>24/7 RPM Monitoring Without the Disruption</h3>
  <p>Residents rest undisturbed while our sensors track vitals continuously. Your team gets alerted the moment intervention is needed—not after the crisis has already started.</p>
  </div>
  </div>
 
- <div class="benefit-row reverse">
- <div class="benefit-visual">
- <div class="benefit-image">
- <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80" alt="Smart healthcare alerts and notifications">
+ <div class="benefit-card">
+ <div class="benefit-icon-wrapper">
+ <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+ <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+ </svg>
  </div>
- </div>
- <div class="benefit-text">
+ <div class="benefit-content">
  <h3>Intelligent Alerts That Actually Matter</h3>
  <p>No more alarm fatigue. Our system learns each resident's patterns and only notifies staff when something genuinely requires attention. Less noise, better response times.</p>
  </div>
  </div>
 
- <div class="benefit-row">
- <div class="benefit-visual">
- <div class="benefit-image">
- <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Nurse providing patient care">
+ <div class="benefit-card">
+ <div class="benefit-icon-wrapper">
+ <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 3h4a2 2 0 012 2v4"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 21H5a2 2 0 01-2-2v-4"/>
+ </svg>
  </div>
- </div>
- <div class="benefit-text">
+ <div class="benefit-content">
  <h3>Hours Back in Your Day</h3>
  <p>Your nurses spend less time with clipboards and more time with patients. All vital data flows directly into your EHR—no double entry, no busywork.</p>
  </div>
  </div>
 
- <div class="benefit-row reverse">
- <div class="benefit-visual">
- <div class="benefit-image">
- <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Family connection and communication">
+ <div class="benefit-card">
+ <div class="benefit-icon-wrapper">
+ <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <circle cx="12" cy="8" r="3" stroke-width="1.8"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 8v6m3-3h-6"/>
+ <circle cx="19" cy="11" r="1" fill="currentColor"/>
+ </svg>
  </div>
- </div>
- <div class="benefit-text">
+ <div class="benefit-content">
  <h3>Families Stay Connected</h3>
  <p>Secure access to real-time health updates reduces anxious phone calls and builds trust. Families see you're providing proactive, attentive care—even when they can't be there.</p>
  </div>
@@ -2836,7 +2852,10 @@
  <h3>
  <div class="service-icon">
  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 11l3 3 5-5"/>
+ <circle cx="12" cy="12" r="1" fill="currentColor"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7c.5.5.5 1 .5 1.5M5 7c-.5.5-.5 1-.5 1.5"/>
  </svg>
  </div>
  Remote Patient Monitoring (RPM)
@@ -2847,7 +2866,8 @@
  <h3>
  <div class="service-icon">
  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 14l2-2 2 2 4-4"/>
  </svg>
  </div>
  Chronic Care Management (CCM)
@@ -2858,7 +2878,9 @@
  <h3>
  <div class="service-icon">
  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+ <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
+ <circle cx="15" cy="9" r="1.5" fill="currentColor"/>
  </svg>
  </div>
  Staff Training & Support
@@ -2869,7 +2891,9 @@
  <h3>
  <div class="service-icon">
  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17l2 2 4-4"/>
+ <circle cx="16" cy="8" r="1" fill="currentColor"/>
  </svg>
  </div>
  Compliance Reporting
@@ -3456,7 +3480,7 @@
  }, observerOptions);
 
  // Observe all animatable elements
- document.querySelectorAll('.benefit-row, .service-item, .impact-card, .faq-item, .trust-badge, .story-content, .story-image, .timeline-step, .comparison-side, .features-intro, .services-sidebar, .contact-grid > div').forEach(el => {
+ document.querySelectorAll('.benefit-card, .service-item, .impact-card, .faq-item, .trust-badge, .story-content, .story-image, .timeline-step, .comparison-side, .features-intro, .services-sidebar, .contact-grid > div').forEach(el => {
  el.classList.add('animate-on-scroll');
  observer.observe(el);
  });
