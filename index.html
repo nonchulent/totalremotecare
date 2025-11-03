@@ -4,7 +4,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Total Remote Care | RPM & CCM for Long-Term Care</title>
- <meta name="description" content="Remote patient monitoring (RPM) and chronic care management (CCM) for long-term care facilities. Catch problems before they become emergencies with 24/7 monitoring and intelligent alerts.">
+ <meta name="description" content="Care that sees around corners - empowering clinical staff with real-time monitoring, intelligent alerts and automated documentation.">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -96,7 +96,7 @@
  position: relative;
  }
 
- .section:not(.benefits-section):not(.story-section):not(.impact-section)::before {
+ .section:not(.benefits-section):not(.story-section):not(.impact-section):not(.real-moments-section)::before {
  content: '';
  position: absolute;
  inset: 0;
@@ -290,7 +290,6 @@
  width: 100%;
  }
 
- /* Header CTA Button */
  .nav-menu .btn-primary {
  color: var(--white);
  background: var(--primary);
@@ -388,7 +387,6 @@
  animation: floatingGlow 8s ease-in-out infinite;
  }
 
- /* Floating decorative icons */
  .hero-decoration {
  position: absolute;
  opacity: 0.1;
@@ -447,30 +445,6 @@
  }
  }
 
- /* Hero Badge */
- .hero-badge {
- display: inline-flex;
- align-items: center;
- gap: 0.5rem;
- padding: 0.625rem 1.25rem;
- background: rgba(255, 255, 255, 0.15);
- backdrop-filter: blur(10px);
- border-radius: 50px;
- border: 1px solid rgba(255, 255, 255, 0.25);
- margin-bottom: 1.5rem;
- font-size: 0.875rem;
- font-weight: 600;
- color: rgba(255, 255, 255, 0.95);
- animation: fadeInUp 0.8s ease-out 0.2s both;
- }
-
- .badge-icon {
- width: 16px;
- height: 16px;
- color: var(--accent);
- }
-
- /* Gradient Text Effect */
  .gradient-text {
  background: linear-gradient(135deg, #9fc5b8 0%, #7ba591 50%, #5a9178 100%);
  -webkit-background-clip: text;
@@ -490,7 +464,6 @@
  }
  }
 
- /* Mini Stats in Hero */
  .hero-stats-mini {
  display: flex;
  gap: 3rem;
@@ -531,53 +504,6 @@
  opacity: 0.7;
  transform: scale(1.1);
  }
- }
-
- /* Scroll Indicator */
- .scroll-indicator {
- position: absolute;
- bottom: 140px;
- left: 50%;
- transform: translateX(-50%);
- display: flex;
- flex-direction: column;
- align-items: center;
- gap: 0.5rem;
- z-index: 3;
- animation: fadeInUp 1s ease-out 1s both;
- }
-
- .scroll-indicator-text {
- font-size: 0.8125rem;
- color: rgba(255, 255, 255, 0.7);
- text-transform: uppercase;
- letter-spacing: 0.1em;
- font-weight: 600;
- }
-
- .scroll-indicator-icon {
- width: 24px;
- height: 24px;
- color: rgba(255, 255, 255, 0.7);
- animation: bounce 2s infinite;
- }
-
- @keyframes bounce {
- 0%, 20%, 50%, 80%, 100% {
- transform: translateY(0);
- }
- 40% {
- transform: translateY(-10px);
- }
- 60% {
- transform: translateY(-5px);
- }
- }
-
- /* Custom Visual Elements */
- .highlight-text {
- background: linear-gradient(180deg, transparent 60%, rgba(255, 255, 255, 0.2) 60%);
- padding: 0 0.3rem;
  }
 
  .hero h1 {
@@ -715,7 +641,161 @@
  display: block;
  }
 
- /* Benefits Section - REDESIGNED */
+ /* Real Moments Section - NEW */
+ .real-moments-section {
+ background: var(--white);
+ position: relative;
+ padding-top: calc(var(--section-padding) - 2rem);
+ padding-bottom: calc(var(--section-padding) - 2rem);
+ overflow: hidden;
+ }
+
+ .real-moments-section::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ height: 100%;
+ background: 
+ linear-gradient(135deg, rgba(44, 95, 93, 0.02) 0%, transparent 50%),
+ radial-gradient(circle at 80% 20%, rgba(159, 197, 184, 0.08) 0%, transparent 50%);
+ pointer-events: none;
+ }
+
+ .moments-intro {
+ text-align: center;
+ max-width: 720px;
+ margin: 0 auto 4rem;
+ position: relative;
+ z-index: 2;
+ }
+
+ .moments-intro h2 {
+ font-size: 2.75rem;
+ margin-bottom: 1rem;
+ }
+
+ .moments-intro p {
+ font-size: 1.125rem;
+ color: var(--gray);
+ }
+
+ .moments-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 2rem;
+ position: relative;
+ z-index: 2;
+ }
+
+ .moment-card {
+ background: var(--white);
+ padding: 0;
+ border-radius: 16px;
+ border: 2px solid var(--border-color);
+ transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ position: relative;
+ overflow: hidden;
+ }
+
+ .moment-card::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ border-radius: 16px;
+ padding: 2px;
+ background: linear-gradient(135deg, var(--primary), var(--accent));
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+ -webkit-mask-composite: xor;
+ mask-composite: exclude;
+ opacity: 0;
+ transition: opacity 0.4s ease;
+ }
+
+ .moment-card:hover {
+ transform: translateY(-8px);
+ border-color: transparent;
+ box-shadow: 0 12px 32px rgba(44, 95, 93, 0.15);
+ }
+
+ .moment-card:hover::before {
+ opacity: 1;
+ }
+
+ .moment-card h3,
+ .moment-card p {
+ padding: 0 2rem;
+ }
+
+ .moment-card h3 {
+ padding-top: 1.5rem;
+ }
+
+ .moment-card p {
+ padding-bottom: 2rem;
+ }
+
+ .moment-image {
+ width: 100%;
+ height: 200px;
+ border-radius: 12px;
+ overflow: hidden;
+ margin-bottom: 1.5rem;
+ position: relative;
+ }
+
+ .moment-image img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.4s ease;
+ }
+
+ .moment-card:hover .moment-image img {
+ transform: scale(1.05);
+ }
+
+ .moment-time-badge {
+ position: absolute;
+ top: 1rem;
+ left: 1rem;
+ display: inline-flex;
+ align-items: center;
+ gap: 0.5rem;
+ padding: 0.5rem 1rem;
+ background: rgba(44, 95, 93, 0.95);
+ backdrop-filter: blur(10px);
+ border-radius: 20px;
+ font-size: 0.875rem;
+ font-weight: 700;
+ color: var(--white);
+ font-family: 'Crimson Pro', serif;
+ letter-spacing: 0.02em;
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+ }
+
+ .moment-time-badge svg {
+ width: 16px;
+ height: 16px;
+ }
+
+ .moment-card h3 {
+ font-size: 1.375rem;
+ margin-bottom: 1rem;
+ color: var(--dark);
+ line-height: 1.3;
+ }
+
+ .moment-card p {
+ font-size: 1rem;
+ line-height: 1.75;
+ margin: 0;
+ color: var(--gray);
+ }
+
+ /* Benefits Section */
  .benefits-section {
  background: var(--white);
  position: relative;
@@ -768,8 +848,8 @@
 
  .benefits-grid {
  display: grid;
- grid-template-columns: repeat(2, 1fr);
- gap: 1.5rem;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 2rem;
  max-width: 1140px;
  margin: 0 auto;
  position: relative;
@@ -778,14 +858,15 @@
 
  .benefit-card {
  background: var(--white);
- padding: 2rem;
+ padding: 2.5rem 2rem;
  border-radius: 16px;
  border: 2px solid var(--border-color);
  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
  position: relative;
  display: flex;
- gap: 1.5rem;
- align-items: flex-start;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
  box-shadow: 0 2px 8px rgba(44, 95, 93, 0.04);
  }
 
@@ -816,15 +897,16 @@
 
  .benefit-icon-wrapper {
  flex-shrink: 0;
- width: 64px;
- height: 64px;
+ width: 72px;
+ height: 72px;
  background: linear-gradient(135deg, var(--teal-bg-light), var(--teal-bg-medium));
- border-radius: 12px;
+ border-radius: 50%;
  display: flex;
  align-items: center;
  justify-content: center;
  position: relative;
  transition: all 0.3s ease;
+ margin-bottom: 1.5rem;
  }
 
  .benefit-card:hover .benefit-icon-wrapper {
@@ -833,8 +915,8 @@
  }
 
  .benefit-icon {
- width: 32px;
- height: 32px;
+ width: 36px;
+ height: 36px;
  color: var(--primary);
  transition: color 0.3s ease;
  }
@@ -845,12 +927,11 @@
 
  .benefit-content {
  flex: 1;
- min-width: 0;
  }
 
  .benefit-card h3 {
- font-size: 1.25rem;
- margin-bottom: 0.5rem;
+ font-size: 1.375rem;
+ margin-bottom: 0.75rem;
  color: var(--dark);
  line-height: 1.3;
  font-weight: 700;
@@ -858,15 +939,69 @@
 
  .benefit-card p {
  font-size: 0.9375rem;
- line-height: 1.6;
+ line-height: 1.65;
  margin: 0;
  color: var(--gray);
  }
 
- .benefit-card:nth-child(1) { animation-delay: 0.1s; }
- .benefit-card:nth-child(2) { animation-delay: 0.2s; }
- .benefit-card:nth-child(3) { animation-delay: 0.3s; }
- .benefit-card:nth-child(4) { animation-delay: 0.4s; }
+ /* Trust Badges */
+ .trust-section {
+ background: var(--white);
+ padding: 4rem 0;
+ text-align: center;
+ border-bottom: 1px solid var(--gray-lighter);
+ }
+
+ .trust-section h3 {
+ font-size: 1.125rem;
+ color: var(--gray);
+ margin-bottom: 2rem;
+ font-weight: 500;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ }
+
+ .trust-badges {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 3rem;
+ flex-wrap: wrap;
+ max-width: 1000px;
+ margin: 0 auto;
+ }
+
+ .trust-badge {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 0.75rem;
+ padding: 1.5rem;
+ background: var(--white);
+ border-radius: 8px;
+ border: 1px solid var(--border-color);
+ transition: all 0.3s ease;
+ min-width: 140px;
+ }
+
+ .trust-badge:hover {
+ border-color: var(--primary);
+ transform: translateY(-3px);
+ box-shadow: var(--shadow-subtle);
+ }
+
+ .trust-badge-icon {
+ width: 48px;
+ height: 48px;
+ color: var(--primary);
+ }
+
+ .trust-badge-text {
+ font-size: 0.875rem;
+ font-weight: 600;
+ color: var(--dark);
+ text-align: center;
+ }
 
  /* Services Section */
  .services-layout {
@@ -893,7 +1028,7 @@
  border-radius: 12px;
  overflow: hidden;
  box-shadow: var(--shadow-soft);
- height: 700px;
+ height: 600px;
  }
 
  .services-image img {
@@ -942,10 +1077,81 @@
  flex-shrink: 0;
  }
 
- .service-item:nth-child(1) { transition-delay: 0.1s; }
- .service-item:nth-child(2) { transition-delay: 0.2s; }
- .service-item:nth-child(3) { transition-delay: 0.3s; }
- .service-item:nth-child(4) { transition-delay: 0.4s; }
+ .supporting-services {
+ margin-top: 2.5rem;
+ background: linear-gradient(135deg, var(--teal-bg-light), var(--white));
+ padding: 2.5rem;
+ border-radius: 12px;
+ border: 1px solid var(--border-color);
+ }
+
+ .supporting-services h4 {
+ font-size: 1.25rem;
+ margin-bottom: 1.75rem;
+ color: var(--dark);
+ font-family: 'Inter', sans-serif;
+ font-weight: 700;
+ text-align: center;
+ }
+
+ .supporting-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1.25rem;
+ }
+
+ .supporting-item {
+ background: var(--white);
+ padding: 1.5rem;
+ border-radius: 10px;
+ border: 1px solid var(--border-color);
+ transition: all 0.3s ease;
+ display: flex;
+ gap: 1rem;
+ align-items: flex-start;
+ }
+
+ .supporting-item:hover {
+ border-color: var(--primary);
+ box-shadow: 0 4px 12px rgba(44, 95, 93, 0.1);
+ transform: translateY(-2px);
+ }
+
+ .supporting-icon {
+ width: 40px;
+ height: 40px;
+ background: linear-gradient(135deg, var(--primary), var(--primary-light));
+ border-radius: 8px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-shrink: 0;
+ color: var(--white);
+ }
+
+ .supporting-icon svg {
+ width: 20px;
+ height: 20px;
+ }
+
+ .supporting-text {
+ flex: 1;
+ }
+
+ .supporting-text strong {
+ display: block;
+ color: var(--dark);
+ font-weight: 700;
+ font-size: 1rem;
+ margin-bottom: 0.375rem;
+ }
+
+ .supporting-text p {
+ margin: 0;
+ font-size: 0.875rem;
+ line-height: 1.6;
+ color: var(--gray);
+ }
 
  /* Visual Break */
  .visual-break {
@@ -1136,10 +1342,6 @@
  z-index: 2;
  }
 
- .impact-card:nth-child(1) { transition-delay: 0.1s; }
- .impact-card:nth-child(2) { transition-delay: 0.2s; }
- .impact-card:nth-child(3) { transition-delay: 0.3s; }
-
  /* FAQ Section */
  .faq-container {
  max-width: 840px;
@@ -1203,12 +1405,6 @@
  .faq-item.active .faq-answer {
  max-height: 500px;
  }
-
- .faq-item:nth-child(1) { transition-delay: 0.1s; }
- .faq-item:nth-child(2) { transition-delay: 0.2s; }
- .faq-item:nth-child(3) { transition-delay: 0.3s; }
- .faq-item:nth-child(4) { transition-delay: 0.4s; }
- .faq-item:nth-child(5) { transition-delay: 0.5s; }
 
  /* Contact Section */
  .contact-grid {
@@ -1300,83 +1496,6 @@
  border-color: var(--primary);
  }
 
- /* Floating CTA Button */
- .floating-cta {
- position: fixed;
- bottom: 2rem;
- right: 2rem;
- background: var(--primary);
- color: var(--white);
- padding: 1.125rem 2rem;
- border-radius: 50px;
- box-shadow: 0 8px 24px rgba(44, 95, 93, 0.3);
- display: flex;
- align-items: center;
- gap: 0.75rem;
- text-decoration: none;
- font-weight: 600;
- font-size: 0.9375rem;
- z-index: 999;
- opacity: 0;
- transform: translateY(20px);
- transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
- pointer-events: none;
- }
-
- .floating-cta.visible {
- opacity: 1;
- transform: translateY(0);
- pointer-events: all;
- }
-
- .floating-cta:hover {
- background: var(--primary-light);
- transform: translateY(-2px);
- box-shadow: 0 12px 32px rgba(44, 95, 93, 0.4);
- }
-
- .floating-cta svg {
- width: 20px;
- height: 20px;
- }
-
- /* Back to Top */
- .back-to-top {
- position: fixed;
- bottom: 2rem;
- right: 2rem;
- width: 48px;
- height: 48px;
- background: var(--primary);
- color: var(--white);
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- cursor: pointer;
- opacity: 0;
- visibility: hidden;
- transition: all 0.3s ease;
- z-index: 998;
- box-shadow: var(--shadow-soft);
- }
-
- .back-to-top.visible {
- opacity: 1;
- visibility: visible;
- }
-
- .back-to-top:hover {
- background: var(--primary-light);
- transform: translateY(-2px);
- }
-
- .back-to-top svg {
- width: 24px;
- height: 24px;
- fill: currentColor;
- }
-
  /* Footer */
  footer {
  background: var(--dark);
@@ -1452,816 +1571,47 @@
  margin: 0;
  }
 
- /* Scroll Animations */
- .animate-on-scroll {
- opacity: 0;
- transform: translateY(40px);
- transition: opacity 0.8s ease, transform 0.8s ease;
- }
-
- .animate-on-scroll.animate-in {
- opacity: 1;
- transform: translateY(0);
- }
-
- /* Slide in from left animation */
- .story-content.animate-on-scroll {
- transform: translateX(-40px);
- }
-
- .story-content.animate-on-scroll.animate-in {
- transform: translateX(0);
- }
-
- /* Slide in from right animation */
- .story-image.animate-on-scroll {
- transform: translateX(40px);
- }
-
- .story-image.animate-on-scroll.animate-in {
- transform: translateX(0);
- }
-
- /* Trust Badges */
- .trust-section {
- background: var(--white);
- padding: 4rem 0;
- text-align: center;
- border-bottom: 1px solid var(--gray-lighter);
- }
-
- .trust-section h3 {
- font-size: 1.125rem;
- color: var(--gray);
- margin-bottom: 2rem;
- font-weight: 500;
- text-transform: uppercase;
- letter-spacing: 0.05em;
- }
-
- .trust-badges {
+ /* Floating CTA */
+ .floating-cta {
+ position: fixed;
+ bottom: 2rem;
+ right: 2rem;
+ background: var(--primary);
+ color: var(--white);
+ padding: 1.125rem 2rem;
+ border-radius: 50px;
+ box-shadow: 0 8px 24px rgba(44, 95, 93, 0.3);
  display: flex;
- justify-content: center;
- align-items: center;
- gap: 3rem;
- flex-wrap: wrap;
- max-width: 1000px;
- margin: 0 auto;
- }
-
- .trust-badge {
- display: flex;
- flex-direction: column;
  align-items: center;
  gap: 0.75rem;
- padding: 1.5rem;
- background: var(--white);
- border-radius: 8px;
- border: 1px solid var(--border-color);
- transition: all 0.3s ease;
- min-width: 140px;
- }
-
- .trust-badge:nth-child(1) { transition-delay: 0.1s; }
- .trust-badge:nth-child(2) { transition-delay: 0.2s; }
- .trust-badge:nth-child(3) { transition-delay: 0.3s; }
- .trust-badge:nth-child(4) { transition-delay: 0.4s; }
- .trust-badge:nth-child(5) { transition-delay: 0.5s; }
-
- .trust-badge:hover {
- border-color: var(--primary);
- transform: translateY(-3px);
- box-shadow: var(--shadow-subtle);
- }
-
- .trust-badge-icon {
- width: 48px;
- height: 48px;
- color: var(--primary);
- }
-
- .trust-badge-text {
- font-size: 0.875rem;
+ text-decoration: none;
  font-weight: 600;
- color: var(--dark);
- text-align: center;
- }
-
- /* Comparison Section - Modern Split View Design */
- .comparison-section {
- padding: 6rem 0;
- background: linear-gradient(160deg, #ffffff 0%, #f5f9f8 40%, #e6f3f2 100%);
- position: relative;
- overflow: hidden;
- }
-
- .comparison-section::before {
- content: '';
- position: absolute;
- top: -50%;
- right: -10%;
- width: 60%;
- height: 150%;
- background: radial-gradient(circle, rgba(159, 197, 184, 0.15) 0%, transparent 70%);
- border-radius: 50%;
- pointer-events: none;
- animation: pulseGlow 15s ease-in-out infinite;
- }
-
- @keyframes pulseGlow {
- 0%, 100% {
- transform: scale(1);
- opacity: 1;
- }
- 50% {
- transform: scale(1.1);
- opacity: 0.8;
- }
- }
-
- .comparison-section::after {
- content: '';
- position: absolute;
- bottom: -30%;
- left: -10%;
- width: 50%;
- height: 100%;
- background: radial-gradient(ellipse, rgba(44, 95, 93, 0.08) 0%, transparent 70%);
- border-radius: 50%;
- pointer-events: none;
- animation: pulseGlow 18s ease-in-out infinite reverse;
- }
-
- /* Floating decorative shapes */
- .comparison-decoration {
- position: absolute;
- border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
- opacity: 0.3;
- pointer-events: none;
- }
-
- .comparison-decoration-1 {
- width: 250px;
- height: 250px;
- background: linear-gradient(135deg, rgba(159, 197, 184, 0.3), rgba(123, 165, 145, 0.15));
- top: 20%;
- left: 10%;
- animation: float 16s ease-in-out infinite, morphShape 12s ease-in-out infinite;
- filter: blur(50px);
- }
-
- .comparison-decoration-2 {
- width: 200px;
- height: 200px;
- background: linear-gradient(135deg, rgba(44, 95, 93, 0.2), rgba(159, 197, 184, 0.15));
- bottom: 20%;
- right: 12%;
- animation: float 14s ease-in-out infinite 3s, morphShape 10s ease-in-out infinite 2s;
- filter: blur(45px);
- }
-
- @keyframes morphShape {
- 0%, 100% {
- border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
- }
- 50% {
- border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
- }
- }
-
- /* Section Divider */
- .section-divider {
- padding: 3rem 0;
- background: linear-gradient(135deg, #f8fbfa 0%, #ffffff 100%);
- position: relative;
- overflow: hidden;
- }
-
- .divider-content {
- max-width: 1200px;
- margin: 0 auto;
- display: flex;
- align-items: center;
- justify-content: center;
- gap: 2rem;
- }
-
- .divider-line {
- height: 2px;
- flex: 1;
- background: linear-gradient(90deg, transparent, var(--accent), transparent);
- position: relative;
- }
-
- .divider-line::before {
- content: '';
- position: absolute;
- left: 50%;
- top: 50%;
- transform: translate(-50%, -50%);
- width: 8px;
- height: 8px;
- background: var(--accent);
- border-radius: 50%;
- box-shadow: 0 0 0 4px rgba(159, 197, 184, 0.2);
- }
-
- .divider-icon {
- width: 48px;
- height: 48px;
- background: linear-gradient(135deg, var(--teal-bg-light), var(--accent));
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- color: var(--primary);
- box-shadow: 0 4px 16px rgba(44, 95, 93, 0.15);
- }
-
- .divider-icon svg {
- width: 24px;
- height: 24px;
- }
-
- .comparison-intro {
- text-align: center;
- max-width: 720px;
- margin: 0 auto 4rem;
- position: relative;
- z-index: 2;
- }
-
- .comparison-container {
- max-width: 1100px;
- margin: 0 auto;
- position: relative;
- z-index: 2;
- }
-
- .comparison-split {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 2rem;
- margin-bottom: 3rem;
- position: relative;
- }
-
- .comparison-side {
- border-radius: 16px;
- padding: 2.5rem;
- box-shadow: 0 8px 32px rgba(44, 95, 93, 0.12);
- border: 2px solid transparent;
- transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
- position: relative;
- overflow: hidden;
- }
-
- /* Traditional side - neutral grey/blue tones */
- .comparison-side.before {
- background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
- border-color: rgba(108, 117, 125, 0.15);
- }
-
- .comparison-side.before::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- height: 4px;
- background: linear-gradient(90deg, #6c757d, #adb5bd);
- transition: all 0.4s ease;
- }
-
- .comparison-side.before::after {
- content: '';
- position: absolute;
- top: 0;
- right: 0;
- bottom: 0;
- left: 0;
- background:
- radial-gradient(circle at 20% 80%, rgba(173, 181, 189, 0.1) 0%, transparent 50%),
- radial-gradient(circle at 80% 20%, rgba(108, 117, 125, 0.08) 0%, transparent 50%);
- background-image:
- radial-gradient(circle, rgba(108, 117, 125, 0.08) 1px, transparent 1px),
- radial-gradient(circle at 20% 80%, rgba(173, 181, 189, 0.1) 0%, transparent 50%),
- radial-gradient(circle at 80% 20%, rgba(108, 117, 125, 0.08) 0%, transparent 50%);
- background-size: 20px 20px, 100% 100%, 100% 100%;
- background-position: 0 0, 0 0, 0 0;
- pointer-events: none;
- }
-
- /* Total Remote Care side - vibrant teal/green with modern gradient */
- .comparison-side.after {
- background: linear-gradient(135deg, #f0f7f6 0%, #e6f3f2 50%, #d9eeeb 100%);
- border-color: rgba(44, 95, 93, 0.2);
- }
-
- .comparison-side.after::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- height: 4px;
- background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
- transition: all 0.4s ease;
- }
-
- .comparison-side.after::after {
- content: '';
- position: absolute;
- top: 0;
- right: 0;
- bottom: 0;
- left: 0;
- background:
- radial-gradient(circle at 20% 80%, rgba(159, 197, 184, 0.2) 0%, transparent 50%),
- radial-gradient(circle at 80% 20%, rgba(44, 95, 93, 0.1) 0%, transparent 50%);
- background-image:
- radial-gradient(circle, rgba(44, 95, 93, 0.06) 1px, transparent 1px),
- radial-gradient(circle at 20% 80%, rgba(159, 197, 184, 0.2) 0%, transparent 50%),
- radial-gradient(circle at 80% 20%, rgba(44, 95, 93, 0.1) 0%, transparent 50%);
- background-size: 20px 20px, 100% 100%, 100% 100%;
- background-position: 0 0, 0 0, 0 0;
- pointer-events: none;
- }
-
- .comparison-side:hover {
- transform: translateY(-5px);
- box-shadow: 0 16px 48px rgba(44, 95, 93, 0.18);
- }
-
- .comparison-side.before:hover {
- border-color: rgba(108, 117, 125, 0.3);
- box-shadow: 0 16px 48px rgba(108, 117, 125, 0.15);
- }
-
- .comparison-side.after:hover {
- border-color: var(--primary);
- }
-
- .side-header {
- display: flex;
- align-items: center;
- gap: 1rem;
- margin-bottom: 2rem;
- }
-
- .side-icon {
- width: 56px;
- height: 56px;
- border-radius: 12px;
- display: flex;
- align-items: center;
- justify-content: center;
- flex-shrink: 0;
- }
-
- .comparison-side.before .side-icon {
- background: linear-gradient(135deg, #e9ecef, #dee2e6);
- color: #6c757d;
- }
-
- .comparison-side.after .side-icon {
- background: linear-gradient(135deg, var(--teal-bg-light), var(--accent));
- color: var(--primary);
- }
-
- .side-header h3 {
- font-size: 1.5rem;
- font-weight: 700;
- margin: 0;
- color: var(--dark);
- }
-
- .side-badge {
- display: inline-block;
- padding: 0.375rem 0.875rem;
- border-radius: 20px;
- font-size: 0.75rem;
- font-weight: 600;
- text-transform: uppercase;
- letter-spacing: 0.05em;
- margin-bottom: 0.5rem;
- }
-
- .comparison-side.before .side-badge {
- background: rgba(108, 117, 125, 0.15);
- color: #495057;
- }
-
- .comparison-side.after .side-badge {
- background: rgba(44, 95, 93, 0.15);
- color: var(--primary);
- }
-
- .feature-list {
- list-style: none;
- padding: 0;
- margin: 0;
- }
-
- .feature-item {
- display: flex;
- align-items: flex-start;
- gap: 1rem;
- padding: 1rem 0;
- border-bottom: 1px solid rgba(0, 0, 0, 0.08);
- transition: all 0.2s ease;
- opacity: 0;
- transform: translateX(-20px);
- animation: featureSlideIn 0.4s ease-out forwards;
- position: relative;
- z-index: 1;
- }
-
- .comparison-side.before .feature-item {
- transform: translateX(-20px);
- border-bottom-color: rgba(108, 117, 125, 0.12);
- }
-
- .comparison-side.after .feature-item {
- transform: translateX(20px);
- border-bottom-color: rgba(44, 95, 93, 0.12);
- }
-
- @keyframes featureSlideIn {
- to {
- opacity: 1;
- transform: translateX(0);
- }
- }
-
- .feature-item:nth-child(1) { animation-delay: 0.1s; }
- .feature-item:nth-child(2) { animation-delay: 0.2s; }
- .feature-item:nth-child(3) { animation-delay: 0.3s; }
- .feature-item:nth-child(4) { animation-delay: 0.4s; }
- .feature-item:nth-child(5) { animation-delay: 0.5s; }
- .feature-item:nth-child(6) { animation-delay: 0.6s; }
-
- .feature-item:last-child {
- border-bottom: none;
- }
-
- .feature-item:hover {
- padding-left: 0.5rem;
- }
-
- .feature-icon {
- width: 28px;
- height: 28px;
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- flex-shrink: 0;
- margin-top: 0.125rem;
- }
-
- .comparison-side.before .feature-icon {
- background: rgba(108, 117, 125, 0.15);
- color: #6c757d;
- }
-
- .comparison-side.after .feature-icon {
- background: rgba(44, 95, 93, 0.15);
- color: var(--primary);
- }
-
- .feature-icon svg {
- width: 16px;
- height: 16px;
- }
-
- .feature-text {
- flex: 1;
  font-size: 0.9375rem;
- line-height: 1.6;
- font-weight: 500;
- }
-
- .comparison-side.before .feature-text {
- color: #6c757d;
- }
-
- .comparison-side.after .feature-text {
- color: var(--dark);
- font-weight: 600;
- }
-
- /* VS Divider */
- .comparison-vs {
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
- width: 72px;
- height: 72px;
- background: linear-gradient(135deg, var(--primary), var(--primary-light));
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- color: var(--white);
- font-weight: 700;
- font-size: 1.25rem;
- box-shadow: 0 8px 24px rgba(44, 95, 93, 0.3);
- border: 4px solid var(--white);
- z-index: 10;
- margin-top: -1.5rem;
- }
-
- .comparison-vs::before {
- content: '';
- position: absolute;
- inset: -8px;
- border-radius: 50%;
- background: linear-gradient(135deg, var(--accent), var(--primary));
- opacity: 0.3;
- animation: pulse 2s ease-in-out infinite;
- }
-
- @keyframes pulse {
- 0%, 100% {
- transform: scale(1);
- opacity: 0.3;
- }
- 50% {
- transform: scale(1.2);
+ z-index: 999;
  opacity: 0;
- }
- }
-
- /* Process Timeline - Horizontal Modern Design */
- .timeline-section {
- padding: 6rem 0;
- background: linear-gradient(135deg, #f8fbfa 0%, #ffffff 50%, #f0f7f6 100%);
- position: relative;
- overflow: hidden;
- }
-
- .timeline-section::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- height: 100%;
- background-image:
- radial-gradient(circle at 20% 20%, rgba(44, 95, 93, 0.03) 0%, transparent 50%),
- radial-gradient(circle at 80% 80%, rgba(123, 165, 145, 0.04) 0%, transparent 50%);
- pointer-events: none;
- animation: floatBackground 20s ease-in-out infinite;
- }
-
- @keyframes floatBackground {
- 0%, 100% {
- transform: translateY(0) scale(1);
- }
- 50% {
- transform: translateY(-20px) scale(1.02);
- }
- }
-
- .timeline-section::after {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- height: 100%;
- background-image:
- linear-gradient(90deg, rgba(44, 95, 93, 0.02) 1px, transparent 1px),
- linear-gradient(rgba(44, 95, 93, 0.02) 1px, transparent 1px);
- background-size: 50px 50px;
- pointer-events: none;
- opacity: 0.5;
- }
-
- /* Floating decorative shapes */
- .timeline-decoration {
- position: absolute;
- border-radius: 50%;
- opacity: 0.4;
- pointer-events: none;
- }
-
- .timeline-decoration-1 {
- width: 200px;
- height: 200px;
- background: linear-gradient(135deg, rgba(159, 197, 184, 0.2), rgba(123, 165, 145, 0.1));
- top: 10%;
- left: 5%;
- animation: float 15s ease-in-out infinite;
- filter: blur(40px);
- }
-
- .timeline-decoration-2 {
- width: 150px;
- height: 150px;
- background: linear-gradient(135deg, rgba(44, 95, 93, 0.15), rgba(123, 165, 145, 0.1));
- bottom: 15%;
- right: 8%;
- animation: float 18s ease-in-out infinite 2s;
- filter: blur(35px);
- }
-
- .timeline-decoration-3 {
- width: 180px;
- height: 180px;
- background: linear-gradient(135deg, rgba(123, 165, 145, 0.2), rgba(159, 197, 184, 0.1));
- top: 50%;
- right: 15%;
- animation: float 20s ease-in-out infinite 4s;
- filter: blur(45px);
- }
-
- .timeline-intro {
- text-align: center;
- max-width: 720px;
- margin: 0 auto 4rem;
- position: relative;
- z-index: 2;
- }
-
- .timeline-horizontal {
- max-width: 1200px;
- margin: 0 auto;
- position: relative;
- z-index: 2;
- }
-
- .timeline-steps {
- display: grid;
- grid-template-columns: repeat(4, 1fr);
- gap: 2rem;
- position: relative;
- padding: 2rem 0;
- }
-
- /* Progress line connecting steps */
- .timeline-steps::before {
- content: '';
- position: absolute;
- top: 80px;
- left: 12%;
- right: 12%;
- height: 3px;
- background: linear-gradient(90deg,
- var(--primary) 0%,
- var(--primary) 25%,
- var(--accent) 25%,
- var(--accent) 50%,
- var(--secondary) 50%,
- var(--secondary) 75%,
- var(--gray-lighter) 75%,
- var(--gray-lighter) 100%);
- z-index: 0;
- }
-
- .timeline-step {
- position: relative;
- text-align: center;
- }
-
- .step-icon-wrapper {
- width: 80px;
- height: 80px;
- margin: 0 auto 1.5rem;
- position: relative;
- z-index: 2;
- }
-
- .step-icon {
- width: 80px;
- height: 80px;
- background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- color: var(--white);
- font-size: 1.75rem;
- font-weight: 700;
- font-family: 'Crimson Pro', serif;
- box-shadow: 0 8px 24px rgba(44, 95, 93, 0.2);
- border: 4px solid var(--white);
+ transform: translateY(20px);
  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
- position: relative;
+ pointer-events: none;
  }
 
- .step-icon::before {
- content: '';
- position: absolute;
- inset: -4px;
- border-radius: 50%;
- padding: 4px;
- background: linear-gradient(135deg, var(--primary), var(--accent));
- -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
- mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
- -webkit-mask-composite: xor;
- mask-composite: exclude;
- opacity: 0;
- transition: opacity 0.4s ease;
- }
-
- .timeline-step:hover .step-icon {
- transform: scale(1.1) translateY(-5px);
- box-shadow: 0 12px 32px rgba(44, 95, 93, 0.3);
- }
-
- .timeline-step:hover .step-icon::before {
- opacity: 1;
- }
-
- .step-content {
- background: var(--white);
- padding: 1.75rem 1.5rem;
- border-radius: 12px;
- box-shadow: 0 4px 16px rgba(44, 95, 93, 0.08);
- border: 1px solid rgba(44, 95, 93, 0.08);
- transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
- position: relative;
- overflow: hidden;
- }
-
- .step-content::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- height: 3px;
- background: linear-gradient(90deg, var(--primary), var(--accent));
- transform: scaleX(0);
- transform-origin: left;
- transition: transform 0.4s ease;
- }
-
- .timeline-step:hover .step-content {
- transform: translateY(-5px);
- box-shadow: 0 12px 32px rgba(44, 95, 93, 0.15);
- border-color: var(--primary);
- }
-
- .timeline-step:hover .step-content::before {
- transform: scaleX(1);
- }
-
- .step-content h4 {
- font-size: 1.125rem;
- color: var(--dark);
- margin-bottom: 0.75rem;
- font-family: 'Inter', sans-serif;
- font-weight: 600;
- }
-
- .step-content p {
- font-size: 0.9375rem;
- margin: 0;
- line-height: 1.6;
- color: var(--gray);
- }
-
- /* Step specific colors */
- .timeline-step:nth-child(1) .step-icon {
- background: linear-gradient(135deg, #2c5f5d 0%, #3d7876 100%);
- }
-
- .timeline-step:nth-child(2) .step-icon {
- background: linear-gradient(135deg, #3d7876 0%, #5a9178 100%);
- }
-
- .timeline-step:nth-child(3) .step-icon {
- background: linear-gradient(135deg, #5a9178 0%, #7ba591 100%);
- }
-
- .timeline-step:nth-child(4) .step-icon {
- background: linear-gradient(135deg, #7ba591 0%, #9fc5b8 100%);
- }
-
- /* Staggered animation */
- .timeline-step {
- opacity: 0;
- transform: translateY(30px);
- animation: stepFadeIn 0.6s ease-out forwards;
- }
-
- .timeline-step:nth-child(1) { animation-delay: 0.1s; }
- .timeline-step:nth-child(2) { animation-delay: 0.2s; }
- .timeline-step:nth-child(3) { animation-delay: 0.3s; }
- .timeline-step:nth-child(4) { animation-delay: 0.4s; }
-
- @keyframes stepFadeIn {
- to {
+ .floating-cta.visible {
  opacity: 1;
  transform: translateY(0);
- }
+ pointer-events: all;
  }
 
- /* Responsive Design */
+ .floating-cta:hover {
+ background: var(--primary-light);
+ transform: translateY(-2px);
+ box-shadow: 0 12px 32px rgba(44, 95, 93, 0.4);
+ }
+
+ .floating-cta svg {
+ width: 20px;
+ height: 20px;
+ }
+
+ /* Responsive */
  @media (max-width: 968px) {
  :root {
  --section-padding: 5rem;
@@ -2307,19 +1657,6 @@
  display: inline-block;
  }
 
- .visual-break {
- height: 400px;
- background-attachment: scroll;
- }
-
- .visual-break-content h2 {
- font-size: 1.75rem;
- }
-
- .visual-break-content p {
- font-size: 1.0625rem;
- }
-
  .hero {
  min-height: 80vh;
  text-align: center;
@@ -2339,50 +1676,19 @@
  gap: 2rem;
  }
 
- .mini-stat-number {
- font-size: 1.5rem;
- }
-
- .hero-badge {
- font-size: 0.8125rem;
- padding: 0.5rem 1rem;
- }
-
- .badge-icon {
- width: 14px;
- height: 14px;
- }
-
- .scroll-indicator {
- display: none;
- }
-
- .hero-decoration {
- display: none;
- }
-
  .benefits-grid {
  grid-template-columns: 1fr;
  gap: 1.25rem;
  }
 
- .benefit-card {
- padding: 1.5rem;
- flex-direction: row;
+ .moments-grid {
+ grid-template-columns: 1fr;
+ gap: 1.5rem;
  }
 
- .benefit-icon-wrapper {
- width: 56px;
- height: 56px;
- }
-
- .benefit-icon {
- width: 28px;
- height: 28px;
- }
-
- .benefit-card h3 {
- font-size: 1.125rem;
+ .supporting-grid {
+ grid-template-columns: 1fr;
+ gap: 1rem;
  }
 
  .story-layout {
@@ -2398,10 +1704,6 @@
  .services-layout {
  grid-template-columns: 1fr;
  gap: 3rem;
- }
-
- .services-sidebar {
- position: static;
  }
 
  .services-image {
@@ -2437,53 +1739,6 @@
  .floating-cta span {
  display: none;
  }
-
- .back-to-top {
- bottom: 5.5rem;
- }
-
- .comparison-split {
- grid-template-columns: 1fr;
- gap: 2rem;
- }
-
- .comparison-vs {
- top: auto;
- bottom: 50%;
- transform: translate(-50%, 50%);
- margin-top: 0;
- }
-
- .comparison-side {
- padding: 2rem 1.5rem;
- }
-
- .timeline-steps {
- grid-template-columns: 1fr;
- gap: 2rem;
- }
-
- .timeline-steps::before {
- display: none;
- }
-
- .step-icon-wrapper {
- margin-bottom: 1rem;
- }
-
- .timeline-step {
- animation: none;
- opacity: 1;
- transform: none;
- }
-
- .step-icon {
- animation: none;
- }
-
- .trust-badges {
- gap: 1.5rem;
- }
  }
 
  @media (max-width: 640px) {
@@ -2499,18 +1754,6 @@
  font-size: 1.125rem;
  }
 
- .visual-break {
- height: 350px;
- }
-
- .visual-break-content h2 {
- font-size: 1.5rem;
- }
-
- .visual-break-content p {
- font-size: 1rem;
- }
-
  .btn {
  padding: 0.875rem 1.5rem;
  font-size: 0.875rem;
@@ -2524,107 +1767,12 @@
  padding: 2rem 1.5rem;
  }
 
- .back-to-top {
- width: 44px;
- height: 44px;
- }
-
- .trust-badges {
- gap: 1rem;
- }
-
- .trust-badge {
- min-width: 120px;
- padding: 1rem;
- }
-
- .comparison-vs {
- width: 56px;
- height: 56px;
- font-size: 1rem;
- }
-
- .side-header h3 {
- font-size: 1.25rem;
- }
-
- .side-icon {
- width: 48px;
- height: 48px;
- }
-
- .comparison-side {
- padding: 1.5rem 1.25rem;
- }
-
- .section-divider {
- padding: 2rem 0;
- }
-
- .divider-content {
- padding: 0 1rem;
- }
-
- .divider-icon {
- width: 40px;
- height: 40px;
- }
-
- .divider-icon svg {
- width: 20px;
- height: 20px;
- }
-
- .timeline-content {
- padding: 1.5rem;
- }
-
  .story-image {
  height: 250px;
  }
 
  .services-image {
  height: 400px;
- }
-
- .benefit-card {
- flex-direction: column;
- align-items: center;
- text-align: center;
- }
-
- /* Faster animations on mobile */
- .animate-on-scroll {
- transition-duration: 0.5s;
- }
-
- .trust-badge,
- .benefit-card,
- .service-item,
- .impact-card,
- .timeline-step,
- .comparison-side,
- .faq-item {
- transition-delay: 0s !important;
- }
-
- .feature-item {
- animation: none;
- opacity: 1;
- transform: none;
- }
-
- /* Disable decorative animations on mobile */
- .timeline-decoration,
- .comparison-decoration {
- display: none;
- }
-
- .timeline-section::before,
- .timeline-section::after,
- .comparison-section::before,
- .comparison-section::after {
- animation: none;
  }
  }
  </style>
@@ -2661,7 +1809,6 @@
 
  <!-- Hero Section -->
  <section class="hero">
- <!-- Floating Decorations -->
  <svg class="hero-decoration hero-decoration-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
  </svg>
@@ -2674,8 +1821,8 @@
 
  <div class="container">
  <div class="hero-content">
- <h1>Better Care Through <span class="gradient-text">Smarter Monitoring</span></h1>
- <p>Comprehensive <span class="highlight-text">RPM (Remote Patient Monitoring) and CCM (Chronic Care Management)</span> solutions. Catch problems before they become emergencies with 24/7 monitoring and intelligent alerts.</p>
+ <h1>Care That <span class="gradient-text">Sees Around Corners</span></h1>
+ <p>Empower your clinical staff with real-time monitoring, intelligent alerts and automated documentation — so your nurses can focus on care, not catch-up.</p>
  <div class="hero-cta">
  <a href="#contact" class="btn btn-primary btn-large">Let's Talk</a>
  <a href="#services" class="btn btn-secondary btn-large">See How It Works</a>
@@ -2743,11 +1890,12 @@
  <div class="story-layout">
  <div class="story-content">
  <h2>Why We Built This</h2>
- <p>Walk into any long-term care facility at 3 AM, and you'll find dedicated nurses moving room to room, checking vitals, documenting by hand, wondering: "What am I missing?"</p>
- <p>We saw skilled professionals spending more time on paperwork than patient care. Early warning signs slipping through because no one can be everywhere at once. Data scattered across clipboards—only becoming clear after residents were already in crisis.</p>
- <p>We built technology that continuously monitors, intelligently analyzes, and proactively alerts. Total Remote Care gives your team the ability to see patterns before they become problems, document automatically, and focus on what matters: caring for residents.</p>
+ <p>Walk into any long-term care facility at 3 a.m. and you'll likely find dedicated nurses moving from room to room, documenting by hand, and wondering, "What am I missing?"</p>
+ <p>We saw skilled professionals spending more time on paperwork than patients, early warning signs slipping through the cracks, and data scattered on clipboards only to become actionable far too late.</p>
+ <p>Total Remote Care exists to change that. Our technology continuously monitors, intelligently analyzes and proactively alerts — empowering your team with insights when they matter most. We free your nurses to focus on what counts: delivering more attentive, more meaningful care.</p>
  <div class="founder-signature">
- <div class="signature-line">Founder of Total Remote Care</div>
+ <div class="signature-line">Founder & CEO</div>
+ <div class="signature-title">Total Remote Care</div>
  </div>
  </div>
  <div class="story-image">
@@ -2757,38 +1905,77 @@
  </div>
  </section>
 
- <!-- Core Benefits Section - REDESIGNED -->
+ <!-- Real Moments Section - NEW -->
+ <section class="section real-moments-section">
+ <div class="container">
+ <div class="moments-intro">
+ <h2>Real Moments. Real Impact.</h2>
+ <p>See how our technology makes a difference when it matters most</p>
+ </div>
+ <div class="moments-grid">
+ <div class="moment-card">
+ <div class="moment-image">
+ <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80" alt="Night shift nurse monitoring patient">
+ <div class="moment-time-badge">
+ <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+ </svg>
+ 2:15 a.m.
+ </div>
+ </div>
+ <h3>The Night Shift Guardian</h3>
+ <p>A resident's oxygen level declines ever so slightly — our system alerts the nurse before it becomes critical. She adjusts, the resident stabilizes, an ER visit is avoided, and peace is delivered.</p>
+ </div>
+
+ <div class="moment-card">
+ <div class="moment-image">
+ <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional analyzing patient data">
+ <div class="moment-time-badge">
+ <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+ </svg>
+ 3:45 p.m.
+ </div>
+ </div>
+ <h3>The Early Catch</h3>
+ <p>For three days, subtle changes in temperature, appetite and cognition go unnoticed — until our trending-data engine flags a potential urinary infection. Early treatment begins. A sepsis case is prevented.</p>
+ </div>
+
+ <div class="moment-card">
+ <div class="moment-image">
+ <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Medical team during shift handoff">
+ <div class="moment-time-badge">
+ <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+ </svg>
+ 7:00 a.m.
+ </div>
+ </div>
+ <h3>The Seamless Handoff</h3>
+ <p>Instead of a 45-minute review of clipboards, the morning team receives a clear, prioritized report in under 10 minutes. They know exactly who needs extra attention — and why.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Core Benefits Section -->
  <section id="features" class="section benefits-section">
  <div class="container">
  <div class="features-intro">
- <h2>Here's What We Built for You</h2>
- <p>Everything your staff needs to catch problems early and keep residents safer.</p>
+ <h2>Key Benefits</h2>
+ <p>Three ways Total Remote Care transforms your facility</p>
  </div>
  <div class="benefits-grid">
  <div class="benefit-card">
  <div class="benefit-icon-wrapper">
  <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6v.01M12 12v.01M12 18v.01"/>
- <circle cx="12" cy="12" r="1" fill="currentColor"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
  </svg>
  </div>
  <div class="benefit-content">
- <h3>24/7 RPM Monitoring Without the Disruption</h3>
- <p>Residents rest undisturbed while our sensors track vitals continuously. Your team gets alerted the moment intervention is needed—not after the crisis has already started.</p>
- </div>
- </div>
-
- <div class="benefit-card">
- <div class="benefit-icon-wrapper">
- <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
- <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
- </svg>
- </div>
- <div class="benefit-content">
- <h3>Intelligent Alerts That Actually Matter</h3>
- <p>No more alarm fatigue. Our system learns each resident's patterns and only notifies staff when something genuinely requires attention. Less noise, better response times.</p>
+ <h3>Sleep Better at Night</h3>
+ <p>Knowing someone is always watching creates peace of mind for your residents and their families.</p>
  </div>
  </div>
 
@@ -2796,28 +1983,24 @@
  <div class="benefit-icon-wrapper">
  <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 3h4a2 2 0 012 2v4"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 21H5a2 2 0 01-2-2v-4"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4"/>
  </svg>
  </div>
  <div class="benefit-content">
- <h3>Hours Back in Your Day</h3>
- <p>Your nurses spend less time with clipboards and more time with patients. All vital data flows directly into your EHR—no double entry, no busywork.</p>
+ <h3>More Time for Care</h3>
+ <p>Reduce documentation burden. Minimize worry. Allow nurses to return to what they do best — caring.</p>
  </div>
  </div>
 
  <div class="benefit-card">
  <div class="benefit-icon-wrapper">
  <svg class="benefit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <circle cx="12" cy="8" r="3" stroke-width="1.8"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 8v6m3-3h-6"/>
- <circle cx="19" cy="11" r="1" fill="currentColor"/>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
  </svg>
  </div>
  <div class="benefit-content">
- <h3>Families Stay Connected</h3>
- <p>Secure access to real-time health updates reduces anxious phone calls and builds trust. Families see you're providing proactive, attentive care—even when they can't be there.</p>
+ <h3>Catch Problems Early</h3>
+ <p>From subtle breathing changes to early confusion, our proactive system detects risk before it becomes crisis.</p>
  </div>
  </div>
  </div>
@@ -2841,7 +2024,7 @@
  <div class="container">
  <div class="services-layout">
  <div class="services-sidebar">
- <h2>What's Included</h2>
+ <h2>Remote Monitoring Solutions</h2>
  <p>Complete RPM and CCM solutions designed specifically for long-term care facilities. Everything you need to deliver better outcomes.</p>
  <div class="services-image">
  <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional using monitoring technology">
@@ -2853,270 +2036,77 @@
  <div class="service-icon">
  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 11l3 3 5-5"/>
- <circle cx="12" cy="12" r="1" fill="currentColor"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7c.5.5.5 1 .5 1.5M5 7c-.5.5-.5 1-.5 1.5"/>
  </svg>
  </div>
- Remote Patient Monitoring (RPM)
+ Remote Patient Monitoring
  </h3>
- <p>Continuous tracking of heart rate, blood pressure, oxygen saturation, temperature, and respiratory rate. Data syncs directly to your EHR system.</p>
+ <p>Continuous vital-tracking, AI-driven alerts and direct EHR integration to reduce hospital transfers, enhance care quality and improve staff efficiency.</p>
  </div>
  <div class="service-item">
  <h3>
  <div class="service-icon">
  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 14l2-2 2 2 4-4"/>
  </svg>
  </div>
- Chronic Care Management (CCM)
+ Chronic Care Management
  </h3>
- <p>Predictive algorithms detect subtle changes in resident health patterns. Catch issues early to prevent crises and keep residents safer in your care.</p>
+ <p>Tailored plans for residents with multiple chronic conditions — 24/7 clinical support, medication management, coordinated provider teams, complete documentation and improved quality ratings.</p>
  </div>
- <div class="service-item">
- <h3>
- <div class="service-icon">
- <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
- <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
- <circle cx="15" cy="9" r="1.5" fill="currentColor"/>
+ 
+ <div class="supporting-services">
+ <h4>Supporting Your Facility</h4>
+ <div class="supporting-grid">
+ <div class="supporting-item">
+ <div class="supporting-icon">
+ <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
  </svg>
  </div>
- Staff Training & Support
- </h3>
- <p>We train your team on the technology and provide ongoing support. Our staff has worked in long-term care and understands your workflow.</p>
- </div>
- <div class="service-item">
- <h3>
- <div class="service-icon">
- <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17l2 2 4-4"/>
- <circle cx="16" cy="8" r="1" fill="currentColor"/>
- </svg>
- </div>
- Compliance Reporting
- </h3>
- <p>Automated documentation that meets CMS requirements. Generate reports for surveys, quality metrics, and family updates with one click.</p>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- Process Timeline Section -->
- <section class="timeline-section">
- <!-- Decorative Elements -->
- <div class="timeline-decoration timeline-decoration-1"></div>
- <div class="timeline-decoration timeline-decoration-2"></div>
- <div class="timeline-decoration timeline-decoration-3"></div>
-
- <div class="container">
- <div class="timeline-intro">
- <h2>Simple Implementation Process</h2>
- <p>From first call to full deployment in 4-6 weeks</p>
- </div>
- <div class="timeline-horizontal">
- <div class="timeline-steps">
- <div class="timeline-step">
- <div class="step-icon-wrapper">
- <div class="step-icon">1</div>
- </div>
- <div class="step-content">
- <h4>Discovery & Planning</h4>
- <p>We assess your facility's needs, existing systems, and resident population to create a customized implementation plan.</p>
+ <div class="supporting-text">
+ <strong>Night-shift relief</strong>
+ <p>24/7 monitoring acts as a clinical co-pilot with fall detection, behavioral trending, and on-call physician access.</p>
  </div>
  </div>
 
- <div class="timeline-step">
- <div class="step-icon-wrapper">
- <div class="step-icon">2</div>
+ <div class="supporting-item">
+ <div class="supporting-icon">
+ <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+ </svg>
  </div>
- <div class="step-content">
- <h4>Installation & Integration</h4>
- <p>Our technical team installs monitoring equipment and integrates with your EHR system outside of peak hours.</p>
+ <div class="supporting-text">
+ <strong>Memory-care specialization</strong>
+ <p>Wandering alerts, sleep analytics, and behavioral triggers help staff intervene early when residents struggle.</p>
  </div>
  </div>
 
- <div class="timeline-step">
- <div class="step-icon-wrapper">
- <div class="step-icon">3</div>
+ <div class="supporting-item">
+ <div class="supporting-icon">
+ <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+ </svg>
  </div>
- <div class="step-content">
- <h4>Staff Training</h4>
- <p>Comprehensive hands-on training ensures everyone is comfortable with the technology and alert response.</p>
+ <div class="supporting-text">
+ <strong>Time savings</strong>
+ <p>Automated vital collection and documentation frees clinical hours with streamlined shift hand-offs.</p>
  </div>
  </div>
 
- <div class="timeline-step">
- <div class="step-icon-wrapper">
- <div class="step-icon">4</div>
- </div>
- <div class="step-content">
- <h4>Go Live & Support</h4>
- <p>System activation with our team on-site for the first week, plus ongoing 24/7 technical support.</p>
- </div>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- Section Divider -->
- <section class="section-divider">
- <div class="container">
- <div class="divider-content">
- <div class="divider-line"></div>
- <div class="divider-icon">
+ <div class="supporting-item">
+ <div class="supporting-icon">
  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
  </svg>
  </div>
- <div class="divider-line"></div>
+ <div class="supporting-text">
+ <strong>Family engagement</strong>
+ <p>Secure portals with visual reports and real-time health trends build trust and confidence.</p>
  </div>
  </div>
- </section>
-
- <!-- Before & After Comparison -->
- <section class="comparison-section">
- <!-- Decorative Elements -->
- <div class="comparison-decoration comparison-decoration-1"></div>
- <div class="comparison-decoration comparison-decoration-2"></div>
-
- <div class="container">
- <div class="comparison-intro">
- <h2>Traditional Monitoring vs. Total Remote Care</h2>
- <p>See how our technology transforms daily operations</p>
- </div>
-
- <div class="comparison-container">
- <div class="comparison-split">
- <div class="comparison-side before">
- <div class="side-badge">Traditional</div>
- <div class="side-header">
- <div class="side-icon">
- <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8M8 12h8M8 17h8"></path>
- </svg>
- </div>
- <h3>Traditional Monitoring</h3>
- </div>
- <ul class="feature-list">
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4"></path>
- </svg>
- </div>
- <span class="feature-text">Manual vital checks only during scheduled rounds</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4"></path>
- </svg>
- </div>
- <span class="feature-text">No early warning system for health changes</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4"></path>
- </svg>
- </div>
- <span class="feature-text">Hours spent on manual documentation</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4"></path>
- </svg>
- </div>
- <span class="feature-text">Duplicate data entry across multiple systems</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4"></path>
- </svg>
- </div>
- <span class="feature-text">Limited family visibility into care</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4"></path>
- </svg>
- </div>
- <span class="feature-text">React to problems after they escalate</span>
- </li>
- </ul>
- </div>
-
- <div class="comparison-side after">
- <div class="side-badge">Our Solution</div>
- <div class="side-header">
- <div class="side-icon">
- <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
- </svg>
- </div>
- <h3>Total Remote Care</h3>
- </div>
- <ul class="feature-list">
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
- </svg>
- </div>
- <span class="feature-text">Continuous 24/7 vital sign monitoring</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
- </svg>
- </div>
- <span class="feature-text">Intelligent alerts catch issues before they escalate</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
- </svg>
- </div>
- <span class="feature-text">Automatic documentation saves 2+ hours per shift</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
- </svg>
- </div>
- <span class="feature-text">Direct EHR integration with no double entry</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
- </svg>
- </div>
- <span class="feature-text">Secure family portal with real-time updates</span>
- </li>
- <li class="feature-item">
- <div class="feature-icon">
- <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
- </svg>
- </div>
- <span class="feature-text">Prevent crises with proactive interventions</span>
- </li>
- </ul>
  </div>
  </div>
- <div class="comparison-vs">VS</div>
+ </div>
  </div>
  </div>
  </section>
@@ -3245,8 +2235,8 @@
  <div class="container">
  <div class="contact-grid">
  <div class="contact-info">
- <h2>Let's Talk About Your Facility</h2>
- <p>Schedule a quick demo and we'll show you how this works in your environment. No pressure, just answers.</p>
+ <h2>Ready to Transform Your Facility?</h2>
+ <p>Join leading long-term care providers who have already revolutionized their care-delivery with Total Remote Care. We'll contact you within 2 business hours.</p>
 
  <div class="contact-details">
  <div class="contact-detail">
@@ -3326,7 +2316,7 @@
  </select>
  </div>
 
- <button type="submit" class="btn btn-primary" style="width: 100%;">Request Demo</button>
+ <button type="submit" class="btn btn-primary" style="width: 100%;">Schedule Your Demo</button>
  </form>
  </div>
  </div>
@@ -3345,8 +2335,8 @@
  <h4>Quick Links</h4>
  <ul>
  <li><a href="#story">Our Story</a></li>
- <li><a href="#features">What We Built</a></li>
- <li><a href="#services">What's Included</a></li>
+ <li><a href="#features">Key Benefits</a></li>
+ <li><a href="#services">Solutions</a></li>
  <li><a href="#impact">Real Impact</a></li>
  <li><a href="#faq">Questions</a></li>
  <li><a href="#contact">Contact</a></li>
@@ -3368,19 +2358,12 @@
  </footer>
 
  <!-- Floating CTA Button -->
- <a href="#contact" class="floating-cta" id="floatingCTA" aria-label="Schedule a demo">
+ <a href="#contact" class="floating-cta" id="floatingCTA">
  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
  </svg>
  <span>Let's Talk</span>
  </a>
-
- <!-- Back to Top -->
- <div class="back-to-top" id="backToTop" aria-label="Back to top">
- <svg viewBox="0 0 24 24">
- <path d="M7 14l5-5 5 5z"/>
- </svg>
- </div>
 
  <script>
  // Mobile Menu Toggle
@@ -3393,7 +2376,6 @@
  navMenu.classList.toggle('active');
  });
 
- // Close mobile menu when clicking a link
  document.querySelectorAll('.nav-menu a').forEach(link => {
  link.addEventListener('click', () => {
  mobileMenuToggle.classList.remove('active');
@@ -3408,19 +2390,17 @@
  const faqItem = this.parentElement;
  const isActive = faqItem.classList.contains('active');
 
- // Close all FAQ items
  document.querySelectorAll('.faq-item').forEach(item => {
  item.classList.remove('active');
  });
 
- // Open clicked item if it wasn't active
  if (!isActive) {
  faqItem.classList.add('active');
  }
  });
  });
 
- // Smooth scrolling for anchor links
+ // Smooth scrolling
  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
  anchor.addEventListener('click', function (e) {
  const href = this.getAttribute('href');
@@ -3439,10 +2419,9 @@
  });
  });
 
- // Active nav & scroll effects
+ // Scroll effects
  const header = document.querySelector('header');
  const floatingCTA = document.getElementById('floatingCTA');
- const backToTop = document.getElementById('backToTop');
 
  function updateActiveNav() {
  const sections = document.querySelectorAll('section[id]');
@@ -3464,63 +2443,23 @@
  });
  }
 
- // Scroll-triggered animations
- function initScrollAnimations() {
- const observerOptions = {
- threshold: 0.1,
- rootMargin: '0px 0px -100px 0px'
- };
-
- const observer = new IntersectionObserver((entries) => {
- entries.forEach(entry => {
- if (entry.isIntersecting) {
- entry.target.classList.add('animate-in');
- }
- });
- }, observerOptions);
-
- // Observe all animatable elements
- document.querySelectorAll('.benefit-card, .service-item, .impact-card, .faq-item, .trust-badge, .story-content, .story-image, .timeline-step, .comparison-side, .features-intro, .services-sidebar, .contact-grid > div').forEach(el => {
- el.classList.add('animate-on-scroll');
- observer.observe(el);
- });
- }
-
- // Scroll event handler
  window.addEventListener('scroll', function() {
- // Header scroll effect
  if (window.scrollY > 50) {
  header.classList.add('scrolled');
  } else {
  header.classList.remove('scrolled');
  }
 
- // Floating CTA visibility
  if (window.scrollY > 800) {
  floatingCTA.classList.add('visible');
  } else {
  floatingCTA.classList.remove('visible');
  }
 
- // Back to top button
- if (window.scrollY > 500) {
- backToTop.classList.add('visible');
- } else {
- backToTop.classList.remove('visible');
- }
-
  updateActiveNav();
  });
 
- // Back to top functionality
- backToTop.addEventListener('click', function() {
- window.scrollTo({
- top: 0,
- behavior: 'smooth'
- });
- });
-
- // Form submission handler
+ // Form submission
  const demoForm = document.getElementById('demoForm');
  demoForm.addEventListener('submit', function(e) {
  e.preventDefault();
@@ -3528,20 +2467,16 @@
  const formData = new FormData(this);
  const data = Object.fromEntries(formData);
 
- // Here you would typically send the data to your backend
  console.log('Form submitted:', data);
 
- // Show success message
  alert(`Thank you ${data.name}! We've received your demo request for ${data.facility}. We'll contact you within 2 business hours to schedule your personalized demonstration.`);
 
- // Reset form
  this.reset();
  });
 
- // Initialize all features
+ // Initialize
  document.addEventListener('DOMContentLoaded', function() {
  updateActiveNav();
- initScrollAnimations();
  });
  </script>
 </body>
