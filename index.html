@@ -254,7 +254,7 @@
         }
 
         .cta-btn {
-            background: var(--vital-teal);
+            background: var(--clinical-blue);
             color: var(--white);
             padding: 0.75rem 1.5rem;
             border-radius: 6px;
@@ -264,7 +264,7 @@
         }
 
         .cta-btn:hover {
-            background: var(--vital-teal-light);
+            background: var(--clinical-blue-light);
             transform: translateY(-2px);
             box-shadow: var(--shadow-soft);
         }
@@ -306,10 +306,13 @@
             align-items: center;
             padding-top: 80px;
             background: linear-gradient(135deg, 
-                rgba(0, 51, 102, 0.95) 0%, 
-                rgba(0, 77, 153, 0.9) 50%,
-                rgba(0, 161, 154, 0.85) 100%
-            );
+                rgba(0, 51, 102, 0.92) 0%, 
+                rgba(0, 77, 153, 0.88) 50%,
+                rgba(0, 161, 154, 0.82) 100%
+            ),
+            url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             position: relative;
             overflow: hidden;
         }
@@ -319,9 +322,36 @@
             position: absolute;
             inset: 0;
             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(0, 161, 154, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 196, 186, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(0, 161, 154, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 196, 186, 0.1) 0%, transparent 50%);
             animation: pulseGlow 8s ease-in-out infinite;
+        }
+
+        /* Vitals overlay animation */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            width: 300px;
+            height: 200px;
+            background: rgba(0, 161, 154, 0.08);
+            border: 2px solid rgba(0, 161, 154, 0.3);
+            border-radius: 12px;
+            animation: vitalsPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes vitalsPulse {
+            0%, 100% { 
+                opacity: 0.6; 
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(0, 161, 154, 0.3);
+            }
+            50% { 
+                opacity: 0.9; 
+                transform: scale(1.02);
+                box-shadow: 0 0 40px rgba(0, 161, 154, 0.5);
+            }
         }
 
         @keyframes pulseGlow {
@@ -433,29 +463,99 @@
 
         /* TRC Advantage Section */
         .advantage-section {
-            background: var(--white);
+            background: linear-gradient(to bottom, var(--white) 0%, var(--soft-gray) 100%);
+            position: relative;
         }
 
-        .advantage-content {
-            max-width: 900px;
+        .advantage-container {
+            max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .advantage-header {
             text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .advantage-content h2 {
-            margin-bottom: 2rem;
+        .advantage-header h2 {
+            margin-bottom: 1rem;
         }
 
-        .advantage-content p {
+        .advantage-header .subtitle {
+            font-size: 1.25rem;
+            color: var(--vital-teal);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .advantage-header p {
+            font-size: 1.0625rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .advantage-step {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        .advantage-step::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--vital-teal) 0%, transparent 100%);
+        }
+
+        .advantage-step:last-child::after {
+            display: none;
+        }
+
+        .advantage-step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
             font-size: 1.125rem;
-            margin-bottom: 2rem;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 12px rgba(0, 161, 154, 0.3);
         }
 
-        .advantage-visual {
-            margin: 4rem 0;
-            padding: 3rem;
-            background: var(--soft-gray);
-            border-radius: 16px;
+        .advantage-step-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            color: var(--vital-teal);
+        }
+
+        .advantage-step h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--clinical-blue);
+        }
+
+        .advantage-step p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.5;
         }
 
         /* About Us Section */
@@ -575,88 +675,113 @@
         .continuum-intro {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 4rem;
+            margin: 0 auto 3rem;
         }
 
-        .continuum-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .continuum-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 2px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .continuum-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--clinical-blue), var(--vital-teal));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .continuum-card:hover {
-            border-color: var(--clinical-blue);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .continuum-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .continuum-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
-            color: var(--white);
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .continuum-card h3 {
-            margin-bottom: 0.75rem;
-        }
-
-        .continuum-card .focus {
-            font-size: 0.9375rem;
-            color: var(--vital-teal);
-            font-weight: 600;
+        .continuum-intro h2 {
             margin-bottom: 1rem;
         }
 
-        .continuum-card ul {
-            list-style: none;
-            margin-top: 1rem;
+        .continuum-intro p {
+            font-size: 1.125rem;
         }
 
-        .continuum-card li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            position: relative;
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
+        .continuum-table {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
         }
 
-        .continuum-card li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--vital-teal);
+        .continuum-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 2fr;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .continuum-row:last-child {
+            border-bottom: none;
+        }
+
+        .continuum-row:hover {
+            background: var(--soft-gray);
+        }
+
+        .continuum-program {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .continuum-program-badge {
+            font-size: 1.75rem;
             font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .continuum-program-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .continuum-focus {
+            padding: 2rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .continuum-focus-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .continuum-focus-text {
+            font-size: 1.125rem;
+            color: var(--clinical-blue);
+            font-weight: 600;
+        }
+
+        .continuum-details {
+            padding: 2rem;
+        }
+
+        .continuum-details p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .continuum-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .continuum-tag {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.08), rgba(0, 161, 154, 0.08));
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: var(--clinical-blue);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .continuum-tag:hover {
+            border-color: var(--vital-teal);
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.12), rgba(0, 161, 154, 0.12));
+            transform: translateY(-2px);
         }
 
         /* Technology Section */
@@ -818,65 +943,103 @@
             margin: 0 auto 4rem;
         }
 
-        .serve-grid {
+        .serve-item {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .serve-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .serve-card:hover {
-            border-color: var(--vital-teal);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .serve-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
-            border-radius: 12px;
-            display: flex;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: center;
-            color: var(--white);
-            margin-bottom: 1.5rem;
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .serve-card h3 {
-            margin-bottom: 1rem;
+        .serve-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
-        .serve-card p {
-            margin-bottom: 1.5rem;
+        .serve-item:nth-child(even) {
+            grid-template-columns: 1.5fr 1fr;
         }
 
-        .serve-benefits {
-            list-style: none;
+        .serve-item:nth-child(even) .serve-visual {
+            order: 2;
         }
 
-        .serve-benefits li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
+        .serve-visual {
             position: relative;
-            font-size: 0.9375rem;
+        }
+
+        .serve-image-wrapper {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            margin: 0 auto;
+        }
+
+        .serve-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .serve-item:hover .serve-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .serve-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--clinical-blue);
+        }
+
+        .serve-content .serve-tagline {
+            font-size: 1.125rem;
+            color: var(--vital-teal);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .serve-content .serve-description {
+            font-size: 1.0625rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
             color: var(--text-secondary);
         }
 
-        .serve-benefits li::before {
-            content: '•';
+        .serve-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .serve-highlight {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .serve-highlight::before {
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--vital-teal);
-            font-weight: 700;
-            font-size: 1.25rem;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: var(--vital-teal);
+            border-radius: 50%;
+        }
+
+        .serve-highlight strong {
+            color: var(--clinical-blue);
+            font-weight: 600;
         }
 
         /* Compliance Section */
@@ -1152,11 +1315,11 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: var(--vital-teal);
+            background: var(--clinical-blue);
             color: var(--white);
             padding: 1rem 2rem;
             border-radius: 50px;
-            box-shadow: 0 8px 24px rgba(0, 161, 154, 0.4);
+            box-shadow: 0 8px 24px rgba(0, 51, 102, 0.4);
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -1176,9 +1339,9 @@
         }
 
         .floating-cta:hover {
-            background: var(--vital-teal-light);
+            background: var(--clinical-blue-light);
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0, 161, 154, 0.5);
+            box-shadow: 0 12px 32px rgba(0, 51, 102, 0.5);
         }
 
         .floating-cta svg {
@@ -1249,12 +1412,35 @@
                 padding: 2rem 1.5rem;
             }
 
-            .flow-diagram {
-                flex-direction: column;
+            /* Advantage section mobile */
+            .advantage-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
             }
 
-            .flow-arrow {
-                transform: rotate(90deg);
+            .advantage-step::after {
+                display: none;
+            }
+
+            /* Continuum table mobile */
+            .continuum-row {
+                grid-template-columns: 1fr;
+            }
+
+            .continuum-focus {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            /* Serve section mobile */
+            .serve-item,
+            .serve-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .serve-item:nth-child(even) .serve-visual {
+                order: 0;
             }
 
             .hero-cta,
@@ -1284,10 +1470,23 @@
                 font-size: 1.75rem;
             }
 
-            .metrics-grid,
-            .continuum-grid,
-            .serve-grid {
+            .metrics-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .hero::after {
+                width: 200px;
+                height: 150px;
+                right: 2%;
+                top: 15%;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .serve-image-wrapper {
+                height: 250px;
             }
         }
     </style>
@@ -1407,66 +1606,59 @@
     <!-- TRC Advantage Section -->
     <section id="advantage" class="section advantage-section">
         <div class="container">
-            <div class="advantage-content">
-                <h2>Healthcare Shouldn't Wait for Emergencies</h2>
-                <p>Most care models react after something goes wrong. TRC changes that.</p>
-                <p>Our ambient monitoring platform detects early signs of risk — from irregular breathing to inactivity — before they become emergencies. Facilities move from reactive to proactive care, improving outcomes and restoring peace of mind.</p>
-                
-                <div class="advantage-visual">
-                    <div class="flow-diagram">
-                        <div class="flow-step">
-                            <div class="flow-icon">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <h4>Sensors</h4>
-                            <p>Ambient, non-invasive monitoring</p>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step">
-                            <div class="flow-icon">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                            </div>
-                            <h4>Continuous Data</h4>
-                            <p>Real-time vital tracking</p>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step">
-                            <div class="flow-icon">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                </svg>
-                            </div>
-                            <h4>AI Alerts</h4>
-                            <p>Intelligent risk detection</p>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step">
-                            <div class="flow-icon">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                </svg>
-                            </div>
-                            <h4>Coordinated Care</h4>
-                            <p>Proactive interventions</p>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step">
-                            <div class="flow-icon">
-                                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <h4>Better Outcomes</h4>
-                            <p>Improved patient health</p>
-                        </div>
-                    </div>
+            <div class="advantage-container">
+                <div class="advantage-header">
+                    <h2>Healthcare Shouldn't Wait for Emergencies</h2>
+                    <p class="subtitle">Most care models react after something goes wrong. TRC changes that.</p>
+                    <p>Our ambient monitoring platform detects early signs of risk — from irregular breathing to inactivity — before they become emergencies. Facilities move from reactive to proactive care, improving outcomes and restoring peace of mind.</p>
                 </div>
 
-                <h3 style="margin-top: 3rem;">Better Data Means Better Decisions</h3>
+                <div class="advantage-grid">
+                    <div class="advantage-step">
+                        <div class="advantage-step-number">1</div>
+                        <svg class="advantage-step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <h4>Sensors</h4>
+                        <p>Ambient monitoring</p>
+                    </div>
+
+                    <div class="advantage-step">
+                        <div class="advantage-step-number">2</div>
+                        <svg class="advantage-step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <h4>Continuous Data</h4>
+                        <p>Real-time tracking</p>
+                    </div>
+
+                    <div class="advantage-step">
+                        <div class="advantage-step-number">3</div>
+                        <svg class="advantage-step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                        <h4>AI Alerts</h4>
+                        <p>Intelligent detection</p>
+                    </div>
+
+                    <div class="advantage-step">
+                        <div class="advantage-step-number">4</div>
+                        <svg class="advantage-step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <h4>Care Teams</h4>
+                        <p>Proactive response</p>
+                    </div>
+
+                    <div class="advantage-step">
+                        <div class="advantage-step-number">5</div>
+                        <svg class="advantage-step-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h4>Better Outcomes</h4>
+                        <p>Improved health</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1499,57 +1691,86 @@
                 <h2>The Care Continuum</h2>
                 <p>Comprehensive monitoring solutions for every stage of care — from routine monitoring to high-acuity management.</p>
             </div>
-            <div class="continuum-grid">
-                <div class="continuum-card" id="rpm">
-                    <div class="continuum-badge">RPM</div>
-                    <h3>Remote Patient Monitoring</h3>
-                    <div class="focus">Continuous vital monitoring</div>
-                    <p>24/7 tracking of vital signs with FDA-cleared sensors and direct EMR integration.</p>
-                    <ul>
-                        <li>Real-time vital sign tracking</li>
-                        <li>Automated data collection</li>
-                        <li>Seamless EMR integration</li>
-                        <li>Intelligent alert system</li>
-                    </ul>
+            
+            <div class="continuum-table">
+                <div class="continuum-row" id="rpm">
+                    <div class="continuum-program">
+                        <div class="continuum-program-badge">RPM</div>
+                        <div class="continuum-program-name">Remote Patient<br>Monitoring</div>
+                    </div>
+                    <div class="continuum-focus">
+                        <div class="continuum-focus-title">Focus</div>
+                        <div class="continuum-focus-text">Continuous vital monitoring</div>
+                    </div>
+                    <div class="continuum-details">
+                        <p>24/7 tracking of vital signs with FDA-cleared sensors and direct EMR integration.</p>
+                        <div class="continuum-tags">
+                            <div class="continuum-tag">Real-time tracking</div>
+                            <div class="continuum-tag">Automated data collection</div>
+                            <div class="continuum-tag">EMR integration</div>
+                            <div class="continuum-tag">Intelligent alerts</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="continuum-card" id="ccm">
-                    <div class="continuum-badge">CCM</div>
-                    <h3>Chronic Care Management</h3>
-                    <div class="focus">Multi-condition coordination</div>
-                    <p>Monthly outreach and personalized care plans for patients with multiple chronic conditions.</p>
-                    <ul>
-                        <li>Comprehensive care planning</li>
-                        <li>Monthly clinical support</li>
-                        <li>Medication management</li>
-                        <li>Care team coordination</li>
-                    </ul>
+                <div class="continuum-row" id="ccm">
+                    <div class="continuum-program">
+                        <div class="continuum-program-badge">CCM</div>
+                        <div class="continuum-program-name">Chronic Care<br>Management</div>
+                    </div>
+                    <div class="continuum-focus">
+                        <div class="continuum-focus-title">Focus</div>
+                        <div class="continuum-focus-text">Multi-condition coordination</div>
+                    </div>
+                    <div class="continuum-details">
+                        <p>Monthly outreach and personalized care plans for patients with multiple chronic conditions.</p>
+                        <div class="continuum-tags">
+                            <div class="continuum-tag">Care planning</div>
+                            <div class="continuum-tag">Monthly support</div>
+                            <div class="continuum-tag">Medication management</div>
+                            <div class="continuum-tag">Team coordination</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="continuum-card" id="pcm">
-                    <div class="continuum-badge">PCM</div>
-                    <h3>Principal Care Management</h3>
-                    <div class="focus">Single complex condition</div>
-                    <p>Targeted monitoring and focused interventions for patients with one serious chronic condition.</p>
-                    <ul>
-                        <li>Condition-specific monitoring</li>
-                        <li>Focused care protocols</li>
-                        <li>Early warning detection</li>
-                        <li>Specialized interventions</li>
-                    </ul>
+                <div class="continuum-row" id="pcm">
+                    <div class="continuum-program">
+                        <div class="continuum-program-badge">PCM</div>
+                        <div class="continuum-program-name">Principal Care<br>Management</div>
+                    </div>
+                    <div class="continuum-focus">
+                        <div class="continuum-focus-title">Focus</div>
+                        <div class="continuum-focus-text">Single complex condition</div>
+                    </div>
+                    <div class="continuum-details">
+                        <p>Targeted monitoring and focused interventions for patients with one serious chronic condition.</p>
+                        <div class="continuum-tags">
+                            <div class="continuum-tag">Condition-specific</div>
+                            <div class="continuum-tag">Focused protocols</div>
+                            <div class="continuum-tag">Early warnings</div>
+                            <div class="continuum-tag">Specialized care</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="continuum-card" id="apcm">
-                    <div class="continuum-badge">APCM</div>
-                    <h3>Advanced Principal Care Management</h3>
-                    <div class="focus">High-acuity management</div>
-                    <p>Data plus behavioral analysis with AI-guided escalation, optimized for SNF and long-term care.</p>
-                    <ul>
-                        <li>Advanced predictive analytics</li>
-                        <li>Behavioral pattern recognition</li>
-                        <li>AI-driven care escalation</li>
-                        <li>SNF/LTC optimization</li>
-                    </ul>
+                <div class="continuum-row" id="apcm">
+                    <div class="continuum-program">
+                        <div class="continuum-program-badge">APCM</div>
+                        <div class="continuum-program-name">Advanced<br>PCM</div>
+                    </div>
+                    <div class="continuum-focus">
+                        <div class="continuum-focus-title">Focus</div>
+                        <div class="continuum-focus-text">High-acuity management</div>
+                    </div>
+                    <div class="continuum-details">
+                        <p>Data plus behavioral analysis with AI-guided escalation, optimized for SNF and long-term care.</p>
+                        <div class="continuum-tags">
+                            <div class="continuum-tag">Predictive analytics</div>
+                            <div class="continuum-tag">Behavioral patterns</div>
+                            <div class="continuum-tag">AI escalation</div>
+                            <div class="continuum-tag">SNF/LTC optimized</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1666,53 +1887,60 @@
                 <p>Comprehensive solutions for every stakeholder in the care continuum.</p>
             </div>
 
-            <div class="serve-grid">
-                <div class="serve-card" id="facilities">
-                    <div class="serve-icon">
-                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                        </svg>
+            <div class="serve-item" id="facilities">
+                <div class="serve-visual">
+                    <div class="serve-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?auto=format&fit=crop&w=800&q=80" alt="Long-term care facility interior">
                     </div>
+                </div>
+                <div class="serve-content">
                     <h3>Facilities</h3>
-                    <p>Empower your long-term care facility with technology that improves outcomes and operations.</p>
-                    <ul class="serve-benefits">
-                        <li>Improve reimbursement rates</li>
-                        <li>Reduce liability and risk</li>
-                        <li>Boost quality metrics</li>
-                        <li>Enhance staff retention</li>
-                    </ul>
-                </div>
-
-                <div class="serve-card" id="providers">
-                    <div class="serve-icon">
-                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
+                    <p class="serve-tagline">Empower your long-term care facility</p>
+                    <p class="serve-description">Transform your facility with technology that improves outcomes and operations while reducing costs and enhancing quality of care.</p>
+                    <div class="serve-highlights">
+                        <div class="serve-highlight"><strong>Improve reimbursement rates</strong> through better documentation and CMS compliance</div>
+                        <div class="serve-highlight"><strong>Reduce liability and risk</strong> with proactive monitoring and early intervention</div>
+                        <div class="serve-highlight"><strong>Boost quality metrics</strong> that matter for surveys and accreditation</div>
+                        <div class="serve-highlight"><strong>Enhance staff retention</strong> by reducing burnout and administrative burden</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="serve-item" id="providers">
+                <div class="serve-visual">
+                    <div class="serve-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Healthcare provider with patient">
+                    </div>
+                </div>
+                <div class="serve-content">
                     <h3>Providers</h3>
-                    <p>Simplify your practice with automated tools that enhance patient care and revenue.</p>
-                    <ul class="serve-benefits">
-                        <li>Streamline billing processes</li>
-                        <li>Automate documentation</li>
-                        <li>Improve clinical outcomes</li>
-                        <li>Increase practice efficiency</li>
-                    </ul>
-                </div>
-
-                <div class="serve-card" id="families">
-                    <div class="serve-icon">
-                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
+                    <p class="serve-tagline">Simplify your practice</p>
+                    <p class="serve-description">Automated tools that enhance patient care and revenue while reducing administrative burden and improving clinical outcomes.</p>
+                    <div class="serve-highlights">
+                        <div class="serve-highlight"><strong>Streamline billing processes</strong> with automated RPM, CCM, PCM, and APCM documentation</div>
+                        <div class="serve-highlight"><strong>Automate documentation</strong> that flows directly into your EMR system</div>
+                        <div class="serve-highlight"><strong>Improve clinical outcomes</strong> through continuous monitoring and early detection</div>
+                        <div class="serve-highlight"><strong>Increase practice efficiency</strong> while spending more time on patient care</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="serve-item" id="families">
+                <div class="serve-visual">
+                    <div class="serve-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Family caring for elderly loved one">
+                    </div>
+                </div>
+                <div class="serve-content">
                     <h3>Families</h3>
-                    <p>Gain peace of mind knowing your loved ones are monitored continuously with intelligent care.</p>
-                    <ul class="serve-benefits">
-                        <li>24/7 continuous monitoring</li>
-                        <li>Real-time health updates</li>
-                        <li>Proactive intervention</li>
-                        <li>Transparent communication</li>
-                    </ul>
+                    <p class="serve-tagline">Peace of mind for loved ones</p>
+                    <p class="serve-description">Know your loved ones are monitored continuously with intelligent care that catches problems early and keeps you informed.</p>
+                    <div class="serve-highlights">
+                        <div class="serve-highlight"><strong>24/7 continuous monitoring</strong> ensures someone is always watching over your loved one</div>
+                        <div class="serve-highlight"><strong>Real-time health updates</strong> keep you informed of any changes or concerns</div>
+                        <div class="serve-highlight"><strong>Proactive intervention</strong> catches issues before they become emergencies</div>
+                        <div class="serve-highlight"><strong>Transparent communication</strong> with secure portals and visual health reports</div>
+                    </div>
                 </div>
             </div>
         </div>
