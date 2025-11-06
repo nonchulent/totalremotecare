@@ -310,7 +310,7 @@
                 rgba(0, 77, 153, 0.88) 50%,
                 rgba(0, 161, 154, 0.82) 100%
             ),
-            url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1920&q=80');
+            url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -1349,6 +1349,65 @@
             height: 20px;
         }
 
+        /* Decorative Separators */
+        .section-divider {
+            height: 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to right, var(--white) 0%, var(--soft-gray) 50%, var(--white) 100%);
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 600px;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--border-color) 20%, 
+                var(--vital-teal) 50%, 
+                var(--border-color) 80%, 
+                transparent 100%);
+        }
+
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: var(--vital-teal);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(0, 161, 154, 0.2);
+        }
+
+        .section-divider-subtle {
+            height: 60px;
+            position: relative;
+            background: var(--soft-gray);
+        }
+
+        .section-divider-subtle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 400px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--border-color) 50%, 
+                transparent 100%);
+        }
+
         /* Responsive */
         @media (max-width: 968px) {
             :root {
@@ -1603,6 +1662,9 @@
         </div>
     </section>
 
+    <!-- Decorative Divider -->
+    <div class="section-divider"></div>
+
     <!-- TRC Advantage Section -->
     <section id="advantage" class="section advantage-section">
         <div class="container">
@@ -1663,6 +1725,9 @@
         </div>
     </section>
 
+    <!-- Decorative Divider -->
+    <div class="section-divider"></div>
+
     <!-- About Us Section -->
     <section id="about" class="section about-section">
         <div class="container">
@@ -1683,6 +1748,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Decorative Divider -->
+    <div class="section-divider-subtle"></div>
 
     <!-- Care Continuum Section -->
     <section id="solutions" class="section continuum-section">
@@ -1890,7 +1958,7 @@
             <div class="serve-item" id="facilities">
                 <div class="serve-visual">
                     <div class="serve-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1519494140681-8b17d830a3e9?auto=format&fit=crop&w=800&q=80" alt="Long-term care facility interior">
+                        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80" alt="Modern nursing home facility with welcoming entrance">
                     </div>
                 </div>
                 <div class="serve-content">
