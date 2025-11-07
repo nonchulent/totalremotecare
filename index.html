@@ -37,7 +37,7 @@
             --shadow-large: 0 16px 48px rgba(0, 51, 102, 0.2);
             
             --container-width: 1200px;
-            --section-padding: 6rem;
+            --section-padding: 7rem;
         }
 
         html {
@@ -112,25 +112,46 @@
         }
 
         .btn-primary {
-            background: var(--clinical-blue);
-            color: var(--white);
+            background: var(--white);
+            color: var(--clinical-blue);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: -1;
         }
 
         .btn-primary:hover {
-            background: var(--clinical-blue-light);
+            color: var(--white);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary:hover::before {
+            transform: translateX(0);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--clinical-blue);
-            border: 2px solid var(--clinical-blue);
+            color: var(--white);
+            border: 2px solid var(--white);
         }
 
         .btn-secondary:hover {
-            background: var(--clinical-blue);
-            color: var(--white);
+            background: var(--white);
+            color: var(--clinical-blue);
+            border-color: var(--white);
         }
 
         .btn-large {
@@ -254,19 +275,39 @@
         }
 
         .cta-btn {
-            background: var(--clinical-blue);
-            color: var(--white);
+            background: transparent;
+            color: var(--clinical-blue);
             padding: 0.75rem 1.5rem;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 0.9375rem;
             transition: all 0.3s ease;
+            border: 2px solid var(--clinical-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--clinical-blue);
+            transition: left 0.3s ease;
+            z-index: -1;
         }
 
         .cta-btn:hover {
-            background: var(--clinical-blue-light);
+            color: var(--white);
+            border-color: var(--clinical-blue);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
+        }
+
+        .cta-btn:hover::before {
+            left: 0;
         }
 
         /* Mobile Menu */
@@ -310,7 +351,7 @@
                 rgba(0, 77, 153, 0.88) 50%,
                 rgba(0, 161, 154, 0.82) 100%
             ),
-            url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=80');
+            url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -325,33 +366,6 @@
                 radial-gradient(circle at 20% 50%, rgba(0, 161, 154, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(0, 196, 186, 0.1) 0%, transparent 50%);
             animation: pulseGlow 8s ease-in-out infinite;
-        }
-
-        /* Vitals overlay animation */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 10%;
-            right: 5%;
-            width: 300px;
-            height: 200px;
-            background: rgba(0, 161, 154, 0.08);
-            border: 2px solid rgba(0, 161, 154, 0.3);
-            border-radius: 12px;
-            animation: vitalsPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes vitalsPulse {
-            0%, 100% { 
-                opacity: 0.6; 
-                transform: scale(1);
-                box-shadow: 0 0 20px rgba(0, 161, 154, 0.3);
-            }
-            50% { 
-                opacity: 0.9; 
-                transform: scale(1.02);
-                box-shadow: 0 0 40px rgba(0, 161, 154, 0.5);
-            }
         }
 
         @keyframes pulseGlow {
@@ -465,6 +479,20 @@
         .advantage-section {
             background: linear-gradient(to bottom, var(--white) 0%, var(--soft-gray) 100%);
             position: relative;
+            padding-top: calc(var(--section-padding) + 2rem);
+        }
+
+        .advantage-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 161, 154, 0.3) 50%, 
+                transparent 100%);
         }
 
         .advantage-container {
@@ -561,6 +589,8 @@
         /* About Us Section */
         .about-section {
             background: var(--soft-gray);
+            padding-top: calc(var(--section-padding) + 2rem);
+            padding-bottom: calc(var(--section-padding) + 1rem);
         }
 
         .about-layout {
@@ -670,6 +700,22 @@
         /* Care Continuum Section */
         .continuum-section {
             background: var(--soft-gray);
+            padding-top: calc(var(--section-padding) + 1.5rem);
+            position: relative;
+        }
+
+        .continuum-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--border-color) 50%, 
+                transparent 100%);
         }
 
         .continuum-intro {
@@ -1315,11 +1361,11 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: var(--clinical-blue);
-            color: var(--white);
+            background: var(--white);
+            color: var(--clinical-blue);
             padding: 1rem 2rem;
             border-radius: 50px;
-            box-shadow: 0 8px 24px rgba(0, 51, 102, 0.4);
+            box-shadow: 0 8px 24px rgba(0, 51, 102, 0.25);
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -1330,6 +1376,7 @@
             transform: translateY(20px);
             transition: all 0.4s ease;
             pointer-events: none;
+            border: 2px solid var(--clinical-blue);
         }
 
         .floating-cta.visible {
@@ -1339,9 +1386,18 @@
         }
 
         .floating-cta:hover {
-            background: var(--clinical-blue-light);
+            background: var(--clinical-blue);
+            color: var(--white);
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0, 51, 102, 0.5);
+            box-shadow: 0 12px 32px rgba(0, 51, 102, 0.35);
+        }
+
+        .floating-cta svg {
+            transition: transform 0.3s ease;
+        }
+
+        .floating-cta:hover svg {
+            transform: scale(1.1);
         }
 
         .floating-cta svg {
@@ -1349,69 +1405,10 @@
             height: 20px;
         }
 
-        /* Decorative Separators */
-        .section-divider {
-            height: 80px;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(to right, var(--white) 0%, var(--soft-gray) 50%, var(--white) 100%);
-        }
-
-        .section-divider::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 600px;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                var(--border-color) 20%, 
-                var(--vital-teal) 50%, 
-                var(--border-color) 80%, 
-                transparent 100%);
-        }
-
-        .section-divider::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px;
-            height: 8px;
-            background: var(--vital-teal);
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(0, 161, 154, 0.2);
-        }
-
-        .section-divider-subtle {
-            height: 60px;
-            position: relative;
-            background: var(--soft-gray);
-        }
-
-        .section-divider-subtle::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 400px;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                var(--border-color) 50%, 
-                transparent 100%);
-        }
-
         /* Responsive */
         @media (max-width: 968px) {
             :root {
-                --section-padding: 4rem;
+                --section-padding: 4.5rem;
             }
 
             .container {
@@ -1531,13 +1528,6 @@
 
             .metrics-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .hero::after {
-                width: 200px;
-                height: 150px;
-                right: 2%;
-                top: 15%;
             }
 
             .hero {
@@ -1662,9 +1652,6 @@
         </div>
     </section>
 
-    <!-- Decorative Divider -->
-    <div class="section-divider"></div>
-
     <!-- TRC Advantage Section -->
     <section id="advantage" class="section advantage-section">
         <div class="container">
@@ -1725,9 +1712,6 @@
         </div>
     </section>
 
-    <!-- Decorative Divider -->
-    <div class="section-divider"></div>
-
     <!-- About Us Section -->
     <section id="about" class="section about-section">
         <div class="container">
@@ -1748,9 +1732,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Decorative Divider -->
-    <div class="section-divider-subtle"></div>
 
     <!-- Care Continuum Section -->
     <section id="solutions" class="section continuum-section">
