@@ -721,7 +721,7 @@
         .continuum-intro {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 4rem;
         }
 
         .continuum-intro h2 {
@@ -732,102 +732,147 @@
             font-size: 1.125rem;
         }
 
-        .continuum-table {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .continuum-row {
+        .continuum-cards-grid {
             display: grid;
-            grid-template-columns: 200px 1fr 2fr;
-            border-bottom: 1px solid var(--border-color);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .continuum-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 2px solid var(--border-color);
             transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
         }
 
-        .continuum-row:last-child {
-            border-bottom: none;
+        .continuum-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--clinical-blue), var(--vital-teal));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
 
-        .continuum-row:hover {
-            background: var(--soft-gray);
+        .continuum-card:hover {
+            border-color: var(--vital-teal);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 51, 102, 0.15);
         }
 
-        .continuum-program {
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
-            color: var(--white);
+        .continuum-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .continuum-card-header {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .continuum-program-badge {
-            font-size: 1.75rem;
+        .continuum-card-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .continuum-card-badge svg {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .continuum-card-badge::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: 6px;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .continuum-program-name {
-            font-size: 0.875rem;
-            font-weight: 500;
-            opacity: 0.9;
-        }
-
-        .continuum-focus {
-            padding: 2rem;
-            border-right: 1px solid var(--border-color);
-        }
-
-        .continuum-focus-title {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            color: var(--text-light);
             letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
         }
 
-        .continuum-focus-text {
-            font-size: 1.125rem;
+        .continuum-card:hover .continuum-card-badge {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .continuum-card-title h3 {
+            font-size: 1.5rem;
             color: var(--clinical-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .continuum-card-focus {
+            font-size: 0.9375rem;
+            color: var(--vital-teal);
             font-weight: 600;
         }
 
-        .continuum-details {
-            padding: 2rem;
-        }
-
-        .continuum-details p {
-            margin-bottom: 1.25rem;
+        .continuum-card-description {
             color: var(--text-secondary);
             line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
-        .continuum-tags {
+        .continuum-card-features {
             display: flex;
-            gap: 0.75rem;
             flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .continuum-tag {
+        .continuum-feature-tag {
             padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, rgba(0, 51, 102, 0.08), rgba(0, 161, 154, 0.08));
-            border: 1px solid var(--border-color);
+            background: var(--soft-gray);
             border-radius: 20px;
             font-size: 0.875rem;
-            color: var(--clinical-blue);
+            color: var(--text-secondary);
             font-weight: 500;
-            transition: all 0.3s ease;
         }
 
-        .continuum-tag:hover {
-            border-color: var(--vital-teal);
-            background: linear-gradient(135deg, rgba(0, 51, 102, 0.12), rgba(0, 161, 154, 0.12));
-            transform: translateY(-2px);
+        .continuum-card-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--clinical-blue);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: gap 0.3s ease;
+        }
+
+        .continuum-card:hover .continuum-card-cta {
+            gap: 1rem;
+            color: var(--vital-teal);
+        }
+
+        .continuum-card-cta svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .continuum-card:hover .continuum-card-cta svg {
+            transform: translateX(4px);
         }
 
         /* Technology Section */
@@ -916,11 +961,14 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 100%;
         }
 
         .tech-image-wrapper img {
             width: 100%;
-            height: auto;
+            height: 320px;
+            object-fit: cover;
             display: block;
             transition: transform 0.3s ease;
         }
@@ -1485,14 +1533,9 @@
                 display: none;
             }
 
-            /* Continuum table mobile */
-            .continuum-row {
+            /* Continuum cards mobile */
+            .continuum-cards-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .continuum-focus {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
             }
 
             /* Serve section mobile */
@@ -1566,10 +1609,10 @@
                             </svg>
                         </a>
                         <div class="dropdown">
-                            <a href="#rpm">Remote Patient Monitoring</a>
-                            <a href="#ccm">Chronic Care Management</a>
-                            <a href="#pcm">Principal Care Management</a>
-                            <a href="#apcm">Advanced PCM</a>
+                            <a href="rpm.html">Remote Patient Monitoring</a>
+                            <a href="ccm.html">Chronic Care Management</a>
+                            <a href="pcm.html">Principal Care Management</a>
+                            <a href="apcm.html">Advanced PCM</a>
                         </div>
                     </li>
                     <li><a href="#technology">Technology</a></li>
@@ -1748,86 +1791,114 @@
                 <p>Comprehensive monitoring solutions for every stage of care — from routine monitoring to high-acuity management.</p>
             </div>
             
-            <div class="continuum-table">
-                <div class="continuum-row" id="rpm">
-                    <div class="continuum-program">
-                        <div class="continuum-program-badge">RPM</div>
-                        <div class="continuum-program-name">Remote Patient<br>Monitoring</div>
-                    </div>
-                    <div class="continuum-focus">
-                        <div class="continuum-focus-title">Focus</div>
-                        <div class="continuum-focus-text">Continuous vital monitoring</div>
-                    </div>
-                    <div class="continuum-details">
-                        <p>24/7 tracking of vital signs with FDA-cleared sensors and direct EMR integration.</p>
-                        <div class="continuum-tags">
-                            <div class="continuum-tag">Real-time tracking</div>
-                            <div class="continuum-tag">Automated data collection</div>
-                            <div class="continuum-tag">EMR integration</div>
-                            <div class="continuum-tag">Intelligent alerts</div>
+            <div class="continuum-cards-grid">
+                <a href="rpm.html" class="continuum-card" id="rpm">
+                    <div class="continuum-card-header">
+                        <div class="continuum-card-badge" data-label="RPM">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <div class="continuum-card-title">
+                            <h3>Remote Patient Monitoring</h3>
+                            <div class="continuum-card-focus">Continuous vital monitoring</div>
                         </div>
                     </div>
-                </div>
+                    <p class="continuum-card-description">24/7 tracking of vital signs with FDA-cleared sensors and direct EMR integration.</p>
+                    <div class="continuum-card-features">
+                        <span class="continuum-feature-tag">Real-time tracking</span>
+                        <span class="continuum-feature-tag">Automated data</span>
+                        <span class="continuum-feature-tag">EMR integration</span>
+                        <span class="continuum-feature-tag">Intelligent alerts</span>
+                    </div>
+                    <div class="continuum-card-cta">
+                        <span>Learn More</span>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
 
-                <div class="continuum-row" id="ccm">
-                    <div class="continuum-program">
-                        <div class="continuum-program-badge">CCM</div>
-                        <div class="continuum-program-name">Chronic Care<br>Management</div>
-                    </div>
-                    <div class="continuum-focus">
-                        <div class="continuum-focus-title">Focus</div>
-                        <div class="continuum-focus-text">Multi-condition coordination</div>
-                    </div>
-                    <div class="continuum-details">
-                        <p>Monthly outreach and personalized care plans for patients with multiple chronic conditions.</p>
-                        <div class="continuum-tags">
-                            <div class="continuum-tag">Care planning</div>
-                            <div class="continuum-tag">Monthly support</div>
-                            <div class="continuum-tag">Medication management</div>
-                            <div class="continuum-tag">Team coordination</div>
+                <a href="ccm.html" class="continuum-card" id="ccm">
+                    <div class="continuum-card-header">
+                        <div class="continuum-card-badge" data-label="CCM">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="continuum-card-title">
+                            <h3>Chronic Care Management</h3>
+                            <div class="continuum-card-focus">Multi-condition coordination</div>
                         </div>
                     </div>
-                </div>
+                    <p class="continuum-card-description">Monthly outreach and personalized care plans for patients with multiple chronic conditions.</p>
+                    <div class="continuum-card-features">
+                        <span class="continuum-feature-tag">Care planning</span>
+                        <span class="continuum-feature-tag">Monthly support</span>
+                        <span class="continuum-feature-tag">Medication management</span>
+                        <span class="continuum-feature-tag">Team coordination</span>
+                    </div>
+                    <div class="continuum-card-cta">
+                        <span>Learn More</span>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
 
-                <div class="continuum-row" id="pcm">
-                    <div class="continuum-program">
-                        <div class="continuum-program-badge">PCM</div>
-                        <div class="continuum-program-name">Principal Care<br>Management</div>
-                    </div>
-                    <div class="continuum-focus">
-                        <div class="continuum-focus-title">Focus</div>
-                        <div class="continuum-focus-text">Single complex condition</div>
-                    </div>
-                    <div class="continuum-details">
-                        <p>Targeted monitoring and focused interventions for patients with one serious chronic condition.</p>
-                        <div class="continuum-tags">
-                            <div class="continuum-tag">Condition-specific</div>
-                            <div class="continuum-tag">Focused protocols</div>
-                            <div class="continuum-tag">Early warnings</div>
-                            <div class="continuum-tag">Specialized care</div>
+                <a href="pcm.html" class="continuum-card" id="pcm">
+                    <div class="continuum-card-header">
+                        <div class="continuum-card-badge" data-label="PCM">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="continuum-card-title">
+                            <h3>Principal Care Management</h3>
+                            <div class="continuum-card-focus">Single complex condition</div>
                         </div>
                     </div>
-                </div>
+                    <p class="continuum-card-description">Targeted monitoring and focused interventions for patients with one serious chronic condition.</p>
+                    <div class="continuum-card-features">
+                        <span class="continuum-feature-tag">Condition-specific</span>
+                        <span class="continuum-feature-tag">Focused protocols</span>
+                        <span class="continuum-feature-tag">Early warnings</span>
+                        <span class="continuum-feature-tag">Specialized care</span>
+                    </div>
+                    <div class="continuum-card-cta">
+                        <span>Learn More</span>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
 
-                <div class="continuum-row" id="apcm">
-                    <div class="continuum-program">
-                        <div class="continuum-program-badge">APCM</div>
-                        <div class="continuum-program-name">Advanced<br>PCM</div>
-                    </div>
-                    <div class="continuum-focus">
-                        <div class="continuum-focus-title">Focus</div>
-                        <div class="continuum-focus-text">High-acuity management</div>
-                    </div>
-                    <div class="continuum-details">
-                        <p>Data plus behavioral analysis with AI-guided escalation, optimized for SNF and long-term care.</p>
-                        <div class="continuum-tags">
-                            <div class="continuum-tag">Predictive analytics</div>
-                            <div class="continuum-tag">Behavioral patterns</div>
-                            <div class="continuum-tag">AI escalation</div>
-                            <div class="continuum-tag">SNF/LTC optimized</div>
+                <a href="apcm.html" class="continuum-card" id="apcm">
+                    <div class="continuum-card-header">
+                        <div class="continuum-card-badge" data-label="APCM">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <div class="continuum-card-title">
+                            <h3>Advanced PCM</h3>
+                            <div class="continuum-card-focus">High-acuity management</div>
                         </div>
                     </div>
-                </div>
+                    <p class="continuum-card-description">Data plus behavioral analysis with AI-guided escalation, optimized for SNF and long-term care.</p>
+                    <div class="continuum-card-features">
+                        <span class="continuum-feature-tag">Predictive analytics</span>
+                        <span class="continuum-feature-tag">Behavioral patterns</span>
+                        <span class="continuum-feature-tag">AI escalation</span>
+                        <span class="continuum-feature-tag">SNF/LTC optimized</span>
+                    </div>
+                    <div class="continuum-card-cta">
+                        <span>Learn More</span>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1884,7 +1955,7 @@
 
                     <div class="technology-visual">
                         <div class="tech-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Healthcare monitoring dashboard and analytics">
+                            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Healthcare monitoring dashboard and analytics">
                         </div>
                     </div>
                 </div>
