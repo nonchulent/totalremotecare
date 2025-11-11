@@ -227,53 +227,6 @@
             color: var(--clinical-blue);
         }
 
-        .dropdown-icon {
-            width: 14px;
-            height: 14px;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-menu > li:hover .dropdown-icon {
-            transform: rotate(180deg);
-        }
-
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            min-width: 220px;
-            padding: 0.75rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-medium);
-            margin-top: 1rem;
-        }
-
-        .nav-menu > li:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 0.625rem 1.25rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            font-size: 0.9375rem;
-        }
-
-        .dropdown a:hover {
-            background: var(--soft-gray);
-            color: var(--clinical-blue);
-        }
-
         .cta-btn {
             background: transparent;
             color: var(--clinical-blue);
@@ -653,226 +606,290 @@
             transform: scale(1.05);
         }
 
-        /* Flow Diagram */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+        /* Solution Detail Sections */
+        .solution-detail-section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .flow-step {
-            flex: 1;
-            min-width: 150px;
-            text-align: center;
-        }
-
-        .flow-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
+        /* RPM Section - Dark Blue with Diagonal Stripe Pattern */
+        .rpm-section {
+            background: var(--clinical-blue);
             color: var(--white);
         }
 
-        .flow-arrow {
-            font-size: 2rem;
-            color: var(--vital-teal);
-            margin: 0 0.5rem;
+        .rpm-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 40%, 
+                rgba(0, 161, 154, 0.08) 50%, 
+                transparent 60%);
+            transform: rotate(-15deg);
         }
 
-        .flow-step h4 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+        .rpm-section::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 40%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(0, 196, 186, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* CCM Section - Light Gray/White with Teal Accent */
+        .ccm-section {
+            background: linear-gradient(to bottom right, var(--soft-gray) 0%, var(--white) 100%);
+            color: var(--text-primary);
+        }
+
+        .ccm-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -15%;
+            width: 50%;
+            height: 120%;
+            background: radial-gradient(ellipse, rgba(0, 161, 154, 0.12) 0%, transparent 60%);
+            transform: rotate(-25deg);
+        }
+
+        .ccm-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, var(--vital-teal) 50%, transparent 100%);
+        }
+
+        /* Update CCM section text colors since it has light background */
+        .ccm-section .solution-detail-content h2,
+        .ccm-section .solution-feature-item h4,
+        .ccm-section .outcome-highlight strong {
             color: var(--clinical-blue);
         }
 
-        .flow-step p {
-            font-size: 0.875rem;
-            color: var(--text-light);
+        .ccm-section .solution-description,
+        .ccm-section .solution-feature-item p,
+        .ccm-section .outcome-highlight p {
+            color: var(--text-secondary);
+        }
+
+        .ccm-section .solution-feature-icon {
+            color: var(--vital-teal);
+        }
+
+        .ccm-section .outcome-highlight {
+            background: var(--white);
+            border-color: var(--vital-teal);
+        }
+
+        .ccm-section .outcome-highlight svg {
+            color: var(--vital-teal);
+        }
+
+        /* PCM/APCM Section - Gradient Blue with Geometric Pattern */
+        .pcm-apcm-section {
+            background: linear-gradient(135deg, var(--clinical-blue-dark) 0%, var(--clinical-blue) 50%, var(--clinical-blue-light) 100%);
+            color: var(--white);
+        }
+
+        .pcm-apcm-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 30%;
+            height: 80%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(0, 161, 154, 0.05) 20px,
+                    rgba(0, 161, 154, 0.05) 40px
+                );
+            transform: translateY(-50%);
+        }
+
+        .pcm-apcm-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -15%;
+            width: 55%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(0, 196, 186, 0.15) 0%, transparent 65%);
+            border-radius: 50%;
+        }
+
+        /* Outcome Highlight Box */
+        .outcome-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(0, 161, 154, 0.15);
+            border: 2px solid var(--vital-teal);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .outcome-highlight svg {
+            width: 28px;
+            height: 28px;
+            color: var(--vital-teal-light);
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .outcome-highlight p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.9375rem;
+            line-height: 1.6;
             margin: 0;
         }
 
-        /* Care Continuum Section */
-        .continuum-section {
-            background: var(--soft-gray);
-            padding-top: calc(var(--section-padding) + 1.5rem);
-            position: relative;
-        }
-
-        .continuum-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                var(--border-color) 50%, 
-                transparent 100%);
-        }
-
-        .continuum-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-
-        .continuum-intro h2 {
-            margin-bottom: 1rem;
-        }
-
-        .continuum-intro p {
-            font-size: 1.125rem;
-        }
-
-        .continuum-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .continuum-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 3rem;
-            border: 2px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: block;
-        }
-
-        .continuum-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--clinical-blue), var(--vital-teal));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .continuum-card:hover {
-            border-color: var(--vital-teal);
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0, 51, 102, 0.15);
-        }
-
-        .continuum-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .continuum-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .continuum-card-badge {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .outcome-highlight strong {
             color: var(--white);
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-            position: relative;
+            font-weight: 700;
         }
 
-        .continuum-card-badge svg {
-            width: 40px;
-            height: 40px;
+        .solution-detail-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
             position: relative;
             z-index: 2;
         }
 
-        .continuum-card-badge::after {
-            content: attr(data-label);
-            position: absolute;
-            bottom: 6px;
+        .solution-detail-layout.reverse {
+            grid-template-columns: 1fr 1.2fr;
+        }
+
+        .solution-detail-layout.reverse .solution-detail-visual {
+            order: -1;
+        }
+
+        .solution-detail-content h2 {
+            color: var(--white);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .highlight-text {
+            color: var(--vital-teal-light);
+            position: relative;
+        }
+
+        .solution-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .solution-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .solution-feature-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .solution-feature-icon {
+            width: 32px;
+            height: 32px;
+            color: var(--vital-teal-light);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .solution-feature-item h4 {
+            color: var(--white);
+            font-size: 0.9375rem;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .solution-feature-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .solution-detail-visual {
+            position: relative;
+        }
+
+        .solution-image-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .solution-image-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .solution-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        /* PCM & APCM Dual Grid */
+        .pcm-apcm-dual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .pcm-column h3,
+        .apcm-column h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .solution-badge {
+            display: inline-block;
+            background: var(--vital-teal);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.05em;
         }
 
-        .continuum-card:hover .continuum-card-badge {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .continuum-card-title h3 {
-            font-size: 1.5rem;
-            color: var(--clinical-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .continuum-card-focus {
-            font-size: 0.9375rem;
-            color: var(--vital-teal);
-            font-weight: 600;
-        }
-
-        .continuum-card-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .continuum-card-features {
+        .solution-features-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .continuum-feature-tag {
-            padding: 0.5rem 1rem;
-            background: var(--soft-gray);
-            border-radius: 20px;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .continuum-card-cta {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--clinical-blue);
-            font-weight: 600;
-            font-size: 0.9375rem;
-            transition: gap 0.3s ease;
-        }
-
-        .continuum-card:hover .continuum-card-cta {
-            gap: 1rem;
-            color: var(--vital-teal);
-        }
-
-        .continuum-card-cta svg {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .continuum-card:hover .continuum-card-cta svg {
-            transform: translateX(4px);
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         /* Technology Section */
@@ -1494,17 +1511,6 @@
                 left: 0;
             }
 
-            .dropdown {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                border: none;
-                margin-top: 0.5rem;
-                padding-left: 1rem;
-            }
-
             .technology-layout,
             .compliance-layout,
             .about-layout,
@@ -1533,9 +1539,42 @@
                 display: none;
             }
 
-            /* Continuum cards mobile */
-            .continuum-cards-grid {
+            /* Solution detail sections mobile */
+            .solution-detail-section {
+                padding: 4rem 0;
+            }
+
+            .solution-detail-layout,
+            .solution-detail-layout.reverse {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .solution-detail-layout.reverse .solution-detail-visual {
+                order: 0;
+            }
+
+            .solution-features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .solution-image-wrapper img {
+                height: 350px;
+            }
+
+            .pcm-apcm-dual-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .outcome-highlight {
+                padding: 1rem 1.25rem;
+            }
+
+            .outcome-highlight svg {
+                width: 24px;
+                height: 24px;
             }
 
             /* Serve section mobile */
@@ -1549,8 +1588,7 @@
                 order: 0;
             }
 
-            .hero-cta,
-            .final-cta-buttons {
+            .hero-cta {
                 flex-direction: column;
             }
 
@@ -1587,6 +1625,10 @@
             .serve-image-wrapper {
                 height: 250px;
             }
+
+            .solution-image-wrapper img {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -1595,53 +1637,16 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">
+                <a href="#home" class="logo">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='%23FFFFFF' stroke='%2300A19A' stroke-width='4'/%3E%3Cpath d='M75 80 Q75 65 85 65 L115 65 Q125 65 125 80' fill='none' stroke='%23003366' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M65 85 Q65 105 75 115' fill='none' stroke='%2300A19A' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M135 85 Q135 105 125 115' fill='none' stroke='%2300A19A' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M75 70 L65 60 M125 70 L135 60' stroke='%23003366' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='100' cy='140' r='18' fill='%23003366'/%3E%3Ctext x='100' y='150' font-family='Inter, sans-serif' font-size='24' font-weight='700' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" alt="Total Remote Care Logo">
                     <span>Total Remote Care</span>
                 </a>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
-                    <li>
-                        <a href="#solutions">
-                            Solutions
-                            <svg class="dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </a>
-                        <div class="dropdown">
-                            <a href="rpm.html">Remote Patient Monitoring</a>
-                            <a href="ccm.html">Chronic Care Management</a>
-                            <a href="pcm.html">Principal Care Management</a>
-                            <a href="apcm.html">Advanced PCM</a>
-                        </div>
-                    </li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
                     <li><a href="#technology">Technology</a></li>
-                    <li>
-                        <a href="#who-we-serve">
-                            Who We Serve
-                            <svg class="dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </a>
-                        <div class="dropdown">
-                            <a href="#facilities">Facilities</a>
-                            <a href="#providers">Providers</a>
-                            <a href="#families">Families</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#about">
-                            About
-                            <svg class="dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </a>
-                        <div class="dropdown">
-                            <a href="#about">Our Story</a>
-                            <a href="#compliance">Compliance & Security</a>
-                            <a href="#contact">Contact Us</a>
-                        </div>
-                    </li>
+                    <li><a href="#contact">Contact</a></li>
                     <li><a href="#contact" class="cta-btn">Schedule Demo</a></li>
                 </ul>
                 <div class="mobile-menu-toggle">
@@ -1783,122 +1788,273 @@
         </div>
     </section>
 
-    <!-- Care Continuum Section -->
-    <section id="solutions" class="section continuum-section">
+    <!-- RPM Section -->
+    <section id="solutions" class="section solution-detail-section rpm-section">
         <div class="container">
-            <div class="continuum-intro">
-                <h2>The Care Continuum</h2>
-                <p>Comprehensive monitoring solutions for every stage of care — from routine monitoring to high-acuity management.</p>
-            </div>
-            
-            <div class="continuum-cards-grid">
-                <a href="rpm.html" class="continuum-card" id="rpm">
-                    <div class="continuum-card-header">
-                        <div class="continuum-card-badge" data-label="RPM">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                            </svg>
-                        </div>
-                        <div class="continuum-card-title">
-                            <h3>Remote Patient Monitoring</h3>
-                            <div class="continuum-card-focus">Continuous vital monitoring</div>
-                        </div>
-                    </div>
-                    <p class="continuum-card-description">24/7 tracking of vital signs with FDA-cleared sensors and direct EMR integration.</p>
-                    <div class="continuum-card-features">
-                        <span class="continuum-feature-tag">Real-time tracking</span>
-                        <span class="continuum-feature-tag">Automated data</span>
-                        <span class="continuum-feature-tag">EMR integration</span>
-                        <span class="continuum-feature-tag">Intelligent alerts</span>
-                    </div>
-                    <div class="continuum-card-cta">
-                        <span>Learn More</span>
+            <div class="solution-detail-layout">
+                <div class="solution-detail-content" id="rpm">
+                    <h2>Remote Patient Monitoring <br>Catch Problems <span class="highlight-text">Before They Happen</span></h2>
+                    <p class="solution-description">Think of RPM as your facility's early warning system. Instead of waiting for a crisis at 2 AM, our continuous monitoring spots the subtle changes that signal trouble ahead. Your nurses get real-time alerts about declining vitals, giving them the jump on interventions that keep residents healthy, stable, and thriving—not bouncing between the ER and your facility.</p>
+                    
+                    <div class="outcome-highlight">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
+                        <p><strong>Better Outcomes:</strong> Early intervention means fewer complications, faster recovery, and residents who spend more time living well instead of fighting off preventable emergencies.</p>
                     </div>
-                </a>
 
-                <a href="ccm.html" class="continuum-card" id="ccm">
-                    <div class="continuum-card-header">
-                        <div class="continuum-card-badge" data-label="CCM">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="solution-features-grid">
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h4>Around-the-Clock Monitoring</h4>
+                                <p>Vitals tracked 24/7 without disturbing residents during sleep or activities—just quiet, continuous oversight that catches changes early.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                            </svg>
+                            <div>
+                                <h4>Smart Alerts, Not Noise</h4>
+                                <p>Get notified when it matters. Our system learns baselines and only flags meaningful deviations, so your team can act fast on real issues.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <div>
+                                <h4>Auto-Documentation</h4>
+                                <p>Every reading flows straight into your EHR—no manual entry, no clipboards, no chasing down data at shift change.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                            <div>
+                                <h4>Trend Spotting</h4>
+                                <p>See patterns emerge over days and weeks. Catch gradual decline before it becomes rapid deterioration that impacts quality of life.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            <div>
+                                <h4>Prevent Hospital Transfers</h4>
+                                <p>Early intervention means fewer midnight ambulance rides, better recovery trajectories, and residents who stay stable in familiar surroundings.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            <div>
+                                <h4>Family Peace of Mind</h4>
+                                <p>Families rest easier knowing someone's always watching over their loved one—and outcomes speak for themselves when care is proactive.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-detail-visual">
+                    <div class="solution-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional using remote monitoring technology">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CCM Section -->
+    <section id="ccm" class="section solution-detail-section ccm-section">
+        <div class="container">
+            <div class="solution-detail-layout reverse">
+                <div class="solution-detail-content">
+                    <h2>Chronic Care Management <br>Keep <span class="highlight-text">Complex Cases</span> on Track</h2>
+                    <p class="solution-description">When residents are juggling diabetes, heart failure, COPD, and more, it's easy for something to slip through the cracks. CCM brings order to the chaos with structured monthly check-ins, coordinated care plans, and proactive medication management. We help your team stay ahead of exacerbations before they land someone in the hospital—keeping residents healthier, more stable, and living with better quality of life.</p>
+                    
+                    <div class="outcome-highlight">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p><strong>Better Outcomes:</strong> Coordinated care means fewer ER visits, better symptom management, and residents who maintain independence longer—that's what success looks like.</p>
+                    </div>
+
+                    <div class="solution-features-grid">
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                            </svg>
+                            <div>
+                                <h4>Personalized Care Plans</h4>
+                                <p>Each resident gets a tailored roadmap that addresses their unique combination of conditions and improves long-term health trajectories.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <div>
+                                <h4>Scheduled Touchpoints</h4>
+                                <p>Monthly outreach ensures nothing falls off the radar. Think of it as a safety net that catches problems early and prevents setbacks.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                            <div>
+                                <h4>Medication Oversight</h4>
+                                <p>We track adherence, identify interactions, and coordinate with pharmacy—helping prevent med-related complications that derail progress.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
+                            <div>
+                                <h4>Care Team Collaboration</h4>
+                                <p>Everyone on the same page—physicians, nurses, specialists, and family all working from one playbook to achieve better results.</p>
+                            </div>
                         </div>
-                        <div class="continuum-card-title">
-                            <h3>Chronic Care Management</h3>
-                            <div class="continuum-card-focus">Multi-condition coordination</div>
-                        </div>
-                    </div>
-                    <p class="continuum-card-description">Monthly outreach and personalized care plans for patients with multiple chronic conditions.</p>
-                    <div class="continuum-card-features">
-                        <span class="continuum-feature-tag">Care planning</span>
-                        <span class="continuum-feature-tag">Monthly support</span>
-                        <span class="continuum-feature-tag">Medication management</span>
-                        <span class="continuum-feature-tag">Team coordination</span>
-                    </div>
-                    <div class="continuum-card-cta">
-                        <span>Learn More</span>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </div>
-                </a>
 
-                <a href="pcm.html" class="continuum-card" id="pcm">
-                    <div class="continuum-card-header">
-                        <div class="continuum-card-badge" data-label="PCM">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                             </svg>
+                            <div>
+                                <h4>Patient Education</h4>
+                                <p>We empower residents with the knowledge they need to manage their conditions, recognize warning signs, and take control of their health.</p>
+                            </div>
                         </div>
-                        <div class="continuum-card-title">
-                            <h3>Principal Care Management</h3>
-                            <div class="continuum-card-focus">Single complex condition</div>
-                        </div>
-                    </div>
-                    <p class="continuum-card-description">Targeted monitoring and focused interventions for patients with one serious chronic condition.</p>
-                    <div class="continuum-card-features">
-                        <span class="continuum-feature-tag">Condition-specific</span>
-                        <span class="continuum-feature-tag">Focused protocols</span>
-                        <span class="continuum-feature-tag">Early warnings</span>
-                        <span class="continuum-feature-tag">Specialized care</span>
-                    </div>
-                    <div class="continuum-card-cta">
-                        <span>Learn More</span>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </div>
-                </a>
 
-                <a href="apcm.html" class="continuum-card" id="apcm">
-                    <div class="continuum-card-header">
-                        <div class="continuum-card-badge" data-label="APCM">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        <div class="solution-feature-item">
+                            <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                             </svg>
-                        </div>
-                        <div class="continuum-card-title">
-                            <h3>Advanced PCM</h3>
-                            <div class="continuum-card-focus">High-acuity management</div>
+                            <div>
+                                <h4>Proven Quality of Life Gains</h4>
+                                <p>Coordinated care means better symptom control, more good days, and residents who feel like they're thriving—not just surviving.</p>
+                            </div>
                         </div>
                     </div>
-                    <p class="continuum-card-description">Data plus behavioral analysis with AI-guided escalation, optimized for SNF and long-term care.</p>
-                    <div class="continuum-card-features">
-                        <span class="continuum-feature-tag">Predictive analytics</span>
-                        <span class="continuum-feature-tag">Behavioral patterns</span>
-                        <span class="continuum-feature-tag">AI escalation</span>
-                        <span class="continuum-feature-tag">SNF/LTC optimized</span>
+                </div>
+
+                <div class="solution-detail-visual">
+                    <div class="solution-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Care team coordinating patient care">
                     </div>
-                    <div class="continuum-card-cta">
-                        <span>Learn More</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PCM & APCM Combined Section -->
+    <section id="pcm" class="section solution-detail-section pcm-apcm-section">
+        <div class="container">
+            <div class="solution-detail-layout">
+                <div class="solution-detail-content">
+                    <h2>Principal Care Management & Advanced PCM <br><span class="highlight-text">Precision Care</span> for High-Risk Residents</h2>
+                    <p class="solution-description">Some residents need more than standard monitoring—they need laser-focused attention on their primary condition. PCM zeroes in on that single complex diagnosis, while Advanced PCM takes it to the next level with AI-powered predictions and behavioral tracking. Both are designed to spot trouble brewing and give your team time to act before things go sideways—ultimately delivering better health outcomes and preventing unnecessary decline.</p>
+                    
+                    <div class="outcome-highlight">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
+                        <p><strong>Better Outcomes:</strong> Precision monitoring means catching issues at the first sign, leading to faster interventions, fewer complications, and residents who maintain their functional independence longer.</p>
                     </div>
-                </a>
+
+                    <div class="pcm-apcm-dual-grid">
+                        <div class="pcm-column">
+                            <h3><span class="solution-badge">PCM</span> Principal Care Management</h3>
+                            <div class="solution-features-list">
+                                <div class="solution-feature-item">
+                                    <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                                    </svg>
+                                    <div>
+                                        <h4>Disease-Specific Focus</h4>
+                                        <p>Tailored protocols for conditions like CHF, COPD, or diabetes—no one-size-fits-all approach here.</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                                    </svg>
+                                    <div>
+                                        <h4>Condition-Triggered Alerts</h4>
+                                        <p>Get notified when metrics specific to the primary condition start trending the wrong way.</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                    <div>
+                                        <h4>Rapid Intervention</h4>
+                                        <p>Spot exacerbations early—adjust meds, order tests, or escalate care before a crisis hits.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="apcm-column">
+                            <h3 id="apcm"><span class="solution-badge">APCM</span> Advanced PCM</h3>
+                            <div class="solution-features-list">
+                                <div class="solution-feature-item">
+                                    <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                    <div>
+                                        <h4>AI-Driven Predictions</h4>
+                                        <p>Machine learning models predict health declines days before they happen—giving you a head start.</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <h4>Activity & Behavior Tracking</h4>
+                                        <p>Changes in sleep, movement, and daily routines often signal trouble—we catch those subtle shifts.</p>
+                                    </div>
+                                </div>
+
+                                <div class="solution-feature-item">
+                                    <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                    <div>
+                                        <h4>SNF & LTC Built-In</h4>
+                                        <p>Designed specifically for nursing home workflows—not retrofitted from home care models.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="solution-detail-visual">
+                    <div class="solution-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Advanced monitoring technology in healthcare">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2156,7 +2312,7 @@
                             </div>
                             <div class="contact-detail-text">
                                 <h4>Email</h4>
-                                <p><a href="mailto:info@totalremotecare.com">info@totalremotecare.com</a></p>
+                                <p><a href="/cdn-cgi/l/email-protection#30595e565f70445f44515c42555d5f4455535142551e535f5d"><span class="__cf_email__" data-cfemail="ff96919990bf8b908b9e938d9a92908b9a9c9e8d9ad19c9092">[email&#160;protected]</span></a></p>
                             </div>
                         </div>
 
@@ -2238,10 +2394,10 @@
                 <div class="footer-section">
                     <h4>Solutions</h4>
                     <ul>
-                        <li><a href="#rpm">RPM</a></li>
-                        <li><a href="#ccm">CCM</a></li>
-                        <li><a href="#pcm">PCM</a></li>
-                        <li><a href="#apcm">APCM</a></li>
+                        <li><a href="#rpm">Remote Patient Monitoring</a></li>
+                        <li><a href="#ccm">Chronic Care Management</a></li>
+                        <li><a href="#pcm">Principal Care Management</a></li>
+                        <li><a href="#apcm">Advanced PCM</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -2263,7 +2419,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Total Remote Care | Miami, FL | +1 305 733 1404 | info@totalremotecare.com</p>
+                <p>&copy; 2025 Total Remote Care | Miami, FL | +1 305 733 1404 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5831363e37182c372c39342a3d35372c3d3b392a3d763b3735">[email&#160;protected]</a></p>
             </div>
         </div>
     </footer>
@@ -2276,7 +2432,7 @@
         <span>Schedule Demo</span>
     </a>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Mobile Menu Toggle
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
@@ -2339,15 +2495,3 @@
                 e.preventDefault();
 
                 const formData = new FormData(this);
-                const data = Object.fromEntries(formData);
-
-                console.log('Form submitted:', data);
-
-                alert(`Thank you ${data.name}! We've received your demo request for ${data.facility}. We'll contact you within 2 business hours to schedule your personalized demonstration.`);
-
-                this.reset();
-            });
-        }
-    </script>
-</body>
-</html>
