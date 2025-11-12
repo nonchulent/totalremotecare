@@ -352,7 +352,7 @@
 
         .hero-subheadline {
             font-size: 1.375rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             color: rgba(255, 255, 255, 0.95);
             line-height: 1.6;
             font-weight: 500;
@@ -432,7 +432,7 @@
         .advantage-section {
             background: linear-gradient(to bottom, var(--white) 0%, var(--soft-gray) 100%);
             position: relative;
-            padding-top: calc(var(--section-padding) + 2rem);
+            padding: var(--section-padding) 0;
         }
 
         .advantage-section::before {
@@ -453,13 +453,27 @@
             margin: 0 auto;
         }
 
-        .advantage-header {
+        .advantage-header,
+        .outcomes-intro,
+        .serve-intro,
+        .contact-header {
             text-align: center;
-            margin-bottom: 3rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
         }
 
-        .advantage-header h2 {
+        .advantage-header h2,
+        .outcomes-intro h2,
+        .serve-intro h2,
+        .contact-header h2 {
             margin-bottom: 1rem;
+        }
+
+        .advantage-header p,
+        .outcomes-intro p,
+        .serve-intro p,
+        .contact-header p {
+            font-size: 1.125rem;
         }
 
         .advantage-header .subtitle {
@@ -469,7 +483,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .advantage-header p {
+        .advantage-header p:last-child {
             font-size: 1.0625rem;
             max-width: 700px;
             margin: 0 auto;
@@ -542,8 +556,7 @@
         /* About Us Section */
         .about-section {
             background: var(--soft-gray);
-            padding-top: calc(var(--section-padding) + 2rem);
-            padding-bottom: calc(var(--section-padding) + 1rem);
+            padding: var(--section-padding) 0;
         }
 
         .about-layout {
@@ -608,7 +621,7 @@
 
         /* Solution Detail Sections */
         .solution-detail-section {
-            padding: 6rem 0;
+            padding: var(--section-padding) 0;
             position: relative;
             overflow: hidden;
         }
@@ -898,6 +911,7 @@
             color: var(--white);
             position: relative;
             overflow: hidden;
+            padding: var(--section-padding) 0;
         }
 
         .technology-section::before {
@@ -997,12 +1011,7 @@
         /* Outcomes Section */
         .outcomes-section {
             background: var(--white);
-        }
-
-        .outcomes-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
+            padding: var(--section-padding) 0;
         }
 
         .metrics-grid {
@@ -1053,12 +1062,7 @@
         /* Who We Serve Section */
         .serve-section {
             background: var(--soft-gray);
-        }
-
-        .serve-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
+            padding: var(--section-padding) 0;
         }
 
         .serve-item {
@@ -1163,11 +1167,12 @@
         /* Compliance Section */
         .compliance-section {
             background: var(--white);
+            padding: var(--section-padding) 0;
         }
 
         .compliance-layout {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
@@ -1182,8 +1187,9 @@
 
         .compliance-badges-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
+            max-width: 900px;
         }
 
         .compliance-badge {
@@ -1224,20 +1230,7 @@
         /* Contact Section */
         .contact-section {
             background: var(--soft-gray);
-        }
-
-        .contact-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-
-        .contact-header h2 {
-            margin-bottom: 1rem;
-        }
-
-        .contact-header p {
-            font-size: 1.125rem;
+            padding: var(--section-padding) 0;
         }
 
         .contact-grid {
@@ -1382,6 +1375,7 @@
         .footer-brand h3 {
             color: var(--white);
             margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
         .footer-brand p {
@@ -1480,7 +1474,7 @@
         /* Responsive */
         @media (max-width: 968px) {
             :root {
-                --section-padding: 4.5rem;
+                --section-padding: 4rem;
             }
 
             .container {
@@ -1520,6 +1514,10 @@
                 gap: 2rem;
             }
 
+            .compliance-badges-grid {
+                grid-template-columns: 1fr;
+            }
+
             .about-image {
                 order: -1;
                 height: 350px;
@@ -1541,7 +1539,7 @@
 
             /* Solution detail sections mobile */
             .solution-detail-section {
-                padding: 4rem 0;
+                padding: var(--section-padding) 0;
             }
 
             .solution-detail-layout,
@@ -1606,6 +1604,10 @@
         }
 
         @media (max-width: 640px) {
+            :root {
+                --section-padding: 3rem;
+            }
+
             h1 {
                 font-size: 2rem;
             }
@@ -1683,12 +1685,6 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                         <div class="trust-badge-text">HIPAA<br>Compliant</div>
-                    </div>
-                    <div class="trust-badge">
-                        <svg class="trust-badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
-                        <div class="trust-badge-text">SOC 2<br>Type II</div>
                     </div>
                     <div class="trust-badge">
                         <svg class="trust-badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2194,7 +2190,7 @@
                     <p class="serve-tagline">Simplify your practice</p>
                     <p class="serve-description">Automated tools that enhance patient care and revenue while reducing administrative burden and improving clinical outcomes.</p>
                     <div class="serve-highlights">
-                        <div class="serve-highlight"><strong>Streamline billing processes</strong> with automated RPM, CCM, PCM, and APCM documentation</div>
+                        <div class="serve-highlight"><strong>Better patient outcomes</strong> through continuous monitoring and early intervention that keeps residents healthier and more stable</div>
                         <div class="serve-highlight"><strong>Automate documentation</strong> that flows directly into your EMR system</div>
                         <div class="serve-highlight"><strong>Improve clinical outcomes</strong> through continuous monitoring and early detection</div>
                         <div class="serve-highlight"><strong>Increase practice efficiency</strong> while spending more time on patient care</div>
@@ -2229,7 +2225,7 @@
             <div class="compliance-layout">
                 <div class="compliance-text">
                     <h2>HIPAA Compliant. CMS Aligned. Clinically Validated.</h2>
-                    <p>TRC follows all CMS billing and documentation standards for RPM, CCM, PCM, and APCM. Data is fully encrypted (in transit & at rest) with audit logs, access control, and SOC 2 alignment.</p>
+                    <p>TRC follows all CMS billing and documentation standards for RPM, CCM, PCM, and APCM. Data is fully encrypted (in transit & at rest) with audit logs and access control.</p>
                     <p>Our commitment to security and compliance means you can trust us with your most sensitive patient data while meeting all regulatory requirements.</p>
                 </div>
 
@@ -2241,16 +2237,6 @@
                         <div class="compliance-badge-info">
                             <h4>HIPAA Compliant</h4>
                             <p>Full compliance with privacy regulations</p>
-                        </div>
-                    </div>
-
-                    <div class="compliance-badge">
-                        <svg class="compliance-badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
-                        <div class="compliance-badge-info">
-                            <h4>SOC 2 Type II</h4>
-                            <p>Independently audited security</p>
                         </div>
                     </div>
 
