@@ -290,7 +290,7 @@
                 rgba(0, 77, 153, 0.92) 50%,
                 rgba(0, 161, 154, 0.88) 100%
             ),
-            url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1920&q=80');
+            url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -982,7 +982,7 @@
         /* Responsive */
         @media (max-width: 968px) {
             :root {
-                --section-padding: 4rem;
+                --section-padding: 3rem;
             }
 
             .container {
@@ -994,11 +994,11 @@
             }
 
             .logo {
-                font-size: 1.125rem;
+                font-size: 1rem;
             }
 
             .logo img {
-                height: 36px;
+                height: 32px;
             }
 
             .mobile-menu-toggle {
@@ -1037,61 +1037,230 @@
                 display: block;
             }
 
+            /* Hero mobile optimization */
             .hero {
                 background-attachment: scroll;
+                min-height: 85vh;
+                padding-top: 64px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1.125rem;
+                margin-bottom: 2rem;
             }
 
             .hero-cta {
                 flex-direction: column;
+                gap: 0.75rem;
             }
 
             .hero-cta .btn {
                 width: 100%;
+                padding: 1rem 1.5rem;
+            }
+
+            /* Section mobile optimization */
+            .section {
+                padding: 3rem 0 !important;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+
+            p {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+
+            /* Value props and quick links mobile */
+            .value-props-section,
+            .quick-links-section {
+                padding: 3rem 0 !important;
             }
 
             .value-props-grid,
             .quick-links-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1.25rem;
+                margin-top: 2rem;
+            }
+
+            .value-prop-card,
+            .quick-link-card {
+                padding: 1.75rem 1.5rem;
+            }
+
+            .value-prop-icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1rem;
+            }
+
+            /* Solution sections mobile */
+            .solution-section {
+                padding: 3rem 0 !important;
             }
 
             .solution-layout,
             .solution-layout.reverse {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2rem;
             }
 
             .solution-layout.reverse .solution-visual {
                 order: 0;
             }
 
+            .solution-content h2 {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .solution-description {
+                font-size: 0.9375rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .outcome-highlight {
+                padding: 1rem 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
             .solution-features-grid {
                 grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .solution-feature-icon {
+                width: 28px;
+                height: 28px;
+            }
+
+            .solution-feature-item h4 {
+                font-size: 0.875rem;
+            }
+
+            .solution-feature-item p {
+                font-size: 0.8125rem;
             }
 
             .solution-image-wrapper img {
-                height: 350px;
+                height: 300px;
             }
 
             .pcm-apcm-dual-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
+            /* About page mobile optimization */
             .about-layout,
             .tech-layout,
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
 
             .about-image {
                 order: -1;
-                height: 350px;
+                height: 250px;
             }
 
+            .about-content p {
+                margin-bottom: 1rem;
+            }
+
+            /* About page additional sections mobile */
+            div[style*="grid-template-columns: auto 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            div[style*="grid-template-columns: auto 1fr"] > div:first-child {
+                margin: 0 auto;
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            div[style*="grid-template-columns: auto 1fr"] > div:first-child svg {
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            div[style*="grid-template-columns: repeat(2, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem !important;
+            }
+
+            div[style*="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))"] {
+                gap: 1.25rem !important;
+            }
+
+            div[style*="padding: 2.5rem 2rem"],
+            div[style*="padding: 2rem"] {
+                padding: 1.5rem !important;
+            }
+
+            /* Technology page mobile */
+            .tech-features {
+                margin-top: 1.5rem;
+            }
+
+            .tech-feature {
+                margin-bottom: 1.25rem;
+            }
+
+            .tech-feature-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .tech-image-wrapper img {
+                height: 250px;
+            }
+
+            /* Contact page mobile */
+            .contact-details {
+                gap: 1.25rem;
+                margin: 1.5rem 0;
+            }
+
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .contact-form-wrapper {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-form .form-group {
+                margin-bottom: 1.25rem;
+            }
+
+            /* Footer mobile */
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            footer {
+                padding: 3rem 0 1.5rem;
+            }
+
+            .footer-content {
+                margin-bottom: 2rem;
             }
         }
     </style>
@@ -1140,8 +1309,8 @@
         <!-- Value Props -->
         <section class="value-props-section">
             <div class="container">
-                <h2 style="text-align: center; max-width: 700px; margin: 0 auto;">Why Total Remote Care?</h2>
-                <p style="text-align: center; max-width: 600px; margin: 1rem auto 0; font-size: 1.125rem;">Transform reactive care into proactive intervention with continuous monitoring and intelligent insights.</p>
+                <h2 style="text-align: center; max-width: 700px; margin: 0 auto;">Clinical Excellence Through Technology</h2>
+                <p style="text-align: center; max-width: 600px; margin: 1rem auto 0; font-size: 1.125rem;">Transform traditional reactive protocols into evidence-based proactive interventions with real-time physiological data and clinical decision support.</p>
                 
                 <div class="value-props-grid">
                     <div class="value-prop-card">
@@ -1153,8 +1322,8 @@
                             <circle cx="52" cy="32" r="2" fill="#003366"/>
                             <circle cx="12" cy="32" r="2" fill="#003366"/>
                         </svg>
-                        <h3>24/7 Continuous Care</h3>
-                        <p>Always-on vital sign monitoring that never sleeps. Our ambient sensors detect changes instantly, allowing proactive intervention before conditions worsen.</p>
+                        <h3>Uninterrupted Vital Sign Surveillance</h3>
+                        <p>Our contactless monitoring systems provide continuous cardiopulmonary assessment without disrupting resident activities or sleep cycles, capturing subtle hemodynamic changes that traditional spot-checks miss.</p>
                     </div>
 
                     <div class="value-prop-card">
@@ -1172,8 +1341,8 @@
                             <circle cx="32" cy="32" r="5" fill="#003366"/>
                             <path d="M28 32C28 32 30 30 32 30C34 30 36 32 36 32" stroke="#00A19A" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
-                        <h3>Predictive Intelligence</h3>
-                        <p>AI-powered early warning system spots subtle patterns and declining trends days before emergencies, giving your team time for life-saving interventions.</p>
+                        <h3>Predictive Clinical Analytics</h3>
+                        <p>Machine learning algorithms analyze physiological patterns to detect early signs of sepsis, respiratory decline, cardiac events, and other life-threatening conditions—often days before conventional clinical presentation.</p>
                     </div>
 
                     <div class="value-prop-card">
@@ -1191,8 +1360,8 @@
                             <circle cx="18" cy="38" r="3" fill="#00A19A"/>
                             <circle cx="38" cy="28" r="3" fill="#00A19A"/>
                         </svg>
-                        <h3>Proven Better Outcomes</h3>
-                        <p>Measurably improved health trajectories with fewer hospital transfers, reduced readmissions, and residents who maintain independence longer.</p>
+                        <h3>Measurable Clinical Outcomes</h3>
+                        <p>Evidence-based results demonstrate significant reductions in hospital transfers, emergency room utilization, and 30-day readmissions—while maintaining higher acuity residents in your facility with improved functional status.</p>
                     </div>
                 </div>
             </div>
@@ -1201,8 +1370,8 @@
         <!-- Quick Links -->
         <section class="quick-links-section">
             <div class="container">
-                <h2 style="text-align: center;">Learn More</h2>
-                <p style="text-align: center; max-width: 600px; margin: 1rem auto 0; font-size: 1.125rem;">Explore how Total Remote Care can transform your facility's approach to patient monitoring and care management.</p>
+                <h2 style="text-align: center;">Explore Our Clinical Solutions</h2>
+                <p style="text-align: center; max-width: 600px; margin: 1rem auto 0; font-size: 1.125rem;">Comprehensive remote monitoring programs designed specifically for post-acute and long-term care settings.</p>
                 
                 <div class="quick-links-grid">
                     <div class="quick-link-card" onclick="navigateTo('about')">
@@ -1219,9 +1388,9 @@
                                 <path d="M16 8C16 8 13 5 11 5C9 5 8 6 8 8C8 10 10 12 16 16C22 12 24 10 24 8C24 6 23 5 21 5C19 5 16 8 16 8Z" fill="#00A19A"/>
                                 <circle cx="16" cy="8" r="1.5" fill="white"/>
                             </svg>
-                            About Us
+                            Our Mission
                         </h3>
-                        <p>Learn our mission and why we're transforming long-term care monitoring.</p>
+                        <p>Understand our clinical approach and commitment to advancing long-term care quality.</p>
                     </div>
 
                     <div class="quick-link-card" onclick="navigateTo('solutions')">
@@ -1236,9 +1405,9 @@
                                 <circle cx="10" cy="22" r="1" fill="#00A19A"/>
                                 <circle cx="22" cy="22" r="1" fill="#00A19A"/>
                             </svg>
-                            Our Solutions
+                            Clinical Programs
                         </h3>
-                        <p>RPM, CCM, PCM, and APCM solutions designed for long-term care facilities.</p>
+                        <p>RPM, CCM, PCM, and APCM protocols tailored for skilled nursing and assisted living.</p>
                     </div>
 
                     <div class="quick-link-card" onclick="navigateTo('technology')">
@@ -1256,9 +1425,9 @@
                                     <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
                                 </circle>
                             </svg>
-                            Technology
+                            Our Technology
                         </h3>
-                        <p>Discover our ambient sensors, AI intelligence, and seamless integrations.</p>
+                        <p>Medical-grade sensors, HIPAA-compliant architecture, and seamless EMR integration.</p>
                     </div>
                 </div>
             </div>
@@ -1271,13 +1440,145 @@
             <div class="container">
                 <div class="about-layout">
                     <div class="about-content">
-                        <h2>About Total Remote Care</h2>
-                        <p>Walk into any long-term care facility at 3 a.m. and you'll likely find dedicated nurses moving from room to room, documenting by hand, and wondering, "What am I missing?"</p>
-                        <p>We saw skilled professionals spending more time on paperwork than patients, early warning signs slipping through the cracks, and data scattered on clipboards only to become actionable far too late.</p>
-                        <p>Total Remote Care exists to change that. Our technology continuously monitors, intelligently analyzes and proactively alerts — empowering your team with insights when they matter most.</p>
+                        <h2>Advancing Post-Acute Care Through Clinical Innovation</h2>
+                        <p>We founded Total Remote Care after witnessing firsthand the limitations of traditional vital sign monitoring in long-term care settings. Skilled clinicians were making critical decisions based on infrequent spot-checks and retrospective data—missing the early physiological warnings that could prevent adverse events.</p>
+                        <p>Our platform addresses this fundamental gap by providing continuous, non-invasive monitoring that captures the complete clinical picture. We don't just collect data—we transform it into actionable clinical intelligence that supports evidence-based decision-making at the point of care.</p>
+                        <p>Today, we partner with skilled nursing facilities, assisted living communities, and memory care units across Florida to deliver measurably better resident outcomes while supporting the clinical teams who provide care every day.</p>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Modern healthcare facility">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Modern healthcare facility">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Serve -->
+        <section class="section" style="background: var(--soft-gray); padding: 5rem 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 3rem;">Specialized Solutions for Every Care Setting</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                    <div style="background: var(--white); padding: 2.5rem 2rem; border-radius: 12px; box-shadow: var(--shadow-subtle); border-top: 4px solid var(--vital-teal);">
+                        <svg style="width: 48px; height: 48px; margin-bottom: 1.25rem; color: var(--clinical-blue);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--clinical-blue);">Skilled Nursing Facilities</h3>
+                        <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6;">High-acuity monitoring for post-surgical recovery, complex medical conditions, and residents requiring intensive clinical oversight.</p>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2.5rem 2rem; border-radius: 12px; box-shadow: var(--shadow-subtle); border-top: 4px solid var(--vital-teal);">
+                        <svg style="width: 48px; height: 48px; margin-bottom: 1.25rem; color: var(--clinical-blue);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--clinical-blue);">Assisted Living Communities</h3>
+                        <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6;">Proactive health monitoring that enables aging in place, detecting changes before they require transfer to higher levels of care.</p>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2.5rem 2rem; border-radius: 12px; box-shadow: var(--shadow-subtle); border-top: 4px solid var(--vital-teal);">
+                        <svg style="width: 48px; height: 48px; margin-bottom: 1.25rem; color: var(--clinical-blue);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--clinical-blue);">Memory Care Units</h3>
+                        <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6;">Specialized monitoring for dementia and Alzheimer's patients, tracking sleep disruption, wandering patterns, and physiological decline.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clinical Philosophy -->
+        <section class="section" style="background: var(--white); padding: 5rem 0;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <h2 style="text-align: center; margin-bottom: 1.5rem;">Our Clinical Philosophy</h2>
+                    <p style="text-align: center; font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 3rem;">The best interventions happen before symptoms become critical. Our approach is built on three fundamental principles.</p>
+
+                    <div style="display: grid; gap: 3rem;">
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem; color: var(--clinical-blue);">Continuous Awareness Beats Periodic Assessment</h3>
+                                <p style="margin: 0; line-height: 1.7;">Traditional vital sign checks every 4-8 hours miss the critical changes that happen in between. Continuous monitoring reveals the complete physiological story—the gradual oxygen desaturation at 3 AM, the subtle heart rate elevation that signals early sepsis, the respiratory pattern that indicates impending decompensation. When you see everything, you miss nothing.</p>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem; color: var(--clinical-blue);">Intelligence Without Intervention Burden</h3>
+                                <p style="margin: 0; line-height: 1.7;">The best monitoring system is the one residents don't notice. No wearables to charge, no adhesives to irritate skin, no devices to lose or break. Our contactless sensors work silently in the background while residents sleep, socialize, and live their lives. Your staff gets the insights without the implementation headaches.</p>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--clinical-blue), var(--vital-teal)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0.75rem; color: var(--clinical-blue);">Data Becomes Wisdom Through Context</h3>
+                                <p style="margin: 0; line-height: 1.7;">Raw numbers don't save lives—clinical judgment does. Our AI doesn't replace your nurses' expertise; it amplifies it. By learning each resident's unique baseline and identifying meaningful deviations, we filter out the noise and surface the signals that matter. You get fewer alerts, but every one deserves attention.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values -->
+        <section class="section" style="background: linear-gradient(to bottom right, var(--soft-gray) 0%, var(--white) 100%); padding: 5rem 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 1rem;">What Drives Us</h2>
+                <p style="text-align: center; font-size: 1.125rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 3rem;">Every decision we make is guided by our commitment to residents, clinicians, and the future of long-term care.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                    <div style="background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-subtle); border-left: 4px solid var(--vital-teal);">
+                        <h3 style="font-size: 1.125rem; margin-bottom: 0.75rem; color: var(--clinical-blue); display: flex; align-items: center; gap: 0.75rem;">
+                            <svg style="width: 24px; height: 24px; color: var(--vital-teal);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                            Resident-Centered Always
+                        </h3>
+                        <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6;">Every feature we build starts with one question: does this help residents live healthier, more independent lives? If the answer isn't a clear yes, we don't ship it.</p>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-subtle); border-left: 4px solid var(--vital-teal);">
+                        <h3 style="font-size: 1.125rem; margin-bottom: 0.75rem; color: var(--clinical-blue); display: flex; align-items: center; gap: 0.75rem;">
+                            <svg style="width: 24px; height: 24px; color: var(--vital-teal);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Clinical Rigor Over Hype
+                        </h3>
+                        <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6;">We don't chase flashy features or make promises we can't keep. Every algorithm is validated, every claim is backed by data, and every deployment is measured for real-world outcomes.</p>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-subtle); border-left: 4px solid var(--vital-teal);">
+                        <h3 style="font-size: 1.125rem; margin-bottom: 0.75rem; color: var(--clinical-blue); display: flex; align-items: center; gap: 0.75rem;">
+                            <svg style="width: 24px; height: 24px; color: var(--vital-teal);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            Empower Caregivers, Don't Replace Them
+                        </h3>
+                        <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6;">Technology should make clinical teams more effective, not obsolete. We design tools that amplify nursing judgment, reduce documentation burden, and give time back for hands-on care.</p>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-subtle); border-left: 4px solid var(--vital-teal);">
+                        <h3 style="font-size: 1.125rem; margin-bottom: 0.75rem; color: var(--clinical-blue); display: flex; align-items: center; gap: 0.75rem;">
+                            <svg style="width: 24px; height: 24px; color: var(--vital-teal);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                            Transparent and Accountable
+                        </h3>
+                        <p style="margin: 0; font-size: 0.9375rem; line-height: 1.6;">You'll always know how our systems work, why they make recommendations, and what the evidence shows. No black boxes, no proprietary secrets—just honest partnerships built on trust.</p>
                     </div>
                 </div>
             </div>
@@ -1291,14 +1592,14 @@
             <div class="container">
                 <div class="solution-layout">
                     <div class="solution-content">
-                        <h2>Remote Patient Monitoring<br>Catch Problems <span class="highlight-text">Before They Happen</span></h2>
-                        <p class="solution-description">Think of RPM as your facility's early warning system. Instead of waiting for a crisis at 2 AM, our continuous monitoring spots the subtle changes that signal trouble ahead. Your nurses get real-time alerts about declining vitals, giving them the jump on interventions that keep residents healthy, stable, and thriving.</p>
+                        <h2>Remote Patient Monitoring<br><span class="highlight-text">Early Detection</span> of Clinical Deterioration</h2>
+                        <p class="solution-description">Our RPM platform provides continuous surveillance of key physiological parameters—heart rate, respiratory rate, SpO2, and movement patterns—enabling your clinical team to identify concerning trends before they progress to acute decompensation. This isn't passive monitoring; it's an active clinical decision support system that alerts you to changes that warrant intervention.</p>
                         
                         <div class="outcome-highlight">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <p><strong>Better Outcomes:</strong> Early intervention means fewer complications, faster recovery, and residents who spend more time living well instead of fighting off preventable emergencies.</p>
+                            <p><strong>Clinical Evidence:</strong> Early identification of sepsis, respiratory failure, and cardiac events leads to timely interventions that reduce hospital transfers, prevent ICU admissions, and improve mortality outcomes.</p>
                         </div>
 
                         <div class="solution-features-grid">
@@ -1307,8 +1608,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <div>
-                                    <h4>Around-the-Clock Monitoring</h4>
-                                    <p>Vitals tracked 24/7 without disturbing residents during sleep or activities.</p>
+                                    <h4>Continuous Physiological Monitoring</h4>
+                                    <p>Contactless sensors capture cardiopulmonary data without disturbing sleep cycles or daily activities.</p>
                                 </div>
                             </div>
 
@@ -1317,8 +1618,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                                 </svg>
                                 <div>
-                                    <h4>Smart Alerts, Not Noise</h4>
-                                    <p>Our system learns baselines and only flags meaningful deviations.</p>
+                                    <h4>Clinically Validated Alerts</h4>
+                                    <p>Algorithm-driven notifications based on personalized baselines reduce false positives and alert fatigue.</p>
                                 </div>
                             </div>
 
@@ -1327,8 +1628,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                 </svg>
                                 <div>
-                                    <h4>Auto-Documentation</h4>
-                                    <p>Every reading flows straight into your EHR—no manual entry required.</p>
+                                    <h4>Automated Documentation</h4>
+                                    <p>Vital signs flow directly into your EMR, meeting regulatory requirements without manual charting.</p>
                                 </div>
                             </div>
 
@@ -1337,8 +1638,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                                 </svg>
                                 <div>
-                                    <h4>Trend Spotting</h4>
-                                    <p>See patterns emerge over days and weeks to catch gradual decline early.</p>
+                                    <h4>Longitudinal Trend Analysis</h4>
+                                    <p>Track physiological patterns over weeks and months to identify gradual decline requiring care plan modifications.</p>
                                 </div>
                             </div>
                         </div>
@@ -1346,7 +1647,7 @@
 
                     <div class="solution-visual">
                         <div class="solution-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional using remote monitoring">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Healthcare professional using remote monitoring">
                         </div>
                     </div>
                 </div>
@@ -1358,14 +1659,14 @@
             <div class="container">
                 <div class="solution-layout reverse">
                     <div class="solution-content">
-                        <h2>Chronic Care Management<br>Keep <span class="highlight-text">Complex Cases</span> on Track</h2>
-                        <p class="solution-description">When residents are juggling diabetes, heart failure, COPD, and more, it's easy for something to slip through the cracks. CCM brings order to the chaos with structured monthly check-ins, coordinated care plans, and proactive medication management.</p>
+                        <h2>Chronic Care Management<br>Coordinated Management of <span class="highlight-text">Complex Comorbidities</span></h2>
+                        <p class="solution-description">Residents with multiple chronic conditions require systematic oversight to prevent exacerbations and maintain optimal functional status. Our CCM program provides structured monthly assessments, medication reconciliation, and care plan optimization—all supported by continuous monitoring data that reveals how interventions are working in real-time.</p>
                         
                         <div class="outcome-highlight">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <p><strong>Better Outcomes:</strong> Coordinated care means fewer ER visits, better symptom management, and residents who maintain independence longer.</p>
+                            <p><strong>Clinical Evidence:</strong> Proactive management of CHF, COPD, diabetes, and other chronic conditions reduces acute exacerbations, emergency department visits, and hospital readmissions.</p>
                         </div>
 
                         <div class="solution-features-grid">
@@ -1374,8 +1675,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                                 </svg>
                                 <div>
-                                    <h4>Personalized Care Plans</h4>
-                                    <p>Each resident gets a tailored roadmap that addresses their unique conditions.</p>
+                                    <h4>Evidence-Based Care Plans</h4>
+                                    <p>Individualized protocols aligned with current clinical guidelines for each chronic condition.</p>
                                 </div>
                             </div>
 
@@ -1384,8 +1685,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                 </svg>
                                 <div>
-                                    <h4>Scheduled Touchpoints</h4>
-                                    <p>Monthly outreach ensures nothing falls off the radar.</p>
+                                    <h4>Structured Monthly Reviews</h4>
+                                    <p>Comprehensive assessments ensure conditions remain stable and identify emerging concerns early.</p>
                                 </div>
                             </div>
 
@@ -1394,8 +1695,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                                 </svg>
                                 <div>
-                                    <h4>Medication Oversight</h4>
-                                    <p>Track adherence and identify interactions to prevent complications.</p>
+                                    <h4>Medication Management</h4>
+                                    <p>Monitor adherence, identify potential interactions, and optimize pharmacotherapy based on clinical response.</p>
                                 </div>
                             </div>
 
@@ -1404,8 +1705,8 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                 </svg>
                                 <div>
-                                    <h4>Care Team Collaboration</h4>
-                                    <p>Everyone on the same page working from one playbook.</p>
+                                    <h4>Interdisciplinary Coordination</h4>
+                                    <p>Unified platform for physicians, nurses, therapists, and specialists to collaborate on complex cases.</p>
                                 </div>
                             </div>
                         </div>
@@ -1413,7 +1714,7 @@
 
                     <div class="solution-visual">
                         <div class="solution-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Care team coordinating">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Care team coordinating">
                         </div>
                     </div>
                 </div>
@@ -1425,14 +1726,14 @@
             <div class="container">
                 <div class="solution-layout">
                     <div class="solution-content">
-                        <h2>Principal Care Management & Advanced PCM<br><span class="highlight-text">Precision Care</span> for High-Risk Residents</h2>
-                        <p class="solution-description">Some residents need more than standard monitoring—they need laser-focused attention on their primary condition. PCM zeroes in on that single complex diagnosis, while Advanced PCM takes it to the next level with AI-powered predictions and behavioral tracking.</p>
+                        <h2>Principal Care Management & Advanced PCM<br><span class="highlight-text">Disease-Specific</span> Clinical Protocols for High-Acuity Residents</h2>
+                        <p class="solution-description">When a single complex condition dominates the clinical picture, targeted monitoring and intervention protocols are essential. PCM delivers condition-specific surveillance for CHF, severe COPD, advanced diabetes, and other high-risk diagnoses. Advanced PCM adds predictive modeling and behavioral monitoring for residents requiring the highest level of clinical oversight.</p>
                         
                         <div class="outcome-highlight">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <p><strong>Better Outcomes:</strong> Precision monitoring means catching issues at the first sign, leading to faster interventions and residents who maintain functional independence longer.</p>
+                            <p><strong>Clinical Evidence:</strong> Disease-specific monitoring protocols enable earlier detection of exacerbations and more effective management of complex conditions, reducing complications and preserving functional independence.</p>
                         </div>
 
                         <div class="pcm-apcm-dual-grid">
@@ -1444,8 +1745,8 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
                                         </svg>
                                         <div>
-                                            <h4>Disease-Specific Focus</h4>
-                                            <p>Tailored protocols for CHF, COPD, diabetes, and more.</p>
+                                            <h4>Condition-Specific Protocols</h4>
+                                            <p>Tailored monitoring parameters and thresholds based on clinical guidelines for each diagnosis.</p>
                                         </div>
                                     </div>
 
@@ -1454,8 +1755,8 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                                         </svg>
                                         <div>
-                                            <h4>Condition-Triggered Alerts</h4>
-                                            <p>Get notified when metrics start trending wrong.</p>
+                                            <h4>Early Exacerbation Detection</h4>
+                                            <p>Identify the earliest physiological signs of CHF decompensation, COPD flare-ups, or diabetic crisis.</p>
                                         </div>
                                     </div>
 
@@ -1464,23 +1765,23 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                         </svg>
                                         <div>
-                                            <h4>Rapid Intervention</h4>
-                                            <p>Spot exacerbations early before a crisis hits.</p>
+                                            <h4>Rapid Clinical Response</h4>
+                                            <p>Tiered alert system enables appropriate escalation from nursing intervention to physician notification.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="apcm-column">
-                                <h3><span class="solution-badge">APCM</span> Advanced PCM</h3>
+                                <h3><span class="solution-badge">APCM</span> Advanced Principal Care Management</h3>
                                 <div class="solution-features-list">
                                     <div class="solution-feature-item">
                                         <svg class="solution-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                                         </svg>
                                         <div>
-                                            <h4>AI-Driven Predictions</h4>
-                                            <p>Machine learning predicts declines days before they happen.</p>
+                                            <h4>Predictive Risk Modeling</h4>
+                                            <p>Advanced algorithms forecast clinical deterioration 48-72 hours before traditional symptoms appear.</p>
                                         </div>
                                     </div>
 
@@ -1489,8 +1790,8 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                         <div>
-                                            <h4>Activity & Behavior Tracking</h4>
-                                            <p>Changes in sleep and movement patterns signal trouble.</p>
+                                            <h4>Behavioral Pattern Analysis</h4>
+                                            <p>Track changes in activity levels, sleep quality, and mobility patterns that signal declining health status.</p>
                                         </div>
                                     </div>
 
@@ -1499,8 +1800,8 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                         </svg>
                                         <div>
-                                            <h4>Built for Long-Term Care</h4>
-                                            <p>Designed specifically for nursing home workflows.</p>
+                                            <h4>Optimized for Post-Acute Settings</h4>
+                                            <p>Purpose-built workflows integrate seamlessly with skilled nursing and assisted living operations.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1510,7 +1811,7 @@
 
                     <div class="solution-visual">
                         <div class="solution-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Advanced monitoring">
+                            <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80" alt="Advanced monitoring">
                         </div>
                     </div>
                 </div>
@@ -1524,9 +1825,9 @@
             <div class="container">
                 <div class="tech-layout">
                     <div class="tech-text">
-                        <h2>Ambient Sensors. Continuous Awareness. Zero Burden.</h2>
-                        <p>Our discreet sensors capture micro-movements and cardiopulmonary patterns — no wearables required. Residents don't wear anything, don't charge anything, and don't even know they're being monitored.</p>
-                        <p>AI models convert this data into predictive insights and automated alerts, empowering staff to act before deterioration occurs.</p>
+                        <h2>Medical-Grade Contactless Monitoring Infrastructure</h2>
+                        <p>Our platform utilizes FDA-cleared contactless sensors that employ ultra-wideband radar and advanced signal processing to capture cardiopulmonary data without requiring wearable devices, adhesives, or direct resident contact.</p>
+                        <p>Clinical-grade algorithms process this physiological data in real-time, applying machine learning models trained on millions of monitoring hours to distinguish clinically significant changes from normal variation—delivering actionable intelligence to your care team.</p>
                         
                         <div class="tech-features">
                             <div class="tech-feature">
@@ -1536,8 +1837,8 @@
                                     </svg>
                                 </div>
                                 <div class="tech-feature-text">
-                                    <h4>EMR Compatible</h4>
-                                    <p>Integrates with PointClickCare, eClinicalWorks, Athena, and more</p>
+                                    <h4>Seamless EMR Integration</h4>
+                                    <p>HL7/FHIR-compliant bidirectional integration with PointClickCare, MatrixCare, eClinicalWorks, and major EMR systems</p>
                                 </div>
                             </div>
 
@@ -1548,8 +1849,8 @@
                                     </svg>
                                 </div>
                                 <div class="tech-feature-text">
-                                    <h4>Fully Encrypted</h4>
-                                    <p>HIPAA-compliant with data encrypted in transit and at rest</p>
+                                    <h4>Enterprise-Grade Security</h4>
+                                    <p>HIPAA-compliant architecture with AES-256 encryption, SOC 2 Type II certification, and BAA coverage</p>
                                 </div>
                             </div>
 
@@ -1560,8 +1861,8 @@
                                     </svg>
                                 </div>
                                 <div class="tech-feature-text">
-                                    <h4>Real-Time Dashboards</h4>
-                                    <p>Live insights for staff and clinicians at their fingertips</p>
+                                    <h4>Clinical Analytics Dashboard</h4>
+                                    <p>Real-time visualization of resident status, trend analysis, and population health metrics for clinical leadership</p>
                                 </div>
                             </div>
                         </div>
@@ -1569,7 +1870,7 @@
 
                     <div class="tech-visual">
                         <div class="tech-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Healthcare technology dashboard">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Healthcare technology dashboard">
                         </div>
                     </div>
                 </div>
@@ -1581,13 +1882,13 @@
     <div id="contact" class="page">
         <section class="section contact-section">
             <div class="container">
-                <h2 style="text-align: center; margin-bottom: 1rem;">Ready to Transform Your Facility?</h2>
-                <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.125rem;">Schedule your personalized demo today and see how Total Remote Care can revolutionize your care delivery.</p>
+                <h2 style="text-align: center; margin-bottom: 1rem;">Schedule a Clinical Consultation</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.125rem;">Discover how Total Remote Care can enhance clinical outcomes at your facility. We'll provide a personalized demonstration and discuss implementation tailored to your specific resident population and clinical workflows.</p>
 
                 <div class="contact-grid">
                     <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p>We'll contact you within 2 business hours to discuss how Total Remote Care can benefit your facility.</p>
+                        <h3>Contact Our Clinical Team</h3>
+                        <p>A member of our clinical implementation team will reach out within 2 business hours to understand your facility's needs and schedule a comprehensive platform demonstration.</p>
 
                         <div class="contact-details">
                             <div class="contact-detail">
@@ -1597,7 +1898,7 @@
                                     </svg>
                                 </div>
                                 <div class="contact-detail-text">
-                                    <h4>Phone</h4>
+                                    <h4>Direct Line</h4>
                                     <p><a href="tel:+19546035622">+1 954 603 5622</a></p>
                                 </div>
                             </div>
@@ -1609,8 +1910,8 @@
                                     </svg>
                                 </div>
                                 <div class="contact-detail-text">
-                                    <h4>Email</h4>
-                                    <p><a href="mailto:support@totalremotecare.com">support@totalremotecare.com</a></p>
+                                    <h4>Clinical Support</h4>
+                                    <p><a href="/cdn-cgi/l/email-protection#4e3d3b3e3e213c3a0e3a213a2f223c2b23213a2b2d2f3c2b602d2123"><span class="__cf_email__" data-cfemail="dfacaaafafb0adab9fabb0abbeb3adbab2b0abbabcbeadbaf1bcb0b2">[email&#160;protected]</span></a></p>
                                 </div>
                             </div>
 
@@ -1622,8 +1923,8 @@
                                     </svg>
                                 </div>
                                 <div class="contact-detail-text">
-                                    <h4>Location</h4>
-                                    <p>Miami, Florida</p>
+                                    <h4>Service Area</h4>
+                                    <p>Serving long-term care facilities throughout Florida</p>
                                 </div>
                             </div>
                         </div>
@@ -1637,17 +1938,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="role">Your Role/Title *</label>
-                                <input type="text" id="role" name="role" placeholder="e.g., Director of Nursing" required>
+                                <label for="role">Clinical Role/Title *</label>
+                                <input type="text" id="role" name="role" placeholder="e.g., Director of Nursing, Medical Director" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email *</label>
+                                <label for="email">Email Address *</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">Phone *</label>
+                                <label for="phone">Phone Number *</label>
                                 <input type="tel" id="phone" name="phone" required>
                             </div>
 
@@ -1661,20 +1962,20 @@
                                 <select id="facilityType" name="facilityType" required>
                                     <option value="">Select Facility Type</option>
                                     <option value="skilled-nursing">Skilled Nursing Facility</option>
-                                    <option value="assisted-living">Assisted Living</option>
-                                    <option value="memory-care">Memory Care</option>
+                                    <option value="assisted-living">Assisted Living Community</option>
+                                    <option value="memory-care">Memory Care Unit</option>
                                     <option value="independent-living">Independent Living</option>
                                     <option value="ltach">Long-Term Acute Care Hospital</option>
-                                    <option value="other">Other</option>
+                                    <option value="other">Other Post-Acute Setting</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Message (Optional)</label>
-                                <textarea id="message" name="message" rows="4"></textarea>
+                                <label for="message">Additional Information (Optional)</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about specific clinical challenges or monitoring needs at your facility"></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Schedule Demo</button>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Request Clinical Demo</button>
                         </form>
                     </div>
                 </div>
@@ -1688,41 +1989,41 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Total Remote Care</h3>
-                    <p>Helping long-term care facilities deliver better outcomes through intelligent remote patient monitoring and care coordination.</p>
+                    <p>Advancing clinical outcomes in post-acute and long-term care through continuous physiological monitoring, predictive analytics, and evidence-based care coordination.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Solutions</h4>
+                    <h4>Clinical Solutions</h4>
                     <ul>
-                        <li><a onclick="navigateTo('solutions')">RPM</a></li>
-                        <li><a onclick="navigateTo('solutions')">CCM</a></li>
-                        <li><a onclick="navigateTo('solutions')">PCM</a></li>
-                        <li><a onclick="navigateTo('solutions')">APCM</a></li>
+                        <li><a onclick="navigateTo('solutions')">Remote Patient Monitoring</a></li>
+                        <li><a onclick="navigateTo('solutions')">Chronic Care Management</a></li>
+                        <li><a onclick="navigateTo('solutions')">Principal Care Management</a></li>
+                        <li><a onclick="navigateTo('solutions')">Advanced PCM</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
-                        <li><a onclick="navigateTo('about')">About Us</a></li>
-                        <li><a onclick="navigateTo('technology')">Technology</a></li>
-                        <li><a onclick="navigateTo('contact')">Contact</a></li>
+                        <li><a onclick="navigateTo('about')">Our Mission</a></li>
+                        <li><a onclick="navigateTo('technology')">Clinical Technology</a></li>
+                        <li><a onclick="navigateTo('contact')">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Resources</h4>
                     <ul>
                         <li><a onclick="navigateTo('home')">Home</a></li>
-                        <li><a onclick="navigateTo('solutions')">Solutions</a></li>
+                        <li><a onclick="navigateTo('solutions')">All Solutions</a></li>
                         <li><a onclick="navigateTo('contact')">Schedule Demo</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Total Remote Care | Miami, FL | +1 954 603 5622 | support@totalremotecare.com</p>
+                <p>&copy; 2025 Total Remote Care | Serving Florida Long-Term Care Facilities | +1 954 603 5622 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bac9cfcacad5c8cefaced5cedbd6c8dfd7d5cedfd9dbc8df94d9d5d7">[email&#160;protected]</a></p>
             </div>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function navigateTo(page) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(page).classList.add('active');
@@ -1779,14 +2080,4 @@
             lastScrollTop = scrollTop;
         });
 
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! We will contact you within 2 business hours.');
-                this.reset();
-            });
-        }
-    </script>
-</body>
-</html>
+        const contactForm = document.getE
