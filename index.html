@@ -2739,42 +2739,32 @@
   }
 
   // ── EXIT INTENT MODAL ───────────────────────────────
-  let exitShown = !!sessionStorage.getItem('exitDismissed');
-  function closeExitModal() {
-    const modal = document.getElementById('exit-modal');
-    if (!modal) return;
-    modal.classList.remove('show');
+  function closePop() {
+    var m = document.getElementById('exit-modal');
+    if (!m) return;
+    m.style.opacity = '0';
+    m.style.visibility = 'hidden';
     document.body.style.overflow = '';
-    sessionStorage.setItem('exitDismissed', '1');
+    sessionStorage.setItem('exitDismissed','1');
   }
-  document.addEventListener('mouseleave', e => {
-    if (e.clientY <= 0 && !exitShown) {
-      exitShown = true;
-      const modal = document.getElementById('exit-modal');
-      if (modal) { modal.classList.add('show'); document.body.style.overflow = 'hidden'; }
-    }
-  });
-  // Clicking the dark overlay closes it
-  document.getElementById('exit-modal')?.addEventListener('click', e => {
-    if (e.target.id === 'exit-modal') closeExitModal();
-  });
-  // X button
-  document.getElementById('exit-modal-close')?.addEventListener('click', closeExitModal);
-  // Skip link
-  document.getElementById('exit-modal-skip')?.addEventListener('click', closeExitModal);
-  // Escape key
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeExitModal(); });
-  // Submit
-  document.getElementById('exit-modal-submit')?.addEventListener('click', () => {
-    const emailEl = document.getElementById('exit-email');
-    const email = emailEl?.value.trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      if (emailEl) emailEl.style.borderColor = '#ef4444';
-      return;
-    }
-    const btn = document.getElementById('exit-modal-submit');
+  function submitPop() {
+    var el = document.getElementById('exit-email');
+    var email = el ? el.value.trim() : '';
+    if (!email || email.indexOf('@') < 1) { if(el) el.style.borderColor='#ef4444'; return; }
+    var btn = document.getElementById('exit-send-btn');
     if (btn) btn.textContent = 'Sent! ✓';
-    setTimeout(closeExitModal, 1200);
+    setTimeout(closePop, 1000);
+  }
+  // Escape key
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePop(); });
+  // Trigger on mouse leaving tab
+  var _exitFired = !!sessionStorage.getItem('exitDismissed');
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 0 && !_exitFired) {
+      _exitFired = true;
+      var m = document.getElementById('exit-modal');
+      if (m) { m.style.opacity='1'; m.style.visibility='visible'; document.body.style.overflow='hidden'; }
+    }
   });
 
   // ── MULTI-STEP FORM ─────────────────────────────────
@@ -2887,43 +2877,17 @@
     <a onclick="navigateTo('contact')" class="mobile-cta-demo">Schedule Demo</a>
   </div>
 </div>
-<div id="exit-modal">
-  <div class="exit-modal-box">
-    <button class="exit-modal-close" id="exit-modal-close" aria-label="Close">✕</button>
-    <div class="exit-modal-icon">👋</div>
-    <h3>Before you go —</h3>
-    <p>See how TRC works in a real facility. Drop your email and we will send you a 2-minute walkthrough video.</p>
-    <div class="exit-modal-input">
-      <input type="email" id="exit-email" placeholder="your@email.com">
-      <button class="btn btn-primary" id="exit-modal-submit" style="border-radius:100px;padding:.75rem 1.25rem;white-space:nowrap">Send it →</button>
+<div id="exit-modal" onclick="if(event.target===this)closePop()" style="position:fixed;inset:0;z-index:10000;background:rgba(10,22,40,.7);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;visibility:hidden;transition:all .3s ease">
+  <div style="background:#fff;border-radius:24px;padding:2.5rem;max-width:460px;width:100%;text-align:center;position:relative;box-shadow:0 24px 60px rgba(10,22,40,.25)">
+    <button onclick="closePop()" style="position:absolute;top:1rem;right:1rem;width:32px;height:32px;background:#f1f5f9;border:none;border-radius:50%;cursor:pointer;font-size:1rem;font-weight:700;color:#64748b;display:flex;align-items:center;justify-content:center;line-height:1">✕</button>
+    <div style="font-size:2.5rem;margin-bottom:.75rem">👋</div>
+    <h3 style="font-size:1.4rem;font-weight:800;color:#0A1628;margin-bottom:.625rem">Before you go —</h3>
+    <p style="font-size:.9375rem;color:#4A5978;margin-bottom:1.5rem">See how TRC works in a real facility. Drop your email and we will send you a 2-minute walkthrough video.</p>
+    <div style="display:flex;gap:.625rem;margin-bottom:1rem">
+      <input type="email" id="exit-email" placeholder="your@email.com" style="flex:1;padding:.75rem 1rem;border:1.5px solid #E0E8F0;border-radius:100px;font-size:.9rem;font-family:inherit;outline:none">
+      <button onclick="submitPop()" style="background:#00A49D;color:#fff;border:none;border-radius:100px;padding:.75rem 1.25rem;font-weight:700;font-size:.9rem;cursor:pointer;white-space:nowrap;font-family:inherit" id="exit-send-btn">Send it →</button>
     </div>
-    <span class="exit-modal-skip" id="exit-modal-skip">No thanks, I'll browse on my own</span>
+    <span onclick="closePop()" style="font-size:.8125rem;color:#8A96B0;cursor:pointer;text-decoration:underline">No thanks, I'll browse on my own</span>
   </div>
 </div>
-
-<nav class="mobile-tab-bar" aria-label="Mobile navigation">
-  <div class="tab-bar-inner">
-    <button class="tab-item active" data-page="home">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-      Home
-    </button>
-    <button class="tab-item" data-page="solutions">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-      Solutions
-    </button>
-    <a href="tel:+19546035622" class="tab-item tab-call">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-      Call
-    </a>
-    <button class="tab-item" data-page="faq">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      FAQ
-    </button>
-    <button class="tab-item" data-page="contact">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-      Contact
-    </button>
-  </div>
-</nav>
-</body>
-</html>
+>
