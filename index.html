@@ -2846,7 +2846,7 @@
         .outcome-pillar-num { font-size:4rem !important; }
 
         /* ── 4. BUILT FOR LTC (42/58) ── */
-        #builtfor-sec { padding:10rem 0 !important; }
+        
         
         
         
@@ -2873,7 +2873,7 @@
             #why-trc-sec .content-grid, #builtfor-sec .content-grid, 
             #why-trc-sec .content-image img, 
             
-            #why-trc-sec, #builtfor-sec { padding:7rem 0 !important; }
+            #why-trc-sec, 
             .outcome-pillars-section { padding:7rem 0 !important; }
         }
         @media (max-width:768px) {
@@ -2891,62 +2891,144 @@
         ══════════════════════════════════════════════ */
 
         /* ── BUILT FOR LTC — headline top, list-left / big-image-right ── */
-        #builtfor-sec { padding:10rem 0 !important; }
-        .builtfor-grid {
-            display:grid; grid-template-columns:40% 60%; gap:5rem; align-items:center;
-        }
-        .builtfor-image {
-            border-radius:20px; overflow:hidden;
-            box-shadow:0 40px 110px rgba(10,22,40,.18);
-        }
-        .builtfor-image img {
-            width:100%; height:640px; object-fit:cover; display:block;
-            transition:transform 1s cubic-bezier(.16,1,.3,1);
-        }
-        .builtfor-image:hover img { transform:scale(1.03); }
-        .builtfor-list .serve-list-item { padding:1.5rem 0; }
-        .builtfor-list .serve-list-item:first-child { padding-top:0; border-top:none; }
+        
+        
+        
+        
+        
+        
+        
 
         /* ── SIMPLE TO IMPLEMENT — hero image + 2x2 steps ── */
         #implement-sec { padding:9.5rem 0 !important; }
-        .impl-hero-image {
-            border-radius:24px; overflow:hidden; margin-bottom:4.5rem;
-            box-shadow:0 50px 130px rgba(10,22,40,.2);
-        }
-        .impl-hero-image img {
-            width:100%; height:600px; object-fit:cover; display:block;
-        }
-        .impl-steps-grid {
-            display:grid; grid-template-columns:repeat(4,1fr); gap:3rem;
-        }
-        .impl-step-block { }
+        
+        
+        
+        
         .impl-step-block 
-        .impl-step-block .impl-step-num {
-            font-size:1.25rem; font-weight:800; color:var(--teal);
-            margin-bottom:1rem; letter-spacing:.02em;
-        }
-        .impl-step-block h3 {
-            font-size:1.1875rem; color:var(--clinical-blue);
-            margin-bottom:.5rem; letter-spacing:-.01em;
-        }
-        .impl-step-block p {
-            font-size:.9375rem; line-height:1.6; color:var(--text-secondary); margin:0;
-        }
+        
+        
+        
 
         /* clean up old impl-grid styles that no longer apply */
 
         @media (max-width:1024px) {
-            .builtfor-grid { grid-template-columns:1fr; gap:3rem; }
-            .builtfor-image img { height:460px; }
-            .impl-hero-image img { height:440px; }
-            .impl-steps-grid { grid-template-columns:repeat(2,1fr); gap:2.5rem; }
+            
+            
+            
+            
             #builtfor-sec, #implement-sec { padding:7rem 0 !important; }
         }
         @media (max-width:768px) {
-            .builtfor-image img { height:300px; }
-            .impl-hero-image img { height:280px; }
-            .impl-steps-grid { grid-template-columns:1fr; gap:2rem; }
+            
+            
+            
             .builtfor-head, .impl-head { margin-bottom:3rem !important; }
+        }
+
+        
+        /* ══════════════════════════════════════════════
+           FINAL IMAGE SCALE + EDITORIAL PASS
+        ══════════════════════════════════════════════ */
+
+        /* ── 1. MORE THAN A MONITORING PLATFORM — bigger image ── */
+        #why-trc-sec { padding:11rem 0 !important; background:var(--off-white) !important; }
+        #why-trc-sec .content-grid {
+            grid-template-columns:45% 55% !important; gap:5.5rem !important;
+        }
+        #why-trc-sec .content-image { box-shadow:0 40px 110px rgba(10,22,40,.16) !important; border-radius:22px !important; }
+        #why-trc-sec .content-image img { height:660px !important; }
+
+        /* ── 2. BUILT FOR LTC — image dominant, lighter list ── */
+        
+        
+        
+        /* Lighter, more editorial list — remove hard dividers */
+        
+        
+
+        /* ── 3. SIMPLE TO IMPLEMENT — 60/40, big image ── */
+        #implement-sec { padding:10rem 0 !important; }
+        .impl-grid2 {
+            display:grid; grid-template-columns:60% 40%; gap:5rem; align-items:center;
+        }
+        .impl-photo {
+            border-radius:24px; overflow:hidden;
+            box-shadow:0 50px 130px rgba(10,22,40,.2);
+        }
+        .impl-photo img {
+            width:100%; height:680px; object-fit:cover; display:block;
+            transition:transform 1s cubic-bezier(.16,1,.3,1);
+        }
+        .impl-photo:hover img { transform:scale(1.03); }
+        .impl-steps-mini { display:flex; flex-direction:column; gap:1.5rem; }
+        .impl-mini { display:grid; grid-template-columns:36px 1fr; gap:1rem; align-items:start; }
+        .impl-mini-num { font-size:.9375rem; font-weight:800; color:var(--teal); padding-top:.15rem; }
+        .impl-mini h3 { font-size:1.0625rem; color:var(--clinical-blue); margin-bottom:.2rem; letter-spacing:-.01em; }
+        .impl-mini p { font-size:.875rem; line-height:1.55; color:var(--text-secondary); margin:0; }
+
+        @media (max-width:1024px) {
+            #why-trc-sec .content-grid, .builtfor-grid, .impl-grid2 {
+                grid-template-columns:1fr !important; gap:3rem !important;
+            }
+            #why-trc-sec .content-image img { height:460px !important; }
+            
+            .impl-photo img { height:460px !important; }
+            #why-trc-sec, #builtfor-sec, #implement-sec { padding:7rem 0 !important; }
+        }
+        @media (max-width:768px) {
+            #why-trc-sec .content-image img { height:320px !important; }
+            
+            .impl-photo img { height:300px !important; }
+        }
+
+        
+        /* ══════════════════════════════════════════════
+           BUILT FOR LONG-TERM CARE — editorial split
+        ══════════════════════════════════════════════ */
+        #builtfor-sec {
+            padding:140px 0 !important;
+            background:#F7F8FA !important;
+        }
+        .builtfor-wrap {
+            max-width:1280px; margin:0 auto; padding:0 2rem;
+            display:grid; grid-template-columns:54% 46%; gap:5rem;
+            align-items:start;
+        }
+        .builtfor-photo {
+            border-radius:24px; overflow:hidden;
+            box-shadow:0 30px 70px rgba(10,22,40,.14);
+        }
+        .builtfor-photo img {
+            width:100%; height:600px; object-fit:cover; display:block;
+        }
+        .builtfor-copy .eyebrow { margin-bottom:1.25rem; }
+        .builtfor-copy h2 { margin-bottom:1.25rem; }
+        .builtfor-intro {
+            margin-bottom:2.5rem; color:var(--text-secondary);
+            font-size:1.0625rem; line-height:1.7;
+        }
+        .builtfor-rows { display:flex; flex-direction:column; }
+        .builtfor-row {
+            padding:1.5rem 0; border-bottom:1px solid rgba(10,22,40,.08);
+        }
+        .builtfor-row:first-child { padding-top:0; }
+        .builtfor-row:last-child { border-bottom:none; padding-bottom:0; }
+        .builtfor-row h3 {
+            font-size:1.1875rem; font-weight:700; color:var(--clinical-blue);
+            margin-bottom:.4rem; letter-spacing:-.01em;
+        }
+        .builtfor-row p {
+            font-size:.9375rem; line-height:1.6; color:var(--text-secondary); margin:0;
+        }
+        @media (max-width:1024px) {
+            .builtfor-wrap { grid-template-columns:1fr; gap:3rem; }
+            .builtfor-photo img { height:460px; }
+            #builtfor-sec { padding:7rem 0 !important; }
+        }
+        @media (max-width:768px) {
+            .builtfor-photo img { height:440px; }
+            .builtfor-row { padding:1.25rem 0; }
         }
 
         </style>
@@ -3200,40 +3282,36 @@
       </div>
     </section>
 
-    <section class="content-section" id="builtfor-sec">
-      <div class="container">
-        <div class="builtfor-head animate" style="max-width:680px;margin-bottom:5rem">
-          <div class="eyebrow">Who We Serve</div>
-          <h2 style="margin-bottom:1.5rem">Built for long-term care</h2>
-          <p style="margin:0">TRC is designed for the specific demands of long-term care environments, where continuous oversight and operational efficiency matter equally.</p>
+    <section id="builtfor-sec">
+      <div class="builtfor-wrap">
+        <div class="builtfor-photo">
+          <img src="images/leadership-walking.jpg" alt="Healthcare leadership walking through a facility" loading="lazy">
         </div>
-        <div class="builtfor-grid">
-          <div class="builtfor-list animate-left">
-            <div class="serve-list">
-              <div class="serve-list-item">
-                <h3>Skilled Nursing Facilities</h3>
-                <p>Continuous monitoring for high-acuity residents requiring close clinical oversight.</p>
-              </div>
-              <div class="serve-list-item">
-                <h3>Assisted Living Communities</h3>
-                <p>Ambient oversight supporting resident independence with meaningful health visibility.</p>
-              </div>
-              <div class="serve-list-item">
-                <h3>Rehabilitation Centers</h3>
-                <p>Post-acute monitoring to track recovery and identify changes requiring attention.</p>
-              </div>
-              <div class="serve-list-item">
-                <h3>Long-Term Care Facilities</h3>
-                <p>Scalable monitoring for residents with complex, chronic, and evolving health needs.</p>
-              </div>
-              <div class="serve-list-item">
-                <h3>Post-Acute Recovery Programs</h3>
-                <p>Monitoring support for patients transitioning from acute care into long-term recovery.</p>
-              </div>
+        <div class="builtfor-copy">
+          <div class="eyebrow">Who We Serve</div>
+          <h2>Built for long-term care</h2>
+          <p class="builtfor-intro">TRC is designed for the specific demands of long-term care environments, where continuous oversight and operational efficiency matter equally.</p>
+          <div class="builtfor-rows">
+            <div class="builtfor-row">
+              <h3>Skilled Nursing Facilities</h3>
+              <p>Continuous monitoring for high-acuity residents requiring close clinical oversight.</p>
             </div>
-          </div>
-          <div class="builtfor-image animate-right">
-            <img src="images/leadership-walking.jpg" alt="Healthcare leadership walking through a facility" loading="lazy">
+            <div class="builtfor-row">
+              <h3>Assisted Living Communities</h3>
+              <p>Ambient oversight supporting resident independence with meaningful health visibility.</p>
+            </div>
+            <div class="builtfor-row">
+              <h3>Rehabilitation Centers</h3>
+              <p>Post-acute monitoring to track recovery and identify changes requiring attention.</p>
+            </div>
+            <div class="builtfor-row">
+              <h3>Long-Term Care Facilities</h3>
+              <p>Scalable monitoring for residents with complex, chronic, and evolving health needs.</p>
+            </div>
+            <div class="builtfor-row">
+              <h3>Post-Acute Recovery Programs</h3>
+              <p>Monitoring support for patients transitioning from acute care into long-term recovery.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -3252,34 +3330,20 @@
 
     <section class="section section-tint" id="implement-sec">
       <div class="container">
-        <div class="impl-head animate" style="max-width:680px;margin-bottom:4rem">
-          <div class="eyebrow">Implementation</div>
-          <h2 style="margin-bottom:1.5rem">Simple to implement</h2>
-          <p style="margin:0">Deployment is quiet and seamless. Sensors are installed without construction, wiring, or disruption to residents and daily operations.</p>
-        </div>
-        <div class="impl-hero-image animate">
-          <img src="images/installation.jpg" alt="Quiet sensor installation in a care facility" loading="lazy">
-        </div>
-        <div class="impl-steps-grid">
-          <div class="impl-step-block animate delay-1">
-            <div class="impl-step-num">01</div>
-            <h3>Assessment</h3>
-            <p>We evaluate your facility layout, census, and infrastructure to design the right configuration.</p>
+        <div class="impl-grid2">
+          <div class="impl-photo animate-left">
+            <img src="images/installation.jpg" alt="Quiet sensor installation in a care facility" loading="lazy">
           </div>
-          <div class="impl-step-block animate delay-2">
-            <div class="impl-step-num">02</div>
-            <h3>Deployment</h3>
-            <p>Sensors are installed quickly, with no construction and no disruption to daily operations.</p>
-          </div>
-          <div class="impl-step-block animate delay-3">
-            <div class="impl-step-num">03</div>
-            <h3>Monitoring</h3>
-            <p>The platform begins learning resident baselines and surfacing meaningful insights.</p>
-          </div>
-          <div class="impl-step-block animate delay-4">
-            <div class="impl-step-num">04</div>
-            <h3>Ongoing Support</h3>
-            <p>Your dedicated TRC team ensures the platform keeps delivering value as you grow.</p>
+          <div class="impl-content animate-right">
+            <div class="eyebrow">Implementation</div>
+            <h2 style="margin-bottom:1.25rem">Simple to implement</h2>
+            <p style="margin-bottom:2.5rem">Deployment is quiet and seamless. Sensors are installed without construction, wiring, or disruption to residents and daily operations.</p>
+            <div class="impl-steps-mini">
+              <div class="impl-mini"><span class="impl-mini-num">01</span><div><h3>Assessment</h3><p>We evaluate your facility layout, census, and infrastructure.</p></div></div>
+              <div class="impl-mini"><span class="impl-mini-num">02</span><div><h3>Deployment</h3><p>Sensors installed quickly, with no construction or disruption.</p></div></div>
+              <div class="impl-mini"><span class="impl-mini-num">03</span><div><h3>Monitoring</h3><p>The platform learns resident baselines and surfaces insights.</p></div></div>
+              <div class="impl-mini"><span class="impl-mini-num">04</span><div><h3>Ongoing Support</h3><p>Your dedicated TRC team keeps the platform delivering value.</p></div></div>
+            </div>
           </div>
         </div>
       </div>
