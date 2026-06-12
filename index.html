@@ -3031,6 +3031,71 @@
             .builtfor-row { padding:1.25rem 0; }
         }
 
+        
+        /* ══════════════════════════════════════════════
+           HERO RESET — clean 48/52 split, no overlap
+           (final override — dashboard lives in its column)
+        ══════════════════════════════════════════════ */
+        .home-hero {
+            min-height:760px !important;
+            display:flex !important; align-items:center !important;
+            padding:calc(var(--header-h) + 6rem) 0 6rem !important;
+            position:relative !important; overflow:hidden !important;
+        }
+        .hero-grid {
+            max-width:1280px !important; margin:0 auto !important;
+            grid-template-columns:48% 52% !important;
+            gap:80px !important;
+            align-items:center !important;
+            position:relative !important; z-index:2 !important;
+        }
+        .hero-visual {
+            position:relative !important; transform:none !important;
+            display:flex !important; justify-content:center !important; align-items:center !important;
+            min-width:0 !important;
+        }
+        /* Dashboard fully within its own column — no breakout, no overlap */
+        .dash-shell {
+            position:relative !important; z-index:1 !important;
+            max-width:none !important;
+            width:100% !important;
+            margin-left:0 !important;
+            transform:perspective(2400px) rotateY(-3deg) rotateX(1.5deg) !important;
+            transform-origin:center center !important;
+            box-shadow:-30px 50px 140px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.08), 0 0 100px rgba(0,164,157,.1) !important;
+            transition:transform .8s cubic-bezier(.16,1,.3,1) !important;
+        }
+        .dash-shell:hover {
+            transform:perspective(2400px) rotateY(-1.5deg) rotateX(.5deg) scale(1.01) !important;
+        }
+        /* Subtle background glow behind dashboard, contained */
+        .hero-visual::after {
+            content:''; position:absolute; top:50%; left:55%; transform:translate(-50%,-50%);
+            width:115%; height:115%;
+            background:radial-gradient(ellipse, rgba(0,164,157,.15) 0%, transparent 62%);
+            filter:blur(55px); z-index:0; pointer-events:none;
+        }
+        .hero-visual::before {
+            content:''; position:absolute; bottom:-8% !important; left:50% !important;
+            transform:translateX(-50%) !important;
+            width:70% !important; height:120px !important;
+            background:radial-gradient(ellipse, rgba(0,164,157,.4) 0%, transparent 70%) !important;
+            filter:blur(40px) !important; z-index:0 !important; pointer-events:none !important;
+        }
+        .hero-content { max-width:580px; position:relative; z-index:2; }
+        .home-hero p { max-width:520px; }
+
+        @media (max-width:1024px) {
+            .hero-grid { grid-template-columns:1fr !important; gap:3rem !important; }
+            .home-hero { min-height:auto !important; padding:calc(var(--header-h) + 3rem) 0 4rem !important; }
+            .dash-shell { transform:none !important; width:100% !important; max-width:560px !important; margin:0 auto !important; }
+            .hero-content { max-width:none; }
+        }
+        @media (max-width:768px) {
+            .dash-shell { display:none !important; }
+            .hero-mobile-card { display:block !important; }
+        }
+
         </style>
 </head>
 <body>
@@ -3042,7 +3107,7 @@
 <div id="kb-toast"></div>
 <div id="loader">
   <div class="loader-logo-wrap">
-    <img class="loader-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-trc-logo="1" alt="Total Remote Care">
+    <img class="loader-img" src="images/logo.png" alt="Total Remote Care">
     <div class="loader-name">Total Remote Care</div>
     <div class="loader-track"><div class="loader-fill"></div></div>
   </div>
