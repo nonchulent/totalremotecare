@@ -1129,6 +1129,172 @@
             }
         }
 
+        
+        /* ══════════════════════════════════════════════
+           UPGRADE BATCH 3 — ENTERPRISE SECTIONS
+        ══════════════════════════════════════════════ */
+
+        /* ── INTEGRATIONS ── */
+        .integrations-grid {
+            display:grid; grid-template-columns:repeat(5,1fr); gap:1.25rem;
+            margin-top:2.5rem;
+        }
+        .integration-card {
+            background:var(--white); border:1px solid var(--border);
+            border-radius:16px; padding:1.5rem 1rem;
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            gap:.75rem; text-align:center; min-height:110px;
+            transition:all .3s cubic-bezier(.16,1,.3,1);
+            cursor:default;
+        }
+        .integration-card:hover {
+            border-color:transparent; box-shadow:0 8px 32px rgba(10,22,40,.1);
+            transform:translateY(-4px);
+        }
+        .intg-logo {
+            font-size:.875rem; font-weight:800; letter-spacing:-.01em;
+            line-height:1.2; text-align:center;
+        }
+        .intg-label {
+            font-size:.7rem; font-weight:600; color:var(--text-muted);
+            text-transform:uppercase; letter-spacing:.06em;
+        }
+        .intg-dot {
+            width:6px; height:6px; border-radius:50%; flex-shrink:0;
+        }
+
+        /* ── OUTCOMES ── */
+        .outcomes-grid {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+        }
+        .outcome-card {
+            background:var(--white); border:1px solid var(--border);
+            border-radius:var(--radius); padding:2rem 1.75rem;
+            transition:all .3s cubic-bezier(.16,1,.3,1); position:relative;
+            overflow:hidden;
+        }
+        .outcome-card::after {
+            content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+            background:linear-gradient(90deg, var(--teal), var(--accent));
+            transform:scaleX(0); transform-origin:left;
+            transition:transform .3s ease;
+        }
+        .outcome-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:transparent; }
+        .outcome-card:hover::after { transform:scaleX(1); }
+        .outcome-icon {
+            width:48px; height:48px; background:var(--teal-light); border-radius:14px;
+            display:flex; align-items:center; justify-content:center;
+            color:var(--teal); margin-bottom:1.25rem;
+        }
+        .outcome-card h3 { font-size:1.05rem; margin-bottom:.5rem; font-weight:700; }
+        .outcome-card p { font-size:.875rem; margin:0; line-height:1.65; }
+
+        /* ── WHY TRC ── */
+        .why-trc-grid {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem;
+        }
+        .why-trc-card {
+            text-align:center; padding:2.5rem 1.5rem;
+            background:var(--clinical-blue); border-radius:20px;
+            border:1px solid rgba(255,255,255,.08);
+            transition:all .3s ease;
+        }
+        .why-trc-card:hover { transform:translateY(-4px); border-color:rgba(0,164,157,.4); box-shadow:0 16px 48px rgba(0,0,0,.3); }
+        .why-trc-icon {
+            width:60px; height:60px; background:rgba(0,164,157,.15);
+            border:1px solid rgba(0,164,157,.3); border-radius:18px;
+            display:flex; align-items:center; justify-content:center;
+            color:var(--teal); margin:0 auto 1.25rem;
+        }
+        .why-trc-card h3 { color:var(--white); font-size:1.125rem; margin-bottom:.625rem; }
+        .why-trc-card p { color:rgba(255,255,255,.6); font-size:.875rem; margin:0; line-height:1.7; }
+
+        /* ── FACILITY TYPES ── */
+        .facility-grid {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem;
+        }
+        .facility-card {
+            background:var(--white); border:1px solid var(--border);
+            border-radius:var(--radius); padding:1.75rem 1.5rem;
+            transition:all .3s ease; position:relative; overflow:hidden;
+        }
+        .facility-card::before {
+            content:''; position:absolute; top:0; left:0; right:0; height:3px;
+            background:linear-gradient(90deg,var(--teal),var(--accent));
+            opacity:0; transition:opacity .3s;
+        }
+        .facility-card:hover { border-color:transparent; box-shadow:var(--shadow-md); transform:translateY(-3px); }
+        .facility-card:hover::before { opacity:1; }
+        .facility-card-icon {
+            width:44px; height:44px; background:var(--teal-light); border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            color:var(--teal); margin-bottom:1rem;
+        }
+        .facility-card h3 { font-size:1rem; font-weight:700; margin-bottom:.4rem; }
+        .facility-card p { font-size:.8125rem; margin:0; line-height:1.6; color:var(--text-secondary); }
+
+        /* ── TRUST SECTION ── */
+        .trust-section-grid {
+            display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-top:2.5rem;
+        }
+        .trust-section-item {
+            display:flex; gap:1rem; align-items:flex-start;
+            background:var(--white); border:1px solid var(--border);
+            border-radius:var(--radius); padding:1.5rem;
+            transition:all .3s ease;
+        }
+        .trust-section-item:hover { box-shadow:var(--shadow-md); border-color:var(--border-strong); }
+        .trust-section-icon {
+            width:44px; height:44px; background:var(--teal-light);
+            border-radius:12px; display:flex; align-items:center; justify-content:center;
+            color:var(--teal); flex-shrink:0;
+        }
+        .trust-section-item h4 { font-size:.9375rem; font-weight:700; margin-bottom:.3rem; }
+        .trust-section-item p { font-size:.875rem; margin:0; line-height:1.6; }
+
+        /* ── PROCESS OVERVIEW (home) ── */
+        .process-overview-grid {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;
+            position:relative; margin-top:3rem;
+        }
+        .process-overview-grid::before {
+            content:''; position:absolute; top:28px; left:12.5%; right:12.5%;
+            height:2px; background:linear-gradient(90deg,var(--teal),var(--accent));
+        }
+        .po-card { text-align:center; position:relative; z-index:1; }
+        .po-num {
+            width:56px; height:56px; background:var(--white);
+            border:2px solid var(--teal); color:var(--teal);
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            font-size:1rem; font-weight:800; margin:0 auto 1.1rem;
+            box-shadow:0 0 0 6px var(--off-white);
+        }
+        .po-card h3 { font-size:1rem; font-weight:700; margin-bottom:.4rem; }
+        .po-card p { font-size:.8125rem; color:var(--text-secondary); margin:0; line-height:1.6; }
+
+        /* ── MOBILE RESPONSIVE ── */
+        @media (max-width:1024px) {
+            .integrations-grid { grid-template-columns:repeat(3,1fr); }
+            .outcomes-grid { grid-template-columns:repeat(2,1fr); }
+            .facility-grid { grid-template-columns:repeat(2,1fr); }
+            .why-trc-grid { grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+            .process-overview-grid { grid-template-columns:repeat(2,1fr); }
+            .process-overview-grid::before { display:none; }
+        }
+        @media (max-width:768px) {
+            .integrations-grid { grid-template-columns:repeat(2,1fr); gap:1rem; }
+            .outcomes-grid { grid-template-columns:1fr; gap:1rem; }
+            .facility-grid { grid-template-columns:1fr; gap:1rem; }
+            .why-trc-grid { grid-template-columns:1fr; gap:1rem; }
+            .trust-section-grid { grid-template-columns:1fr; gap:1rem; }
+            .process-overview-grid { grid-template-columns:repeat(2,1fr); gap:1rem; }
+            .integration-card { padding:1.25rem .75rem; min-height:90px; }
+        }
+        @media (max-width:480px) {
+            .integrations-grid { grid-template-columns:repeat(2,1fr); }
+            .process-overview-grid { grid-template-columns:1fr; }
+        }
+
         </style>
 </head>
 <body>
@@ -1188,12 +1354,13 @@
           <div class="hero-content">
             <h1>Care that sees<br><span class="hero-gradient-text">around corners</span></h1>
             <p class="hero-sub">Preemptive care for long-term facilities. Continuous monitoring that catches problems before they become emergencies, giving your team time to act.</p>
+              <p style="font-size:.9375rem;color:rgba(255,255,255,.55);margin-bottom:2.5rem;max-width:480px;line-height:1.65">Helping facilities identify changes earlier, improve visibility, and make more informed care decisions.</p>
             <div class="hero-cta">
               <a onclick="navigateTo('contact')" class="btn btn-primary btn-large">
                 Schedule a Demo
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
-              <a onclick="navigateTo('solutions')" class="btn btn-ghost btn-large">Our Solutions</a>
+              <a onclick="navigateTo('process')" class="btn btn-ghost btn-large">Learn How It Works</a>
             </div>
           </div>
           <div class="hero-visual">
@@ -1315,6 +1482,235 @@
             <div class="value-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
             <h3>Revenue Optimization</h3>
             <p>RPM and CCM programs are reimbursable under Medicare. TRC handles the documentation, monitoring, and billing infrastructure that turns better care into sustainable revenue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why TRC -->
+    <section class="section" style="background:var(--clinical-blue)">
+      <div class="container">
+        <div class="section-header animate" style="max-width:680px">
+          <div class="eyebrow" style="color:var(--teal)">Why TRC</div>
+          <h2 style="color:var(--white)">More than remote monitoring</h2>
+          <p style="color:rgba(255,255,255,.65)">Many monitoring platforms collect data. TRC focuses on helping facilities turn information into meaningful action through continuous oversight, clinical intelligence, and proactive support.</p>
+        </div>
+        <div class="why-trc-grid">
+          <div class="why-trc-card animate delay-1">
+            <div class="why-trc-icon"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+            <h3>Continuous Monitoring</h3>
+            <p>Ambient sensors provide 24/7 physiological oversight without placing any burden on residents or nursing staff - always on, always aware.</p>
+          </div>
+          <div class="why-trc-card animate delay-2">
+            <div class="why-trc-icon"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+            <h3>Meaningful Trends</h3>
+            <p>Longitudinal data and personalized baselines help clinical teams understand each resident's health trajectory over days, weeks, and months.</p>
+          </div>
+          <div class="why-trc-card animate delay-3">
+            <div class="why-trc-icon"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+            <h3>Proactive Support</h3>
+            <p>From implementation through ongoing operations, TRC works alongside facility teams to ensure the platform delivers consistent, real-world value.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header animate">
+          <div class="eyebrow">Impact</div>
+          <h2>Focused on better outcomes</h2>
+          <p>TRC is designed to help long-term care facilities deliver a higher standard of oversight - without adding complexity to already demanding workflows.</p>
+        </div>
+        <div class="outcomes-grid">
+          <div class="outcome-card animate delay-1">
+            <div class="outcome-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
+            <h3>Earlier Identification of Clinical Changes</h3>
+            <p>Continuous physiological monitoring helps surface meaningful changes in resident status that might otherwise go unnoticed between scheduled rounds.</p>
+          </div>
+          <div class="outcome-card animate delay-2">
+            <div class="outcome-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></div>
+            <h3>Improved Visibility Between Care Rounds</h3>
+            <p>Ambient sensors provide awareness of resident status at all hours, filling the gaps that exist between in-person clinical assessments.</p>
+          </div>
+          <div class="outcome-card animate delay-3">
+            <div class="outcome-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg></div>
+            <h3>Reduced Alert Fatigue</h3>
+            <p>Alerts calibrated to each resident's individual baseline - not generic thresholds - help ensure nursing teams receive meaningful notifications rather than constant noise.</p>
+          </div>
+          <div class="outcome-card animate delay-4">
+            <div class="outcome-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+            <h3>Enhanced Resident Oversight</h3>
+            <p>A complete picture of each resident's physiological status supports more informed decisions by nursing staff and attending physicians across every shift.</p>
+          </div>
+          <div class="outcome-card animate delay-5">
+            <div class="outcome-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg></div>
+            <h3>Meaningful Trend Analysis</h3>
+            <p>Longitudinal data helps identify gradual changes over time, giving clinical teams a clearer view of resident health trajectory rather than isolated snapshots.</p>
+          </div>
+          <div class="outcome-card animate delay-1">
+            <div class="outcome-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+            <h3>Actionable Clinical Intelligence</h3>
+            <p>Data is surfaced in context, helping clinical teams understand not just what is happening but when to act - without requiring them to interpret raw monitoring data themselves.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="section section-gray">
+      <div class="container">
+        <div class="section-header animate">
+          <div class="eyebrow">Integrations</div>
+          <h2>Works with your existing workflow</h2>
+          <p>TRC integrates with the systems facilities already use, helping staff access meaningful insights without disrupting existing workflows.</p>
+        </div>
+        <div class="integrations-grid">
+          <div class="integration-card animate delay-1">
+            <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem">
+              <div class="intg-dot" style="background:#E8751A"></div>
+              <div class="intg-logo" style="color:#E8751A">PointClickCare</div>
+            </div>
+            <div class="intg-label">EHR Platform</div>
+          </div>
+          <div class="integration-card animate delay-2">
+            <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem">
+              <div class="intg-dot" style="background:#005eb8"></div>
+              <div class="intg-logo" style="color:#005eb8">athenahealth</div>
+            </div>
+            <div class="intg-label">EHR Platform</div>
+          </div>
+          <div class="integration-card animate delay-3">
+            <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem">
+              <div class="intg-dot" style="background:#0066CC"></div>
+              <div class="intg-logo" style="color:#0066CC">eClinical<br>Works</div>
+            </div>
+            <div class="intg-label">EHR Platform</div>
+          </div>
+          <div class="integration-card animate delay-4">
+            <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem">
+              <div class="intg-dot" style="background:#6C3FC5"></div>
+              <div class="intg-logo" style="color:#6C3FC5">Xandar<br>Kardian</div>
+            </div>
+            <div class="intg-label">Sensor Technology</div>
+          </div>
+          <div class="integration-card animate delay-5">
+            <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem">
+              <div class="intg-dot" style="background:#00A878"></div>
+              <div class="intg-logo" style="color:#00A878">Clinii</div>
+            </div>
+            <div class="intg-label">Care Platform</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facility Types -->
+    <section class="section section-gray">
+      <div class="container">
+        <div class="section-header animate">
+          <div class="eyebrow">Who We Serve</div>
+          <h2>Built for long-term care</h2>
+          <p>TRC is designed for the specific demands of long-term care environments, where continuous oversight and staff efficiency are paramount.</p>
+        </div>
+        <div class="facility-grid">
+          <div class="facility-card animate delay-1">
+            <div class="facility-card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
+            <h3>Skilled Nursing Facilities</h3>
+            <p>Continuous monitoring for high-acuity residents requiring close clinical oversight and structured documentation.</p>
+          </div>
+          <div class="facility-card animate delay-2">
+            <div class="facility-card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div>
+            <h3>Assisted Living Communities</h3>
+            <p>Ambient oversight that supports resident independence while providing staff with meaningful health visibility.</p>
+          </div>
+          <div class="facility-card animate delay-3">
+            <div class="facility-card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+            <h3>Rehabilitation Centers</h3>
+            <p>Post-acute monitoring that helps clinical teams track recovery progress and identify any changes requiring clinical attention.</p>
+          </div>
+          <div class="facility-card animate delay-4">
+            <div class="facility-card-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+            <h3>Long-Term Care Facilities</h3>
+            <p>Scalable monitoring infrastructure for facilities managing residents with complex, chronic, and evolving health needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process overview -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header animate">
+          <div class="eyebrow">Implementation</div>
+          <h2>Simple to implement</h2>
+          <p>TRC is designed to be up and running quickly, with minimal disruption to existing staff workflows or resident routines.</p>
+        </div>
+        <div class="process-overview-grid">
+          <div class="po-card animate delay-1">
+            <div class="po-num">1</div>
+            <h3>Assessment</h3>
+            <p>We evaluate your facility layout, census, and infrastructure to design the right monitoring configuration.</p>
+          </div>
+          <div class="po-card animate delay-2">
+            <div class="po-num">2</div>
+            <h3>Deployment</h3>
+            <p>Sensors are installed quickly with no construction, no wiring, and no disruption to residents or daily operations.</p>
+          </div>
+          <div class="po-card animate delay-3">
+            <div class="po-num">3</div>
+            <h3>Monitoring</h3>
+            <p>The platform begins learning resident baselines and surfacing meaningful clinical insights to your team.</p>
+          </div>
+          <div class="po-card animate delay-4">
+            <div class="po-num">4</div>
+            <h3>Ongoing Support</h3>
+            <p>Your dedicated TRC team remains available to ensure the platform continues delivering value as your facility evolves.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="section section-gray">
+      <div class="container">
+        <div class="content-grid" style="gap:4rem;align-items:center">
+          <div class="animate-left">
+            <div class="eyebrow">Trust</div>
+            <h2>Designed for healthcare environments</h2>
+            <p>TRC is built with the unique requirements of healthcare settings in mind, from how data is handled to how the platform interacts with clinical staff and residents.</p>
+            <a onclick="navigateTo('compliance')" class="btn btn-secondary" style="margin-top:1.25rem">View Compliance Details →</a>
+          </div>
+          <div class="trust-section-grid animate-right">
+            <div class="trust-section-item">
+              <div class="trust-section-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+              <div>
+                <h4>HIPAA Conscious Workflows</h4>
+                <p>Platform design and data handling practices are built around healthcare privacy requirements from the ground up.</p>
+              </div>
+            </div>
+            <div class="trust-section-item">
+              <div class="trust-section-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+              <div>
+                <h4>Secure Data Handling</h4>
+                <p>Resident data is encrypted, access-controlled, and handled with the care that sensitive health information requires.</p>
+              </div>
+            </div>
+            <div class="trust-section-item">
+              <div class="trust-section-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+              <div>
+                <h4>Facility-Focused Support</h4>
+                <p>Our team works directly with facility administrators, directors of nursing, and clinical staff to ensure smooth adoption.</p>
+              </div>
+            </div>
+            <div class="trust-section-item">
+              <div class="trust-section-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
+              <div>
+                <h4>Designed for Long-Term Care</h4>
+                <p>Built specifically for SNF and LTC environments, not adapted from acute care or consumer wellness technology.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2818,13 +3214,36 @@
       </div>
     </div>
     <hr class="footer-divider">
+    <!-- Demo CTA in footer -->
+    <div style="background:rgba(0,164,157,.1);border:1px solid rgba(0,164,157,.2);border-radius:16px;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+      <div>
+        <div style="font-size:1rem;font-weight:800;color:var(--white);margin-bottom:.25rem">Ready to see TRC in action?</div>
+        <div style="font-size:.875rem;color:rgba(255,255,255,.55)">Talk to a clinical specialist - no sales pressure.</div>
+      </div>
+      <a onclick="navigateTo('contact')" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0">Schedule a Demo →</a>
+    </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Total Remote Care &bull; Miami, FL &bull; +1 (954) 603-5622 &bull; info@totalremotecare.com</p>
-      <div class="footer-badges">
-        <div class="footer-badge">HIPAA</div>
-        <div class="footer-badge">CMS</div>
-        <div class="footer-badge">FDA</div>
-        <div class="footer-badge">SOC 2</div>
+      <div style="display:flex;flex-direction:column;gap:.5rem">
+        <p>&copy; 2025 Total Remote Care. All rights reserved.</p>
+        <p style="font-size:.75rem">Miami, FL &nbsp;&bull;&nbsp; +1 (954) 603-5622 &nbsp;&bull;&nbsp; info@totalremotecare.com</p>
+        <div style="display:flex;gap:1.25rem;margin-top:.25rem">
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:.75rem;text-decoration:none" onclick="event.preventDefault()">Privacy Policy</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:.75rem;text-decoration:none" onclick="event.preventDefault()">Terms of Service</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.75rem">
+        <div class="footer-badges">
+          <div class="footer-badge">HIPAA</div>
+          <div class="footer-badge">CMS</div>
+          <div class="footer-badge">FDA</div>
+          <div class="footer-badge">SOC 2</div>
+        </div>
+        <!-- Social links - add your actual URLs -->
+        <div style="display:flex;gap:.75rem;align-items:center">
+          <a href="https://linkedin.com/company/totalremotecare" target="_blank" rel="noopener" style="width:32px;height:32px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s" onmouseover="this.style.background='rgba(0,164,157,.3)';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,.08)';this.style.color='rgba(255,255,255,.5)'">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
