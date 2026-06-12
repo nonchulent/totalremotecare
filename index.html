@@ -3182,6 +3182,114 @@
             .whytrc-feat { gap:1rem; }
         }
 
+        
+        /* ══════════════════════════════════════════════
+           LAYERED HERO — room environment + dashboard overlay
+        ══════════════════════════════════════════════ */
+        .home-hero {
+            position:relative !important; overflow:hidden !important;
+            min-height:850px !important;
+            display:flex !important; align-items:center !important;
+            padding:calc(var(--header-h) + 2rem) 0 4rem !important;
+            background:
+                radial-gradient(ellipse 60% 50% at 15% 30%, rgba(0,164,157,.08), transparent 60%),
+                linear-gradient(150deg, #0d1f3c 0%, #0A1628 55%, #06101f 100%) !important;
+        }
+        .hero-bg-glow {
+            position:absolute; inset:0; z-index:0; pointer-events:none;
+            background:radial-gradient(ellipse 50% 60% at 75% 40%, rgba(0,164,157,.1), transparent 65%);
+        }
+        /* Right-side room image layer */
+        .hero-room-layer {
+            position:absolute; top:0; right:0; bottom:0; width:58%; z-index:1;
+            overflow:hidden;
+        }
+        .hero-room-img {
+            width:100%; height:100%; object-fit:cover; display:block;
+            opacity:.85;
+        }
+        /* Fade the room into the navy on its left edge so it blends with text side */
+        .hero-room-fade {
+            position:absolute; inset:0;
+            background:
+                linear-gradient(90deg, #0A1628 0%, rgba(10,22,40,.55) 22%, rgba(10,22,40,.15) 50%, rgba(6,16,31,.45) 100%),
+                linear-gradient(0deg, rgba(6,16,31,.6) 0%, transparent 40%);
+        }
+        /* Ambient teal signal accents over the room */
+        .hero-accent {
+            position:absolute; border-radius:50%; z-index:2; pointer-events:none;
+            background:var(--teal); box-shadow:0 0 16px 3px rgba(0,164,157,.6);
+        }
+        .hero-accent-1 { width:9px; height:9px; top:42%; left:30%; animation:heroPulse 4s ease-in-out infinite; }
+        .hero-accent-2 { width:7px; height:7px; top:62%; left:46%; animation:heroPulse 4s ease-in-out infinite .8s; }
+        .hero-accent-3 { width:8px; height:8px; top:24%; left:60%; animation:heroPulse 4s ease-in-out infinite 1.6s; }
+        @keyframes heroPulse { 0%,100%{opacity:.4;transform:scale(.85)} 50%{opacity:1;transform:scale(1.15)} }
+
+        /* Hero inner grid */
+        .hero-inner {
+            position:relative; z-index:3;
+            max-width:1440px; margin:0 auto; padding:0 3rem; width:100%;
+            display:grid; grid-template-columns:46% 54%; gap:3.5rem; align-items:center;
+        }
+        .hero-content { position:relative; z-index:4; }
+        .hero-eyebrow {
+            font-size:.8125rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
+            color:var(--teal); margin-bottom:1.75rem;
+        }
+        .home-hero h1 {
+            font-size:clamp(3rem, 5vw, 4.75rem) !important; line-height:1.02 !important;
+            letter-spacing:-.04em !important; color:#fff !important; margin-bottom:0 !important;
+        }
+        .hero-rule { width:60px; height:3px; background:var(--teal); margin:2rem 0; border-radius:2px; }
+        .home-hero .hero-sub {
+            font-size:1.1875rem !important; line-height:1.65 !important;
+            color:rgba(255,255,255,.72) !important; max-width:440px !important; margin-bottom:2.5rem !important;
+        }
+        .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:4rem; }
+
+        /* Proof points */
+        .hero-proof { display:flex; align-items:flex-start; gap:2rem; max-width:620px; }
+        .hero-proof-item { flex:1; }
+        .hero-proof-icon { color:var(--teal); margin-bottom:.875rem; }
+        .hero-proof-item h3 { font-size:1rem; font-weight:700; color:#fff; margin-bottom:.4rem; }
+        .hero-proof-item p { font-size:.8125rem; line-height:1.5; color:rgba(255,255,255,.55); margin:0; }
+        .hero-proof-divider { width:1px; align-self:stretch; background:rgba(255,255,255,.12); }
+
+        /* Dashboard overlay — glassmorphism, layered on room */
+        .hero-visual {
+            position:relative; z-index:4; display:flex; justify-content:flex-end; align-items:center;
+            transform:none !important;
+        }
+        .hero-visual::after, .hero-visual::before { display:none !important; }
+        .dash-shell {
+            position:relative !important; z-index:4 !important;
+            width:100% !important; max-width:620px !important; margin:0 !important;
+            transform:none !important;
+            background:rgba(13,28,52,.72) !important;
+            backdrop-filter:blur(20px) !important; -webkit-backdrop-filter:blur(20px) !important;
+            border:1px solid rgba(0,164,157,.22) !important;
+            border-radius:20px !important;
+            box-shadow:0 40px 120px rgba(0,0,0,.55), 0 0 80px rgba(0,164,157,.08), inset 0 1px 0 rgba(255,255,255,.06) !important;
+        }
+        .dash-shell:hover { transform:translateY(-4px) !important; }
+
+        @media (max-width:1100px) {
+            .home-hero { min-height:auto !important; padding:calc(var(--header-h) + 3rem) 0 4rem !important; }
+            .hero-room-layer { width:100%; opacity:.4; }
+            .hero-room-fade { background:linear-gradient(180deg, rgba(10,22,40,.85), rgba(6,16,31,.95)); }
+            .hero-inner { grid-template-columns:1fr; gap:3.5rem; }
+            .hero-visual { justify-content:center; }
+            .dash-shell { max-width:560px !important; }
+            .hero-accent { display:none; }
+        }
+        @media (max-width:768px) {
+            .hero-proof { flex-direction:column; gap:1.5rem; }
+            .hero-proof-divider { display:none; }
+            .hero-cta { margin-bottom:3rem; }
+            .dash-shell { max-width:100% !important; }
+            .home-hero h1 { font-size:clamp(2.75rem,10vw,3.5rem) !important; }
+        }
+
         </style>
 </head>
 <body>
@@ -3234,28 +3342,50 @@
   <!-- ═══════════════════════════════════════════ HOME ═══ -->
   <div id="home" class="page active">
     <section class="home-hero">
-      <div class="signal-motif" data-mobile style="display:none"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div>
-      
-      <div class="hero-blob-1"></div>
-      <div class="hero-blob-2"></div>
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content" style="position:relative;z-index:2;padding-bottom:1rem">
-            <h1>Continuous monitoring<br>for <span class="hero-gradient-text">long-term care</span></h1>
-            <p class="hero-sub">TRC helps long-term care organizations gain better visibility into resident health through continuous monitoring, meaningful clinical insights, and dedicated operational support.</p>
-
-            <div class="hero-cta">
-              <a onclick="navigateTo('contact')" class="btn btn-primary btn-large">
-                Schedule a Demo
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-              </a>
-              <a onclick="navigateTo('process')" class="btn btn-ghost btn-large">Learn How It Works</a>
+      <div class="hero-bg-glow"></div>
+      <div class="hero-room-layer">
+        <img src="images/continuous-awareness.jpg" alt="Quiet resident care environment" class="hero-room-img">
+        <div class="hero-room-fade"></div>
+        <!-- ambient signal accents -->
+        <div class="hero-accent hero-accent-1"></div>
+        <div class="hero-accent hero-accent-2"></div>
+        <div class="hero-accent hero-accent-3"></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Clinical intelligence that's always on</div>
+          <h1>Continuous monitoring<br>for <span class="hero-gradient-text">long-term care</span></h1>
+          <div class="hero-rule"></div>
+          <p class="hero-sub">TRC delivers continuous visibility into resident health so your team can act sooner, support better outcomes, and reduce risk.</p>
+          <div class="hero-cta">
+            <a onclick="navigateTo('contact')" class="btn btn-primary btn-large">
+              Schedule a Demo
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a onclick="navigateTo('process')" class="btn btn-ghost btn-large">Learn How It Works</a>
+          </div>
+          <div class="hero-proof">
+            <div class="hero-proof-item">
+              <div class="hero-proof-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3l2-5 4 10 2-5h7"/></svg></div>
+              <h3>Always On</h3>
+              <p>Ambient monitoring with no wearables or disruption.</p>
+            </div>
+            <div class="hero-proof-divider"></div>
+            <div class="hero-proof-item">
+              <div class="hero-proof-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5M4 19h16M8 16v-4M12 16V9M16 16v-6"/></svg></div>
+              <h3>Actionable Insights</h3>
+              <p>Meaningful clinical signals surfaced with context.</p>
+            </div>
+            <div class="hero-proof-divider"></div>
+            <div class="hero-proof-item">
+              <div class="hero-proof-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 19a5.5 5.5 0 0111 0M16 6.5a3 3 0 010 5.5M17 19a5 5 0 00-3-4.5"/></svg></div>
+              <h3>Expert Support</h3>
+              <p>A dedicated team supporting implementation and ongoing use.</p>
             </div>
           </div>
-          <div class="hero-visual">
-          <div class="signal-motif" style="top:-80px;right:-60px;--sig-size:360px;--sig-opacity:.55;"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div>
-          
-            <div class="dash-shell"><div class="brand-corner"></div>
+        </div>
+        <div class="hero-visual">
+          <div class="dash-shell"><div class="brand-corner"></div>
               <div class="ds-topbar">
                 <div class="ds-facility-name"><div class="ds-facility-dot"></div>Facility Overview - Live Monitor</div>
                 <div class="ds-topbar-right">
@@ -3323,7 +3453,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </section>
