@@ -1493,7 +1493,7 @@
             background:#F8F7F4 !important;
         }.builtfor-wrap {
             max-width:1440px; margin:0 auto; padding:0 3rem;
-            display:grid; grid-template-columns:47% 53%; gap:5.5rem;
+            display:grid; grid-template-columns:47fr 53fr; gap:5.5rem;
             align-items:center;
         }.builtfor-photo {
             border-radius:28px; overflow:hidden;
@@ -1540,7 +1540,7 @@
             background:#F7F8FA !important;
         }.impl-wrap {
             max-width:1440px; margin:0 auto; padding:0 3rem;
-            display:grid; grid-template-columns:50% 50%; gap:5.5rem;
+            display:grid; grid-template-columns:1fr 1fr; gap:5.5rem;
             align-items:center;
         }.impl-photo {
             border-radius:28px; overflow:hidden;
@@ -1591,7 +1591,7 @@
             padding:140px 0 !important;
             background:var(--off-white) !important;
         }.whytrc-wrap { max-width:1440px; margin:0 auto; padding:0 3rem; }.whytrc-top {
-            display:grid; grid-template-columns:42% 58%; gap:5rem;
+            display:grid; grid-template-columns:42fr 58fr; gap:5rem;
             align-items:center; margin-bottom:-3.5rem;
             position:relative; z-index:1;
         }.whytrc-copy { padding-bottom:5rem; }.whytrc-copy .eyebrow { margin-bottom:1.25rem; }.whytrc-copy h2 {
@@ -1665,7 +1665,7 @@
         .hero-inner {
             position:relative; z-index:3;
             max-width:1440px; margin:0 auto; padding:0 3rem; width:100%;
-            display:grid; grid-template-columns:46% 54%; gap:3.5rem; align-items:center;
+            display:grid; grid-template-columns:46fr 54fr; gap:3.5rem; align-items:center;
         }.hero-content { position:relative; z-index:4; }.hero-eyebrow {
             font-size:.8125rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
             color:var(--teal); margin-bottom:1.75rem;
@@ -1840,12 +1840,6 @@
             .home-hero h1 { font-size:clamp(2.5rem,9vw,3.25rem) !important; }
 
             /* Dashboard VISIBLE and properly sized below CTAs */
-            .dash-shell {
-                display:block !important;
-                width:100% !important; max-width:100% !important;
-                margin:0 !important; transform:none !important;
-                font-size:13px;
-            }
             .hero-visual { justify-content:stretch; width:100%; }
 
             /* Bump up the too-small dashboard text for readability */
@@ -1869,6 +1863,112 @@
             .dash-shell { display:block !important; width:100% !important; max-width:600px !important; margin:0 auto !important; transform:none !important; }
             .hero-visual { justify-content:center; }
             .hero-room-layer { opacity:.35; }
+        }
+
+        
+        /* ── HERO MINI-DASHBOARD (mobile only) ── */
+        .hero-mini-dash { display:none; }
+        @media (max-width:768px) {
+            /* Hide the heavy full dashboard, show compact version */
+            .dash-shell { display:none !important; }
+            .hero-mini-dash {
+                display:block; width:100%;
+                background:rgba(13,28,52,.72);
+                backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+                border:1px solid rgba(0,164,157,.22);
+                border-radius:18px; padding:1.25rem;
+                box-shadow:0 24px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.06);
+            }
+            .hmd-head { display:flex; align-items:center; gap:.75rem; margin-bottom:1.1rem; }
+            .hmd-live {
+                display:inline-flex; align-items:center; gap:.4rem;
+                font-size:.6875rem; font-weight:800; letter-spacing:.08em;
+                color:var(--teal); background:rgba(0,164,157,.12);
+                padding:.3rem .6rem; border-radius:20px; border:1px solid rgba(0,164,157,.3);
+            }
+            .hmd-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:heroPulse 2s ease-in-out infinite; }
+            .hmd-title { font-size:.875rem; font-weight:700; color:#fff; }
+            .hmd-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:.5rem; margin-bottom:1rem; }
+            .hmd-stat {
+                display:flex; flex-direction:column; align-items:center; gap:.15rem;
+                background:rgba(255,255,255,.04); border-radius:10px; padding:.65rem .25rem;
+            }
+            .hmd-num { font-size:1.25rem; font-weight:800; color:#fff; line-height:1; }
+            .hmd-lbl { font-size:.5625rem; font-weight:600; letter-spacing:.03em; text-transform:uppercase; color:rgba(255,255,255,.5); text-align:center; }
+            .hmd-vitals { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+            .hmd-vital { background:rgba(255,255,255,.04); border-radius:12px; padding:.85rem; }
+            .hmd-vital-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:.5rem; }
+            .hmd-vital-lbl { font-size:.625rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:rgba(255,255,255,.6); }
+            .hmd-vital-tag {
+                font-size:.5625rem; font-weight:700; color:#4ade80;
+                background:rgba(74,222,128,.12); padding:.15rem .45rem; border-radius:12px;
+            }
+            .hmd-vital-val { font-size:1.75rem; font-weight:800; color:#fff; line-height:1; }
+            .hmd-vital-val span { font-size:.75rem; font-weight:600; color:rgba(255,255,255,.55); margin-left:.25rem; }
+        }
+
+        
+        /* ── GRID OVERFLOW FIX — allow grid children to shrink ── */
+        .whytrc-top > *, .builtfor-wrap > *, .impl-wrap > *,
+        .hero-inner > *, .outcomes-pillars > * {
+            min-width:0;
+        }
+        .whytrc-photo, .builtfor-photo, .impl-photo { max-width:100%; overflow:hidden; }
+        .builtfor-grid2, .impl-process { min-width:0; max-width:100%; }
+
+        
+        /* ══════════════════════════════════════════════
+           HOMEPAGE VIDEO SECTION
+        ══════════════════════════════════════════════ */
+        #home-video-sec {
+            padding:120px 0;
+            background:linear-gradient(165deg, #0d1f3c 0%, #0A1628 100%);
+            position:relative; overflow:hidden;
+        }
+        #home-video-sec::before {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background:radial-gradient(ellipse 50% 55% at 80% 30%, rgba(0,164,157,.09), transparent 60%);
+        }
+        .hvid-wrap {
+            position:relative; z-index:1;
+            max-width:1280px; margin:0 auto; padding:0 3rem;
+            display:grid; grid-template-columns:42fr 58fr; gap:4.5rem; align-items:center;
+        }
+        .hvid-wrap > * { min-width:0; }
+        .hvid-copy .eyebrow { margin-bottom:1.5rem; }
+        .hvid-copy h2 {
+            color:#fff !important; font-size:clamp(2rem,3.2vw,2.875rem) !important;
+            line-height:1.12 !important; letter-spacing:-.02em !important; margin-bottom:1.5rem !important;
+        }
+        .hvid-sub {
+            color:rgba(255,255,255,.65); font-size:1.0625rem; line-height:1.7;
+            max-width:440px; margin-bottom:2.5rem;
+        }
+        .hvid-cta { display:flex; gap:1rem; flex-wrap:wrap; }
+
+        /* Polished video card */
+        .hvid-player {
+            border-radius:20px; overflow:hidden;
+            border:1px solid rgba(0,164,157,.2);
+            box-shadow:0 40px 100px rgba(0,0,0,.5), 0 0 60px rgba(0,164,157,.07), inset 0 1px 0 rgba(255,255,255,.05);
+            background:#06101f;
+        }
+        .hvid-ratio { position:relative; width:100%; padding-top:56.25%; }
+        .hvid-ratio iframe {
+            position:absolute; inset:0; width:100%; height:100%; border:0; display:block;
+        }
+
+        @media (max-width:900px) {
+            #home-video-sec { padding:5rem 0; }
+            .hvid-wrap { grid-template-columns:1fr; gap:2.5rem; padding:0 1.5rem; }
+            .hvid-copy { text-align:center; }
+            .hvid-sub { margin-left:auto; margin-right:auto; }
+            .hvid-cta { justify-content:center; }
+            /* Video first feels more natural on mobile? No — keep text first per spec, but tighten */
+        }
+        @media (max-width:768px) {
+            .hvid-cta { flex-direction:column; align-items:stretch; }
+            .hvid-cta .btn { width:100%; }
         }
 
         </style>
@@ -1966,6 +2066,28 @@
           </div>
         </div>
         <div class="hero-visual">
+          <div class="hero-mini-dash">
+            <div class="hmd-head">
+              <span class="hmd-live"><span class="hmd-dot"></span>LIVE</span>
+              <span class="hmd-title">Facility Overview</span>
+            </div>
+            <div class="hmd-stats">
+              <div class="hmd-stat"><span class="hmd-num">24</span><span class="hmd-lbl">Monitored</span></div>
+              <div class="hmd-stat"><span class="hmd-num">2</span><span class="hmd-lbl">Needs Review</span></div>
+              <div class="hmd-stat"><span class="hmd-num">1</span><span class="hmd-lbl">Alert Sent</span></div>
+              <div class="hmd-stat"><span class="hmd-num">97%</span><span class="hmd-lbl">Uptime</span></div>
+            </div>
+            <div class="hmd-vitals">
+              <div class="hmd-vital">
+                <div class="hmd-vital-top"><span class="hmd-vital-lbl">Heart Rate</span><span class="hmd-vital-tag">Stable</span></div>
+                <div class="hmd-vital-val">72<span>bpm</span></div>
+              </div>
+              <div class="hmd-vital">
+                <div class="hmd-vital-top"><span class="hmd-vital-lbl">Respiration</span><span class="hmd-vital-tag">Stable</span></div>
+                <div class="hmd-vital-val">16<span>/min</span></div>
+              </div>
+            </div>
+          </div>
           <div class="dash-shell"><div class="brand-corner"></div>
               <div class="ds-topbar">
                 <div class="ds-facility-name"><div class="ds-facility-dot"></div>Facility Overview - Live Monitor</div>
@@ -2067,6 +2189,33 @@
         </div>
       </div>
     </div>
+
+    <section id="home-video-sec">
+      <div class="hvid-wrap">
+        <div class="hvid-copy">
+          <div class="eyebrow">See It In Action</div>
+          <h2>See how Total Remote Care works inside a facility</h2>
+          <p class="hvid-sub">From ambient monitoring to actionable alerts, TRC gives long-term care teams continuous visibility without disrupting residents.</p>
+          <div class="hvid-cta">
+            <a href="https://player.vimeo.com/video/1195701005" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+              Watch Overview
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 5v14l11-7z"/></svg>
+            </a>
+            <a onclick="navigateTo('contact')" class="btn btn-ghost btn-large">Schedule a Demo</a>
+          </div>
+        </div>
+        <div class="hvid-player">
+          <div class="hvid-ratio">
+            <iframe
+              src="https://player.vimeo.com/video/1195701005?badge=0&autopause=0&player_id=0&app_id=58479&color=00A49D&title=0&byline=0&portrait=0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+              title="Total Remote Care - Product Overview"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="why-trc-sec">
       <div class="whytrc-wrap">
