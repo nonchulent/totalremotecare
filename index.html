@@ -149,13 +149,8 @@
             pointer-events:none; border-radius:50%;
         }
         .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; position:relative; z-index:2; }
-        .hero-badge {
-            display:inline-flex; align-items:center; gap:.5rem;
-            background:rgba(0,164,157,.15); border:1px solid rgba(0,164,157,.3);
-            padding:.45rem 1rem; border-radius:100px; font-size:.8125rem;
-            color:rgba(255,255,255,.85); margin-bottom:1.5rem; font-weight:600; letter-spacing:.01em;
-        }
-        .hero-badge-dot { width:7px; height:7px; background:var(--teal); border-radius:50%; animation:pulseGlow 2s ease-in-out infinite; }
+        
+        
         @keyframes pulseGlow {
             0%,100%{box-shadow:0 0 0 0 rgba(0,164,157,.5)}
             50%{box-shadow:0 0 0 5px rgba(0,164,157,0)}
@@ -166,28 +161,20 @@
         
         /* Hero visual */
         .hero-visual { display:flex; justify-content:center; align-items:center; }
-        .dashboard-preview {
-            background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
-            border-radius:24px; padding:1.5rem; backdrop-filter:blur(12px);
-            width:100%; max-width:460px;
-            box-shadow:0 32px 80px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.15);
-        }
-        .dash-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.25rem; }
-        .dash-title { font-size:.8125rem; font-weight:700; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.08em; }
-        .dash-live { display:flex; align-items:center; gap:.4rem; font-size:.75rem; font-weight:700; color:var(--teal); }
+        
+        
+        
+        
         .live-dot { width:6px; height:6px; background:var(--teal); border-radius:50%; animation:pulseGlow 1.5s ease-in-out infinite; }
-        .dash-vitals { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
-        .vital-card {
-            background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1);
-            border-radius:14px; padding:1rem;
-        }
-        .vital-label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.45); margin-bottom:.3rem; }
-        .vital-value { font-size:1.75rem; font-weight:800; color:var(--white); line-height:1; margin-bottom:.5rem; letter-spacing:-0.03em; }
-        .vital-value span { font-size:.8rem; font-weight:500; color:rgba(255,255,255,.55); }
-        .vital-sparkline { height:32px; width:100%; }
-        .vital-status { display:flex; align-items:center; gap:.35rem; font-size:.7rem; font-weight:700; }
-        .vital-status.normal { color:#4ade80; }
-        .vital-status.normal::before { content:''; width:5px; height:5px; background:#4ade80; border-radius:50%; }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         /* ECG line animation */
         .ecg-path { fill:none; stroke:var(--teal); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:300; stroke-dashoffset:300; animation:ecgDraw 3s ease-in-out infinite; }
         @keyframes ecgDraw { 0%{stroke-dashoffset:300} 50%{stroke-dashoffset:0} 100%{stroke-dashoffset:-300} }
@@ -527,7 +514,6 @@
         }
         .mobile-cta-demo:hover { background:rgba(255,255,255,.18); }
 
-
         /* ── HERO DASHBOARD SHELL ── */
         .dash-shell {
             width:100%; max-width:500px;
@@ -695,31 +681,31 @@
         }
         .btn:active { transform:scale(.97) !important; }
         .btn-primary:hover {
-            transform:translateY(-3px) !important;
+            transform:translateY(-3px);
             box-shadow:0 10px 32px rgba(0,164,157,.35) !important;
         }
-        .btn-ghost:hover { transform:translateY(-2px) !important; }
-        .btn-secondary:hover { transform:translateY(-2px) !important; }
+        .btn-ghost:hover { transform:translateY(-2px); }
+        .btn-secondary:hover { transform:translateY(-2px); }
 
         .value-card, .link-card, .solution-card, .feature-card, .serve-card, .faq-item {
             transition:all .3s cubic-bezier(.16,1,.3,1) !important;
         }
         .value-card:hover {
-            transform:translateY(-6px) !important;
-            box-shadow:0 20px 50px rgba(10,22,40,.12) !important;
+            transform:translateY(-6px);
+            box-shadow:0 20px 50px rgba(10,22,40,.12);
         }
         .link-card:hover {
-            transform:translateY(-3px) !important;
-            box-shadow:0 8px 28px rgba(0,164,157,.14) !important;
+            transform:translateY(-3px);
+            box-shadow:0 8px 28px rgba(0,164,157,.14);
         }
         .feature-card:hover {
-            transform:translateY(-3px) !important;
-            box-shadow:0 8px 28px rgba(10,22,40,.1) !important;
+            transform:translateY(-3px);
+            box-shadow:0 8px 28px rgba(10,22,40,.1);
         }
 
         /* Card press */
         .value-card:active, .link-card:active, .feature-card:active {
-            transform:scale(.99) translateY(0) !important;
+            transform:scale(.99) translateY(0);
         }
 
         /* Nav link hover underline */
@@ -743,7 +729,7 @@
             margin-bottom:-2px;
         }
         .divider-wave svg { display:block; width:100%; }
-        .divider-wave-flip { transform:scaleY(-1); }
+        
 
         /* ── FAQ PAGE ── */
         .faq-grid { display:flex; flex-direction:column; gap:.75rem; max-width:800px; margin:0 auto; }
@@ -814,12 +800,9 @@
             transition:all .3s ease;
         }
         .why-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:transparent; }
-        .why-number {
-            font-size:2.5rem; font-weight:800; color:var(--teal);
-            letter-spacing:-.04em; line-height:1; margin-bottom:.25rem;
-        }
-        .why-card h3 { font-size:1rem; margin-bottom:.625rem; }
-        .why-card p { font-size:.875rem; margin:0; }
+        
+        
+        
 
         /* ── PRINT STYLESHEET ── */
         @media print {
@@ -1120,7 +1103,7 @@
         @media (max-width:768px) {
             .hero-content { display:flex; flex-direction:column; align-items:center; padding:0 .25rem; }
             .hero-content::before {
-                content:'● Live Monitoring  ·  All 50 States  ·  No Wearables';
+                content:'● Clinical Monitoring  ·  Nationwide  ·  No Wearables';
                 display:inline-flex; align-items:center;
                 background:rgba(0,164,157,.15); border:1px solid rgba(0,164,157,.3);
                 color:rgba(255,255,255,.8); font-size:.72rem; font-weight:700;
@@ -1230,8 +1213,8 @@
             display:flex; align-items:center; justify-content:center;
             color:var(--teal); margin-bottom:1rem;
         }
-        .facility-card h3 { font-size:1rem; font-weight:700; margin-bottom:.4rem; }
-        .facility-card p { font-size:.8125rem; margin:0; line-height:1.6; color:var(--text-secondary); }
+        
+        
 
         /* ── TRUST SECTION ── */
         .trust-section-grid {
@@ -1343,7 +1326,7 @@
         .feature-row-desc { font-size:.875rem; color:var(--text-secondary); line-height:1.65; margin:0; }
 
         /* ── ENTERPRISE DASHBOARD ── */
-        .ds-anon { font-size:.72rem; font-weight:700; color:rgba(255,255,255,.7); }
+        
 
         /* ── RESOURCES PAGE ── */
         .resources-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
@@ -1422,6 +1405,81 @@
             .footer-grid-v2 { grid-template-columns:1fr; }
         }
 
+        /* ── COMPACT VIDEO ── */
+        @media (max-width:768px) { .compact-video-grid { grid-template-columns:1fr; gap:1.5rem; } }
+
+      .imap-shell {
+        background:linear-gradient(160deg, #0d1f3c 0%, #0A1628 60%, #071020 100%);
+        border-radius:24px; overflow:hidden;
+        border:1px solid rgba(0,164,157,.2);
+        box-shadow:0 24px 80px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.06);
+        position:relative;
+      }
+      .imap-topbar {
+        display:flex; align-items:center; justify-content:space-between;
+        padding:1rem 1.5rem; border-bottom:1px solid rgba(255,255,255,.06);
+      }
+      .imap-status { display:flex; align-items:center; gap:.5rem; font-size:.8rem; font-weight:700; color:rgba(255,255,255,.7); }
+      .imap-pulse { width:8px; height:8px; background:var(--teal); border-radius:50%; animation:pulseGlow 1.8s infinite; flex-shrink:0; }
+      .imap-stats { display:flex; gap:2rem; }
+      .imap-stat { text-align:center; }
+      .imap-stat-n { display:block; font-size:1rem; font-weight:800; color:var(--white); letter-spacing:-.02em; }
+      .imap-stat-l { display:block; font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,255,255,.4); }
+      #us-map-container svg { display:block; width:100%; }
+      .state-path {
+        fill:rgba(0,164,157,.18);
+        stroke:rgba(0,164,157,.45);
+        stroke-width:.5;
+        cursor:pointer;
+        transition:fill .2s ease;
+      }
+      .state-path:hover { fill:rgba(0,164,157,.55); stroke:rgba(0,164,157,.9); stroke-width:1; }
+      .state-path.active { fill:rgba(0,164,157,.35); }
+      .state-border { fill:none; stroke:rgba(0,164,157,.15); stroke-width:.3; pointer-events:none; }
+      .map-dot { fill:var(--teal); opacity:.9; cursor:pointer; }
+      .map-dot-ring { fill:none; stroke:var(--teal); stroke-width:1.5; opacity:0; }
+      .imap-tooltip {
+        position:absolute; pointer-events:none; z-index:10;
+        background:rgba(10,22,40,.95); border:1px solid rgba(0,164,157,.4);
+        border-radius:10px; padding:.6rem 1rem;
+        font-size:.8rem; color:var(--white); font-weight:700;
+        box-shadow:0 8px 24px rgba(0,0,0,.4);
+        opacity:0; transition:opacity .15s ease;
+        white-space:nowrap; backdrop-filter:blur(8px);
+      }
+      .imap-tooltip.visible { opacity:1; }
+      .imap-tooltip-state { font-size:.9rem; font-weight:800; margin-bottom:.2rem; }
+      .imap-tooltip-tag { font-size:.7rem; color:var(--teal); font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+      .imap-legend {
+        display:flex; align-items:center; gap:.5rem; padding:.75rem 1.5rem;
+        border-top:1px solid rgba(255,255,255,.05);
+        font-size:.7rem; font-weight:700; color:rgba(255,255,255,.35); text-transform:uppercase; letter-spacing:.06em;
+      }
+      .imap-legend-dot { width:8px; height:8px; background:rgba(0,164,157,.5); border-radius:50%; }
+      @media (max-width:768px) {
+        .imap-stats { gap:1rem; }
+        .imap-stat-n { font-size:.875rem; }
+      }
+    
+
+        /* ── CHATBASE POSITION ── */
+        #chatbase-bubble-button { bottom: 80px !important; }
+        @media (min-width: 769px) { #chatbase-bubble-button { bottom: 24px !important; } }
+
+    
+        /* ── AUTHORITY BANNER ── */
+        @media (max-width:768px) {
+            .authority-items { flex-direction:column; gap:1rem !important; align-items:flex-start; }
+        }
+
+        
+      @media (max-width:768px) {
+        .mid-cta-inner { grid-template-columns:1fr !important; }
+        .mid-cta-inner > div:last-child { align-items:flex-start !important; }
+      }
+    
+        
+        @media (max-width:768px) { .mid-cta-inner { grid-template-columns:1fr !important; } .mid-cta-inner > div:last-child { align-items:flex-start !important; } }
         </style>
 </head>
 <body>
@@ -1480,9 +1538,9 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <h1>Care that sees<br><span class="hero-gradient-text">around corners</span></h1>
-            <p class="hero-sub">Preemptive care for long-term facilities. Continuous monitoring that catches problems before they become emergencies, giving your team time to act.</p>
-              <p style="font-size:.9375rem;color:rgba(255,255,255,.55);margin-bottom:2.5rem;max-width:480px;line-height:1.65">Helping facilities identify changes earlier, improve visibility, and make more informed care decisions.</p>
+            <h1>Continuous monitoring<br>for <span class="hero-gradient-text">long-term care</span></h1>
+            <p class="hero-sub">TRC helps long-term care organizations gain better visibility into resident health through continuous monitoring, meaningful clinical insights, and dedicated operational support.</p>
+
             <div class="hero-cta">
               <a onclick="navigateTo('contact')" class="btn btn-primary btn-large">
                 Schedule a Demo
@@ -1569,18 +1627,14 @@
     <!-- Integration logo strip -->
     <div class="logo-strip">
       <div class="container">
-        <div class="logo-strip-label">Trusted Integrations</div>
+        <div class="logo-strip-label">Trusted Integrations — Designed to work alongside the systems healthcare teams already use</div>
         <div class="logo-strip-row">
           <div class="logo-strip-item">
             <div class="logo-strip-dot" style="background:#E8751A"></div>
             <span class="logo-strip-name" style="color:#C4600D">PointClickCare</span>
             <span class="logo-strip-sub">EHR</span>
           </div>
-          <div class="logo-strip-item">
-            <div class="logo-strip-dot" style="background:#005eb8"></div>
-            <span class="logo-strip-name" style="color:#004a94">athenahealth</span>
-            <span class="logo-strip-sub">EHR</span>
-          </div>
+
           <div class="logo-strip-item">
             <div class="logo-strip-dot" style="background:#0066CC"></div>
             <span class="logo-strip-name" style="color:#0052A3">eClinicalWorks</span>
@@ -1607,72 +1661,39 @@
 </div>
     
 
-    <!-- Value props -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header animate">
-          <div class="eyebrow">Why Total Remote Care</div>
-          <h2>The standard of care has changed</h2>
-          <p>Facilities that wait for symptoms to appear are already behind. TRC puts your team ahead of every deterioration, every shift.</p>
-        </div>
-        <div class="value-grid">
-          <div class="value-card animate">
-            <div class="value-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></div>
-            <h3>Always-On Awareness</h3>
-            <p>Ambient sensors monitor every resident continuously: no wearables, no check-ins, no gaps. The system never sleeps, never gets distracted, never misses a shift.</p>
-          </div>
-          <div class="value-card animate delay-1">
-            <div class="value-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
-            <h3>Early Warning Intelligence</h3>
-            <p>AI trained on clinical patterns identifies meaningful deviations in heart rate, respiration, and movement, alerting your team hours or days before a condition becomes a crisis.</p>
-          </div>
-          <div class="value-card animate delay-2">
-            <div class="value-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
-            <h3>Clinical-Grade Compliance</h3>
-            <p>Every data point is captured, timestamped, and documented automatically. Your compliance record becomes a strength, not a liability, built in real time, not after the fact.</p>
-          </div>
-          <div class="value-card animate delay-3">
-            <div class="value-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-            <h3>Staff Empowerment</h3>
-            <p>Instead of reacting to emergencies, your nurses focus on care. Targeted alerts replace constant rounds, reducing cognitive burden and improving retention across your team.</p>
-          </div>
-          <div class="value-card animate delay-4">
-            <div class="value-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-            <h3>Seamless Integration</h3>
-            <p>TRC connects directly to PointClickCare, eClinicalWorks, Athena, and more. Data flows into your existing EHR automatically, with no double documentation or new workflows.</p>
-          </div>
-          <div class="value-card animate delay-5">
-            <div class="value-icon"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-            <h3>Revenue Optimization</h3>
-            <p>RPM and CCM programs are reimbursable under Medicare. TRC handles the documentation, monitoring, and billing infrastructure that turns better care into sustainable revenue.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Why TRC -->
-    <section class="section" style="background:var(--clinical-blue)">
+    <section class="section">
       <div class="container">
-        <div class="section-header animate" style="max-width:680px">
-          <div class="eyebrow" style="color:var(--teal)">Why TRC</div>
-          <h2 style="color:var(--white)">More than remote monitoring</h2>
-          <p style="color:rgba(255,255,255,.65)">Many monitoring platforms collect data. TRC focuses on helping facilities turn information into meaningful action through continuous oversight, clinical intelligence, and proactive support.</p>
-        </div>
-        <div class="why-trc-grid">
-          <div class="why-trc-card animate delay-1">
-            <div class="why-trc-icon"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
-            <h3>Continuous Monitoring</h3>
-            <p>Ambient sensors provide 24/7 physiological oversight without placing any burden on residents or nursing staff - always on, always aware.</p>
+        <div class="content-grid" style="gap:5rem;align-items:center">
+          <div class="animate-left">
+            <div class="eyebrow">Why TRC</div>
+            <h2>More than a monitoring platform</h2>
+            <p style="margin-bottom:1.5rem">Total Remote Care helps long-term care organizations gain better visibility into resident health through continuous monitoring, meaningful insights, and proactive support.</p>
+            <p style="margin-bottom:2rem">Many platforms collect data. TRC focuses on helping facilities turn that information into meaningful action, without adding burden to clinical staff.</p>
+            <div style="display:flex;flex-direction:column;gap:.875rem">
+              <div style="display:flex;align-items:center;gap:.875rem">
+                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </div>
+                <div><strong style="font-size:.9375rem;color:var(--clinical-blue)">Continuous Monitoring</strong><span style="font-size:.875rem;color:var(--text-secondary);margin-left:.5rem">Ambient sensors, no wearables, no disruption</span></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:.875rem">
+                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <div><strong style="font-size:.9375rem;color:var(--clinical-blue)">Meaningful Insights</strong><span style="font-size:.875rem;color:var(--text-secondary);margin-left:.5rem">Personalized baselines, trend analysis, early signals</span></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:.875rem">
+                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </div>
+                <div><strong style="font-size:.9375rem;color:var(--clinical-blue)">Proactive Support</strong><span style="font-size:.875rem;color:var(--text-secondary);margin-left:.5rem">Dedicated team, from implementation through ongoing use</span></div>
+              </div>
+            </div>
           </div>
-          <div class="why-trc-card animate delay-2">
-            <div class="why-trc-icon"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
-            <h3>Meaningful Trends</h3>
-            <p>Longitudinal data and personalized baselines help clinical teams understand each resident's health trajectory over days, weeks, and months.</p>
-          </div>
-          <div class="why-trc-card animate delay-3">
-            <div class="why-trc-icon"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
-            <h3>Proactive Support</h3>
-            <p>From implementation through ongoing operations, TRC works alongside facility teams to ensure the platform delivers consistent, real-world value.</p>
+          <div class="content-image animate-right">
+            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Clinical team reviewing resident data" loading="lazy">
           </div>
         </div>
       </div>
@@ -1766,6 +1787,10 @@
                 </div>
                 <div><div style="font-size:.9375rem;font-weight:700;color:var(--clinical-blue);margin-bottom:.2rem">Long-Term Care Facilities</div><div style="font-size:.8125rem;color:var(--text-secondary)">Scalable monitoring for residents with complex, chronic, and evolving health needs.</div></div>
               </div>
+              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:var(--white);border:1px solid var(--border);border-radius:12px">
+                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                <div><div style="font-size:.9375rem;font-weight:700;color:var(--clinical-blue);margin-bottom:.2rem">Post-Acute Recovery Programs</div><div style="font-size:.8125rem;color:var(--text-secondary)">Monitoring support for patients transitioning from acute care into long-term recovery settings.</div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1805,77 +1830,23 @@
       </div>
     </section>
 
-    <!-- Trust -->
-    <section class="section section-gray">
-      <div class="container">
-        <div class="content-grid" style="gap:4rem;align-items:center">
-          <div class="animate-left">
-            <div class="eyebrow">Trust</div>
-            <h2>Designed for healthcare environments</h2>
-            <p>TRC is built with the unique requirements of healthcare settings in mind, from how data is handled to how the platform interacts with clinical staff and residents.</p>
-            <a onclick="navigateTo('compliance')" class="btn btn-secondary" style="margin-top:1.25rem">View Compliance Details →</a>
-          </div>
-          <div class="trust-section-grid animate-right">
-            <div class="trust-section-item">
-              <div class="trust-section-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
-              <div>
-                <h4>HIPAA Conscious Workflows</h4>
-                <p>Platform design and data handling practices are built around healthcare privacy requirements from the ground up.</p>
-              </div>
-            </div>
-            <div class="trust-section-item">
-              <div class="trust-section-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
-              <div>
-                <h4>Secure Data Handling</h4>
-                <p>Resident data is encrypted, access-controlled, and handled with the care that sensitive health information requires.</p>
-              </div>
-            </div>
-            <div class="trust-section-item">
-              <div class="trust-section-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-              <div>
-                <h4>Facility-Focused Support</h4>
-                <p>Our team works directly with facility administrators, directors of nursing, and clinical staff to ensure smooth adoption.</p>
-              </div>
-            </div>
-            <div class="trust-section-item">
-              <div class="trust-section-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
-              <div>
-                <h4>Designed for Long-Term Care</h4>
-                <p>Built specifically for SNF and LTC environments, not adapted from acute care or consumer wellness technology.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- How it works -->
-    <section class="section section-gray">
+    <!-- Authority banner -->
+    <div style="background:var(--clinical-blue);padding:2.5rem 0;margin:0">
       <div class="container">
-        <div class="section-header animate">
-          <div class="eyebrow">How It Works</div>
-          <h2>From installation to intervention in days</h2>
-          <p>A turnkey system your team adopts in hours, not months.</p>
-        </div>
-        <div class="steps-grid">
-          <div class="step-card animate">
-            <div class="step-number">1</div>
-            <h3>Install in Minutes</h3>
-            <p>Our clinical team arrives and installs discreet ambient sensors in each room, with no construction, no drilling, no disruption. Residents don't change a thing about their routine.</p>
-          </div>
-          <div class="step-card animate delay-1">
-            <div class="step-number">2</div>
-            <h3>AI Learns Each Resident</h3>
-            <p>The platform establishes individual baselines for heart rate, respiration, and movement patterns over the first 72 hours. Every alert is personalized, not one-size-fits-all.</p>
-          </div>
-          <div class="step-card animate delay-2">
-            <div class="step-number">3</div>
-            <h3>Your Team Intervenes Early</h3>
-            <p>When trends deviate meaningfully, nurses receive targeted alerts with clinical context. The right person is notified at the right time, with enough lead time to act.</p>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem">
+          <div style="font-size:.8125rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4)">Built for Long-Term Care</div>
+          <div style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center">
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Nationwide Service</div>
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>EHR Integration Ready</div>
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Continuous Monitoring</div>
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Long-Term Care Focused</div>
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Dedicated Support</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
 
     <!-- Trust bar -->
     <div class="container">
@@ -1891,31 +1862,23 @@
     </div>
 
     <!-- Explore links -->
-    <!-- Compact video -->
-    <section class="section-gray" style="padding:3.5rem 0">
+
+    <!-- Mid-page CTA -->
+    <section style="padding:5rem 0;background:var(--off-white)">
       <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:center;max-width:900px;margin:0 auto" class="compact-video-grid">
+        <div style="background:var(--clinical-blue);border-radius:20px;padding:3rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center" class="mid-cta-inner">
           <div>
-            <div class="eyebrow">See It In Action</div>
-            <h3 style="font-size:1.5rem;margin-bottom:.75rem">Watch how TRC works</h3>
-            <p style="font-size:.9375rem">A real look at continuous monitoring, intelligent alerts, and proactive care, in under two minutes.</p>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:.625rem;letter-spacing:-.02em">See how TRC works in your facility</div>
+            <p style="color:rgba(255,255,255,.65);font-size:.9375rem;margin:0;max-width:480px">Walk through the platform with a clinical specialist. We will tailor the conversation to your facility type and current monitoring setup.</p>
           </div>
-          <div style="border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(10,22,40,.15);position:relative;padding-bottom:56.25%;height:0">
-            <iframe
-              src="https://player.vimeo.com/video/1195701005?badge=0&autopause=0&player_id=0&app_id=58479&color=00A49D&title=0&byline=0&portrait=0"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              title="Total Remote Care" loading="lazy">
-            </iframe>
+          <div style="display:flex;flex-direction:column;gap:.75rem;align-items:flex-end">
+            <a onclick="navigateTo('contact')" class="btn btn-primary" style="white-space:nowrap;padding:.875rem 1.75rem">Schedule a Demo &#x2192;</a>
+            <a href="tel:+19546035622" style="font-size:.8125rem;color:rgba(255,255,255,.5);text-decoration:none;text-align:right">or call +1 (954) 603-5622</a>
           </div>
         </div>
       </div>
     </section>
-    <style>
-      @media (max-width:768px) {
-        .compact-video-grid { grid-template-columns:1fr !important; gap:1.5rem !important; }
-      }
-    </style>
+    
 
     <section class="section section-gray" style="padding-top:5rem">
       <div class="container">
@@ -1968,8 +1931,8 @@
         <div class="content-grid">
           <div class="content-text animate-left">
             <div class="eyebrow">Our Mission</div>
-            <h2>Built for the nurses who carry the night shift</h2>
-            <p>Walk into any skilled nursing facility at 3 a.m. and you'll find the same scene: a handful of dedicated nurses, dozens of residents, a clipboard in hand, and a nagging question: <em>"What am I missing right now?"</em></p>
+            <h2>Purpose-built for long-term care</h2>
+            <p>Walk into any skilled nursing facility at 3 a.m. and you'll find the same scene: a handful of dedicated nurses, dozens of residents, a clipboard in hand, and a persistent question: what is happening with each resident right now?</p>
             <p>TRC is built to answer that question before it becomes a clinical event. We believe every resident deserves to be watched over continuously, and every nurse deserves the tools to actually make that possible.</p>
             <p>Our platform doesn't replace clinical judgment, it amplifies it. When our AI flags a trend, your team still makes the call. We just make sure they have the time and the information to make it well.</p>
           </div>
@@ -2031,14 +1994,14 @@
         <div class="content-grid">
           <div class="content-text animate-left">
             <div class="eyebrow">Who We Are</div>
-            <h2>A Miami-based team on a national mission</h2>
-            <p>Total Remote Care is headquartered in Miami, Florida, and operates across skilled nursing facilities throughout the United States. Our team combines deep clinical experience with health technology expertise.</p>
+            <h2>A national team with dedicated roots</h2>
+            <p>Total Remote Care is headquartered in Miami, Florida, and serves long-term care organizations across the United States. Our team combines deep clinical experience with health technology expertise.</p>
             <p>We work directly alongside facility administrators, directors of nursing, and attending physicians to ensure our platform fits into real workflows, not idealized ones.</p>
             <p>Every implementation is handled personally. We don't hand you a login and disappear. We stay until your team is confident, your residents are covered, and your data is clean.</p>
             <a onclick="navigateTo('contact')" class="btn btn-primary" style="margin-top:1rem">Meet the Team →</a>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80" alt="Miami office" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80" alt="TRC team" loading="lazy">
           </div>
         </div>
       </div>
@@ -2089,7 +2052,7 @@
           <div class="content-text animate-left">
             <div class="solution-badge">RPM</div>
             <h2>Remote Patient Monitoring</h2>
-            <p>RPM is your facility's nervous system, a continuous ambient awareness of every resident's physiological state. No wearables. No disruption. No gaps between rounds.</p>
+            <p>RPM provides continuous ambient awareness of every resident's physiological state. No wearables. No disruption. No gaps between rounds.</p>
             <p>Sensors mounted discreetly in each room capture cardiorespiratory patterns and movement data around the clock. Our AI establishes each resident's personal baseline and watches for deviations that carry clinical weight.</p>
             <p>When something matters, your team knows. Not after the fact - while there's still time to act.</p>
           </div>
@@ -2715,7 +2678,7 @@
         <div class="content-grid">
           <div class="content-text animate-left">
             <div class="eyebrow">The Process</div>
-            <h2>No surprises. No disruption. Just results.</h2>
+            <h2>A structured, efficient process with minimal disruption to your facility.</h2>
             <p>Every TRC implementation is managed personally by our clinical team. We have done this enough times to know what derails adoption, and we have built our process specifically to avoid it.</p>
             <p>Most facilities are fully operational within 5 business days of signing. Staff training takes under an hour. Residents experience zero disruption to their daily routine.</p>
             <p>Below is exactly what to expect from contract through the first 90 days and beyond.</p>
@@ -2997,60 +2960,7 @@
       </div>
     </section>
 
-    <style>
-      .imap-shell {
-        background:linear-gradient(160deg, #0d1f3c 0%, #0A1628 60%, #071020 100%);
-        border-radius:24px; overflow:hidden;
-        border:1px solid rgba(0,164,157,.2);
-        box-shadow:0 24px 80px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.06);
-        position:relative;
-      }
-      .imap-topbar {
-        display:flex; align-items:center; justify-content:space-between;
-        padding:1rem 1.5rem; border-bottom:1px solid rgba(255,255,255,.06);
-      }
-      .imap-status { display:flex; align-items:center; gap:.5rem; font-size:.8rem; font-weight:700; color:rgba(255,255,255,.7); }
-      .imap-pulse { width:8px; height:8px; background:var(--teal); border-radius:50%; animation:pulseGlow 1.8s infinite; flex-shrink:0; }
-      .imap-stats { display:flex; gap:2rem; }
-      .imap-stat { text-align:center; }
-      .imap-stat-n { display:block; font-size:1rem; font-weight:800; color:var(--white); letter-spacing:-.02em; }
-      .imap-stat-l { display:block; font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,255,255,.4); }
-      #us-map-container svg { display:block; width:100%; }
-      .state-path {
-        fill:rgba(0,164,157,.18);
-        stroke:rgba(0,164,157,.45);
-        stroke-width:.5;
-        cursor:pointer;
-        transition:fill .2s ease;
-      }
-      .state-path:hover { fill:rgba(0,164,157,.55); stroke:rgba(0,164,157,.9); stroke-width:1; }
-      .state-path.active { fill:rgba(0,164,157,.35); }
-      .state-border { fill:none; stroke:rgba(0,164,157,.15); stroke-width:.3; pointer-events:none; }
-      .map-dot { fill:var(--teal); opacity:.9; cursor:pointer; }
-      .map-dot-ring { fill:none; stroke:var(--teal); stroke-width:1.5; opacity:0; }
-      .imap-tooltip {
-        position:absolute; pointer-events:none; z-index:10;
-        background:rgba(10,22,40,.95); border:1px solid rgba(0,164,157,.4);
-        border-radius:10px; padding:.6rem 1rem;
-        font-size:.8rem; color:var(--white); font-weight:700;
-        box-shadow:0 8px 24px rgba(0,0,0,.4);
-        opacity:0; transition:opacity .15s ease;
-        white-space:nowrap; backdrop-filter:blur(8px);
-      }
-      .imap-tooltip.visible { opacity:1; }
-      .imap-tooltip-state { font-size:.9rem; font-weight:800; margin-bottom:.2rem; }
-      .imap-tooltip-tag { font-size:.7rem; color:var(--teal); font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
-      .imap-legend {
-        display:flex; align-items:center; gap:.5rem; padding:.75rem 1.5rem;
-        border-top:1px solid rgba(255,255,255,.05);
-        font-size:.7rem; font-weight:700; color:rgba(255,255,255,.35); text-transform:uppercase; letter-spacing:.06em;
-      }
-      .imap-legend-dot { width:8px; height:8px; background:rgba(0,164,157,.5); border-radius:50%; }
-      @media (max-width:768px) {
-        .imap-stats { gap:1rem; }
-        .imap-stat-n { font-size:.875rem; }
-      }
-    </style>
+    
 
     <!-- D3 + TopoJSON -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -3420,7 +3330,7 @@
     <div style="background:rgba(0,164,157,.1);border:1px solid rgba(0,164,157,.2);border-radius:16px;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3.5rem">
       <div>
         <div style="font-size:1.0625rem;font-weight:800;color:var(--white);margin-bottom:.3rem">Ready to see TRC in action?</div>
-        <div style="font-size:.875rem;color:rgba(255,255,255,.55)">Talk to a clinical specialist, no sales pressure.</div>
+        <div style="font-size:.875rem;color:rgba(255,255,255,.55)">Speak with a clinical specialist about your facility's monitoring needs.</div>
       </div>
       <a onclick="navigateTo('contact')" class="btn btn-primary" style="white-space:nowrap;flex-shrink:0">Schedule a Demo →</a>
     </div>
@@ -3443,6 +3353,8 @@
         <ul>
           <li><a onclick="navigateTo('solutions')">Remote Patient Monitoring</a></li>
           <li><a onclick="navigateTo('solutions')">Chronic Care Management</a></li>
+          <li><a onclick="navigateTo('solutions')">Principal Care Management</a></li>
+          <li><a onclick="navigateTo('solutions')">Advanced Primary Care Management</a></li>
           <li><a onclick="navigateTo('technology')">Technology Overview</a></li>
           <li><a onclick="navigateTo('coverage')">Coverage</a></li>
         </ul>
@@ -3801,7 +3713,7 @@
   <div style="background:#fff;border-radius:24px;padding:2.5rem;max-width:460px;width:100%;text-align:center;position:relative;box-shadow:0 24px 60px rgba(10,22,40,.25)">
     <button onclick="closePop()" style="position:absolute;top:1rem;right:1rem;width:32px;height:32px;background:#f1f5f9;border:none;border-radius:50%;cursor:pointer;font-size:1rem;font-weight:700;color:#64748b;display:flex;align-items:center;justify-content:center;line-height:1">✕</button>
     <div style="font-size:2.5rem;margin-bottom:.75rem">👋</div>
-    <h3 style="font-size:1.4rem;font-weight:800;color:#0A1628;margin-bottom:.625rem">Before you go</h3>
+    <h3 style="font-size:1.4rem;font-weight:800;color:#0A1628;margin-bottom:.625rem">One more thing</h3>
     <p style="font-size:.9375rem;color:#4A5978;margin-bottom:1.5rem">See how TRC works in a real facility. Drop your email and we will send you a 2-minute walkthrough video.</p>
     <div style="display:flex;gap:.625rem;margin-bottom:1rem">
       <input type="email" id="exit-email" placeholder="your@email.com" style="flex:1;padding:.75rem 1rem;border:1.5px solid #E0E8F0;border-radius:100px;font-size:.9rem;font-family:inherit;outline:none">
@@ -3809,15 +3721,12 @@
     </div>
     <span onclick="closePop()" style="font-size:.8125rem;color:#8A96B0;cursor:pointer;text-decoration:underline">No thanks, I'll browse on my own</span>
   </div>
-</div
+</div>
 
   <!-- Chatbase AI Widget -->
   <script>
   (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="EJy_TygHIwZrPPZh2fcUM";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
   </script>
-  <style>
-    #chatbase-bubble-button { bottom: 80px !important; }
-    @media (min-width: 769px) { #chatbase-bubble-button { bottom: 24px !important; } }
-  </style>
+  
 </body>
 </html>
