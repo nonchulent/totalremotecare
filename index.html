@@ -1962,6 +1962,156 @@
             #technology .content-image img { height:300px !important; }
         }
 
+        
+        /* ══════════════════════════════════════════════
+           ART DIRECTION PASS — COHESIVE BRAND IDENTITY
+        ══════════════════════════════════════════════ */
+
+        /* ── 1. CONSISTENT IMAGE TREATMENT ──
+           Every photo gets the same duotone-leaning teal/navy wash,
+           subtle desaturation, and consistent depth. This unifies
+           stock photography into one branded visual language. */
+        .content-image img,
+        .serve-image img {
+            filter:saturate(.85) contrast(1.04) brightness(.98) !important;
+            transition:filter .6s ease, transform .8s cubic-bezier(.16,1,.3,1) !important;
+        }
+        .content-image:hover img,
+        .serve-image:hover img {
+            filter:saturate(1) contrast(1.05) brightness(1) !important;
+            transform:scale(1.03) !important;
+        }
+        /* Branded color wash over every image — the signature TRC tint */
+        .content-image::before,
+        .serve-image::before {
+            content:'' !important; position:absolute !important; inset:0 !important;
+            background:linear-gradient(150deg, rgba(0,164,157,.16) 0%, rgba(10,22,40,.28) 100%) !important;
+            mix-blend-mode:multiply !important;
+            z-index:1 !important; pointer-events:none !important;
+            transition:opacity .6s ease !important;
+        }
+        .content-image:hover::before,
+        .serve-image:hover::before { opacity:.7 !important; }
+        .serve-image { position:relative !important; }
+
+        /* ── 3. PROPRIETARY VISUAL MOTIF — "THE PULSE FIELD" ──
+           A signature concentric-ring + scanline motif representing
+           continuous ambient awareness. Used as a recurring brand mark. */
+        .pulse-motif {
+            position:absolute; pointer-events:none; opacity:.5;
+            width:340px; height:340px;
+        }
+        .pulse-motif::before, .pulse-motif::after {
+            content:''; position:absolute; inset:0; border-radius:50%;
+            border:1px solid rgba(0,164,157,.18);
+        }
+        .pulse-motif::after {
+            inset:25%; border-color:rgba(0,164,157,.28);
+        }
+        .pulse-ring-core {
+            position:absolute; inset:42%; border-radius:50%;
+            background:radial-gradient(circle, rgba(0,164,157,.35), transparent 70%);
+        }
+
+        /* Signature corner accent — appears on flagship sections */
+        .brand-corner {
+            position:absolute; top:0; left:0; width:64px; height:64px;
+            pointer-events:none;
+        }
+        .brand-corner::before {
+            content:''; position:absolute; top:2rem; left:2rem;
+            width:40px; height:1px; background:var(--teal);
+        }
+        .brand-corner::after {
+            content:''; position:absolute; top:2rem; left:2rem;
+            width:1px; height:40px; background:var(--teal);
+        }
+
+        /* ── 2. HERO = FLAGSHIP PRODUCT SHOWCASE ──
+           Frame the dashboard like an Apple keynote product shot:
+           floating, spotlit, with ambient glow beneath it. */
+        .hero-visual { position:relative !important; }
+        .hero-visual::before {
+            content:''; position:absolute;
+            bottom:-8%; left:50%; transform:translateX(-50%);
+            width:80%; height:120px;
+            background:radial-gradient(ellipse, rgba(0,164,157,.4) 0%, transparent 70%);
+            filter:blur(40px); z-index:0; pointer-events:none;
+        }
+        .dash-shell {
+            position:relative !important; z-index:1 !important;
+        }
+        /* Ambient scanline sweep across the dashboard — "live" feel */
+        .dash-shell::after {
+            content:''; position:absolute; inset:0; border-radius:24px;
+            background:linear-gradient(180deg, transparent 0%, transparent 45%, rgba(0,164,157,.04) 50%, transparent 55%, transparent 100%);
+            background-size:100% 300%;
+            animation:scanSweep 6s ease-in-out infinite;
+            pointer-events:none; z-index:5;
+        }
+        @keyframes scanSweep {
+            0%, 100% { background-position:0 -100%; }
+            50% { background-position:0 200%; }
+        }
+
+        /* ── 4. PREMIUM CERTIFICATION DISPLAYS ──
+           Elevate compliance items from flat icons to embossed,
+           medallion-style certification badges. */
+        .ptb-icon {
+            background:linear-gradient(145deg, rgba(0,164,157,.12), rgba(255,255,255,.02)) !important;
+            border:1px solid rgba(0,164,157,.35) !important;
+            box-shadow:
+                0 8px 32px rgba(0,0,0,.25),
+                inset 0 1px 0 rgba(255,255,255,.08),
+                inset 0 -1px 0 rgba(0,0,0,.2) !important;
+            position:relative !important;
+        }
+        .ptb-icon::after {
+            content:''; position:absolute; inset:-1px; border-radius:20px;
+            background:linear-gradient(145deg, rgba(0,164,157,.4), transparent 50%);
+            -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite:xor; mask-composite:exclude;
+            padding:1px; pointer-events:none;
+        }
+        .ptb-item:hover .ptb-icon {
+            transform:translateY(-4px) !important;
+            box-shadow:
+                0 16px 48px rgba(0,164,157,.25),
+                inset 0 1px 0 rgba(255,255,255,.12) !important;
+        }
+        .ptb-icon { transition:all .4s cubic-bezier(.16,1,.3,1) !important; }
+        /* Certification ribbon accent under the label */
+        .ptb-label::after {
+            content:''; display:block; width:40px; height:2px;
+            background:linear-gradient(90deg, transparent, var(--teal), transparent);
+            margin:1.25rem auto 0;
+        }
+
+        /* ── 5. STRONGER PRIMARY/SECONDARY CONTRAST ──
+           Flagship sections (hero, technology, trust) get richer,
+           deeper backgrounds. Secondary sections stay quiet and white. */
+        .section.section-gray {
+            background:linear-gradient(180deg, #F7F9FC 0%, #EEF3F9 100%) !important;
+        }
+        /* Flagship dark sections get a richer gradient, not flat navy */
+        .premium-trust-band {
+            background:linear-gradient(155deg, #0d1f3c 0%, #0A1628 55%, #06101f 100%) !important;
+        }
+
+        /* ── 6. PERCEIVED PRODUCTION VALUE ──
+           Refined micro-details: grain texture, sharper shadows,
+           consistent radius rhythm, premium easing everywhere. */
+        .content-image, .serve-image, .dash-shell, .contact-form-card, .solution-card {
+            border-radius:28px !important;
+        }
+        /* Subtle film grain over dark sections for editorial texture */
+        .premium-trust-band::after {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            opacity:.4; z-index:1;
+            background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+        .ptb-grid, .ptb-label { position:relative; z-index:2; }
+
         </style>
 </head>
 <body>
@@ -2032,7 +2182,8 @@
             </div>
           </div>
           <div class="hero-visual">
-            <div class="dash-shell">
+          <div class="pulse-motif" style="top:-60px;right:-40px;"><div class="pulse-ring-core"></div></div>
+            <div class="dash-shell"><div class="brand-corner"></div>
               <div class="ds-topbar">
                 <div class="ds-facility-name"><div class="ds-facility-dot"></div>Facility Overview - Live Monitor</div>
                 <div class="ds-topbar-right">
