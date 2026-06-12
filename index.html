@@ -2758,6 +2758,60 @@
             .timeline-body h3 { font-size:1.25rem; }
         }
 
+        
+        /* ── NIGHT HALLWAY IMMERSIVE BAND ── */
+        .night-moment {
+            position:relative; width:100%; min-height:80vh;
+            display:flex; align-items:center; overflow:hidden; background:#06101f;
+        }
+        .night-moment img {
+            position:absolute; inset:0; width:100%; height:100%;
+            object-fit:cover; z-index:0;
+        }
+        .night-moment::after {
+            content:''; position:absolute; inset:0; z-index:1;
+            background:linear-gradient(90deg, rgba(6,16,31,.9) 0%, rgba(6,16,31,.55) 45%, rgba(6,16,31,.15) 75%, transparent 100%);
+        }
+        .night-content { position:relative; z-index:2; max-width:600px; }
+        .night-eyebrow {
+            display:inline-flex; align-items:center; gap:.6rem;
+            font-size:.75rem; font-weight:800; letter-spacing:.18em;
+            text-transform:uppercase; color:var(--teal); margin-bottom:1.75rem;
+        }
+        .night-eyebrow::before { content:''; width:32px; height:1.5px; background:var(--teal); }
+        .night-moment h2 {
+            color:#fff !important; font-size:clamp(2.25rem,4.5vw,4rem) !important;
+            line-height:1.08 !important; margin-bottom:1.5rem !important; letter-spacing:-.03em !important;
+        }
+        .night-moment p {
+            color:rgba(255,255,255,.75); font-size:1.1875rem; line-height:1.7; max-width:480px; margin:0;
+        }
+        @media (max-width:768px) {
+            .night-moment { min-height:auto; padding:5rem 0; }
+            .night-moment::after { background:linear-gradient(180deg, rgba(6,16,31,.8) 0%, rgba(6,16,31,.7) 100%); }
+            .night-moment p { font-size:1.0625rem; }
+        }
+
+        
+        /* ── IMPLEMENTATION — image-led ── */
+        .impl-grid {
+            display:grid; grid-template-columns:1.15fr 0.85fr; gap:6rem; align-items:center;
+        }
+        .impl-image { border-radius:24px; overflow:hidden; box-shadow:0 40px 100px rgba(10,22,40,.2); position:relative; }
+        .impl-image img { width:100%; height:620px; object-fit:cover; display:block; }
+        .impl-step { display:grid; grid-template-columns:48px 1fr; gap:1.5rem; align-items:start; padding:1.25rem 0; border-top:1px solid var(--border); }
+        .impl-step:first-of-type { border-top:none; }
+        .impl-step-num { font-size:1rem; font-weight:800; color:var(--teal); letter-spacing:.02em; padding-top:.15rem; }
+        .impl-step h3 { font-size:1.1875rem; color:var(--clinical-blue); margin-bottom:.25rem; letter-spacing:-.01em; }
+        .impl-step p { font-size:.9375rem; line-height:1.6; color:var(--text-secondary); margin:0; }
+        @media (max-width:1024px) {
+            .impl-grid { grid-template-columns:1fr; gap:3rem; }
+            .impl-image img { height:420px; }
+        }
+        @media (max-width:768px) {
+            .impl-image img { height:300px; }
+        }
+
         </style>
 </head>
 <body>
@@ -2920,6 +2974,19 @@
       <div class="signature-pulse-mark"><div class="signal-motif" style="--sig-size:120px;--sig-opacity:1;position:relative;"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div></div>
     </section>
 
+    <!-- Night hallway immersive moment -->
+    <section class="night-moment">
+      <img src="images/night-hallway.jpg" alt="Care facility hallway at night" loading="lazy">
+      <div class="container">
+        <div class="night-content animate-left">
+          <div class="night-eyebrow">Through Every Shift</div>
+          <h2>Awareness doesn't end<br>when the day does.</h2>
+          <p>TRC helps facilities maintain visibility through every shift, including the quiet hours between scheduled rounds.</p>
+        </div>
+      </div>
+    </section>
+
+
     <!-- Integration logo strip -->
     <div class="logo-strip">
       <div class="container">
@@ -2962,7 +3029,7 @@
     <!-- Why TRC -->
     <section class="section">
       <div class="container">
-        <div class="content-grid" style="gap:5rem;align-items:center">
+        <div class="content-grid" style="gap:6.5rem;align-items:center">
           <div class="animate-left">
             <div class="eyebrow">Why TRC</div>
             <h2>More than a monitoring platform</h2>
@@ -2990,7 +3057,7 @@
             </div>
           </div>
           <div class="content-image animate-right">
-            <img src="images/hero.jpg" alt="Modern care facility command area" loading="lazy">
+            <img src="images/don-desk.jpg" alt="Director of Nursing reviewing resident information" loading="lazy">
           </div>
         </div>
       </div>
@@ -3062,7 +3129,7 @@
             </div>
           </div>
           <div class="content-image animate-right">
-            <img src="images/who-we-serve.jpg" alt="Bright modern care environment" loading="lazy">
+            <img src="images/leadership-walking.jpg" alt="Healthcare leadership walking through a facility" loading="lazy">
           </div>
         </div>
       </div>
@@ -3071,39 +3138,29 @@
     <!-- Process overview -->
     <section class="section section-tint">
       <div class="container">
-        <div class="animate" style="max-width:680px;margin:0 auto 6rem;text-align:center">
-          <div class="eyebrow" style="justify-content:center">Implementation</div>
-          <h2>Simple to implement</h2>
-          <p style="font-size:1.1875rem">Most facilities are fully operational within days, with minimal disruption to staff or residents.</p>
-        </div>
-        <div class="timeline-premium">
-          <div class="timeline-line"></div>
-          <div class="timeline-step animate delay-1">
-            <div class="timeline-marker"><span>01</span></div>
-            <div class="timeline-body">
-              <h3>Assessment</h3>
-              <p>We evaluate your facility layout, census, and infrastructure to design the right monitoring configuration.</p>
-            </div>
+        <div class="impl-grid">
+          <div class="impl-image animate-left">
+            <img src="images/installation.jpg" alt="Quiet sensor installation in a care facility" loading="lazy">
           </div>
-          <div class="timeline-step animate delay-2">
-            <div class="timeline-marker"><span>02</span></div>
-            <div class="timeline-body">
-              <h3>Deployment</h3>
-              <p>Sensors are installed quickly, with no construction, no wiring, and no disruption to daily operations.</p>
+          <div class="impl-steps animate-right">
+            <div class="eyebrow">Implementation</div>
+            <h2 style="margin-bottom:1rem">Simple to implement</h2>
+            <p style="margin-bottom:2.5rem">Deployment is quiet and seamless. Sensors are installed without construction, wiring, or disruption to residents and daily operations.</p>
+            <div class="impl-step">
+              <div class="impl-step-num">01</div>
+              <div><h3>Assessment</h3><p>We evaluate your facility layout, census, and infrastructure to design the right configuration.</p></div>
             </div>
-          </div>
-          <div class="timeline-step animate delay-3">
-            <div class="timeline-marker"><span>03</span></div>
-            <div class="timeline-body">
-              <h3>Monitoring</h3>
-              <p>The platform begins learning resident baselines and surfacing meaningful clinical insights to your team.</p>
+            <div class="impl-step">
+              <div class="impl-step-num">02</div>
+              <div><h3>Deployment</h3><p>Sensors are installed quickly, with no construction and no disruption to daily operations.</p></div>
             </div>
-          </div>
-          <div class="timeline-step animate delay-4">
-            <div class="timeline-marker"><span>04</span></div>
-            <div class="timeline-body">
-              <h3>Ongoing Support</h3>
-              <p>Your dedicated TRC team remains available to ensure the platform keeps delivering value as you grow.</p>
+            <div class="impl-step">
+              <div class="impl-step-num">03</div>
+              <div><h3>Monitoring</h3><p>The platform begins learning resident baselines and surfacing meaningful insights.</p></div>
+            </div>
+            <div class="impl-step">
+              <div class="impl-step-num">04</div>
+              <div><h3>Ongoing Support</h3><p>Your dedicated TRC team ensures the platform keeps delivering value as you grow.</p></div>
             </div>
           </div>
         </div>
@@ -3201,7 +3258,7 @@
 
     <!-- Homepage Coverage Moment -->
     <section class="home-coverage-moment">
-      <img src="images/coverage.jpg" alt="Total Remote Care nationwide reach" loading="lazy">
+      <img src="images/facility-aerial.jpg" alt="Care facility at sunrise" loading="lazy">
       <div class="home-coverage-content">
         <div class="container">
           <div class="animate">
@@ -3666,7 +3723,7 @@
             <p>When your nurses know, your facility leads. When your data is clean, your surveys go better. When hospitalizations drop, your reputation and revenue both improve.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="images/who-we-serve.jpg" alt="Modern skilled nursing interior" loading="lazy">
+            <img src="images/resident-lounge.jpg" alt="Modern skilled nursing interior" loading="lazy">
           </div>
         </div>
       </div>
