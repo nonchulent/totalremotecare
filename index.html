@@ -2986,49 +2986,27 @@
         /* ══════════════════════════════════════════════
            BUILT FOR LONG-TERM CARE — editorial split
         ══════════════════════════════════════════════ */
-        #builtfor-sec {
-            padding:140px 0 !important;
-            background:#F7F8FA !important;
-        }
-        .builtfor-wrap {
-            max-width:1280px; margin:0 auto; padding:0 2rem;
-            display:grid; grid-template-columns:57% 43%; gap:5rem;
-            align-items:start;
-        }
-        .builtfor-photo {
-            border-radius:24px; overflow:hidden;
-            box-shadow:0 30px 70px rgba(10,22,40,.14);
-        }
-        .builtfor-photo img {
-            width:100%; height:720px; object-fit:cover; display:block;
-        }
-        .builtfor-copy .eyebrow { margin-bottom:1.25rem; }
-        .builtfor-copy h2 { margin-bottom:1.25rem; }
-        .builtfor-intro {
-            margin-bottom:2rem; color:var(--text-secondary);
-            font-size:1.0625rem; line-height:1.7;
-        }
-        .builtfor-rows { display:flex; flex-direction:column; }
-        .builtfor-row {
-            padding:1.3rem 0; border-bottom:1px solid rgba(10,22,40,.08);
-        }
-        .builtfor-row:first-child { padding-top:0; }
-        .builtfor-row:last-child { border-bottom:none; padding-bottom:0; }
-        .builtfor-row h3 {
-            font-size:1.1875rem; font-weight:700; color:var(--clinical-blue);
-            margin-bottom:.4rem; letter-spacing:-.01em;
-        }
-        .builtfor-row p {
-            font-size:.9375rem; line-height:1.6; color:var(--text-secondary); margin:0;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         @media (max-width:1024px) {
-            .builtfor-wrap { grid-template-columns:1fr; gap:3rem; }
-            .builtfor-photo img { height:460px; }
-            #builtfor-sec { padding:7rem 0 !important; }
+            
+            
+            
         }
         @media (max-width:768px) {
-            .builtfor-photo img { height:440px; }
-            .builtfor-row { padding:1.25rem 0; }
+            
+            
         }
 
         
@@ -3094,6 +3072,78 @@
         @media (max-width:768px) {
             .dash-shell { display:none !important; }
             .hero-mobile-card { display:block !important; }
+        }
+
+        
+        /* ══════════════════════════════════════════════
+           BUILT FOR LTC — editorial split, 2-col grid
+        ══════════════════════════════════════════════ */
+        #builtfor-sec {
+            padding:140px 0 !important;
+            background:#F8F7F4 !important;
+        }
+        .builtfor-wrap {
+            max-width:1440px; margin:0 auto; padding:0 3rem;
+            display:grid; grid-template-columns:47% 53%; gap:5.5rem;
+            align-items:center;
+        }
+        .builtfor-photo {
+            border-radius:28px; overflow:hidden;
+            box-shadow:0 30px 80px rgba(10,22,40,.13);
+        }
+        .builtfor-photo img {
+            width:100%; height:700px; object-fit:cover; display:block;
+        }
+        .builtfor-copy .eyebrow { margin-bottom:1.25rem; }
+        .builtfor-copy h2 {
+            font-size:clamp(2.5rem,4vw,3.5rem); margin-bottom:1.5rem; letter-spacing:-.03em;
+        }
+        .builtfor-intro {
+            margin-bottom:3rem; color:var(--text-secondary);
+            font-size:1.0625rem; line-height:1.7; max-width:520px;
+        }
+        /* 2-column editorial grid with subtle dividers + teal accent */
+        .builtfor-grid2 {
+            display:grid; grid-template-columns:1fr 1fr;
+            column-gap:3rem; row-gap:0;
+            position:relative;
+        }
+        .bf-item {
+            padding:1.75rem 0;
+            border-top:1px solid rgba(10,22,40,.1);
+        }
+        /* vertical divider between the two columns */
+        .bf-item:nth-child(odd):not(.bf-item-full) { padding-right:3rem; border-right:1px solid rgba(10,22,40,.1); }
+        .bf-item:nth-child(even) { padding-left:3rem; }
+        /* teal accent at the central intersection */
+        .builtfor-grid2::before {
+            content:''; position:absolute; left:50%; top:33%;
+            width:24px; height:2px; background:var(--teal);
+            transform:translateX(-50%); z-index:1;
+        }
+        .bf-item-full {
+            grid-column:1 / -1;
+            border-top:1px solid rgba(10,22,40,.1);
+            padding-right:0 !important; border-right:none !important;
+        }
+        .bf-item h3 {
+            font-size:1.1875rem; font-weight:700; color:var(--clinical-blue);
+            margin-bottom:.4rem; letter-spacing:-.01em;
+        }
+        .bf-item p {
+            font-size:.9375rem; line-height:1.6; color:var(--text-muted); margin:0;
+        }
+        @media (max-width:1024px) {
+            .builtfor-wrap { grid-template-columns:1fr; gap:3rem; padding:0 2rem; }
+            .builtfor-photo img { height:480px; }
+            #builtfor-sec { padding:6rem 0 !important; }
+        }
+        @media (max-width:768px) {
+            .builtfor-photo img { height:420px; }
+            .builtfor-grid2 { grid-template-columns:1fr; }
+            .builtfor-grid2::before { display:none; }
+            .bf-item:nth-child(odd):not(.bf-item-full) { padding-right:0; border-right:none; }
+            .bf-item:nth-child(even) { padding-left:0; }
         }
 
         </style>
@@ -3356,24 +3406,24 @@
           <div class="eyebrow">Who We Serve</div>
           <h2>Built for long-term care</h2>
           <p class="builtfor-intro">TRC is designed for the specific demands of long-term care environments, where continuous oversight and operational efficiency matter equally.</p>
-          <div class="builtfor-rows">
-            <div class="builtfor-row">
+          <div class="builtfor-grid2">
+            <div class="bf-item">
               <h3>Skilled Nursing Facilities</h3>
               <p>Continuous monitoring for high-acuity residents requiring close clinical oversight.</p>
             </div>
-            <div class="builtfor-row">
+            <div class="bf-item">
               <h3>Assisted Living Communities</h3>
               <p>Ambient oversight supporting resident independence with meaningful health visibility.</p>
             </div>
-            <div class="builtfor-row">
+            <div class="bf-item">
               <h3>Rehabilitation Centers</h3>
               <p>Post-acute monitoring to track recovery and identify changes requiring attention.</p>
             </div>
-            <div class="builtfor-row">
+            <div class="bf-item">
               <h3>Long-Term Care Facilities</h3>
               <p>Scalable monitoring for residents with complex, chronic, and evolving health needs.</p>
             </div>
-            <div class="builtfor-row">
+            <div class="bf-item bf-item-full">
               <h3>Post-Acute Recovery Programs</h3>
               <p>Monitoring support for patients transitioning from acute care into long-term recovery.</p>
             </div>
