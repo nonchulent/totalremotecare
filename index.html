@@ -1547,39 +1547,13 @@
             border-bottom:1px solid var(--border);
             padding:4rem 0;
         }
-        .ptb-label {
-            text-align:center; font-size:.75rem; font-weight:800;
-            text-transform:uppercase; letter-spacing:.14em;
-            color:var(--text-muted); margin-bottom:3rem;
-        }
-        .ptb-grid {
-            display:grid; grid-template-columns:repeat(5,1fr);
-            gap:0; max-width:900px; margin:0 auto;
-        }
-        .ptb-item {
-            display:flex; flex-direction:column; align-items:center;
-            text-align:center; padding:0 1.5rem; position:relative;
-        }
-        .ptb-item + .ptb-item::before {
-            content:''; position:absolute; left:0; top:50%;
-            transform:translateY(-50%); height:48px; width:1px;
-            background:var(--border);
-        }
-        .ptb-icon {
-            width:52px; height:52px; background:var(--white);
-            border:1px solid var(--border); border-radius:16px;
-            display:flex; align-items:center; justify-content:center;
-            color:var(--teal); margin-bottom:1rem;
-            box-shadow:0 2px 8px rgba(10,22,40,.06);
-        }
-        .ptb-name {
-            font-size:.9rem; font-weight:800; color:var(--clinical-blue);
-            margin-bottom:.2rem; letter-spacing:-.01em;
-        }
-        .ptb-desc {
-            font-size:.7rem; color:var(--text-muted); font-weight:600;
-            text-transform:uppercase; letter-spacing:.06em;
-        }
+        
+        
+        
+        
+        
+        
+        
 
         /* ── LINK CARDS — REMOVE BOXES ── */
         .link-card {
@@ -1685,8 +1659,8 @@
         @media (max-width:1024px) {
             .section { padding:7rem 0 !important; }
             .content-section { padding:6rem 0 !important; }
-            .ptb-grid { grid-template-columns:repeat(3,1fr); gap:2rem; }
-            .ptb-item + .ptb-item::before { display:none; }
+            
+            
         }
         @media (max-width:768px) {
             .section { padding:5rem 0 !important; }
@@ -1698,7 +1672,7 @@
             .content-image img { height:260px !important; }
             .serve-card { padding:1.75rem !important; gap:1.5rem !important; }
             .serve-image { height:220px !important; }
-            .ptb-grid { grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+            
             .logo-strip-row { gap:2.5rem !important; }
             .link-card { padding:1.25rem 0 !important; }
         }
@@ -1706,7 +1680,7 @@
             .section { padding:3.5rem 0 !important; }
             h1 { font-size:2.25rem !important; }
             h2 { font-size:1.875rem !important; }
-            .ptb-grid { grid-template-columns:repeat(2,1fr); }
+            
         }
 
         
@@ -1855,33 +1829,13 @@
             background-image:radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1px);
             background-size:32px 32px; pointer-events:none;
         }
-        .ptb-label {
-            color:rgba(255,255,255,.45) !important;
-            font-size:.7rem !important;
-            margin-bottom:4rem !important;
-            letter-spacing:.2em !important;
-        }
-        .ptb-grid { max-width:1000px !important; }
-        .ptb-icon {
-            width:68px !important; height:68px !important;
-            background:rgba(255,255,255,.06) !important;
-            border:1px solid rgba(0,164,157,.3) !important;
-            border-radius:20px !important;
-            color:var(--teal) !important;
-            box-shadow:0 8px 32px rgba(0,0,0,.2) !important;
-            margin-bottom:1.5rem !important;
-        }
+        
+        
+        
         .ptb-icon svg { width:30px !important; height:30px !important; }
-        .ptb-name {
-            color:var(--white) !important;
-            font-size:1.05rem !important;
-            margin-bottom:.35rem !important;
-        }
-        .ptb-desc { color:rgba(255,255,255,.4) !important; }
-        .ptb-item + .ptb-item::before {
-            background:rgba(255,255,255,.1) !important;
-            height:60px !important;
-        }
+        
+        
+        
 
         /* ── DEPTH & LAYERING ── */
         .dash-shell, .content-image, .contact-form-card, .solution-card {
@@ -1954,7 +1908,7 @@
             .content-image img { height:300px !important; }
             .serve-image { height:240px !important; }
             .premium-trust-band { padding:4rem 0 !important; }
-            .ptb-icon { width:52px !important; height:52px !important; }
+            
             .ptb-icon svg { width:24px !important; height:24px !important; }
             .solution-card { padding:2rem !important; }
             .contact-form-card { padding:1.75rem !important; }
@@ -2037,35 +1991,12 @@
         /* ── 4. PREMIUM CERTIFICATION DISPLAYS ──
            Elevate compliance items from flat icons to embossed,
            medallion-style certification badges. */
-        .ptb-icon {
-            background:linear-gradient(145deg, rgba(0,164,157,.12), rgba(255,255,255,.02)) !important;
-            border:1px solid rgba(0,164,157,.35) !important;
-            box-shadow:
-                0 8px 32px rgba(0,0,0,.25),
-                inset 0 1px 0 rgba(255,255,255,.08),
-                inset 0 -1px 0 rgba(0,0,0,.2) !important;
-            position:relative !important;
-        }
-        .ptb-icon::after {
-            content:''; position:absolute; inset:-1px; border-radius:20px;
-            background:linear-gradient(145deg, rgba(0,164,157,.4), transparent 50%);
-            -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite:xor; mask-composite:exclude;
-            padding:1px; pointer-events:none;
-        }
-        .ptb-item:hover .ptb-icon {
-            transform:translateY(-4px) !important;
-            box-shadow:
-                0 16px 48px rgba(0,164,157,.25),
-                inset 0 1px 0 rgba(255,255,255,.12) !important;
-        }
-        .ptb-icon { transition:all .4s cubic-bezier(.16,1,.3,1) !important; }
+        
+        
+        .ptb-item:hover 
+        
         /* Certification ribbon accent under the label */
-        .ptb-label::after {
-            content:''; display:block; width:40px; height:2px;
-            background:linear-gradient(90deg, transparent, var(--teal), transparent);
-            margin:1.25rem auto 0;
-        }
+        
 
         /* ── 5. STRONGER PRIMARY/SECONDARY CONTRAST ──
            Flagship sections (hero, technology, trust) get richer,
@@ -2090,7 +2021,7 @@
             opacity:.4; z-index:1;
             background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
         }
-        .ptb-grid, .ptb-label { position:relative; z-index:2; }
+        .ptb-grid, 
 
         
         /* ══════════════════════════════════════════════
@@ -2147,11 +2078,7 @@
             }
 
             /* Certification medallions: keep premium look on mobile */
-            .ptb-icon {
-                background:linear-gradient(145deg, rgba(0,164,157,.14), rgba(255,255,255,.02)) !important;
-                border:1px solid rgba(0,164,157,.4) !important;
-                box-shadow:0 8px 24px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.1) !important;
-            }
+            
         }
 
         
@@ -2641,6 +2568,114 @@
             .home-closing .signal-motif { --sig-size:320px; }
         }
 
+        
+        /* ══════════════════════════════════════════════
+           VISUAL EMPHASIS PASS — IMPACT & MEMORABILITY
+        ══════════════════════════════════════════════ */
+
+        /* ── 6. HERO STAYS MOST DOMINANT ── */
+        .home-hero { min-height:98vh !important; }
+        .hero-grid { grid-template-columns:0.6fr 1.4fr !important; gap:2.5rem !important; }
+        .dash-shell {
+            width:142% !important; margin-left:-14% !important;
+            transform:perspective(2600px) rotateY(-6deg) rotateX(2.5deg) scale(1.14) !important;
+            box-shadow:-60px 90px 220px rgba(0,0,0,.62), 0 0 0 1px rgba(255,255,255,.08), 0 0 130px rgba(0,164,157,.12) !important;
+        }
+        .dash-shell:hover {
+            transform:perspective(2600px) rotateY(-3deg) rotateX(1.5deg) scale(1.15) !important;
+        }
+
+        /* ── 1 + 2. LARGER SECTION IMAGERY (+25%) ── */
+        .content-image img { height:640px !important; }
+        #technology .content-image img { height:700px !important; }
+        .serve-image { height:520px !important; }
+
+        /* ── 3 + 4. REDUCE COMPETITION, MORE BREATHING ROOM ── */
+        .content-grid { grid-template-columns:0.74fr 1.26fr !important; gap:7.5rem !important; }
+        .content-grid.reverse { grid-template-columns:1.26fr 0.74fr !important; }
+        .content-section, .content-section.alt { padding:12rem 0 !important; }
+        .section { padding:13rem 0 !important; }
+
+        /* ── 5. SIGNATURE = MAJOR BRAND MOMENT ── */
+        .signature-moment { min-height:96vh !important; }
+        .signature-moment h2 { font-size:clamp(2.75rem,5.5vw,5rem) !important; }
+        .signature-moment p { font-size:1.375rem !important; }
+
+        /* ── 5. COVERAGE = MAJOR BRAND MOMENT ── */
+        .home-coverage-moment { min-height:90vh !important; }
+        .home-coverage-moment h2 { font-size:clamp(2.75rem,5.5vw,5rem) !important; }
+        .coverage-stat-n { font-size:3.25rem !important; }
+
+        /* ── 7. CONTRAST: text-led sections quieter & tighter ── */
+        .logo-strip { padding:2rem 0 !important; }
+        .explore-section { padding:5.5rem 0 !important; }
+        .premium-trust-band { padding:6rem 0 !important; }
+
+        @media (max-width:1024px) {
+            .hero-grid { grid-template-columns:1fr !important; }
+            .content-grid, .content-grid.reverse { grid-template-columns:1fr !important; gap:3rem !important; }
+            .content-image img { height:460px !important; }
+            #technology .content-image img { height:460px !important; }
+            .serve-image { height:400px !important; }
+            .section { padding:8rem 0 !important; }
+            .content-section, .content-section.alt { padding:7rem 0 !important; }
+        }
+        @media (max-width:768px) {
+            .content-image img { height:320px !important; }
+            #technology .content-image img { height:320px !important; }
+            .serve-image { height:260px !important; }
+            .signature-moment, .home-coverage-moment { min-height:auto !important; }
+            .section { padding:5rem 0 !important; }
+            .content-section, .content-section.alt { padding:4.5rem 0 !important; }
+        }
+
+        
+        /* ── OUTCOMES — 3 large blocks ── */
+        .outcomes-3 {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:3.5rem;
+            max-width:1100px; margin:0 auto;
+        }
+        .outcome-block { position:relative; padding-top:2rem; border-top:2px solid var(--teal); }
+        .outcome-block-num {
+            font-size:.875rem; font-weight:800; color:var(--teal);
+            letter-spacing:.1em; margin-bottom:1.5rem;
+        }
+        .outcome-block h3 {
+            font-size:1.75rem; line-height:1.2; margin-bottom:1rem;
+            letter-spacing:-.02em; color:var(--clinical-blue);
+        }
+        .outcome-block p {
+            font-size:1.0625rem; line-height:1.6; color:var(--text-secondary); margin:0;
+        }
+
+        /* ── COMPLIANCE — confident credential display ── */
+        .ptb-confident-label {
+            text-align:center; font-size:1.5rem; font-weight:700;
+            color:rgba(255,255,255,.5); letter-spacing:.01em; margin-bottom:4rem;
+        }
+        .ptb-credentials {
+            display:flex; align-items:center; justify-content:center;
+            gap:2.5rem; flex-wrap:wrap; max-width:1000px; margin:0 auto;
+        }
+        .ptb-cred {
+            font-size:clamp(2rem,4vw,3.25rem); font-weight:800;
+            color:#fff; letter-spacing:-.02em; white-space:nowrap;
+            opacity:.92; transition:opacity .3s ease;
+        }
+        .ptb-cred:hover { opacity:1; }
+        .ptb-cred-divider {
+            width:1px; height:40px; background:rgba(255,255,255,.18); flex-shrink:0;
+        }
+        @media (max-width:900px) {
+            .outcomes-3 { grid-template-columns:1fr; gap:2.5rem; max-width:520px; }
+            .outcome-block h3 { font-size:1.5rem; }
+        }
+        @media (max-width:768px) {
+            .ptb-confident-label { font-size:1.125rem; margin-bottom:2.5rem; }
+            .ptb-credentials { gap:1.25rem; }
+            .ptb-cred-divider { display:none; }
+        }
+
         </style>
 </head>
 <body>
@@ -2885,44 +2920,25 @@
     <!-- Outcomes -->
     <section class="section">
       <div class="container">
-        <div class="content-grid" style="gap:5rem;align-items:start">
-          <div class="animate-left">
-            <div class="eyebrow">Impact</div>
-            <h2 style="margin-bottom:1.25rem">Focused on better outcomes</h2>
-            <p style="margin-bottom:2rem">TRC is designed to help long-term care facilities deliver a higher standard of oversight, without adding complexity to already demanding workflows.</p>
-            <a onclick="navigateTo('solutions')" class="btn btn-secondary">Explore Solutions →</a>
+        <div class="section-header animate" style="text-align:center;max-width:680px;margin:0 auto 5rem">
+          <div class="eyebrow" style="justify-content:center">Impact</div>
+          <h2>Focused on better outcomes</h2>
+        </div>
+        <div class="outcomes-3">
+          <div class="outcome-block animate delay-1">
+            <div class="outcome-block-num">01</div>
+            <h3>Earlier Identification of Clinical Changes</h3>
+            <p>Meaningful changes surfaced before the next scheduled round.</p>
           </div>
-          <div class="feature-rows animate-right" style="border-top:1px solid var(--border)">
-            <div class="feature-row">
-              <div class="feature-row-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
-              <div><div class="feature-row-title">Earlier Identification of Clinical Changes</div></div>
-              <p class="feature-row-desc">Continuous physiological monitoring helps surface meaningful changes in resident status that might otherwise go unnoticed between scheduled rounds.</p>
-            </div>
-            <div class="feature-row">
-              <div class="feature-row-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></div>
-              <div><div class="feature-row-title">Improved Visibility Between Care Rounds</div></div>
-              <p class="feature-row-desc">Ambient sensors provide awareness of resident status at all hours, filling the gaps that exist between in-person clinical assessments.</p>
-            </div>
-            <div class="feature-row">
-              <div class="feature-row-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg></div>
-              <div><div class="feature-row-title">Reduced Alert Fatigue</div></div>
-              <p class="feature-row-desc">Alerts calibrated to each resident's individual baseline help ensure nursing teams receive meaningful notifications rather than constant noise.</p>
-            </div>
-            <div class="feature-row">
-              <div class="feature-row-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg></div>
-              <div><div class="feature-row-title">Meaningful Trend Analysis</div></div>
-              <p class="feature-row-desc">Longitudinal data helps identify gradual changes over time, giving clinical teams a clearer view of resident health trajectory rather than isolated snapshots.</p>
-            </div>
-            <div class="feature-row">
-              <div class="feature-row-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-              <div><div class="feature-row-title">Enhanced Resident Oversight</div></div>
-              <p class="feature-row-desc">A complete view of each resident's physiological status supports more informed decisions by nursing staff and attending physicians across every shift.</p>
-            </div>
-            <div class="feature-row">
-              <div class="feature-row-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
-              <div><div class="feature-row-title">Actionable Clinical Intelligence</div></div>
-              <p class="feature-row-desc">Data is surfaced in context, helping clinical teams understand not just what is happening but when to respond, without interpreting raw monitoring data themselves.</p>
-            </div>
+          <div class="outcome-block animate delay-2">
+            <div class="outcome-block-num">02</div>
+            <h3>Improved Visibility Between Care Rounds</h3>
+            <p>Continuous awareness of resident status, at every hour.</p>
+          </div>
+          <div class="outcome-block animate delay-3">
+            <div class="outcome-block-num">03</div>
+            <h3>Reduced Alert Fatigue</h3>
+            <p>Alerts calibrated to each resident, not generic thresholds.</p>
           </div>
         </div>
       </div>
@@ -3031,34 +3047,17 @@
     <!-- Trust bar -->
     <div class="premium-trust-band">
       <div class="container">
-        <div class="section-signal-mark"></div>
-        <div class="ptb-label">Compliance &amp; Standards</div>
-        <div class="ptb-grid">
-          <div class="ptb-item">
-            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
-            <div class="ptb-name">HIPAA</div>
-            <div class="ptb-desc">Compliant</div>
-          </div>
-          <div class="ptb-item">
-            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
-            <div class="ptb-name">CMS</div>
-            <div class="ptb-desc">Aligned</div>
-          </div>
-          <div class="ptb-item">
-            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-            <div class="ptb-name">FDA</div>
-            <div class="ptb-desc">Registered</div>
-          </div>
-          <div class="ptb-item">
-            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
-            <div class="ptb-name">SOC 2</div>
-            <div class="ptb-desc">Type II</div>
-          </div>
-          <div class="ptb-item">
-            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-            <div class="ptb-name">EHR</div>
-            <div class="ptb-desc">Integrated</div>
-          </div>
+        <div class="ptb-confident-label">Established. Trusted. Compliant.</div>
+        <div class="ptb-credentials">
+          <div class="ptb-cred">HIPAA</div>
+          <div class="ptb-cred-divider"></div>
+          <div class="ptb-cred">CMS</div>
+          <div class="ptb-cred-divider"></div>
+          <div class="ptb-cred">FDA</div>
+          <div class="ptb-cred-divider"></div>
+          <div class="ptb-cred">SOC&nbsp;2</div>
+          <div class="ptb-cred-divider"></div>
+          <div class="ptb-cred">EHR</div>
         </div>
       </div>
     </div>
