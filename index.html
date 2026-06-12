@@ -2794,22 +2794,20 @@
 
         
         /* ── IMPLEMENTATION — image-led ── */
-        .impl-grid {
-            display:grid; grid-template-columns:1.15fr 0.85fr; gap:6rem; align-items:center;
-        }
-        .impl-image { border-radius:24px; overflow:hidden; box-shadow:0 40px 100px rgba(10,22,40,.2); position:relative; }
-        .impl-image img { width:100%; height:620px; object-fit:cover; display:block; }
-        .impl-step { display:grid; grid-template-columns:48px 1fr; gap:1.5rem; align-items:start; padding:1.25rem 0; border-top:1px solid var(--border); }
-        .impl-step:first-of-type { border-top:none; }
-        .impl-step-num { font-size:1rem; font-weight:800; color:var(--teal); letter-spacing:.02em; padding-top:.15rem; }
-        .impl-step h3 { font-size:1.1875rem; color:var(--clinical-blue); margin-bottom:.25rem; letter-spacing:-.01em; }
-        .impl-step p { font-size:.9375rem; line-height:1.6; color:var(--text-secondary); margin:0; }
+        
+        
+        
+        
+        
+        
+        
+        
         @media (max-width:1024px) {
-            .impl-grid { grid-template-columns:1fr; gap:3rem; }
-            .impl-image img { height:420px; }
+            
+            
         }
         @media (max-width:768px) {
-            .impl-image img { height:300px; }
+            
         }
 
         
@@ -2849,13 +2847,9 @@
 
         /* ── 4. BUILT FOR LTC (42/58) ── */
         #builtfor-sec { padding:10rem 0 !important; }
-        #builtfor-sec .content-grid {
-            grid-template-columns:42% 58% !important; gap:5rem !important; align-items:center !important;
-        }
-        #builtfor-sec .content-image { border-radius:24px !important; box-shadow:0 30px 80px rgba(10,22,40,.16) !important; }
-        #builtfor-sec .content-image img {
-            width:100% !important; height:600px !important; object-fit:cover !important;
-        }
+        
+        
+        
 
         /* ── 5. NIGHT — full visual pause ── */
         .night-moment { min-height:720px !important; }
@@ -2863,8 +2857,8 @@
         .night-moment h2 { margin-bottom:1.75rem !important; }
 
         /* ── 6. SIMPLE TO IMPLEMENT (55 img / 45 text) ── */
-        .impl-grid { grid-template-columns:55% 45% !important; gap:5rem !important; }
-        .impl-image img { height:640px !important; }
+        
+        
 
         /* ── 7. COMPLIANCE — institutional ── */
         .premium-trust-band { padding:8rem 0 !important; }
@@ -2876,11 +2870,9 @@
 
         /* ── 12 RESPONSIVE ── */
         @media (max-width:1024px) {
-            #why-trc-sec .content-grid, #builtfor-sec .content-grid, .impl-grid {
-                grid-template-columns:1fr !important; gap:3rem !important;
-            }
-            #why-trc-sec .content-image img, #builtfor-sec .content-image img { height:440px !important; }
-            .impl-image img { height:440px !important; }
+            #why-trc-sec .content-grid, #builtfor-sec .content-grid, 
+            #why-trc-sec .content-image img, 
+            
             #why-trc-sec, #builtfor-sec { padding:7rem 0 !important; }
             .outcome-pillars-section { padding:7rem 0 !important; }
         }
@@ -2888,9 +2880,73 @@
             .signature-moment { min-height:620px !important; }
             .night-moment { min-height:600px !important; }
             .home-coverage-moment { min-height:560px !important; }
-            #why-trc-sec .content-image img, #builtfor-sec .content-image img { height:320px !important; }
-            .impl-image img { height:320px !important; }
+            #why-trc-sec .content-image img, 
+            
             .outcome-pillars { gap:2.5rem !important; }
+        }
+
+        
+        /* ══════════════════════════════════════════════
+           SECTION LAYOUT REFINEMENT — image-led
+        ══════════════════════════════════════════════ */
+
+        /* ── BUILT FOR LTC — headline top, list-left / big-image-right ── */
+        #builtfor-sec { padding:10rem 0 !important; }
+        .builtfor-grid {
+            display:grid; grid-template-columns:40% 60%; gap:5rem; align-items:center;
+        }
+        .builtfor-image {
+            border-radius:20px; overflow:hidden;
+            box-shadow:0 40px 110px rgba(10,22,40,.18);
+        }
+        .builtfor-image img {
+            width:100%; height:640px; object-fit:cover; display:block;
+            transition:transform 1s cubic-bezier(.16,1,.3,1);
+        }
+        .builtfor-image:hover img { transform:scale(1.03); }
+        .builtfor-list .serve-list-item { padding:1.5rem 0; }
+        .builtfor-list .serve-list-item:first-child { padding-top:0; border-top:none; }
+
+        /* ── SIMPLE TO IMPLEMENT — hero image + 2x2 steps ── */
+        #implement-sec { padding:9.5rem 0 !important; }
+        .impl-hero-image {
+            border-radius:24px; overflow:hidden; margin-bottom:4.5rem;
+            box-shadow:0 50px 130px rgba(10,22,40,.2);
+        }
+        .impl-hero-image img {
+            width:100%; height:600px; object-fit:cover; display:block;
+        }
+        .impl-steps-grid {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:3rem;
+        }
+        .impl-step-block { }
+        .impl-step-block 
+        .impl-step-block .impl-step-num {
+            font-size:1.25rem; font-weight:800; color:var(--teal);
+            margin-bottom:1rem; letter-spacing:.02em;
+        }
+        .impl-step-block h3 {
+            font-size:1.1875rem; color:var(--clinical-blue);
+            margin-bottom:.5rem; letter-spacing:-.01em;
+        }
+        .impl-step-block p {
+            font-size:.9375rem; line-height:1.6; color:var(--text-secondary); margin:0;
+        }
+
+        /* clean up old impl-grid styles that no longer apply */
+
+        @media (max-width:1024px) {
+            .builtfor-grid { grid-template-columns:1fr; gap:3rem; }
+            .builtfor-image img { height:460px; }
+            .impl-hero-image img { height:440px; }
+            .impl-steps-grid { grid-template-columns:repeat(2,1fr); gap:2.5rem; }
+            #builtfor-sec, #implement-sec { padding:7rem 0 !important; }
+        }
+        @media (max-width:768px) {
+            .builtfor-image img { height:300px; }
+            .impl-hero-image img { height:280px; }
+            .impl-steps-grid { grid-template-columns:1fr; gap:2rem; }
+            .builtfor-head, .impl-head { margin-bottom:3rem !important; }
         }
 
         </style>
@@ -3146,11 +3202,13 @@
 
     <section class="content-section" id="builtfor-sec">
       <div class="container">
-        <div class="content-grid" style="gap:6rem;align-items:center">
-          <div class="content-text animate-left">
-            <div class="eyebrow">Who We Serve</div>
-            <h2 style="margin-bottom:1.5rem">Built for long-term care</h2>
-            <p style="margin-bottom:3rem">TRC is designed for the specific demands of long-term care environments, where continuous oversight and operational efficiency matter equally.</p>
+        <div class="builtfor-head animate" style="max-width:680px;margin-bottom:5rem">
+          <div class="eyebrow">Who We Serve</div>
+          <h2 style="margin-bottom:1.5rem">Built for long-term care</h2>
+          <p style="margin:0">TRC is designed for the specific demands of long-term care environments, where continuous oversight and operational efficiency matter equally.</p>
+        </div>
+        <div class="builtfor-grid">
+          <div class="builtfor-list animate-left">
             <div class="serve-list">
               <div class="serve-list-item">
                 <h3>Skilled Nursing Facilities</h3>
@@ -3174,7 +3232,7 @@
               </div>
             </div>
           </div>
-          <div class="content-image animate-right">
+          <div class="builtfor-image animate-right">
             <img src="images/leadership-walking.jpg" alt="Healthcare leadership walking through a facility" loading="lazy">
           </div>
         </div>
@@ -3192,32 +3250,36 @@
       </div>
     </section>
 
-    <section class="section section-tint">
+    <section class="section section-tint" id="implement-sec">
       <div class="container">
-        <div class="impl-grid">
-          <div class="impl-image animate-left">
-            <img src="images/installation.jpg" alt="Quiet sensor installation in a care facility" loading="lazy">
+        <div class="impl-head animate" style="max-width:680px;margin-bottom:4rem">
+          <div class="eyebrow">Implementation</div>
+          <h2 style="margin-bottom:1.5rem">Simple to implement</h2>
+          <p style="margin:0">Deployment is quiet and seamless. Sensors are installed without construction, wiring, or disruption to residents and daily operations.</p>
+        </div>
+        <div class="impl-hero-image animate">
+          <img src="images/installation.jpg" alt="Quiet sensor installation in a care facility" loading="lazy">
+        </div>
+        <div class="impl-steps-grid">
+          <div class="impl-step-block animate delay-1">
+            <div class="impl-step-num">01</div>
+            <h3>Assessment</h3>
+            <p>We evaluate your facility layout, census, and infrastructure to design the right configuration.</p>
           </div>
-          <div class="impl-steps animate-right">
-            <div class="eyebrow">Implementation</div>
-            <h2 style="margin-bottom:1rem">Simple to implement</h2>
-            <p style="margin-bottom:2.5rem">Deployment is quiet and seamless. Sensors are installed without construction, wiring, or disruption to residents and daily operations.</p>
-            <div class="impl-step">
-              <div class="impl-step-num">01</div>
-              <div><h3>Assessment</h3><p>We evaluate your facility layout, census, and infrastructure to design the right configuration.</p></div>
-            </div>
-            <div class="impl-step">
-              <div class="impl-step-num">02</div>
-              <div><h3>Deployment</h3><p>Sensors are installed quickly, with no construction and no disruption to daily operations.</p></div>
-            </div>
-            <div class="impl-step">
-              <div class="impl-step-num">03</div>
-              <div><h3>Monitoring</h3><p>The platform begins learning resident baselines and surfacing meaningful insights.</p></div>
-            </div>
-            <div class="impl-step">
-              <div class="impl-step-num">04</div>
-              <div><h3>Ongoing Support</h3><p>Your dedicated TRC team ensures the platform keeps delivering value as you grow.</p></div>
-            </div>
+          <div class="impl-step-block animate delay-2">
+            <div class="impl-step-num">02</div>
+            <h3>Deployment</h3>
+            <p>Sensors are installed quickly, with no construction and no disruption to daily operations.</p>
+          </div>
+          <div class="impl-step-block animate delay-3">
+            <div class="impl-step-num">03</div>
+            <h3>Monitoring</h3>
+            <p>The platform begins learning resident baselines and surfacing meaningful insights.</p>
+          </div>
+          <div class="impl-step-block animate delay-4">
+            <div class="impl-step-num">04</div>
+            <h3>Ongoing Support</h3>
+            <p>Your dedicated TRC team ensures the platform keeps delivering value as you grow.</p>
           </div>
         </div>
       </div>
