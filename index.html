@@ -161,20 +161,9 @@
         
         /* Hero visual */
         .hero-visual { display:flex; justify-content:center; align-items:center; }
-        
-        
-        
-        
+
         .live-dot { width:6px; height:6px; background:var(--teal); border-radius:50%; animation:pulseGlow 1.5s ease-in-out infinite; }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         /* ECG line animation */
         .ecg-path { fill:none; stroke:var(--teal); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:300; stroke-dashoffset:300; animation:ecgDraw 3s ease-in-out infinite; }
         @keyframes ecgDraw { 0%{stroke-dashoffset:300} 50%{stroke-dashoffset:0} 100%{stroke-dashoffset:-300} }
@@ -800,9 +789,6 @@
             transition:all .3s ease;
         }
         .why-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:transparent; }
-        
-        
-        
 
         /* ── PRINT STYLESHEET ── */
         @media print {
@@ -842,10 +828,6 @@
         /* ══════════════════════════════════════════════
            PREMIUM LAYER 2 — FULL POLISH
         ══════════════════════════════════════════════ */
-
-        
-            .cursor-dot.clicking { transform:translate(-50%,-50%) scale(.7); }
-        }
 
         /* ── SCROLL PROGRESS BAR ── */
         #scroll-progress {
@@ -975,8 +957,7 @@
             background-image:radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
             background-size:28px 28px;
         }
-        .us-state:hover { fill:rgba(0,164,157,.55); } 50%{r:7;opacity:.5}
-        }
+        .us-state:hover { fill:rgba(0,164,157,.55); }
         .coverage-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem; }
         .coverage-item {
             text-align:center; padding:1.25rem 1rem;
@@ -1236,12 +1217,6 @@
         .trust-section-item p { font-size:.875rem; margin:0; line-height:1.6; }
 
         /* ── PROCESS OVERVIEW (home) ── */
-        
-        
-        
-        
-        
-        
 
         /* ── MOBILE RESPONSIVE ── */
         @media (max-width:1024px) {
@@ -1535,13 +1510,6 @@
             border-bottom:1px solid var(--border);
             padding:4rem 0;
         }
-        
-        
-        
-        
-        
-        
-        
 
         /* ── LINK CARDS — REMOVE BOXES ── */
         .link-card {
@@ -1821,9 +1789,6 @@
         
         
         .ptb-icon svg { width:30px !important; height:30px !important; }
-        
-        
-        
 
         /* ── DEPTH & LAYERING ── */
         .dash-shell, .content-image, .contact-form-card, .solution-card {
@@ -1939,15 +1904,8 @@
         /* ── 3. PROPRIETARY VISUAL MOTIF — "THE PULSE FIELD" ──
            A signature concentric-ring + scanline motif representing
            continuous ambient awareness. Used as a recurring brand mark. */
-        
-        
-        
-        
 
         /* Signature corner accent — appears on flagship sections */
-        
-        
-        
 
         /* ── 2. HERO = FLAGSHIP PRODUCT SHOWCASE ──
            Frame the dashboard like an Apple keynote product shot:
@@ -2058,7 +2016,6 @@
 
             /* Pulse motif visible behind hero on mobile */
             .home-hero { position:relative; overflow:hidden; }
-            .home-hero 
 
             /* Image wash MORE visible on mobile */
             .content-image::before {
@@ -2794,14 +2751,7 @@
 
         
         /* ── IMPLEMENTATION — image-led ── */
-        
-        
-        
-        
-        
-        
-        
-        
+
         @media (max-width:1024px) {
             
             
@@ -2846,10 +2796,6 @@
         .outcome-pillar-num { font-size:4rem !important; }
 
         /* ── 4. BUILT FOR LTC (42/58) ── */
-        
-        
-        
-        
 
         /* ── 5. NIGHT — full visual pause ── */
         .night-moment { min-height:720px !important; }
@@ -2891,33 +2837,12 @@
         ══════════════════════════════════════════════ */
 
         /* ── BUILT FOR LTC — headline top, list-left / big-image-right ── */
-        
-        
-        
-        
-        
-        
-        
 
         /* ── SIMPLE TO IMPLEMENT — hero image + 2x2 steps ── */
-        #implement-sec { padding:9.5rem 0 !important; }
-        
-        
-        
-        
-        .impl-step-block 
-        
-        
-        
-
-        /* clean up old impl-grid styles that no longer apply */
 
         @media (max-width:1024px) {
-            
-            
-            
-            
-            #builtfor-sec, #implement-sec { padding:7rem 0 !important; }
+
+            #builtfor-sec, 
         }
         @media (max-width:768px) {
             
@@ -2948,57 +2873,25 @@
         
 
         /* ── 3. SIMPLE TO IMPLEMENT — 60/40, big image ── */
-        #implement-sec { padding:10rem 0 !important; }
-        .impl-grid2 {
-            display:grid; grid-template-columns:60% 40%; gap:5rem; align-items:center;
-        }
-        .impl-photo {
-            border-radius:24px; overflow:hidden;
-            box-shadow:0 50px 130px rgba(10,22,40,.2);
-        }
-        .impl-photo img {
-            width:100%; height:680px; object-fit:cover; display:block;
-            transition:transform 1s cubic-bezier(.16,1,.3,1);
-        }
-        .impl-photo:hover img { transform:scale(1.03); }
-        .impl-steps-mini { display:flex; flex-direction:column; gap:1.5rem; }
-        .impl-mini { display:grid; grid-template-columns:36px 1fr; gap:1rem; align-items:start; }
-        .impl-mini-num { font-size:.9375rem; font-weight:800; color:var(--teal); padding-top:.15rem; }
-        .impl-mini h3 { font-size:1.0625rem; color:var(--clinical-blue); margin-bottom:.2rem; letter-spacing:-.01em; }
-        .impl-mini p { font-size:.875rem; line-height:1.55; color:var(--text-secondary); margin:0; }
 
         @media (max-width:1024px) {
-            #why-trc-sec .content-grid, .builtfor-grid, .impl-grid2 {
-                grid-template-columns:1fr !important; gap:3rem !important;
-            }
+            #why-trc-sec .content-grid, .builtfor-grid, 
             #why-trc-sec .content-image img { height:460px !important; }
             
-            .impl-photo img { height:460px !important; }
-            #why-trc-sec, #builtfor-sec, #implement-sec { padding:7rem 0 !important; }
+            
+            #why-trc-sec, #builtfor-sec, 
         }
         @media (max-width:768px) {
             #why-trc-sec .content-image img { height:320px !important; }
             
-            .impl-photo img { height:300px !important; }
+            
         }
 
         
         /* ══════════════════════════════════════════════
            BUILT FOR LONG-TERM CARE — editorial split
         ══════════════════════════════════════════════ */
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         @media (max-width:1024px) {
             
             
@@ -3144,6 +3037,84 @@
             .builtfor-grid2::before { display:none; }
             .bf-item:nth-child(odd):not(.bf-item-full) { padding-right:0; border-right:none; }
             .bf-item:nth-child(even) { padding-left:0; }
+        }
+
+        
+        /* ══════════════════════════════════════════════
+           SIMPLE TO IMPLEMENT — premium 2x2 process
+        ══════════════════════════════════════════════ */
+        #implement-sec {
+            padding:140px 0 !important;
+            background:#F7F8FA !important;
+        }
+        .impl-wrap {
+            max-width:1440px; margin:0 auto; padding:0 3rem;
+            display:grid; grid-template-columns:50% 50%; gap:5.5rem;
+            align-items:center;
+        }
+        .impl-photo {
+            border-radius:28px; overflow:hidden;
+            box-shadow:0 30px 80px rgba(10,22,40,.13);
+        }
+        .impl-photo img {
+            width:100%; height:760px; object-fit:cover; display:block;
+        }
+        .impl-content .eyebrow { margin-bottom:1.25rem; }
+        .impl-content h2 {
+            font-size:clamp(2.5rem,4vw,3.5rem); margin-bottom:1.5rem; letter-spacing:-.03em;
+        }
+        .impl-intro {
+            margin-bottom:3.5rem; color:var(--text-secondary);
+            font-size:1.0625rem; line-height:1.7; max-width:480px;
+        }
+        /* 2x2 process grid with cross-divider + center dot */
+        .impl-process {
+            display:grid; grid-template-columns:1fr 1fr;
+            column-gap:3.5rem; row-gap:3rem;
+            position:relative;
+        }
+        /* vertical divider down the middle */
+        .impl-process::before {
+            content:''; position:absolute; left:50%; top:6%; bottom:6%;
+            width:1px; background:rgba(10,22,40,.1); transform:translateX(-50%);
+        }
+        /* horizontal divider across the middle */
+        .impl-process::after {
+            content:''; position:absolute; top:50%; left:0; right:0;
+            height:1px; background:rgba(10,22,40,.1); transform:translateY(-50%);
+        }
+        .impl-center-dot {
+            position:absolute; left:50%; top:50%;
+            width:11px; height:11px; border-radius:50%;
+            background:var(--teal); transform:translate(-50%,-50%); z-index:2;
+            box-shadow:0 0 0 5px #F7F8FA, 0 0 14px rgba(0,164,157,.4);
+        }
+        .impl-cell { position:relative; z-index:1; padding:.5rem 0; }
+        .impl-cell:nth-child(odd) { padding-right:2rem; }
+        .impl-cell:nth-child(even) { padding-left:2rem; }
+        .impl-cell-top { margin-bottom:1rem; }
+        .impl-cell-num {
+            font-size:2rem; font-weight:800; color:var(--teal);
+            letter-spacing:-.02em; line-height:1;
+        }
+        .impl-cell h3 {
+            font-size:1.375rem; font-weight:700; color:var(--clinical-blue);
+            margin-bottom:.5rem; letter-spacing:-.01em;
+        }
+        .impl-cell p {
+            font-size:.9375rem; line-height:1.6; color:var(--text-muted); margin:0;
+        }
+        @media (max-width:1024px) {
+            .impl-wrap { grid-template-columns:1fr; gap:3rem; padding:0 2rem; }
+            .impl-photo img { height:480px; }
+            #implement-sec { padding:6rem 0 !important; }
+        }
+        @media (max-width:768px) {
+            .impl-photo img { height:400px; }
+            .impl-process { grid-template-columns:1fr; row-gap:0; }
+            .impl-process::before, .impl-process::after, .impl-center-dot { display:none; }
+            .impl-cell { padding:1.5rem 0 !important; border-top:1px solid rgba(10,22,40,.08); }
+            .impl-cell:first-child { border-top:none; }
         }
 
         </style>
@@ -3443,22 +3414,37 @@
       </div>
     </section>
 
-    <section class="section section-tint" id="implement-sec">
-      <div class="container">
-        <div class="impl-grid2">
-          <div class="impl-photo animate-left">
-            <img src="images/installation.jpg" alt="Quiet sensor installation in a care facility" loading="lazy">
-          </div>
-          <div class="impl-content animate-right">
-            <div class="eyebrow">Implementation</div>
-            <h2 style="margin-bottom:1.25rem">Simple to implement</h2>
-            <p style="margin-bottom:2.5rem">Deployment is quiet and seamless. Sensors are installed without construction, wiring, or disruption to residents and daily operations.</p>
-            <div class="impl-steps-mini">
-              <div class="impl-mini"><span class="impl-mini-num">01</span><div><h3>Assessment</h3><p>We evaluate your facility layout, census, and infrastructure.</p></div></div>
-              <div class="impl-mini"><span class="impl-mini-num">02</span><div><h3>Deployment</h3><p>Sensors installed quickly, with no construction or disruption.</p></div></div>
-              <div class="impl-mini"><span class="impl-mini-num">03</span><div><h3>Monitoring</h3><p>The platform learns resident baselines and surfaces insights.</p></div></div>
-              <div class="impl-mini"><span class="impl-mini-num">04</span><div><h3>Ongoing Support</h3><p>Your dedicated TRC team keeps the platform delivering value.</p></div></div>
+    <section class="section" id="implement-sec">
+      <div class="impl-wrap">
+        <div class="impl-photo">
+          <img src="images/installation.jpg" alt="Quiet sensor installation in a care facility" loading="lazy">
+        </div>
+        <div class="impl-content">
+          <div class="eyebrow">Implementation</div>
+          <h2>Simple to implement</h2>
+          <p class="impl-intro">Quiet, seamless deployment without construction, wiring, or disruption to residents and daily operations. Our technology integrates effortlessly into your community so you can focus on what matters most.</p>
+          <div class="impl-process">
+            <div class="impl-cell">
+              <div class="impl-cell-top"><span class="impl-cell-num">01</span></div>
+              <h3>Assessment</h3>
+              <p>We evaluate your facility layout, census, and infrastructure.</p>
             </div>
+            <div class="impl-cell">
+              <div class="impl-cell-top"><span class="impl-cell-num">02</span></div>
+              <h3>Deployment</h3>
+              <p>Sensors are installed quickly, with no construction or disruption.</p>
+            </div>
+            <div class="impl-cell">
+              <div class="impl-cell-top"><span class="impl-cell-num">03</span></div>
+              <h3>Monitoring</h3>
+              <p>The platform learns resident baselines and surfaces insights.</p>
+            </div>
+            <div class="impl-cell">
+              <div class="impl-cell-top"><span class="impl-cell-num">04</span></div>
+              <h3>Ongoing Support</h3>
+              <p>Your dedicated TRC team keeps the platform delivering value.</p>
+            </div>
+            <div class="impl-center-dot"></div>
           </div>
         </div>
       </div>
@@ -5160,9 +5146,6 @@
     el.style.color = type === "success" ? "#065f46" : "#991b1b";
     setTimeout(() => { if (el) el.remove(); }, 6000);
   }
-
-  
-  
 
   // ── SCROLL PROGRESS BAR ─────────────────────────────
   const progressBar = document.getElementById('scroll-progress');
