@@ -2812,6 +2812,14 @@
             .impl-image img { height:300px; }
         }
 
+        
+        /* ── EXPLORE as secondary footer aid ── */
+        .explore-secondary { padding:5rem 0 !important; background:var(--off-white) !important; }
+        .explore-secondary h2 { font-size:1.75rem !important; }
+        .explore-secondary .section-header { margin-bottom:2.5rem !important; }
+        /* Subtle divider between stacked dark sections */
+        .home-coverage-moment { border-top:1px solid rgba(0,164,157,.15); }
+
         </style>
 </head>
 <body>
@@ -2863,7 +2871,6 @@
 
   <!-- ═══════════════════════════════════════════ HOME ═══ -->
   <div id="home" class="page active">
-
     <section class="home-hero">
       <div class="signal-motif" data-mobile style="display:none"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div>
       
@@ -2959,35 +2966,6 @@
       </div>
     </section>
 
-
-
-    <!-- Signature TRC Moment -->
-    <section class="signature-moment">
-      <img src="images/continuous-awareness.jpg" alt="Continuous resident awareness" loading="eager">
-      <div class="container">
-        <div class="signature-content animate-left">
-          <div class="signature-eyebrow">Continuous Awareness</div>
-          <h2>Care continues<br>when no one is<br>in the room.</h2>
-          <p>Total Remote Care provides continuous, ambient awareness of every resident, so changes are noticed the moment they matter, not at the next scheduled round.</p>
-        </div>
-      </div>
-      <div class="signature-pulse-mark"><div class="signal-motif" style="--sig-size:120px;--sig-opacity:1;position:relative;"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div></div>
-    </section>
-
-    <!-- Night hallway immersive moment -->
-    <section class="night-moment">
-      <img src="images/night-hallway.jpg" alt="Care facility hallway at night" loading="lazy">
-      <div class="container">
-        <div class="night-content animate-left">
-          <div class="night-eyebrow">Through Every Shift</div>
-          <h2>Awareness doesn't end<br>when the day does.</h2>
-          <p>TRC helps facilities maintain visibility through every shift, including the quiet hours between scheduled rounds.</p>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- Integration logo strip -->
     <div class="logo-strip">
       <div class="container">
         <div class="logo-strip-label">Trusted Integrations</div>
@@ -3018,15 +2996,6 @@
       </div>
     </div>
 
-<div class="divider-wave">
-  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="#FFFFFF"/>
-  </svg>
-</div>
-    
-
-
-    <!-- Why TRC -->
     <section class="section">
       <div class="container">
         <div class="content-grid" style="gap:6.5rem;align-items:center">
@@ -3063,10 +3032,18 @@
       </div>
     </section>
 
-    <!-- Outcomes -->
-    
-    <!-- Outcomes -->
-    <!-- Outcomes -->
+    <section class="signature-moment">
+      <img src="images/continuous-awareness.jpg" alt="Continuous resident awareness" loading="eager">
+      <div class="container">
+        <div class="signature-content animate-left">
+          <div class="signature-eyebrow">Continuous Awareness</div>
+          <h2>Care continues<br>when no one is<br>in the room.</h2>
+          <p>Total Remote Care provides continuous, ambient awareness of every resident, so changes are noticed the moment they matter, not at the next scheduled round.</p>
+        </div>
+      </div>
+      <div class="signature-pulse-mark"><div class="signal-motif" style="--sig-size:120px;--sig-opacity:1;position:relative;"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div></div>
+    </section>
+
     <section class="section section-tint">
       <div class="container">
         <div class="animate" style="max-width:760px;margin:0 auto 6rem;text-align:center">
@@ -3094,10 +3071,6 @@
       </div>
     </section>
 
-
-
-
-    <!-- Facility Types -->
     <section class="content-section">
       <div class="container">
         <div class="content-grid" style="gap:6rem;align-items:center">
@@ -3135,7 +3108,17 @@
       </div>
     </section>
 
-    <!-- Process overview -->
+    <section class="night-moment">
+      <img src="images/night-hallway.jpg" alt="Care facility hallway at night" loading="lazy">
+      <div class="container">
+        <div class="night-content animate-left">
+          <div class="night-eyebrow">Through Every Shift</div>
+          <h2>Awareness doesn't end<br>when the day does.</h2>
+          <p>TRC helps facilities maintain visibility through every shift, including the quiet hours between scheduled rounds.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-tint">
       <div class="container">
         <div class="impl-grid">
@@ -3167,25 +3150,6 @@
       </div>
     </section>
 
-
-    <!-- Authority banner -->
-    <div style="background:var(--clinical-blue);padding:2.5rem 0;margin:0">
-      <div class="container">
-        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem">
-          <div style="font-size:.8125rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4)">Built for Long-Term Care</div>
-          <div style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center">
-            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Nationwide Service</div>
-            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>EHR Integration Ready</div>
-            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Continuous Monitoring</div>
-            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Long-Term Care Focused</div>
-            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:700;color:rgba(255,255,255,.75)"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--teal)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Dedicated Support</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Trust bar -->
     <div class="premium-trust-band">
       <div class="container">
         <div class="ptb-confident-label">Established. Trusted. Compliant.</div>
@@ -3202,26 +3166,41 @@
         </div>
       </div>
     </div>
-    <!-- Explore links -->
 
-    <!-- Mid-page CTA -->
-    <section style="padding:5rem 0;background:var(--off-white)">
-      <div class="container">
-        <div style="background:var(--clinical-blue);border-radius:24px;padding:4rem 3.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center" class="mid-cta-inner">
-          <div>
-            <div style="font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:.625rem;letter-spacing:-.02em">See how TRC works in your facility</div>
-            <p style="color:rgba(255,255,255,.65);font-size:.9375rem;margin:0;max-width:480px">Walk through the platform with a clinical specialist. We will tailor the conversation to your facility type and current monitoring setup.</p>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:.75rem;align-items:flex-end">
-            <a onclick="navigateTo('contact')" class="btn btn-primary" style="white-space:nowrap;padding:.875rem 1.75rem">Schedule a Demo &#x2192;</a>
-            <a href="tel:+19546035622" style="font-size:.8125rem;color:rgba(255,255,255,.5);text-decoration:none;text-align:right">or call +1 (954) 603-5622</a>
+    <section class="home-coverage-moment">
+      <img src="images/facility-aerial.jpg" alt="Care facility at sunrise" loading="lazy">
+      <div class="home-coverage-content">
+        <div class="container">
+          <div class="animate">
+            <div class="eyebrow">Nationwide</div>
+            <h2>Visibility that reaches every facility we serve</h2>
+            <p>From single-site facilities to multi-state operators, TRC delivers continuous monitoring across the country.</p>
+            <div class="coverage-stat-row">
+              <div><div class="coverage-stat-n">50</div><div class="coverage-stat-l">States Served</div></div>
+              <div><div class="coverage-stat-n">24/7</div><div class="coverage-stat-l">Continuous Monitoring</div></div>
+              <div><div class="coverage-stat-n">5 Days</div><div class="coverage-stat-l">To Deployment</div></div>
+            </div>
+            <a onclick="navigateTo('coverage')" class="btn btn-primary" style="margin-top:2.5rem">View Coverage Map →</a>
           </div>
         </div>
       </div>
     </section>
-    
 
-    <section class="section section-gray" style="padding-top:5rem">
+    <section class="home-closing">
+      <div class="signal-motif"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div>
+      <div class="home-closing-content animate">
+        <h2>Always watching.<br><span class="closing-grad">Never intrusive.</span></h2>
+        <p>Continuous awareness, operational visibility, and proactive care, for every resident, in every facility, nationwide.</p>
+        <div class="home-closing-signals">
+          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>Continuous Awareness</div>
+          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Operational Visibility</div>
+          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>Nationwide Reach</div>
+        </div>
+        <a onclick="navigateTo('contact')" class="btn btn-primary btn-large">Schedule a Demo →</a>
+      </div>
+    </section>
+
+    <section class="explore-secondary section section-gray" style="padding-top:5rem">
       <div class="container">
         <div class="section-header animate">
           <div class="eyebrow">Explore</div>
@@ -3255,42 +3234,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Homepage Coverage Moment -->
-    <section class="home-coverage-moment">
-      <img src="images/facility-aerial.jpg" alt="Care facility at sunrise" loading="lazy">
-      <div class="home-coverage-content">
-        <div class="container">
-          <div class="animate">
-            <div class="eyebrow">Nationwide</div>
-            <h2>Visibility that reaches every facility we serve</h2>
-            <p>From single-site facilities to multi-state operators, TRC delivers continuous monitoring across the country.</p>
-            <div class="coverage-stat-row">
-              <div><div class="coverage-stat-n">50</div><div class="coverage-stat-l">States Served</div></div>
-              <div><div class="coverage-stat-n">24/7</div><div class="coverage-stat-l">Continuous Monitoring</div></div>
-              <div><div class="coverage-stat-n">5 Days</div><div class="coverage-stat-l">To Deployment</div></div>
-            </div>
-            <a onclick="navigateTo('coverage')" class="btn btn-primary" style="margin-top:2.5rem">View Coverage Map →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Homepage Closing Moment -->
-    <section class="home-closing">
-      <div class="signal-motif"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div>
-      <div class="home-closing-content animate">
-        <h2>Always watching.<br><span class="closing-grad">Never intrusive.</span></h2>
-        <p>Continuous awareness, operational visibility, and proactive care, for every resident, in every facility, nationwide.</p>
-        <div class="home-closing-signals">
-          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>Continuous Awareness</div>
-          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Operational Visibility</div>
-          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>Nationwide Reach</div>
-        </div>
-        <a onclick="navigateTo('contact')" class="btn btn-primary btn-large">Schedule a Demo →</a>
-      </div>
-    </section>
-
   </div>
 
   <!-- ═══════════════════════════════════════════ ABOUT ══ -->
