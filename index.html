@@ -2820,6 +2820,79 @@
         /* Subtle divider between stacked dark sections */
         .home-coverage-moment { border-top:1px solid rgba(0,164,157,.15); }
 
+        
+        /* ══════════════════════════════════════════════
+           HOMEPAGE IMAGE SIZE + HIERARCHY PASS
+        ══════════════════════════════════════════════ */
+
+        /* ── 1. MORE THAN A MONITORING PLATFORM (45/55) ── */
+        #why-trc-sec { padding:10rem 0 !important; background:var(--off-white) !important; }
+        #why-trc-sec .content-grid {
+            grid-template-columns:45% 55% !important; gap:5rem !important; align-items:center !important;
+        }
+        #why-trc-sec .content-image { border-radius:24px !important; box-shadow:0 30px 80px rgba(10,22,40,.16) !important; }
+        #why-trc-sec .content-image img {
+            width:100% !important; height:560px !important; object-fit:cover !important;
+        }
+
+        /* ── 2. CARE CONTINUES (room) — more cinematic ── */
+        .signature-moment { min-height:760px !important; }
+        .signature-content { max-width:680px !important; }
+        .signature-moment h2 { margin-bottom:2rem !important; }
+
+        /* ── 3. OUTCOMES — subtle tone, more space ── */
+        .section-tint:has(.outcome-pillars),
+        section.section-tint { }
+        .outcome-pillars-section { padding:9.5rem 0 !important; background:#F6F8FA !important; }
+        .outcome-pillars { gap:5rem !important; }
+        .outcome-pillar-num { font-size:4rem !important; }
+
+        /* ── 4. BUILT FOR LTC (42/58) ── */
+        #builtfor-sec { padding:10rem 0 !important; }
+        #builtfor-sec .content-grid {
+            grid-template-columns:42% 58% !important; gap:5rem !important; align-items:center !important;
+        }
+        #builtfor-sec .content-image { border-radius:24px !important; box-shadow:0 30px 80px rgba(10,22,40,.16) !important; }
+        #builtfor-sec .content-image img {
+            width:100% !important; height:600px !important; object-fit:cover !important;
+        }
+
+        /* ── 5. NIGHT — full visual pause ── */
+        .night-moment { min-height:720px !important; }
+        .night-content { max-width:600px !important; }
+        .night-moment h2 { margin-bottom:1.75rem !important; }
+
+        /* ── 6. SIMPLE TO IMPLEMENT (55 img / 45 text) ── */
+        .impl-grid { grid-template-columns:55% 45% !important; gap:5rem !important; }
+        .impl-image img { height:640px !important; }
+
+        /* ── 7. COMPLIANCE — institutional ── */
+        .premium-trust-band { padding:8rem 0 !important; }
+        .ptb-credentials { gap:3.5rem !important; }
+        .ptb-cred { opacity:.95 !important; }
+
+        /* ── 8. COVERAGE — climax ── */
+        .home-coverage-moment { min-height:760px !important; }
+
+        /* ── 12 RESPONSIVE ── */
+        @media (max-width:1024px) {
+            #why-trc-sec .content-grid, #builtfor-sec .content-grid, .impl-grid {
+                grid-template-columns:1fr !important; gap:3rem !important;
+            }
+            #why-trc-sec .content-image img, #builtfor-sec .content-image img { height:440px !important; }
+            .impl-image img { height:440px !important; }
+            #why-trc-sec, #builtfor-sec { padding:7rem 0 !important; }
+            .outcome-pillars-section { padding:7rem 0 !important; }
+        }
+        @media (max-width:768px) {
+            .signature-moment { min-height:620px !important; }
+            .night-moment { min-height:600px !important; }
+            .home-coverage-moment { min-height:560px !important; }
+            #why-trc-sec .content-image img, #builtfor-sec .content-image img { height:320px !important; }
+            .impl-image img { height:320px !important; }
+            .outcome-pillars { gap:2.5rem !important; }
+        }
+
         </style>
 </head>
 <body>
@@ -2996,7 +3069,7 @@
       </div>
     </div>
 
-    <section class="section">
+    <section class="section" id="why-trc-sec">
       <div class="container">
         <div class="content-grid" style="gap:6.5rem;align-items:center">
           <div class="animate-left">
@@ -3044,7 +3117,7 @@
       <div class="signature-pulse-mark"><div class="signal-motif" style="--sig-size:120px;--sig-opacity:1;position:relative;"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div></div>
     </section>
 
-    <section class="section section-tint">
+    <section class="section outcome-pillars-section">
       <div class="container">
         <div class="animate" style="max-width:760px;margin:0 auto 6rem;text-align:center">
           <div class="eyebrow" style="justify-content:center">Impact</div>
@@ -3071,7 +3144,7 @@
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="builtfor-sec">
       <div class="container">
         <div class="content-grid" style="gap:6rem;align-items:center">
           <div class="content-text animate-left">
