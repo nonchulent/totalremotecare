@@ -1236,24 +1236,12 @@
         .trust-section-item p { font-size:.875rem; margin:0; line-height:1.6; }
 
         /* ── PROCESS OVERVIEW (home) ── */
-        .process-overview-grid {
-            display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;
-            position:relative; margin-top:3rem;
-        }
-        .process-overview-grid::before {
-            content:''; position:absolute; top:28px; left:12.5%; right:12.5%;
-            height:2px; background:linear-gradient(90deg,var(--teal),var(--accent));
-        }
-        .po-card { text-align:center; position:relative; z-index:1; }
-        .po-num {
-            width:56px; height:56px; background:var(--white);
-            border:2px solid var(--teal); color:var(--teal);
-            border-radius:50%; display:flex; align-items:center; justify-content:center;
-            font-size:1rem; font-weight:800; margin:0 auto 1.1rem;
-            box-shadow:0 0 0 6px var(--off-white);
-        }
-        .po-card h3 { font-size:1rem; font-weight:700; margin-bottom:.4rem; }
-        .po-card p { font-size:.8125rem; color:var(--text-secondary); margin:0; line-height:1.6; }
+        
+        
+        
+        
+        
+        
 
         /* ── MOBILE RESPONSIVE ── */
         @media (max-width:1024px) {
@@ -1261,8 +1249,8 @@
             .outcomes-grid { grid-template-columns:repeat(2,1fr); }
             .facility-grid { grid-template-columns:repeat(2,1fr); }
             .why-trc-grid { grid-template-columns:repeat(3,1fr); gap:1.25rem; }
-            .process-overview-grid { grid-template-columns:repeat(2,1fr); }
-            .process-overview-grid::before { display:none; }
+            
+            
         }
         @media (max-width:768px) {
             .integrations-grid { grid-template-columns:repeat(2,1fr); gap:1rem; }
@@ -1270,12 +1258,12 @@
             .facility-grid { grid-template-columns:1fr; gap:1rem; }
             .why-trc-grid { grid-template-columns:1fr; gap:1rem; }
             .trust-section-grid { grid-template-columns:1fr; gap:1rem; }
-            .process-overview-grid { grid-template-columns:repeat(2,1fr); gap:1rem; }
+            
             .integration-card { padding:1.25rem .75rem; min-height:90px; }
         }
         @media (max-width:480px) {
             .integrations-grid { grid-template-columns:repeat(2,1fr); }
-            .process-overview-grid { grid-template-columns:1fr; }
+            
         }
 
         
@@ -1626,7 +1614,7 @@
         .cta-section h2 { font-size:clamp(2.25rem,4vw,3.5rem) !important; margin-bottom:1.125rem !important; }
 
         /* ── STEP NUMBERS ── */
-        .po-num { width:64px !important; height:64px !important; font-size:1.125rem !important; border-width:2.5px !important; }
+        
 
         /* ── FEATURE CARDS ── */
         .feature-card {
@@ -2676,6 +2664,100 @@
             .ptb-cred-divider { display:none; }
         }
 
+        
+        /* ══════════════════════════════════════════════
+           PREMIUM VISUAL RHYTHM PASS
+        ══════════════════════════════════════════════ */
+
+        /* ── 1. ALTERNATING BACKGROUND TONES ── */
+        .section-tint {
+            background:linear-gradient(180deg, #FBFCFE 0%, #F4F8FB 100%) !important;
+        }
+        .section-dark-tint {
+            background:linear-gradient(165deg, #0d1f3c 0%, #0A1628 60%, #06101f 100%) !important;
+            position:relative; overflow:hidden;
+        }
+        .section-dark-tint::before {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background-image:radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1px);
+            background-size:30px 30px;
+        }
+        .section-dark-tint .container { position:relative; z-index:1; }
+
+        /* ── 2 + OUTCOMES PILLARS (strategic, editorial) ── */
+        .outcome-pillars {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:4rem;
+            max-width:1100px; margin:0 auto;
+        }
+        .outcome-pillar { position:relative; }
+        .outcome-pillar-num {
+            font-size:3.5rem; font-weight:800; color:var(--teal);
+            line-height:1; letter-spacing:-.03em; margin-bottom:1.5rem; opacity:.9;
+        }
+        .outcome-pillar h3 {
+            font-size:1.5rem; line-height:1.25; margin-bottom:1rem;
+            letter-spacing:-.02em; color:var(--clinical-blue);
+        }
+        .outcome-pillar p {
+            font-size:1.0625rem; line-height:1.7; color:var(--text-secondary); margin:0;
+        }
+
+        /* ── EDITORIAL SERVE LIST (no cards) ── */
+        .serve-list { display:flex; flex-direction:column; }
+        .serve-list-item {
+            padding:1.75rem 0; border-top:1px solid var(--border);
+        }
+        .serve-list-item:last-child { border-bottom:1px solid var(--border); }
+        .serve-list-item h3 {
+            font-size:1.25rem; font-weight:700; color:var(--clinical-blue);
+            margin-bottom:.4rem; letter-spacing:-.01em;
+            transition:color .25s ease;
+        }
+        .serve-list-item:hover h3 { color:var(--teal); }
+        .serve-list-item p {
+            font-size:.9375rem; line-height:1.6; color:var(--text-secondary); margin:0;
+        }
+
+        /* ── 5. PREMIUM TIMELINE ── */
+        .timeline-premium {
+            max-width:760px; margin:0 auto; position:relative;
+        }
+        .timeline-line {
+            position:absolute; left:27px; top:20px; bottom:20px; width:2px;
+            background:linear-gradient(180deg, var(--teal), rgba(0,164,157,.15));
+        }
+        .timeline-step {
+            display:grid; grid-template-columns:56px 1fr; gap:2.5rem;
+            align-items:start; padding:1.75rem 0; position:relative;
+        }
+        .timeline-marker {
+            width:56px; height:56px; border-radius:50%;
+            background:var(--white); border:1.5px solid var(--teal); box-shadow:0 4px 16px rgba(0,164,157,.12);
+            display:flex; align-items:center; justify-content:center;
+            position:relative; z-index:1; backdrop-filter:blur(4px);
+        }
+        .timeline-marker span {
+            font-size:.9375rem; font-weight:800; color:var(--teal); letter-spacing:.02em;
+        }
+        .timeline-body { padding-top:.5rem; }
+        .timeline-body h3 {
+            font-size:1.5rem; color:var(--clinical-blue); margin-bottom:.5rem; letter-spacing:-.02em;
+        }
+        .timeline-body p {
+            font-size:1.0625rem; line-height:1.7; color:var(--text-secondary); margin:0;
+        }
+
+        @media (max-width:900px) {
+            .outcome-pillars { grid-template-columns:1fr; gap:3rem; max-width:540px; }
+            .content-grid { grid-template-columns:1fr !important; }
+        }
+        @media (max-width:768px) {
+            .timeline-step { gap:1.5rem; padding:1.25rem 0; }
+            .timeline-line { left:27px; }
+            .outcome-pillar-num { font-size:2.75rem; }
+            .timeline-body h3 { font-size:1.25rem; }
+        }
+
         </style>
 </head>
 <body>
@@ -2918,27 +3000,28 @@
     
     <!-- Outcomes -->
     <!-- Outcomes -->
-    <section class="section">
+    <section class="section section-tint">
       <div class="container">
-        <div class="section-header animate" style="text-align:center;max-width:680px;margin:0 auto 5rem">
+        <div class="animate" style="max-width:760px;margin:0 auto 6rem;text-align:center">
           <div class="eyebrow" style="justify-content:center">Impact</div>
-          <h2>Focused on better outcomes</h2>
+          <h2 style="margin-bottom:1.5rem">Outcomes that matter to your facility</h2>
+          <p style="font-size:1.1875rem">TRC is built to improve the things that define quality long-term care, without adding to your team's workload.</p>
         </div>
-        <div class="outcomes-3">
-          <div class="outcome-block animate delay-1">
-            <div class="outcome-block-num">01</div>
+        <div class="outcome-pillars">
+          <div class="outcome-pillar animate delay-1">
+            <div class="outcome-pillar-num">01</div>
             <h3>Earlier Identification of Clinical Changes</h3>
-            <p>Meaningful changes surfaced before the next scheduled round.</p>
+            <p>Continuous monitoring surfaces meaningful shifts in resident status before the next scheduled round, creating time to act.</p>
           </div>
-          <div class="outcome-block animate delay-2">
-            <div class="outcome-block-num">02</div>
+          <div class="outcome-pillar animate delay-2">
+            <div class="outcome-pillar-num">02</div>
             <h3>Improved Visibility Between Care Rounds</h3>
-            <p>Continuous awareness of resident status, at every hour.</p>
+            <p>Ambient awareness fills the hours between in-person assessments, so nothing meaningful goes unseen overnight or between shifts.</p>
           </div>
-          <div class="outcome-block animate delay-3">
-            <div class="outcome-block-num">03</div>
+          <div class="outcome-pillar animate delay-3">
+            <div class="outcome-pillar-num">03</div>
             <h3>Reduced Alert Fatigue</h3>
-            <p>Alerts calibrated to each resident, not generic thresholds.</p>
+            <p>Alerts calibrated to each resident's own baseline keep nursing teams focused on what is clinically significant, not constant noise.</p>
           </div>
         </div>
       </div>
@@ -2948,79 +3031,80 @@
 
 
     <!-- Facility Types -->
-    <section class="content-section alt">
+    <section class="content-section">
       <div class="container">
-        <div class="content-grid" style="gap:5rem">
-          <div class="content-image animate-left">
-            <img src="images/who-we-serve.jpg" alt="Bright modern care environment" loading="lazy">
-          </div>
-          <div class="content-text animate-right">
+        <div class="content-grid" style="gap:6rem;align-items:center">
+          <div class="content-text animate-left">
             <div class="eyebrow">Who We Serve</div>
-            <h2>Built for long-term care</h2>
-            <p style="margin-bottom:2rem">TRC is designed for the specific demands of long-term care environments, where continuous oversight and operational efficiency matter equally.</p>
-            <div style="display:flex;flex-direction:column;gap:1rem">
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:var(--white);border:1px solid var(--border);border-radius:12px">
-                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0">
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                </div>
-                <div><div style="font-size:.9375rem;font-weight:700;color:var(--clinical-blue);margin-bottom:.2rem">Skilled Nursing Facilities</div><div style="font-size:.8125rem;color:var(--text-secondary)">Continuous monitoring for high-acuity residents requiring close clinical oversight.</div></div>
+            <h2 style="margin-bottom:1.5rem">Built for long-term care</h2>
+            <p style="margin-bottom:3rem">TRC is designed for the specific demands of long-term care environments, where continuous oversight and operational efficiency matter equally.</p>
+            <div class="serve-list">
+              <div class="serve-list-item">
+                <h3>Skilled Nursing Facilities</h3>
+                <p>Continuous monitoring for high-acuity residents requiring close clinical oversight.</p>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:var(--white);border:1px solid var(--border);border-radius:12px">
-                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0">
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                </div>
-                <div><div style="font-size:.9375rem;font-weight:700;color:var(--clinical-blue);margin-bottom:.2rem">Assisted Living Communities</div><div style="font-size:.8125rem;color:var(--text-secondary)">Ambient oversight supporting resident independence with meaningful health visibility.</div></div>
+              <div class="serve-list-item">
+                <h3>Assisted Living Communities</h3>
+                <p>Ambient oversight supporting resident independence with meaningful health visibility.</p>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:var(--white);border:1px solid var(--border);border-radius:12px">
-                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0">
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                </div>
-                <div><div style="font-size:.9375rem;font-weight:700;color:var(--clinical-blue);margin-bottom:.2rem">Rehabilitation Centers</div><div style="font-size:.8125rem;color:var(--text-secondary)">Post-acute monitoring to track recovery and identify changes requiring attention.</div></div>
+              <div class="serve-list-item">
+                <h3>Rehabilitation Centers</h3>
+                <p>Post-acute monitoring to track recovery and identify changes requiring attention.</p>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:var(--white);border:1px solid var(--border);border-radius:12px">
-                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0">
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                </div>
-                <div><div style="font-size:.9375rem;font-weight:700;color:var(--clinical-blue);margin-bottom:.2rem">Long-Term Care Facilities</div><div style="font-size:.8125rem;color:var(--text-secondary)">Scalable monitoring for residents with complex, chronic, and evolving health needs.</div></div>
+              <div class="serve-list-item">
+                <h3>Long-Term Care Facilities</h3>
+                <p>Scalable monitoring for residents with complex, chronic, and evolving health needs.</p>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:var(--white);border:1px solid var(--border);border-radius:12px">
-                <div style="width:36px;height:36px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);flex-shrink:0"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-                <div><div style="font-size:.9375rem;font-weight:700;color:var(--clinical-blue);margin-bottom:.2rem">Post-Acute Recovery Programs</div><div style="font-size:.8125rem;color:var(--text-secondary)">Monitoring support for patients transitioning from acute care into long-term recovery settings.</div></div>
+              <div class="serve-list-item">
+                <h3>Post-Acute Recovery Programs</h3>
+                <p>Monitoring support for patients transitioning from acute care into long-term recovery.</p>
               </div>
             </div>
+          </div>
+          <div class="content-image animate-right">
+            <img src="images/who-we-serve.jpg" alt="Bright modern care environment" loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Process overview -->
-    <section class="section">
+    <section class="section section-tint">
       <div class="container">
-        <div class="section-header animate">
-          <div class="eyebrow">Implementation</div>
+        <div class="animate" style="max-width:680px;margin:0 auto 6rem;text-align:center">
+          <div class="eyebrow" style="justify-content:center">Implementation</div>
           <h2>Simple to implement</h2>
-          <p>TRC is designed to be up and running quickly, with minimal disruption to existing staff workflows or resident routines.</p>
+          <p style="font-size:1.1875rem">Most facilities are fully operational within days, with minimal disruption to staff or residents.</p>
         </div>
-        <div class="process-overview-grid">
-          <div class="po-card animate delay-1">
-            <div class="po-num">1</div>
-            <h3>Assessment</h3>
-            <p>We evaluate your facility layout, census, and infrastructure to design the right monitoring configuration.</p>
+        <div class="timeline-premium">
+          <div class="timeline-line"></div>
+          <div class="timeline-step animate delay-1">
+            <div class="timeline-marker"><span>01</span></div>
+            <div class="timeline-body">
+              <h3>Assessment</h3>
+              <p>We evaluate your facility layout, census, and infrastructure to design the right monitoring configuration.</p>
+            </div>
           </div>
-          <div class="po-card animate delay-2">
-            <div class="po-num">2</div>
-            <h3>Deployment</h3>
-            <p>Sensors are installed quickly with no construction, no wiring, and no disruption to residents or daily operations.</p>
+          <div class="timeline-step animate delay-2">
+            <div class="timeline-marker"><span>02</span></div>
+            <div class="timeline-body">
+              <h3>Deployment</h3>
+              <p>Sensors are installed quickly, with no construction, no wiring, and no disruption to daily operations.</p>
+            </div>
           </div>
-          <div class="po-card animate delay-3">
-            <div class="po-num">3</div>
-            <h3>Monitoring</h3>
-            <p>The platform begins learning resident baselines and surfacing meaningful clinical insights to your team.</p>
+          <div class="timeline-step animate delay-3">
+            <div class="timeline-marker"><span>03</span></div>
+            <div class="timeline-body">
+              <h3>Monitoring</h3>
+              <p>The platform begins learning resident baselines and surfacing meaningful clinical insights to your team.</p>
+            </div>
           </div>
-          <div class="po-card animate delay-4">
-            <div class="po-num">4</div>
-            <h3>Ongoing Support</h3>
-            <p>Your dedicated TRC team remains available to ensure the platform continues delivering value as your facility evolves.</p>
+          <div class="timeline-step animate delay-4">
+            <div class="timeline-marker"><span>04</span></div>
+            <div class="timeline-body">
+              <h3>Ongoing Support</h3>
+              <p>Your dedicated TRC team remains available to ensure the platform keeps delivering value as you grow.</p>
+            </div>
           </div>
         </div>
       </div>
