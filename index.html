@@ -1480,6 +1480,235 @@
     
         
         @media (max-width:768px) { .mid-cta-inner { grid-template-columns:1fr !important; } .mid-cta-inner > div:last-child { align-items:flex-start !important; } }
+        
+        /* ══════════════════════════════════════════════
+           PREMIUM DESIGN PASS — SPACING, HIERARCHY, POLISH
+        ══════════════════════════════════════════════ */
+
+        /* ── TYPOGRAPHY SCALE UPGRADE ── */
+        h1 {
+            font-size:clamp(3.25rem, 6.5vw, 5.25rem) !important;
+            line-height:1.05 !important;
+            letter-spacing:-.035em !important;
+        }
+        h2 {
+            font-size:clamp(2.375rem, 4.5vw, 3.75rem) !important;
+            letter-spacing:-.03em !important;
+            line-height:1.08 !important;
+        }
+        h3 { letter-spacing:-.02em; }
+        .hero-sub { font-size:1.1875rem !important; line-height:1.7 !important; }
+
+        /* ── WHITESPACE — 20-30% MORE ── */
+        .section { padding:10rem 0 !important; }
+        .content-section { padding:8rem 0 !important; }
+        .section-header { margin-bottom:5.5rem !important; }
+        .section-header p { margin-top:1.25rem !important; font-size:1.0625rem !important; }
+        .section.section-gray { padding:10rem 0 !important; }
+        .hero-grid { gap:5rem !important; }
+        .home-hero { padding:calc(var(--header-h) + 6rem) 0 7rem !important; }
+
+        /* ── HERO IMPACT ── */
+        .home-hero::before {
+            background-image:radial-gradient(circle, rgba(255,255,255,.055) 1px, transparent 1px) !important;
+            background-size:28px 28px !important;
+        }
+        .hero-blob-1 {
+            background:radial-gradient(ellipse, rgba(0,164,157,.25) 0%, transparent 60%) !important;
+            opacity:.9 !important;
+        }
+        .hero-blob-2 {
+            background:radial-gradient(ellipse, rgba(0,85,224,.2) 0%, transparent 60%) !important;
+            opacity:.8 !important;
+        }
+        .hero-cta { gap:1.25rem !important; }
+        .btn-primary {
+            background:var(--teal) !important;
+            padding:1.0625rem 2rem !important;
+            font-size:1rem !important;
+            box-shadow:0 1px 0 rgba(255,255,255,.12) inset, 0 4px 24px rgba(0,164,157,.3) !important;
+        }
+        .btn-primary:hover {
+            background:var(--teal-dark) !important;
+            transform:translateY(-2px) !important;
+            box-shadow:0 8px 32px rgba(0,164,157,.45) !important;
+        }
+        .btn-ghost {
+            padding:1.0625rem 2rem !important;
+            font-size:1rem !important;
+            border-width:1.5px !important;
+        }
+        .btn-large { padding:1.125rem 2.25rem !important; font-size:1.0625rem !important; }
+
+        /* ── TRUST/CREDENTIAL BAND ── */
+        .premium-trust-band {
+            background:var(--off-white);
+            border-top:1px solid var(--border);
+            border-bottom:1px solid var(--border);
+            padding:4rem 0;
+        }
+        .ptb-label {
+            text-align:center; font-size:.75rem; font-weight:800;
+            text-transform:uppercase; letter-spacing:.14em;
+            color:var(--text-muted); margin-bottom:3rem;
+        }
+        .ptb-grid {
+            display:grid; grid-template-columns:repeat(5,1fr);
+            gap:0; max-width:900px; margin:0 auto;
+        }
+        .ptb-item {
+            display:flex; flex-direction:column; align-items:center;
+            text-align:center; padding:0 1.5rem; position:relative;
+        }
+        .ptb-item + .ptb-item::before {
+            content:''; position:absolute; left:0; top:50%;
+            transform:translateY(-50%); height:48px; width:1px;
+            background:var(--border);
+        }
+        .ptb-icon {
+            width:52px; height:52px; background:var(--white);
+            border:1px solid var(--border); border-radius:16px;
+            display:flex; align-items:center; justify-content:center;
+            color:var(--teal); margin-bottom:1rem;
+            box-shadow:0 2px 8px rgba(10,22,40,.06);
+        }
+        .ptb-name {
+            font-size:.9rem; font-weight:800; color:var(--clinical-blue);
+            margin-bottom:.2rem; letter-spacing:-.01em;
+        }
+        .ptb-desc {
+            font-size:.7rem; color:var(--text-muted); font-weight:600;
+            text-transform:uppercase; letter-spacing:.06em;
+        }
+
+        /* ── LINK CARDS — REMOVE BOXES ── */
+        .link-card {
+            border:none !important;
+            background:transparent !important;
+            padding:1.5rem 0 !important;
+            border-bottom:1px solid var(--border) !important;
+            border-radius:0 !important;
+        }
+        .link-card:last-child { border-bottom:none !important; }
+        .link-card:hover {
+            border-color:transparent !important;
+            box-shadow:none !important;
+            transform:none !important;
+            background:transparent !important;
+        }
+        .link-card:hover h3 { color:var(--teal) !important; }
+        .links-grid {
+            display:flex !important;
+            flex-direction:column !important;
+            gap:0 !important;
+            max-width:720px !important;
+            margin:0 auto !important;
+        }
+        .link-card h3 { font-size:1.125rem !important; margin-bottom:.375rem !important; color:var(--clinical-blue); transition:color .2s; }
+        .link-card p { font-size:.9375rem !important; }
+
+        /* ── EXPLORE SECTION — CENTERED, AIRY ── */
+        .explore-section { text-align:center; }
+        .explore-section .section-header { max-width:500px; }
+
+        /* ── OUTCOME FEATURE ROWS — MORE BREATHING ROOM ── */
+        .feature-row { padding:2.25rem 0 !important; gap:1.5rem 3rem !important; }
+        .feature-row-title { font-size:1.0625rem !important; margin-bottom:.4rem !important; }
+        .feature-row-desc { font-size:.9375rem !important; line-height:1.7 !important; }
+
+        /* ── CONTENT IMAGES — LARGER, MORE PROMINENT ── */
+        .content-image img { height:480px !important; border-radius:24px !important; }
+        .content-image { border-radius:24px !important; box-shadow:0 24px 80px rgba(10,22,40,.16) !important; }
+
+        /* ── VISUAL RHYTHM — SECTION BACKGROUNDS ── */
+        /* Trust section below value props: white */
+        /* Authority banner: dark */
+        /* Why TRC: white (split image) */
+        /* Outcomes: off-white */
+        /* Facility types: white */
+        /* Process: off-white */
+
+        /* ── INTEGRATION LOGO STRIP ── */
+        .logo-strip { padding:3rem 0 !important; }
+        .logo-strip-item { opacity:.45 !important; }
+        .logo-strip-item:hover { opacity:.9 !important; }
+        .logo-strip-name { font-size:1rem !important; font-weight:800 !important; }
+        .logo-strip-label {
+            font-size:.7rem; color:var(--text-muted); margin-bottom:2rem !important;
+            letter-spacing:.14em !important;
+        }
+        .logo-strip-row { gap:4.5rem !important; }
+
+        /* ── SECTION EYEBROW ── */
+        .eyebrow { margin-bottom:1.125rem !important; font-size:.75rem !important; letter-spacing:.12em !important; }
+        .eyebrow::before { width:28px !important; height:2px !important; }
+
+        /* ── SERVE CARDS ── */
+        .serve-image { height:320px !important; border-radius:20px !important; }
+        .serve-card { padding:3rem !important; gap:4rem !important; }
+
+        /* ── CTA SECTION ── */
+        .cta-section { padding:8rem 0 !important; }
+        .cta-section h2 { font-size:clamp(2.25rem,4vw,3.5rem) !important; margin-bottom:1.125rem !important; }
+
+        /* ── STEP NUMBERS ── */
+        .po-num { width:64px !important; height:64px !important; font-size:1.125rem !important; border-width:2.5px !important; }
+
+        /* ── FEATURE CARDS ── */
+        .feature-card {
+            padding:2rem !important;
+            border-radius:18px !important;
+        }
+        .feature-icon { width:52px !important; height:52px !important; border-radius:16px !important; }
+        .feature-icon svg { width:22px !important; height:22px !important; }
+
+        /* ── CARD HOVER POLISH ── */
+        .value-card:hover, .solution-card:hover, .outcome-card:hover {
+            transform:translateY(-6px) !important;
+            box-shadow:0 24px 60px rgba(10,22,40,.13) !important;
+        }
+
+        /* ── PAGE HEADERS ── */
+        .page-header h1 { font-size:clamp(2.5rem,5vw,4rem) !important; }
+        .page-header { padding:calc(var(--header-h) + 5rem) 0 5rem !important; }
+
+        /* ── FOOTER ── */
+        .footer-grid-v2 { padding-top:1rem; }
+
+        /* ── DASHBOARD SHELL ── */
+        .dash-shell {
+            border-radius:24px !important;
+            box-shadow:0 48px 120px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08) !important;
+        }
+
+        /* ── MOBILE ADJUSTMENTS ── */
+        @media (max-width:1024px) {
+            .section { padding:7rem 0 !important; }
+            .content-section { padding:6rem 0 !important; }
+            .ptb-grid { grid-template-columns:repeat(3,1fr); gap:2rem; }
+            .ptb-item + .ptb-item::before { display:none; }
+        }
+        @media (max-width:768px) {
+            .section { padding:5rem 0 !important; }
+            .section.section-gray { padding:5rem 0 !important; }
+            .content-section { padding:4rem 0 !important; }
+            .section-header { margin-bottom:3rem !important; }
+            .home-hero { padding:calc(var(--header-h) + 2rem) 0 3rem !important; }
+            .hero-sub { font-size:.9375rem !important; }
+            .content-image img { height:260px !important; }
+            .serve-card { padding:1.75rem !important; gap:1.5rem !important; }
+            .serve-image { height:220px !important; }
+            .ptb-grid { grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+            .logo-strip-row { gap:2.5rem !important; }
+            .link-card { padding:1.25rem 0 !important; }
+        }
+        @media (max-width:480px) {
+            .section { padding:3.5rem 0 !important; }
+            h1 { font-size:2.25rem !important; }
+            h2 { font-size:1.875rem !important; }
+            .ptb-grid { grid-template-columns:repeat(2,1fr); }
+        }
+
         </style>
 </head>
 <body>
@@ -1537,7 +1766,7 @@
       <div class="hero-blob-2"></div>
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-content">
+          <div class="hero-content" style="position:relative;z-index:2;padding-bottom:1rem">
             <h1>Continuous monitoring<br>for <span class="hero-gradient-text">long-term care</span></h1>
             <p class="hero-sub">TRC helps long-term care organizations gain better visibility into resident health through continuous monitoring, meaningful clinical insights, and dedicated operational support.</p>
 
@@ -1627,7 +1856,8 @@
     <!-- Integration logo strip -->
     <div class="logo-strip">
       <div class="container">
-        <div class="logo-strip-label">Trusted Integrations — Designed to work alongside the systems healthcare teams already use</div>
+        <div class="logo-strip-label">Trusted Integrations</div>
+        <p style="text-align:center;font-size:.9rem;color:var(--text-muted);margin-bottom:2.5rem;margin-top:-.5rem">Designed to work alongside the systems healthcare teams already use</p>
         <div class="logo-strip-row">
           <div class="logo-strip-item">
             <div class="logo-strip-dot" style="background:#E8751A"></div>
@@ -1693,7 +1923,7 @@
             </div>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Clinical team reviewing resident data" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="Clinical team reviewing resident data" loading="lazy">
           </div>
         </div>
       </div>
@@ -1712,7 +1942,7 @@
             <p style="margin-bottom:2rem">TRC is designed to help long-term care facilities deliver a higher standard of oversight, without adding complexity to already demanding workflows.</p>
             <a onclick="navigateTo('solutions')" class="btn btn-secondary">Explore Solutions →</a>
           </div>
-          <div class="feature-rows animate-right">
+          <div class="feature-rows animate-right" style="border-top:1px solid var(--border)">
             <div class="feature-row">
               <div class="feature-row-icon"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
               <div><div class="feature-row-title">Earlier Identification of Clinical Changes</div></div>
@@ -1756,7 +1986,7 @@
       <div class="container">
         <div class="content-grid" style="gap:5rem">
           <div class="content-image animate-left">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Long-term care facility" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Long-term care facility" loading="lazy">
           </div>
           <div class="content-text animate-right">
             <div class="eyebrow">Who We Serve</div>
@@ -1849,24 +2079,44 @@
 
 
     <!-- Trust bar -->
-    <div class="container">
-      <div class="trust-bar">
-        <div class="trust-items">
-          <div class="trust-item"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>HIPAA Compliant</div>
-          <div class="trust-item"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>CMS Aligned</div>
-          <div class="trust-item"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>FDA Registered</div>
-          <div class="trust-item"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>SOC 2 Type II</div>
-          <div class="trust-item"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>EMR Integrated</div>
+    <div class="premium-trust-band">
+      <div class="container">
+        <div class="ptb-label">Compliance &amp; Standards</div>
+        <div class="ptb-grid">
+          <div class="ptb-item">
+            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+            <div class="ptb-name">HIPAA</div>
+            <div class="ptb-desc">Compliant</div>
+          </div>
+          <div class="ptb-item">
+            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
+            <div class="ptb-name">CMS</div>
+            <div class="ptb-desc">Aligned</div>
+          </div>
+          <div class="ptb-item">
+            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+            <div class="ptb-name">FDA</div>
+            <div class="ptb-desc">Registered</div>
+          </div>
+          <div class="ptb-item">
+            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+            <div class="ptb-name">SOC 2</div>
+            <div class="ptb-desc">Type II</div>
+          </div>
+          <div class="ptb-item">
+            <div class="ptb-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+            <div class="ptb-name">EHR</div>
+            <div class="ptb-desc">Integrated</div>
+          </div>
         </div>
       </div>
     </div>
-
     <!-- Explore links -->
 
     <!-- Mid-page CTA -->
     <section style="padding:5rem 0;background:var(--off-white)">
       <div class="container">
-        <div style="background:var(--clinical-blue);border-radius:20px;padding:3rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center" class="mid-cta-inner">
+        <div style="background:var(--clinical-blue);border-radius:24px;padding:4rem 3.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center" class="mid-cta-inner">
           <div>
             <div style="font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:.625rem;letter-spacing:-.02em">See how TRC works in your facility</div>
             <p style="color:rgba(255,255,255,.65);font-size:.9375rem;margin:0;max-width:480px">Walk through the platform with a clinical specialist. We will tailor the conversation to your facility type and current monitoring setup.</p>
@@ -1937,7 +2187,7 @@
             <p>Our platform doesn't replace clinical judgment, it amplifies it. When our AI flags a trend, your team still makes the call. We just make sure they have the time and the information to make it well.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" alt="Nurse caring for patient" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Nurse caring for patient" loading="lazy">
           </div>
         </div>
       </div>
@@ -1955,7 +2205,7 @@
             <p>We close that gap permanently. Every resident, every room, every breath: captured, analyzed, and escalated the moment something matters.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Clinical monitoring" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="Clinical monitoring" loading="lazy">
           </div>
         </div>
       </div>
@@ -2001,7 +2251,7 @@
             <a onclick="navigateTo('contact')" class="btn btn-primary" style="margin-top:1rem">Meet the Team →</a>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=800&q=80" alt="TRC team" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80" alt="TRC team" loading="lazy">
           </div>
         </div>
       </div>
@@ -2057,7 +2307,7 @@
             <p>When something matters, your team knows. Not after the fact - while there's still time to act.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Remote monitoring" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Remote monitoring" loading="lazy">
           </div>
         </div>
       </div>
@@ -2190,7 +2440,7 @@
             <a onclick="navigateTo('solutions')" class="btn btn-secondary" style="margin-top:.875rem">Explore Our Solutions →</a>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Clinical documentation" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Clinical documentation" loading="lazy">
           </div>
         </div>
       </div>
@@ -2237,7 +2487,7 @@
             <p>Installation takes under 30 minutes per room. No construction, no wiring, no IT infrastructure changes required. Our team handles everything and clears the space before we leave.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Sensor technology" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Sensor technology" loading="lazy">
           </div>
         </div>
       </div>
@@ -2255,7 +2505,7 @@
             <p>The models are continuously updated as residents age, recover, or are admitted with new conditions. The system learns alongside your clinical team, not in spite of it.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80" alt="AI platform" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="AI platform" loading="lazy">
           </div>
         </div>
       </div>
@@ -2310,7 +2560,7 @@
             <p>We undergo independent SOC 2 Type II audits annually and maintain continuous compliance monitoring between cycles.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Secure infrastructure" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=800&q=80" alt="Secure infrastructure" loading="lazy">
           </div>
         </div>
       </div>
@@ -2346,7 +2596,7 @@
             <p>When your nurses know, your facility leads. When your data is clean, your surveys go better. When hospitalizations drop, your reputation and revenue both improve.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Skilled nursing facility" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80" alt="Skilled nursing facility" loading="lazy">
           </div>
         </div>
       </div>
@@ -2390,7 +2640,7 @@
             <p>That context is the difference between a proactive medication adjustment and a 2 a.m. emergency transfer.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80" alt="Physician reviewing data" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80" alt="Physician reviewing data" loading="lazy">
           </div>
         </div>
       </div>
@@ -2443,7 +2693,7 @@
             <p>This means your facility inherits a compliance posture from day one. When auditors ask for documentation, it's there. When surveys question monitoring records, they're airtight. When patients or families ask how their data is protected, you have a clear answer.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Compliance documentation" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffedde2dc6f?auto=format&fit=crop&w=800&q=80" alt="Compliance documentation" loading="lazy">
           </div>
         </div>
       </div>
@@ -2515,7 +2765,7 @@
             <p>We maintain a full data processing record at all times, exportable on request for legal, regulatory, or internal audit purposes.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Data security" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=800&q=80" alt="Data security" loading="lazy">
           </div>
         </div>
       </div>
@@ -2684,7 +2934,7 @@
             <p>Below is exactly what to expect from contract through the first 90 days and beyond.</p>
           </div>
           <div class="content-image animate-right">
-            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=800&q=80" alt="Implementation team" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="Implementation team" loading="lazy">
           </div>
         </div>
       </div>
