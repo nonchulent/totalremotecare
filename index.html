@@ -428,11 +428,7 @@
         }.fsp-line {
             flex:1; height:2px; background:var(--border);
             margin:0 .5rem; border-radius:1px; transition:background .3s;
-        }.fsp-step.active .fsp-num { border-color:var(--teal); background:var(--teal); color:var(--white); }.fsp-step.active .fsp-label { color:var(--clinical-blue); }.fsp-step.done .fsp-num { border-color:var(--teal); background:var(--teal-light); color:var(--teal); }.fsp-step.done .fsp-num::after { content:'✓'; }.fsp-step.done .fsp-num span { display:none; }.fsp-line.done { background:var(--teal); }.form-step { display:none; }.form-step.active { display:block; animation:fadeIn .3s ease; }.form-step-title { font-size:1rem; font-weight:700; color:var(--clinical-blue); margin-bottom:1.25rem; padding-bottom:.75rem; border-bottom:1px solid var(--border); }.form-nav { display:flex; gap:.75rem; margin-top:1.25rem; }.btn-back { background:var(--off-white); color:var(--text-secondary); border:none; cursor:pointer; padding:.75rem 1.5rem; border-radius:100px; font-family:inherit; font-weight:700; font-size:.9rem; transition:all .2s; }.btn-back:hover { background:var(--border); }.calendly-placeholder {
-            background:var(--teal-light); border:1.5px dashed var(--teal);
-            border-radius:var(--radius); padding:1.5rem; text-align:center;
-            margin-top:.5rem;
-        }.calendly-placeholder p { font-size:.875rem; color:var(--teal-dark); margin:0; font-weight:600; }/* ── COVERAGE PAGE ── */
+        }.fsp-step.active .fsp-num { border-color:var(--teal); background:var(--teal); color:var(--white); }.fsp-step.active .fsp-label { color:var(--clinical-blue); }.fsp-step.done .fsp-num { border-color:var(--teal); background:var(--teal-light); color:var(--teal); }.fsp-step.done .fsp-num::after { content:'✓'; }.fsp-step.done .fsp-num span { display:none; }.fsp-line.done { background:var(--teal); }.form-step { display:none; }.form-step.active { display:block; animation:fadeIn .3s ease; }.form-step-title { font-size:1rem; font-weight:700; color:var(--clinical-blue); margin-bottom:1.25rem; padding-bottom:.75rem; border-bottom:1px solid var(--border); }.form-nav { display:flex; gap:.75rem; margin-top:1.25rem; }.btn-back { background:var(--off-white); color:var(--text-secondary); border:none; cursor:pointer; padding:.75rem 1.5rem; border-radius:100px; font-family:inherit; font-weight:700; font-size:.9rem; transition:all .2s; }.btn-back:hover { background:var(--border); }.calendly-placeholder p { font-size:.875rem; color:var(--teal-dark); margin:0; font-weight:600; }/* ── COVERAGE PAGE ── */
         .coverage-map-wrap::before {
             content:''; position:absolute; inset:0;
             background-image:radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
@@ -2083,6 +2079,85 @@
             .trustc-grid { grid-template-columns:1fr; }
         }
 
+        
+        /* Contact — schedule card (replaces Calendly placeholder) */
+        .schedule-card {
+            background:linear-gradient(165deg, #0d1f3c, #0A1628);
+            border:1px solid rgba(0,164,157,.25); border-radius:16px;
+            padding:2rem 1.75rem; text-align:center;
+            box-shadow:0 20px 50px rgba(10,22,40,.15);
+        }
+        .schedule-card-icon {
+            width:54px; height:54px; border-radius:14px; margin:0 auto 1.1rem;
+            background:rgba(0,164,157,.12); color:var(--teal);
+            display:flex; align-items:center; justify-content:center;
+        }
+        .schedule-card h4 { color:#fff; font-size:1.125rem; font-weight:700; margin-bottom:.5rem; letter-spacing:-.01em; }
+        .schedule-card p { color:rgba(255,255,255,.65); font-size:.9375rem; line-height:1.6; margin:0; max-width:380px; margin:0 auto; }
+
+        
+        /* ══════════════════════════════════════════════
+           MERGED TRUST SECTION — band + cards, balanced
+        ══════════════════════════════════════════════ */
+        #trust-merged-sec { background:var(--off-white); }
+        /* Dark credential band on top */
+        .trustm-band {
+            background:linear-gradient(165deg, #0d1f3c 0%, #0A1628 100%);
+            padding:100px 0 90px; text-align:center; position:relative; overflow:hidden;
+        }
+        .trustm-band::before {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background:radial-gradient(ellipse 50% 60% at 50% 0%, rgba(0,164,157,.08), transparent 60%);
+        }
+        .trustm-band .container { position:relative; z-index:1; }
+        /* Light card area below — lifts up to overlap the band slightly */
+        .trustm-cards-wrap {
+            max-width:1280px; margin:-3.5rem auto 0; padding:0 3rem 110px;
+            position:relative; z-index:2;
+        }
+
+        @media (max-width:980px) {
+            .trustm-band { padding:5rem 0 4.5rem; }
+            .trustm-cards-wrap { padding-bottom:5.5rem; margin-top:-2.5rem; }
+        }
+
+        
+        /* How Alerts Work — readability + premium cards (override) */
+        .alert-step {
+            background:rgba(255,255,255,.03);
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:18px;
+            padding:2rem 1.75rem !important;
+            transition:transform .3s cubic-bezier(.4,0,.2,1), border-color .3s ease, background .3s ease;
+        }
+        .alert-step:hover {
+            transform:translateY(-4px);
+            border-color:rgba(0,164,157,.3);
+            background:rgba(0,164,157,.04);
+        }
+        .alert-step-num { font-size:2.75rem !important; }
+        .alert-step h3 { font-size:1.3125rem !important; margin-bottom:1rem !important; }
+        .alert-step p { font-size:1.0625rem !important; line-height:1.7 !important; color:rgba(255,255,255,.7) !important; }
+        .alerts-timeline { gap:1.5rem !important; }
+        /* connectors not needed between cards — hide for cleaner look */
+        .alert-connector { display:none !important; }
+        .alerts-timeline {
+            grid-template-columns:repeat(4,1fr) !important;
+        }
+        @media (max-width:980px) {
+            .alerts-timeline { grid-template-columns:1fr !important; }
+            .alert-step { padding:1.75rem !important; border-top:1px solid rgba(255,255,255,.08); }
+        }
+
+        
+        /* What Happens After Installation — more compact */
+        #implement-sec { padding:100px 0 !important; }
+        .impl-photo img { height:600px !important; }
+        @media (max-width:1024px) {
+            #implement-sec { padding:5rem 0 !important; }
+            .impl-photo img { height:420px !important; }
+        }
+
         </style>
 </head>
 <body>
@@ -2519,16 +2594,7 @@
       </div>
     </section>
 
-    <section class="night-moment">
-      <img src="images/night-hallway.jpg" alt="Care facility hallway at night" loading="lazy" decoding="async" width="1535" height="1024">
-      <div class="container">
-        <div class="night-content animate-left">
-          <div class="night-eyebrow">Through Every Shift</div>
-          <h2>Support that continues,<br>even when the facility is quiet.</h2>
-          <p>TRC gives care teams continuous visibility through every shift, including the quiet hours between scheduled rounds.</p>
-        </div>
-      </div>
-    </section>
+    
 
     <section class="section" id="implement-sec">
       <div class="impl-wrap">
@@ -2566,31 +2632,26 @@
       </div>
     </section>
 
-    <div class="premium-trust-band">
-      <div class="container">
-        <div class="ptb-accent"></div>
-        <h2 class="ptb-heading">Established. Trusted. Compliant.</h2>
-        <p class="ptb-sub">Built around the standards long-term care organizations rely on.</p>
-        <div class="ptb-credentials">
-          <div class="ptb-cred">HIPAA</div>
-          <div class="ptb-cred-divider"></div>
-          <div class="ptb-cred">CMS</div>
-          <div class="ptb-cred-divider"></div>
-          <div class="ptb-cred">FDA</div>
-          <div class="ptb-cred-divider"></div>
-          <div class="ptb-cred">SOC&nbsp;2</div>
-          <div class="ptb-cred-divider"></div>
-          <div class="ptb-cred">EHR</div>
+    <section id="trust-merged-sec">
+      <div class="trustm-band">
+        <div class="container">
+          <div class="ptb-accent"></div>
+          <h2 class="ptb-heading">Established. Trusted. Compliant.</h2>
+          <p class="ptb-sub">Built around the standards long-term care organizations nationwide rely on.</p>
+          <div class="ptb-credentials">
+            <div class="ptb-cred">HIPAA</div>
+            <div class="ptb-cred-divider"></div>
+            <div class="ptb-cred">CMS</div>
+            <div class="ptb-cred-divider"></div>
+            <div class="ptb-cred">FDA</div>
+            <div class="ptb-cred-divider"></div>
+            <div class="ptb-cred">SOC&nbsp;2</div>
+            <div class="ptb-cred-divider"></div>
+            <div class="ptb-cred">EHR</div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <section id="trust-cards-sec">
-      <div class="trustc-wrap">
-        <div class="trustc-head">
-          <div class="eyebrow">Built For Real Operations</div>
-          <h2>Built for trust, compliance,<br>and real facility workflows</h2>
-        </div>
+      <div class="trustm-cards-wrap">
         <div class="trustc-grid">
           <div class="trustc-card">
             <div class="trustc-icon">
@@ -2621,81 +2682,24 @@
             <p>Configured around each facility's layout, staffing, and escalation process.</p>
           </div>
         </div>
-        <div class="trustc-proof">
-          <div class="trustc-proof-item"><span class="trustc-proof-tag">Coming Soon</span><p>Facility implementation examples</p></div>
-          <div class="trustc-proof-item"><span class="trustc-proof-tag">Coming Soon</span><p>Case studies</p></div>
-          <div class="trustc-proof-item"><span class="trustc-proof-tag">Coming Soon</span><p>Partner documentation</p></div>
-        </div>
       </div>
     </section>
 
-    <section class="home-coverage-moment">
-      <img src="images/facility-aerial.jpg" alt="Care facility at sunrise" loading="lazy" decoding="async" width="1535" height="1024">
-      <div class="home-coverage-content">
-        <div class="container">
-          <div class="animate">
-            <div class="eyebrow">Nationwide</div>
-            <h2>Visibility that reaches every facility we serve</h2>
-            <p>From single-site facilities to multi-state operators, TRC delivers continuous monitoring across the country.</p>
-            <div class="coverage-stat-row">
-              <div><div class="coverage-stat-n">50</div><div class="coverage-stat-l">States Served</div></div>
-              <div><div class="coverage-stat-n">24/7</div><div class="coverage-stat-l">Continuous Monitoring</div></div>
-              <div><div class="coverage-stat-n">5 Days</div><div class="coverage-stat-l">To Deployment</div></div>
-            </div>
-            <a onclick="navigateTo('coverage')" class="btn btn-primary" style="margin-top:2.5rem">View Coverage Map →</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    
+
+    
 
     <section class="home-closing">
       <div class="signal-motif"><div class="signal-sweep"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-ring"></div><div class="signal-pulse"></div><div class="signal-pulse"></div></div>
       <div class="home-closing-content animate">
         <h2>Continuous visibility.<br><span class="closing-grad">Never intrusive.</span></h2>
         <p>TRC helps care teams stay informed with ambient monitoring designed to support residents quietly, respectfully, and without disrupting daily care.</p>
-        <div class="home-closing-signals">
-          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>Continuous Awareness</div>
-          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Operational Visibility</div>
-          <div class="closing-signal"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>Nationwide Reach</div>
-        </div>
+        
         <a onclick="navigateTo('contact')" class="btn btn-primary btn-large">Schedule a Facility Demo →</a>
       </div>
     </section>
 
-    <section class="explore-secondary section section-gray" style="padding-top:5rem">
-      <div class="container">
-        <div class="section-header animate">
-          <div class="eyebrow">Explore</div>
-          <h2>Learn more about Total Remote Care</h2>
-        </div>
-        <div class="links-grid">
-          <div class="link-card" onclick="navigateTo('about')" role="button" tabindex="0">
-            <h3>About Us <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></h3>
-            <p>The team and mission behind Total Remote Care.</p>
-          </div>
-          <div class="link-card" onclick="navigateTo('solutions')" role="button" tabindex="0">
-            <h3>Our Solutions <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></h3>
-            <p>RPM and CCM programs built for long-term care.</p>
-          </div>
-          <div class="link-card" onclick="navigateTo('technology')" role="button" tabindex="0">
-            <h3>Technology <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></h3>
-            <p>How our sensors, AI, and platform work together.</p>
-          </div>
-          <div class="link-card" onclick="navigateTo('serve')" role="button" tabindex="0">
-            <h3>Who We Serve <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></h3>
-            <p>Facilities, providers, and families we partner with.</p>
-          </div>
-          <div class="link-card" onclick="navigateTo('compliance')" role="button" tabindex="0">
-            <h3>Compliance <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></h3>
-            <p>HIPAA, CMS, FDA, and SOC 2 - all covered.</p>
-          </div>
-          <div class="link-card" onclick="navigateTo('contact')" role="button" tabindex="0">
-            <h3>Get in Touch <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></h3>
-            <p>Schedule a personalized demo for your facility.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    
   </div>
 
   <!-- ═══════════════════════════════════════════ ABOUT ══ -->
@@ -3426,9 +3430,12 @@
                 <!-- Step 3 -->
                 <div class="form-step">
                   <div class="form-step-title">How would you like to connect?</div>
-                  <div class="calendly-placeholder">
-                    <p>📅 Calendly scheduling embed</p>
-                    <p style="font-size:.8rem;font-weight:500;margin-top:.35rem;color:var(--text-secondary)">Replace this with your Calendly inline embed. Sign up free at calendly.com, create an event type, and paste the inline embed code here.</p>
+                  <div class="schedule-card">
+                    <div class="schedule-card-icon">
+                      <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 9h18M8 3v4M16 3v4M9 14l2 2 4-4"/></svg>
+                    </div>
+                    <h4>Schedule a facility demo</h4>
+                    <p>Prefer to schedule directly? Share a few details and our team will coordinate a time that works for your facility.</p>
                   </div>
                   <div style="text-align:center;margin:1rem 0;font-size:.85rem;color:var(--text-muted);font-weight:600">- or send a message -</div>
                   <div class="form-nav">
@@ -3626,7 +3633,7 @@
             </div>
             <div class="faq-item">
               <div class="faq-question">Do residents need to wear anything or do anything differently?<div class="faq-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"/></svg></div></div>
-              <div class="faq-answer"><p>No. TRC sensors are mounted in the room, not on the resident. There are no wearables, no patches, no devices to charge or wear. Residents continue their daily routines completely unchanged. Many residents are entirely unaware the monitoring is occurring, which also eliminates compliance issues common with wearable monitoring programs.</p></div>
+              <div class="faq-answer"><p>No. TRC sensors are mounted in the room, not on the resident. There are no wearables, no patches, no devices to charge or wear. Residents continue their daily routines completely unchanged. Many residents are entirely unaware the monitoring is occurring, which also avoids many of the compliance challenges common with wearable monitoring programs.</p></div>
             </div>
             <div class="faq-item">
               <div class="faq-question">How long does installation take?<div class="faq-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"/></svg></div></div>
