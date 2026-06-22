@@ -51,8 +51,11 @@
         h3,
         h4 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--clinical-blue); line-height:1.1; letter-spacing:-0.025em; }h1 { font-size:clamp(2.8rem,5.5vw,4.25rem); }h2 { font-size:clamp(2.25rem,4vw,3.25rem); margin-bottom:1.25rem; letter-spacing:-.025em; }h3 { font-size:1.4rem; margin-bottom:.65rem; letter-spacing:-0.015em; }p { font-size:1rem; line-height:1.75; color:var(--text-secondary); }/* ── LAYOUT ─────────────────────────────── */
         .container { max-width:var(--container); margin:0 auto; padding:0 1.5rem; }/* ── PAGES ──────────────────────────────── */
-        .page { display:none; opacity:0; }.page.active { display:block; animation:fadeIn .45s ease forwards; }
-        @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }/* ── BUTTONS ─────────────────────────────── */
+        .page { display:none; opacity:0; }.page.active { display:block; animation:pageEnter .55s cubic-bezier(.22,.61,.36,1) forwards; }
+        @keyframes pageEnter {
+            0% { opacity:0; transform:translateY(14px) scale(.994); }
+            100% { opacity:1; transform:translateY(0) scale(1); }
+        }/* ── BUTTONS ─────────────────────────────── */
         .btn {
             padding:.85rem 1.75rem; border-radius:100px; font-weight:700; font-size:.9375rem;
             text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
@@ -1875,6 +1878,134 @@
 
         
         .hero-proof-title { font-size:1rem; font-weight:700; color:#fff; margin-bottom:.4rem; }
+
+        
+        .page.page-leaving { animation:pageLeave .2s cubic-bezier(.4,0,.6,1) forwards; }
+        @keyframes pageLeave {
+            0% { opacity:1; transform:translateY(0) scale(1); }
+            100% { opacity:0; transform:translateY(-10px) scale(.996); }
+        }
+
+        
+        /* ══════════════════════════════════════════════
+           MOBILE COMPACTNESS PASS — tighter, less scroll
+        ══════════════════════════════════════════════ */
+        @media (max-width:768px) {
+            /* Tighten oversized section padding (was ~93px each side) */
+            #why-trc-sec, .signature-moment, #outcomes-sec, #alerts-sec,
+            #builtfor-sec, #implement-sec, .home-closing, .home-video-sec,
+            #home-video-sec, #trust-cards-sec {
+                padding-top:3.25rem !important; padding-bottom:3.25rem !important;
+            }
+            .section { padding:3.25rem 0 !important; }
+            .content-section { padding:3.25rem 0 !important; }
+
+            /* Trim section header bottom margins */
+            .section-header, .outcomes-head, .alerts-head, .trustc-head, .hvid-copy {
+                margin-bottom:2.25rem !important;
+            }
+            .outcomes-head { margin-bottom:2.25rem !important; }
+            .alerts-head { margin-bottom:2rem !important; }
+
+            /* Tighter grid/card gaps so more fits per screen */
+            .builtfor-grid2, .impl-process, .alerts-timeline, .trustc-grid,
+            .value-grid, .outcomes-pillars { gap:1rem !important; }
+
+            /* Compact card padding */
+            .alert-step { padding:1.5rem 1.35rem !important; }
+            .trustc-card { padding:1.6rem 1.35rem !important; }
+            .value-card { padding:1.5rem 1.35rem !important; }
+
+            /* Editorial split sections: shorter images + tighter gap on mobile */
+            .whytrc-top, .builtfor-wrap, .impl-wrap, .hvid-wrap { gap:1.75rem !important; }
+            .whytrc-photo img { height:300px !important; }
+            .builtfor-photo img { height:300px !important; }
+            .impl-photo img { height:300px !important; }
+
+            /* Outcome columns: tighter vertical rhythm */
+            .outcome-col { padding:1.75rem 0 !important; }
+            .outcome-n { font-size:3rem !important; margin-bottom:1rem !important; }
+
+            /* Immersive moments: shorter but still premium */
+            .signature-moment { min-height:440px !important; }
+
+            /* Hero: trim the big top padding a touch */
+            .home-hero { padding-top:calc(var(--header-h) + 1.5rem) !important; padding-bottom:3rem !important; }
+            .hero-proof { gap:1.25rem !important; }
+
+            /* Trust merged band tighter */
+            .trustm-band { padding:3.5rem 0 3rem !important; }
+            .trustm-cards-wrap { padding-bottom:3.25rem !important; margin-top:-2rem !important; }
+
+            /* Logo strip compact */
+            .logo-strip { padding:2rem 0 !important; }
+
+            /* Footer: reduce big gaps */
+            footer { padding-top:3.25rem !important; }
+        }
+        @media (max-width:480px) {
+            #why-trc-sec, .signature-moment, #outcomes-sec, #alerts-sec,
+            #builtfor-sec, #implement-sec, .home-closing, #home-video-sec, #trust-cards-sec {
+                padding-top:2.75rem !important; padding-bottom:2.75rem !important;
+            }
+        }
+
+        
+        /* ── MOBILE: footer 2-col + compact alerts/outcomes ── */
+        @media (max-width:768px) {
+            /* Footer link groups in 2 columns instead of one tall stack */
+            .footer-grid-v2 {
+                grid-template-columns:1fr 1fr !important;
+                gap:1.5rem 1.25rem !important;
+            }
+            /* Logo/brand column spans full width on top */
+            .footer-grid-v2 > .footer-brand,
+            .footer-grid-v2 > .footer-logo,
+            .footer-grid-v2 > div:first-child { grid-column:1 / -1; }
+            .footer-col-title { margin-bottom:.6rem !important; font-size:.8rem !important; }
+            .footer-col a, .footer-contact-item { font-size:.85rem !important; line-height:1.7 !important; }
+            footer { padding-top:2.75rem !important; padding-bottom:1.5rem !important; }
+            .footer-divider { margin:1.5rem 0 !important; }
+
+            /* Alerts cards: smaller text/padding so 4 stack tighter */
+            .alert-step { padding:1.35rem 1.25rem !important; }
+            .alert-step-num { font-size:2.1rem !important; }
+            .alert-step h3 { font-size:1.125rem !important; margin-bottom:.6rem !important; }
+            .alert-step p { font-size:.95rem !important; line-height:1.55 !important; }
+            .alert-step-top { margin-bottom:1rem !important; }
+
+            /* Outcomes: tighter */
+            .outcome-col p { font-size:.95rem !important; line-height:1.55 !important; margin-bottom:1.5rem !important; }
+            .outcome-col h3 { font-size:1.2rem !important; }
+
+            /* Editorial copy blocks tighter */
+            .whytrc-copy h2, .builtfor-copy h2, .impl-content h2 { margin-bottom:1rem !important; }
+            .builtfor-intro, .impl-intro, .whytrc-copy p { margin-bottom:1.5rem !important; }
+        }
+
+        
+        /* ── MOBILE: final tightening pass ── */
+        @media (max-width:768px) {
+            /* Push section padding tighter still */
+            #why-trc-sec, #outcomes-sec, #alerts-sec, #builtfor-sec,
+            #implement-sec, .home-closing, #home-video-sec {
+                padding-top:2.75rem !important; padding-bottom:2.75rem !important;
+            }
+            /* Hero: tighter, dashboard mini sits closer */
+            .home-hero { padding-bottom:2.5rem !important; }
+            .hero-inner { gap:2rem !important; }
+            .hero-cta { margin-bottom:2rem !important; }
+            /* Editorial images a bit shorter — still premium */
+            .whytrc-photo img, .builtfor-photo img, .impl-photo img { height:260px !important; }
+            /* Video section tighter */
+            #home-video-sec .hvid-wrap { gap:1.5rem !important; }
+            /* Signature moment compact */
+            .signature-moment { min-height:400px !important; }
+            /* Trust band tighter */
+            .trustm-band { padding:3rem 0 2.5rem !important; }
+            /* Outcome numbers smaller, less vertical space */
+            .outcome-col { padding:1.5rem 0 !important; }
+        }
 
         </style>
 </head>
@@ -3924,18 +4055,35 @@
 <script>
 
   function navigateTo(page) {
-    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    const current = document.querySelector(".page.active");
     const t = document.getElementById(page);
-    if (t) t.classList.add("active");
-    try { if (window.location.hash !== "#" + page) history.pushState(null, "", "#" + page); } catch(e) { window.location.hash = page; }
-    window.scrollTo({ top: 0, behavior: "instant" });
-    document.querySelectorAll(".nav-menu a[data-page]").forEach(l => l.classList.toggle("active", l.getAttribute("data-page") === page));
-    closeMobile();
-    setTimeout(() => {
-      document.querySelectorAll(".page.active .animate:not(.visible), .page.active .animate-left:not(.visible), .page.active .animate-right:not(.visible)").forEach(el => {
-        animObserver.observe(el);
-      });
-    }, 60);
+    if (!t) return;
+    // If already on this page, do nothing
+    if (current === t) { closeMobile(); return; }
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const swap = () => {
+      document.querySelectorAll(".page").forEach(p => { p.classList.remove("active"); p.classList.remove("page-leaving"); });
+      t.classList.add("active");
+      try { if (window.location.hash !== "#" + page) history.pushState(null, "", "#" + page); } catch(e) { window.location.hash = page; }
+      window.scrollTo({ top: 0, behavior: "instant" });
+      document.querySelectorAll(".nav-menu a[data-page]").forEach(l => l.classList.toggle("active", l.getAttribute("data-page") === page));
+      closeMobile();
+      setTimeout(() => {
+        document.querySelectorAll(".page.active .animate:not(.visible), .page.active .animate-left:not(.visible), .page.active .animate-right:not(.visible)").forEach(el => {
+          animObserver.observe(el);
+        });
+      }, 60);
+    };
+
+    if (current && !reduceMotion) {
+      // brief fade-out of the current page, then swap in the new one
+      current.classList.add("page-leaving");
+      setTimeout(swap, 180);
+    } else {
+      swap();
+    }
   }
   const toggle = document.getElementById("mobileToggle"), menu = document.getElementById("navMenu");
   function closeMobile() { if (toggle?.classList.contains("active")) { toggle.classList.remove("active"); menu.classList.remove("active"); } }
